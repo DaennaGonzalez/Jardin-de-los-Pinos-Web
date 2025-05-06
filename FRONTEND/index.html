@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <title>Jardín de los Pinos</title>
+  
+</head>
+<body>
+
+
+<!-- GSAP SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- TU SCRIPT DE AJUSTE -->
+<script src="1.4js/adjustLayout.js"></script>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <!-- Logo -->
+      <img src="1.6imagenes/logo-blanco.png" alt="Logo Jardín de los Pinos" class="logo">
+  
+      <!-- Menú principal -->
+      <nav class="menu">
+        <a href="#" class="active">INICIO</a>
+        <a href="#">NOSOTROS</a>
+        <a href="#">SERVICIOS</a>
+        <a href="#">PROMOCIONES</a>
+        <a href="#">SUCURSALES</a>
+        <a href="#">OBITUARIOS</a>
+        <a href="#">BLOG</a>
+      </nav>
+  
+      <!-- Botones derecho -->
+      <div class="acciones">
+        <img src="1.7iconos/icono-iniciosesion.png" alt="Icono sesión">
+        <a href="#">Registrarse</a>
+        <a href="#">Iniciar sesión</a>
+      </div>
+
+    </div>
+  </header>
+  
+ 
+
+  <!-- SECCIÓN DE ANIMACIÓN -->
+  <section class="seccion-mariposa" id="seccionAnimada">
+    <img src="1.6imagenes/animacionprincipal-elemento3.png" class="capa" id="cielo" alt="Cielo">
+    <img src="1.6imagenes/animacionprincipal-logofondomorado.png" class="capa" id="logoAnim" alt="Logo fondo">
+    <img src="1.6imagenes/animacionprincipal-elemento7.png" class="capa" id="pinos" alt="Pinos">
+    <img src="1.6imagenes/animacionprincipal-elemento2.png" class="capa" id="cruz" alt="Cruz">
+    <img src="1.6imagenes/animacionprincipal-elemento1.png" class="capa" id="panteon" alt="Panteón">
+  </section>
+
+  <!-- SECCIÓN SIGUIENTE -->
+  <section class="seccion-texto">
+    <div>
+      <h1>Bienvenido a Jardín de los Pinos</h1>
+      <p>Un lugar de paz y recuerdo para tus seres queridos.</p>
+    </div>
+  </section>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const animDuration = "+=1500";   // tiempo total para las animaciones
+    const pinDuration = "+=700";     // tiempo del pin (solo la mitad)
+
+    // PIN SOLO HASTA LA MITAD
+    ScrollTrigger.create({
+      trigger: "#seccionAnimada",
+      start: "top top",
+      end: pinDuration,
+      scrub: true,
+      pin: true,
+      anticipatePin: 1
+    });
+
+    const scrollConfig = {
+      trigger: "#seccionAnimada",
+      start: "top top",
+      end: animDuration,
+      scrub: true
+    };
+
+    // Cielo
+  
+    gsap.to("#cielo", {
+  y: -913,
+  duration: 2,   // en segundos, si no usas scrub
+  scrollTrigger: {
+    trigger: "#seccionAnimada",
+    start: "top top",
+    end: "+=450",
+    scrub: true,
+    immediateRender: false
+  }
+});
+
+    // Logo
+    gsap.to("#logoAnim", 
+    {
+  y: 413,
+  duration: 6,   // en segundos, si no usas scrub
+  scrollTrigger: {
+    trigger: "#seccionAnimada",
+    start: "top top",
+    end: "+=750",
+    scrub: true
+  }
+});
+    // Pinos
+    gsap.to("#pinos", { x: -128, y: -225.93, scrollTrigger: scrollConfig });
+
+    // Cruz
+    gsap.to("#cruz", { y: -255, scrollTrigger: scrollConfig });
+
+    // El panteón queda fijo
+    
+
+  </script>
+
+</body>
+</html>

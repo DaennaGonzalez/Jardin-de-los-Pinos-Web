@@ -1,0 +1,229 @@
+/* RESET Y FUENTES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+/* HEADER */
+/* HEADER AJUSTADO */
+header {
+    width: 100%;
+    background-color: #BBA0C9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.logo {
+    width: clamp(150px, 12vw, 250px);
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: clamp(12px, 1.5vw, 16px);
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.menu a.active,
+.menu a:hover {
+    color: #671B6B;
+}
+
+.acciones {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.acciones img {
+    width: clamp(20px, 2vw, 32px);
+    height: clamp(20px, 2vw, 32px);
+}
+
+.acciones a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: clamp(14px, 1.8vw, 18px);
+}
+
+
+    /* SECCIÓN ANIMACIÓN */
+    .seccion-mariposa {
+        width: 100%;
+        margin-top: var(--header-height);
+        aspect-ratio: 1440 / 1035;
+        position: relative;
+        overflow: hidden;
+        background: #c2e9fb;
+    }
+    
+    
+    .capa {
+        position: absolute;
+        max-width: 100%;
+        height: auto;
+        will-change: transform;
+    }
+    
+    #cielo {
+        width: 267%;
+        left: -43%;
+        top: -10%;
+        z-index: 1;
+    }
+    
+    #logoAnim {
+        width: 52%;
+        left: 26%;
+        top: 29%;
+        z-index: 2;
+    }
+    
+    #pinos {
+        width: 90.7%;
+        left: 4.4%;
+        top: 38.7%;
+        z-index: 3;
+    }
+    
+    #cruz {
+        width: 48%;
+        left: -13%;
+        top: 44%;
+        z-index: 4;
+    }
+    
+    #panteon {
+        width: 100%;
+        height: auto;
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        z-index: 5;
+    }
+    
+    
+
+
+/* SECCIÓN SIGUIENTE */
+.seccion-texto {
+    height: 100vh;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+}
+
+.seccion-texto h1 {
+    font-size: clamp(2rem, 5vw, 4rem); /* mínimo 2rem, máximo 4rem, escalando */
+    margin-bottom: 1rem;
+}
+
+.seccion-texto p {
+    font-size: clamp(1rem, 3vw, 2rem); /* mínimo 1rem, máximo 2rem, escalando */
+    max-width: 800px;
+    line-height: 1.4;
+}
+
+
+/* MEDIA QUERIES PARA MÓVILES */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        justify-content: flex-start;
+    }
+
+    .acciones {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    
+
+    .seccion-mariposa {
+        aspect-ratio: auto;
+        min-height: 500px; /* asegura altura mínima en móviles */
+    }
+    @media (max-width: 480px) {
+        .seccion-texto h1 {
+            font-size: clamp(2rem, 5vw, 4rem); /* base 2em → escala proporcional */
+            margin-bottom: 1rem;
+        }
+        
+        .seccion-texto p {
+            font-size: clamp(1rem, 2.5vw, 2rem); /* base 1em → escala proporcional */
+            max-width: 800px;
+            line-height: 1.4;
+        }
+        
+    }
+
+
+    /*SECCION AMPLIADA*/
+    /* Ajustar altura mínima según tamaño de pantalla */
+    @media (max-width: 768px) {
+        .seccion-mariposa {
+            min-height: 600px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .seccion-mariposa {
+            min-height: 500px;
+        }
+    }
+    
+    @media (max-width: 432px) {
+        .seccion-mariposa {
+            min-height: 500px;
+        }
+    }
+    
+    @media (max-width: 320px) {
+        .seccion-mariposa {
+            min-height: 500px;
+        }
+    }
+
+
+
+
+    
+}
