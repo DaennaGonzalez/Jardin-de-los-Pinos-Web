@@ -24,7 +24,6 @@ function applyResponsiveAdjustments() {
         panteon.style.transform = 'scale(1.6)';   // +60%
         panteon.style.top = '35%';
 
-
         
     } else if (windowWidth < 432) {
         // ~30%
@@ -91,8 +90,10 @@ function applyResponsiveAdjustments() {
 }
 
 // Ejecutar al cargar y al redimensionar
-window.addEventListener('load', applyResponsiveAdjustments);
-window.addEventListener('resize', applyResponsiveAdjustments);
+document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('load', applyResponsiveAdjustments);
+    window.addEventListener('resize', applyResponsiveAdjustments);
+});
 
 
 function ejemplo() {
@@ -104,3 +105,13 @@ function ejemplo() {
         section.style.marginTop = `${headerHeight}px`;
     }
 }
+
+
+// Ejecuta de nuevo 500ms después de que todo cargue, para asegurar que todo está bien posicionado
+window.addEventListener('load', () => {
+    applyResponsiveAdjustments(); // Ejecutar la primera vez
+    setTimeout(applyResponsiveAdjustments, 500); // Ejecutar de nuevo después de 0.5 segundos
+    window.dispatchEvent(new Event('resize')); // Simular un resize por si acaso
+});
+
+

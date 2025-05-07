@@ -12,10 +12,10 @@
 </head>
 <body>
 
-
 <!-- GSAP SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 
 <!-- TU SCRIPT DE AJUSTE -->
 <script src="1.4js/adjustLayout.js"></script>
@@ -26,6 +26,19 @@
       <!-- Logo -->
       <img src="1.6imagenes/logo-blanco.png" alt="Logo Jardín de los Pinos" class="logo">
   
+
+       <!-- Botones derecho -->
+       <div class="acciones">
+        <a href="#">Registrarse</a>
+        <!--aqui tenemos el boton de inicio de sesion con su imagen logo-->
+        <div class="inicio-sesion">
+          <img src="1.7iconos/icono-iniciosesion.png" alt="Icono sesión">
+          <a href="#">Iniciar sesión</a>
+      </div>
+      <!--aqui termina la division de clase del boton de inicio de sesion con su imagen logo-->
+      </div>
+
+
       <!-- Menú principal -->
       <nav class="menu">
         <a href="#" class="active">INICIO</a>
@@ -36,19 +49,11 @@
         <a href="#">OBITUARIOS</a>
         <a href="#">BLOG</a>
       </nav>
-  
-      <!-- Botones derecho -->
-      <div class="acciones">
-        <img src="1.7iconos/icono-iniciosesion.png" alt="Icono sesión">
-        <a href="#">Registrarse</a>
-        <a href="#">Iniciar sesión</a>
-      </div>
 
     </div>
   </header>
   
  
-
   <!-- SECCIÓN DE ANIMACIÓN -->
   <section class="seccion-mariposa" id="seccionAnimada">
     <img src="1.6imagenes/animacionprincipal-elemento3.png" class="capa" id="cielo" alt="Cielo">
@@ -74,7 +79,7 @@
     gsap.registerPlugin(ScrollTrigger);
 
     const animDuration = "+=1500";   // tiempo total para las animaciones
-    const pinDuration = "+=700";     // tiempo del pin (solo la mitad)
+    const pinDuration = "+=0";     // tiempo del pin (solo la mitad)
 
     // PIN SOLO HASTA LA MITAD
     ScrollTrigger.create({

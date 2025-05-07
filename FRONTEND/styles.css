@@ -31,24 +31,25 @@ header {
 }
 
 .logo {
-    width: clamp(150px, 12vw, 250px);
+    width: clamp(180px, 20vw, 280px);
     height: auto;
+    margin-top: 15px;
 }
 
 .menu {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px 15px; /* 10px vertical, 25px horizontal */
     justify-content: center;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 18px;
 }
 
 .menu a {
     text-decoration: none;
     color: white;
     font-weight: 600;
-    font-size: clamp(12px, 1.5vw, 16px);
+    font-size: clamp(13px, 1.5vw, 16px);
     padding: 5px 10px;
     transition: color 0.3s;
 }
@@ -59,10 +60,28 @@ header {
 }
 
 .acciones {
+    position: absolute;
+    top: 10px;
+    right: 20px;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;  /* esto los apila */
+    align-items: flex-end;   /* los alinea a la derecha (puedes usar 'center' si prefieres) */
+    gap: 3px;                /* separa los botones verticalmente */
+    
 }
+/*esto hace que cambie de color al pasar manita por iniciar sesion*/
+.acciones a:hover {
+    color: #671B6B; /* mismo color que el menú */
+    transition: color 0.3s;
+}
+
+
+.inicio-sesion {
+    display: flex;
+    align-items: center;    /*  pone el icono al lado verticalmente centrado */
+    gap: 15px;               /*  espacio entre icono y texto */
+}
+
 
 .acciones img {
     width: clamp(20px, 2vw, 32px);
@@ -73,8 +92,11 @@ header {
     text-decoration: none;
     color: white;
     font-weight: 700;
-    font-size: clamp(14px, 1.8vw, 18px);
+    font-size: clamp(14px, 1.8vw, 16px);
+    margin-top: 10px;   /* espacio arriba */
+    margin-right: 7px; /* espacio a la derecha */
 }
+
 
 
     /* SECCIÓN ANIMACIÓN */
@@ -163,20 +185,34 @@ header {
 @media (max-width: 768px) {
     .header-container {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;  /* Ocupa todo el ancho */
     }
-
+    
+    .logo {
+        align-self: flex-start;  /* Logo pegado a la izquierda */
+        margin-top: 4px;
+    }
+    
     .menu {
-        justify-content: flex-start;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 17px;
     }
-
+    
+    
     .acciones {
         width: 100%;
+        display: flex;
         justify-content: flex-end;
+        margin-top: 0px;
     }
-
     
-
+    .inicio-sesion {
+        display: flex;
+        align-items: center;    /*  pone el icono al lado verticalmente centrado */
+        gap: 5px;               /*  espacio entre icono y texto */
+    }
+    
     .seccion-mariposa {
         aspect-ratio: auto;
         min-height: 500px; /* asegura altura mínima en móviles */
@@ -221,9 +257,31 @@ header {
             min-height: 500px;
         }
     }
-
-
-
-
     
 }
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-size: clamp(12px, 1.5vw, 16px);
+    padding: 5px 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* Efecto rebote */
+.menu a:active {
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+    0% { transform: scale(1); }
+    5% { transform: scale(0.9); }
+    15% { transform: scale(1.1); }
+    20% { transform: scale(0.95); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.5); }
+    48% { transform: scale(1.95); }
+}
+
+
