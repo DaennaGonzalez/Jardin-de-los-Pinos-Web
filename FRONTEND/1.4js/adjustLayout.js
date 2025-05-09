@@ -107,6 +107,9 @@ function ejemplo() {
 }
 
 
+
+
+
 // Ejecuta de nuevo 500ms después de que todo cargue, para asegurar que todo está bien posicionado
 window.addEventListener('load', () => {
     applyResponsiveAdjustments(); // Ejecutar la primera vez

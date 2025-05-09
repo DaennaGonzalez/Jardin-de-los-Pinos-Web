@@ -71,7 +71,7 @@ header {
 }
 /*esto hace que cambie de color al pasar manita por iniciar sesion*/
 .acciones a:hover {
-    color: #671B6B; /* mismo color que el menú */
+    color: white; /* cambia de color a blanco */
     transition: color 0.3s;
 }
 
@@ -90,7 +90,7 @@ header {
 
 .acciones a {
     text-decoration: none;
-    color: white;
+    color: #671B6B;
     font-weight: 700;
     font-size: clamp(14px, 1.8vw, 16px);
     margin-top: 10px;   /* espacio arriba */
@@ -127,7 +127,7 @@ header {
     #logoAnim {
         width: 52%;
         left: 26%;
-        top: 29%;
+        top: 26%;
         z-index: 2;
     }
     
@@ -157,28 +157,33 @@ header {
     
 
 
-/* SECCIÓN SIGUIENTE */
-.seccion-texto {
-    height: 100vh;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+/* SECCIÓN ABAJO DE LA ANIMACION */
+
+.seccion-nosotros {
+    background-color: #671B6B; /* púrpura */
+    color: white;
     text-align: center;
-    padding: 2rem;
+    padding: 20px 33px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra suave abajo */
 }
 
-.seccion-texto h1 {
-    font-size: clamp(2rem, 5vw, 4rem); /* mínimo 2rem, máximo 4rem, escalando */
-    margin-bottom: 1rem;
+.seccion-nosotros h2 {
+    
+    font-family: 'Fleur De Leah', cursive;
+    font-size: clamp(1.5rem, 2.3vw, 4rem); /* adaptativo */
+    text-align: center; /* si lo quieres centrado */
+    margin-bottom: 0px;
+    font-weight: 250;
+    letter-spacing: 1px;
 }
 
-.seccion-texto p {
-    font-size: clamp(1rem, 3vw, 2rem); /* mínimo 1rem, máximo 2rem, escalando */
-    max-width: 800px;
+.seccion-nosotros p {
+    max-width: 1300px;
+    margin: 0 auto;
+    font-size: clamp(0.4rem, 2.5vw, 1.1rem); /* adaptativo conforme agrandas pantalla */
     line-height: 1.4;
 }
+
 
 
 /* MEDIA QUERIES PARA MÓVILES */
@@ -219,17 +224,37 @@ header {
     }
     @media (max-width: 480px) {
         .seccion-texto h1 {
-            font-size: clamp(2rem, 5vw, 4rem); /* base 2em → escala proporcional */
+            font-size: clamp(2.5rem, 6vw, 3.5rem); /* base 2em → escala proporcional */
             margin-bottom: 1rem;
         }
         
         .seccion-texto p {
-            font-size: clamp(1rem, 2.5vw, 2rem); /* base 1em → escala proporcional */
+            font-size: clamp(1.2rem, 3.5vw, 2rem); /* base 1em → escala proporcional */
+            padding: 0 15px;
             max-width: 800px;
             line-height: 1.4;
         }
+
+        .menu a {
+            font-size: clamp(26px, 4vw, 26px); /* más grande para móvil */
+            padding: 8px 12px;  /* opcional: más aire alrededor */
+        }
+        .menu {
+            gap: 10px 20px;
+        }
         
     }
+    @media (max-width: 400px) {
+        .seccion-texto h1 {
+            font-size: clamp(2.8rem, 7vw, 3.5rem);
+        }
+        
+        .seccion-texto p {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            padding: 0 20px;
+        }
+    }
+    
 
 
     /*SECCION AMPLIADA*/
@@ -238,11 +263,19 @@ header {
         .seccion-mariposa {
             min-height: 600px;
         }
+        .boton-flotante {
+            padding: 6px 10px;
+            font-size: 12px;
+        }
     }
     
     @media (max-width: 576px) {
         .seccion-mariposa {
             min-height: 500px;
+        }
+        .boton-flotante {
+            padding: 6px 10px;
+            font-size: 11px;
         }
     }
     
@@ -257,8 +290,11 @@ header {
             min-height: 500px;
         }
     }
+
+    
     
 }
+
 
 .menu a {
     text-decoration: none;
@@ -283,5 +319,172 @@ header {
     45% { transform: scale(1.5); }
     48% { transform: scale(1.95); }
 }
+
+/* BOTONES TIPO POP UP: Posicionamos cada botón fijo en su lugar específico */
+
+.boton-emergencia {
+    position: fixed;
+    top: 167px;
+    left: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    background-color: #671B6B;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.boton-carrito {
+    position: fixed;
+    top: 167px;
+    right: 20px;
+    z-index: 100;
+    /* Estilos iguales */
+    display: flex;
+    align-items: center;
+    background-color: #671B6B;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+@media (max-width: 768px) {
+    .boton-emergencia {
+        top: 150px;    /* ¡la posición especial para móviles! */
+        z-index: 500;  /* (para que se quede atrás del encabezado de arriba) */
+    }
+
+    .boton-carrito {
+        top: 150px;
+        z-index: 500;
+    }
+}
+
+
+/* Redes sociales */
+.redes-sociales {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    gap: 10px;
+    background-color: #671B6B;
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.redes-sociales a img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s;
+}
+
+.redes-sociales a:hover img {
+    transform: scale(1.3);
+}
+
+/* WhatsApp */
+.boton-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    left: 44%;
+    z-index: 9999;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    background-color: #671B6B;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Sucursales */
+.boton-sucursales {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    background-color: #671B6B;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.boton-sucursales img {
+    width: 24px;
+    aspect-ratio: 1 / 1;
+    object-fit: contain; /* Mantiene la proporción sin deformar */
+    margin-right: 8px;   /* Espacio entre icono y texto */
+}
+
+
+@media (max-width: 768px) {
+    .boton-sucursales {
+        position: fixed;
+    bottom: 100px;
+    right: -2px;
+    
+    }
+
+    
+}
+
+
+/* Imágenes dentro de botones */
+.boton-flotante img {
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+}
+
+/* Hover efecto para todos */
+.boton-flotante:hover {
+    background-color: #501151;
+    transform: scale(1.05);
+}
+
+.boton-whatsapp img {
+    width: 30px;       /* Más grande que normal */
+    height: 30px;
+    object-fit: contain;
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+/* Efecto solo para el icono dentro del botón de WhatsApp */
+.boton-whatsapp:hover img {
+    animation: whatsapp-bounce 0.5s ease;
+}
+
+/* Animación tipo gelatina */
+@keyframes whatsapp-bounce {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.3); }
+    50% { transform: scale(0.95); }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+
 
 
