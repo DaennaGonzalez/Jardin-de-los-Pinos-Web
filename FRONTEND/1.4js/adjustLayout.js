@@ -22,25 +22,27 @@ function applyResponsiveAdjustments() {
         pinos.style.top = '60%';                  // +21.3%
         cruz.style.top = '65%';                   // +21%
         panteon.style.transform = 'scale(1.6)';   // +60%
-        panteon.style.top = '35%';
-
+        panteon.style.top = '57%';
+        cielo.style.transform = 'scale(4.0)';
+        cielo.style.left = '40%';
+        cielo.style.top = '60%';
         
     } else if (windowWidth < 432) {
         // ~30%
         logo.style.transform = 'scale(1.25)';     // +25%
-        logo.style.top = '36%';
+        logo.style.top = '26%';
         pinos.style.top = '55%';                  // +16.3%
         cruz.style.top = '60%';                   // +16%
-        panteon.style.transform = 'scale(1.5)';   // +50%
-        panteon.style.top = '34%';
+        panteon.style.transform = 'scale(2.0)';   // +50%
+        panteon.style.top = '48%';
 
         
     } else if (windowWidth < 576) {
         // ~40%
         logo.style.transform = 'scale(1.2)';      // +20%
-        logo.style.top = '42%';
-        pinos.style.top = '50%';                  // +11.3%
-        cruz.style.top = '55%';                   // +11%
+        logo.style.top = '60%';
+        pinos.style.top = '72%';                  // +11.3%
+        cruz.style.top = '74%';                   // +11%
         panteon.style.transform = 'scale(1.4)';   // +40%
         panteon.style.top = '38%';
         

@@ -1,490 +1,362 @@
-/* RESET Y FUENTES */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html, body {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
+/* ===========================
+   1. BASE STYLES (DESKTOP)
+   =========================== */
+
+/* RESET Y FUENTES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
 }
 
 /* HEADER */
-/* HEADER AJUSTADO */
 header {
-    width: 100%;
-    background-color: #BBA0C9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+  width: 100%;
+  background-color: #BBA0C9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
-
 .header-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
 }
-
 .logo {
-    width: clamp(180px, 20vw, 280px);
-    height: auto;
-    margin-top: 15px;
+  width: clamp(180px, 20vw, 280px);
+  height: auto;
+  margin-top: 15px;
 }
-
 .menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px 15px; /* 10px vertical, 25px horizontal */
-    justify-content: center;
-    width: 100%;
-    margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 15px;
+  justify-content: center;
+  width: 100%;
+  margin-top: 18px;
 }
-
 .menu a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    font-size: clamp(13px, 1.5vw, 16px);
-    padding: 5px 10px;
-    transition: color 0.3s;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: clamp(13px, 1.5vw, 16px);
+  padding: 5px 10px;
+  transition: color 0.3s;
 }
-
 .menu a.active,
 .menu a:hover {
-    color: #671B6B;
+  color: #671B6B;
 }
-
 .acciones {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;  /* esto los apila */
-    align-items: flex-end;   /* los alinea a la derecha (puedes usar 'center' si prefieres) */
-    gap: 3px;                /* separa los botones verticalmente */
-    
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
 }
-/*esto hace que cambie de color al pasar manita por iniciar sesion*/
-.acciones a:hover {
-    color: white; /* cambia de color a blanco */
-    transition: color 0.3s;
-}
-
-
-.inicio-sesion {
-    display: flex;
-    align-items: center;    /*  pone el icono al lado verticalmente centrado */
-    gap: 15px;               /*  espacio entre icono y texto */
-}
-
-
-.acciones img {
-    width: clamp(20px, 2vw, 32px);
-    height: clamp(20px, 2vw, 32px);
-}
-
 .acciones a {
-    text-decoration: none;
-    color: #671B6B;
-    font-weight: 700;
-    font-size: clamp(14px, 1.8vw, 16px);
-    margin-top: 10px;   /* espacio arriba */
-    margin-right: 7px; /* espacio a la derecha */
+  text-decoration: none;
+  color: #671B6B;
+  font-weight: 700;
+  font-size: clamp(14px, 1.8vw, 16px);
+}
+.acciones a:hover {
+  color: white;
+}
+.acciones img {
+  width: clamp(20px, 2vw, 32px);
+  height: clamp(20px, 2vw, 32px);
+}
+.inicio-sesion {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
+/* SECCIÓN ANIMACIÓN */
+.seccion-mariposa {
+  width: 100%;
+  margin-top: var(--header-height);
+  aspect-ratio: 1440 / 1035;
+  position: relative;
+  overflow: hidden;
+  background: #c2e9fb;
+}
+.capa {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  will-change: transform;
+}
+#cielo   { width: 267%; left: -43%; top: -10%; z-index: 1; }
+#logoAnim{ width: 52%;  left: 26%;  top: 26%;  z-index: 2; }
+#pinos   { width: 90.7%;left: 4.4%; top: 38.7%;z-index: 3; }
+#cruz    { width: 48%;  left: -13%; top: 44%;  z-index: 4; }
+#panteon { width: 100%; left: 0;    bottom: 0; position: absolute; z-index: 5; }
 
-
-    /* SECCIÓN ANIMACIÓN */
-    .seccion-mariposa {
-        width: 100%;
-        margin-top: var(--header-height);
-        aspect-ratio: 1440 / 1035;
-        position: relative;
-        overflow: hidden;
-        background: #c2e9fb;
-    }
-    
-    
-    .capa {
-        position: absolute;
-        max-width: 100%;
-        height: auto;
-        will-change: transform;
-    }
-    
-    #cielo {
-        width: 267%;
-        left: -43%;
-        top: -10%;
-        z-index: 1;
-    }
-    
-    #logoAnim {
-        width: 52%;
-        left: 26%;
-        top: 26%;
-        z-index: 2;
-    }
-    
-    #pinos {
-        width: 90.7%;
-        left: 4.4%;
-        top: 38.7%;
-        z-index: 3;
-    }
-    
-    #cruz {
-        width: 48%;
-        left: -13%;
-        top: 44%;
-        z-index: 4;
-    }
-    
-    #panteon {
-        width: 100%;
-        height: auto;
-        left: 0;
-        bottom: 0;
-        position: absolute;
-        z-index: 5;
-    }
-    
-    
-
-
-/* SECCIÓN ABAJO DE LA ANIMACION */
-
+/* SECCIÓN “NOSOTROS” (texto bajo la animación) */
 .seccion-nosotros {
-    background-color: #671B6B; /* púrpura */
-    color: white;
-    text-align: center;
-    padding: 20px 33px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* sombra suave abajo */
+  background-color: #671B6B;
+  color: white;
+  text-align: center;
+  padding: 20px 33px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 .seccion-nosotros h2 {
-    
-    font-family: 'Fleur De Leah', cursive;
-    font-size: clamp(1.5rem, 2.3vw, 4rem); /* adaptativo */
-    text-align: center; /* si lo quieres centrado */
-    margin-bottom: 0px;
-    font-weight: 250;
-    letter-spacing: 1px;
+  font-family: 'Fleur De Leah', cursive;
+  font-size: clamp(2.2rem, 7vw, 4.5rem);
+  margin-bottom: 0;
+  font-weight: 250;
+  letter-spacing: 1px;
 }
-
 .seccion-nosotros p {
-    max-width: 1300px;
-    margin: 0 auto;
-    font-size: clamp(0.4rem, 2.5vw, 1.1rem); /* adaptativo conforme agrandas pantalla */
-    line-height: 1.4;
+  max-width: 1300px;
+  margin: 0 auto;
+  font-size: clamp(0.4rem, 2.5vw, 1.1rem);
+  line-height: 1.4;
 }
 
-
-
-/* MEDIA QUERIES PARA MÓVILES */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        align-items: stretch;  /* Ocupa todo el ancho */
-    }
-    
-    .logo {
-        align-self: flex-start;  /* Logo pegado a la izquierda */
-        margin-top: 4px;
-    }
-    
-    .menu {
-        justify-content: space-evenly;
-        width: 100%;
-        margin-top: 17px;
-    }
-    
-    
-    .acciones {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 0px;
-    }
-    
-    .inicio-sesion {
-        display: flex;
-        align-items: center;    /*  pone el icono al lado verticalmente centrado */
-        gap: 5px;               /*  espacio entre icono y texto */
-    }
-    
-    .seccion-mariposa {
-        aspect-ratio: auto;
-        min-height: 500px; /* asegura altura mínima en móviles */
-    }
-    @media (max-width: 480px) {
-        .seccion-texto h1 {
-            font-size: clamp(2.5rem, 6vw, 3.5rem); /* base 2em → escala proporcional */
-            margin-bottom: 1rem;
-        }
-        
-        .seccion-texto p {
-            font-size: clamp(1.2rem, 3.5vw, 2rem); /* base 1em → escala proporcional */
-            padding: 0 15px;
-            max-width: 800px;
-            line-height: 1.4;
-        }
-
-        .menu a {
-            font-size: clamp(26px, 4vw, 26px); /* más grande para móvil */
-            padding: 8px 12px;  /* opcional: más aire alrededor */
-        }
-        .menu {
-            gap: 10px 20px;
-        }
-        
-    }
-    @media (max-width: 400px) {
-        .seccion-texto h1 {
-            font-size: clamp(2.8rem, 7vw, 3.5rem);
-        }
-        
-        .seccion-texto p {
-            font-size: clamp(1.3rem, 4vw, 1.8rem);
-            padding: 0 20px;
-        }
-    }
-    
-
-
-    /*SECCION AMPLIADA*/
-    /* Ajustar altura mínima según tamaño de pantalla */
-    @media (max-width: 768px) {
-        .seccion-mariposa {
-            min-height: 600px;
-        }
-        .boton-flotante {
-            padding: 6px 10px;
-            font-size: 12px;
-        }
-    }
-    
-    @media (max-width: 576px) {
-        .seccion-mariposa {
-            min-height: 500px;
-        }
-        .boton-flotante {
-            padding: 6px 10px;
-            font-size: 11px;
-        }
-    }
-    
-    @media (max-width: 432px) {
-        .seccion-mariposa {
-            min-height: 500px;
-        }
-    }
-    
-    @media (max-width: 320px) {
-        .seccion-mariposa {
-            min-height: 500px;
-        }
-    }
-
-    
-    
-}
-
-
-.menu a {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    font-size: clamp(12px, 1.5vw, 16px);
-    padding: 5px 10px;
-    transition: color 0.3s, transform 0.3s;
-}
-
-/* Efecto rebote */
-.menu a:active {
-    animation: bounce 0.5s ease;
-}
-
+/* MENU “bounce” effect */
 @keyframes bounce {
-    0% { transform: scale(1); }
-    5% { transform: scale(0.9); }
-    15% { transform: scale(1.1); }
-    20% { transform: scale(0.95); }
-    30% { transform: scale(1); }
-    45% { transform: scale(1.5); }
-    48% { transform: scale(1.95); }
+  0%   { transform: scale(1); }
+  5%   { transform: scale(0.9); }
+  15%  { transform: scale(1.1); }
+  20%  { transform: scale(0.95); }
+  30%  { transform: scale(1); }
+  45%  { transform: scale(1.5); }
+  48%  { transform: scale(1.95); }
+}
+.menu a:active {
+  animation: bounce 0.5s ease;
 }
 
-/* BOTONES TIPO POP UP: Posicionamos cada botón fijo en su lugar específico */
-
+/* BOTONES FLOTANTES (Desktop) */
+.boton-flotante {
+  display: flex;
+  align-items: center;
+  background-color: #671B6B;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.3s, background-color 0.3s;
+}
+.boton-flotante img {
+  width: 25px;
+  height: 25px;
+  margin-right: 12px;
+}
+/* Emergencias */
 .boton-emergencia {
-    position: fixed;
-    top: 167px;
-    left: 20px;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    background-color: #671B6B;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: transform 0.3s, background-color 0.3s;
+  position: fixed;
+  top: 167px;
+  left: 20px;
+  z-index: 100;
 }
-
+/* Carrito */
 .boton-carrito {
-    position: fixed;
-    top: 167px;
-    right: 20px;
-    z-index: 100;
-    /* Estilos iguales */
-    display: flex;
-    align-items: center;
-    background-color: #671B6B;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: transform 0.3s, background-color 0.3s;
+  position: fixed;
+  top: 167px;
+  right: 20px;
+  z-index: 100;
 }
-
-@media (max-width: 768px) {
-    .boton-emergencia {
-        top: 150px;    /* ¡la posición especial para móviles! */
-        z-index: 500;  /* (para que se quede atrás del encabezado de arriba) */
-    }
-
-    .boton-carrito {
-        top: 150px;
-        z-index: 500;
-    }
-}
-
-
-/* Redes sociales */
-.redes-sociales {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 9999;
-    display: flex;
-    gap: 10px;
-    background-color: #671B6B;
-    padding: 8px 12px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-.redes-sociales a img {
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s;
-}
-
-.redes-sociales a:hover img {
-    transform: scale(1.3);
-}
-
 /* WhatsApp */
 .boton-whatsapp {
-    position: fixed;
-    bottom: 20px;
-    left: 44%;
-    z-index: 9999;
-    object-fit: contain;
-    display: flex;
-    align-items: center;
-    background-color: #671B6B;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: transform 0.3s, background-color 0.3s;
+  position: fixed;
+  bottom: 20px;
+  left: 44%;
+  z-index: 9999;
 }
-
+.boton-whatsapp img {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+.boton-whatsapp:hover img {
+  animation: whatsapp-bounce 0.5s ease;
+}
 /* Sucursales */
 .boton-sucursales {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    background-color: #671B6B;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: transform 0.3s, background-color 0.3s;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
 }
-
 .boton-sucursales img {
-    width: 24px;
-    aspect-ratio: 1 / 1;
-    object-fit: contain; /* Mantiene la proporción sin deformar */
-    margin-right: 8px;   /* Espacio entre icono y texto */
+  width: 24px;
+  aspect-ratio: 1/1;
+  margin-right: 8px;
 }
-
-
-@media (max-width: 768px) {
-    .boton-sucursales {
-        position: fixed;
-    bottom: 100px;
-    right: -2px;
-    
-    }
-
-    
+/* Redes Sociales */
+.redes-sociales {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  display: flex;
+  gap: 10px;
+  background-color: #671B6B;
+  padding: 8px 12px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
-
-
-/* Imágenes dentro de botones */
-.boton-flotante img {
-    width: 20px;
-    height: 20px;
-    margin-right: 7px;
+.redes-sociales a img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
 }
-
-/* Hover efecto para todos */
-.boton-flotante:hover {
-    background-color: #501151;
-    transform: scale(1.05);
+.redes-sociales a:hover img {
+  transform: scale(1.3);
 }
-
-.boton-whatsapp img {
-    width: 30px;       /* Más grande que normal */
-    height: 30px;
-    object-fit: contain;
-    margin-right: 8px; /* Espacio entre el icono y el texto */
-}
-
-/* Efecto solo para el icono dentro del botón de WhatsApp */
-.boton-whatsapp:hover img {
-    animation: whatsapp-bounce 0.5s ease;
-}
-
-/* Animación tipo gelatina */
 @keyframes whatsapp-bounce {
-    0% { transform: scale(1); }
-    30% { transform: scale(1.3); }
-    50% { transform: scale(0.95); }
-    70% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.3); }
+  50%  { transform: scale(0.95); }
+  70%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
 }
 
 
+/* ===========================
+   2. MOBILE STYLES (≤ 768px)
+   =========================== */
+@media screen and (max-width: 768px) {
 
+  /* HEADER */
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .logo {
+    align-self: flex-start;
+    margin-top: 3px;
+    right: 10px;
+  }
+  .menu {
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 7px;
+  }
+  .menu a {
+    font-size: 4vw;
+    padding: 1vh 1.5vw;
+  }
+  .acciones {
+    width: 100%;
+    justify-content: flex-end;
+    top: 8px;
+    right: 5px;
+  }
+  .inicio-sesion {
+    gap: 2px;
+  }
+
+  /* SECCIÓN ANIMACIÓN */
+  .seccion-mariposa {
+    aspect-ratio: auto;
+    min-height: 70vh;
+  }
+
+  /* SECCIÓN “NOSOTROS” */
+  .seccion-nosotros {
+    padding: 3vh 4vw;
+  }
+  .seccion-nosotros h2 {
+    font-size: 7vw;
+    line-height: 1.2;
+    margin-bottom: 1vh;
+  }
+  .seccion-nosotros p {
+    font-size: 3vw;
+    line-height: 1.6;
+    padding: 0 5vw;
+  }
+
+  /* BOTONES FLOTANTES */
+  .boton-flotante {
+    font-size: 4vw;
+    padding: 3vh 5vw;
+    border-radius: 6vw;
+  }
+  .boton-flotante img {
+    width: 7vw;
+    height: 7vw;
+    margin-right: 2vw;
+  }
+  .boton-whatsapp {
+    bottom: -0vh;
+    left: 50%;
+    padding: 2vh 2vw;
+    transform: translateX(-50%);
+  }
+  .boton-emergencia {
+    top: 25vh;
+    left: -2vw;
+     padding: 2vh 3vw;
+  }
+  .boton-carrito {
+    top: 25vh;
+    right: 0vw;
+     padding: 2vh 2vw;
+  }
+  .boton-sucursales {
+    bottom: 15vh;
+    right: -0vw;
+     padding: 2vh 2vw;
+  }
+  .redes-sociales {
+    bottom: 15vh;
+    left: -2vw;
+    padding: 2vh 2vw;
+    gap: 4vw;
+  }
+  .redes-sociales a img {
+    width: 7vw;
+    height: 7vw;
+  }
+/* ✅ REPOSICIÓN DE CAPAS PARA MÓVIL - Pegados al fondo de la animación */
+#cielo {
+  top: 0% !important;
+}
+
+#logoAnim {
+  top: 60% !important;     /* Lo empuja hacia la base */
+  transform: translateY(10%); /* Ajuste fino */
+}
+
+#pinos {
+  top: 72% !important;
+  transform: translateY(10%);
+}
+
+#cruz {
+  top: 74% !important;
+  transform: translateY(10%);
+}
+
+#panteon {
+  bottom: -20% !important;
+}
+
+
+}
 
