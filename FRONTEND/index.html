@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+  
 <head>
   <meta charset="UTF-8">
    <!-- ESTA LÍNEA ES CRUCIAL PARA MÓVIL -->
@@ -12,7 +13,21 @@
 
   <title>Jardín de los Pinos</title>
   
+
+  
 </head>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('show');
+  });
+</script>
+
+
+
 <body>
 
 <!-- GSAP SCRIPTS -->
@@ -28,7 +43,8 @@
     <div class="header-container">
       <!-- Logo -->
       <img src="1.6imagenes/logo-blanco.png" alt="Logo Jardín de los Pinos" class="logo">
-  
+
+
 
        <!-- Botones derecho -->
        <div class="acciones">
@@ -41,17 +57,30 @@
       <!--aqui termina la division de clase del boton de inicio de sesion con su imagen logo-->
       </div>
 
+<!-- Botones registro/inicio sesión (igual que antes) -->
+    <div class="acciones">
+      <a href="#">Registrarse</a>
+      <div class="inicio-sesion">
+        <img src="1.7iconos/icono-iniciosesion.png" alt="Icono sesión">
+        <a href="#">Iniciar sesión</a>
+      </div>
+    </div>
 
-      <!-- Menú principal -->
-      <nav class="menu">
-        <a href="#" class="active">INICIO</a>
-        <a href="#">NOSOTROS</a>
-        <a href="#">SERVICIOS</a>
-        <a href="#">PROMOCIONES</a>
-        <a href="#">SUCURSALES</a>
-        <a href="#">OBITUARIOS</a>
-        <a href="#">BLOG</a>
-      </nav>
+    
+    <!-- BOTÓN HAMBURGUESA: sólo en móvil -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+   <!-- NAV (escritorio + móvil) -->
+<nav id="mobileMenu" class="menu menu-mobile">
+  <a href="#" class="active">INICIO</a>
+  <a href="#">NOSOTROS</a>
+  <a href="1.1servicios/servicios.html">SERVICIOS</a>
+  <a href="#">PROMOCIONES</a>
+  <a href="#">SUCURSALES</a>
+  <a href="#">OBITUARIOS</a>
+  <a href="#">BLOG</a>
+</nav>
+
 
     </div>
   </header>
@@ -75,6 +104,48 @@
       </p>
   </div>
 </section>
+
+<!-- ———— SECCIÓN: SERVICIOS ———— -->
+<section id="servicios-arealandpage" class="servicios-landing">
+  <h2 class="servicios-titulo">Servicios</h2>
+
+  <div class="servicios-grid">
+    <!-- Servicio 1 -->
+    <a href="1.1servicios/servicios.html#funerario" target="_blank" class="card-servicio">
+      <span class="servicio-icono icono-funerario"></span>
+      <div class="info-servicio">
+        <h3 class="servicio-nombre">Servicio Funerario</h3>
+        <p class="servicio-desc">Atención integral 24/7, ceremonias personalizadas y trámites sin complicaciones.</p>
+      </div>
+    </a>
+
+    <!-- Servicio 2 -->
+    <a href="1.1servicios/servicios.html#prevision" target="_blank" class="card-servicio">
+      <span class="servicio-icono icono-prevision"></span>
+      <div class="info-servicio">
+        <h3 class="servicio-nombre">Plan de Previsión</h3>
+        <p class="servicio-desc">Congela precios hoy y asegura tranquilidad para el futuro de tu familia.</p>
+      </div>
+    </a>
+
+    <!-- Servicio 3 -->
+    <a href="1.1servicios/servicios.html#asesoria" target="_blank" class="card-servicio">
+      <span class="servicio-icono icono-asesoria"></span>
+      <div class="info-servicio">
+        <h3 class="servicio-nombre">Asesoría Personalizada</h3>
+        <p class="servicio-desc">Especialistas que te acompañan y resuelven tus dudas en cada paso del proceso.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+
+
+
+
+
+
 
 
   <!-- GSAP -->
@@ -141,8 +212,6 @@
 
   </script>
 
-
-
 <!-- BOTONES FLOTANTES -->
 <!-- Emergencias -->
 <a href="#" class="boton-flotante boton-emergencia">
@@ -180,6 +249,21 @@
   <img src="1.7iconos/icono-maps.png" alt="Sucursales">
   Sucursales
 </a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle     = document.getElementById('menuToggle');
+      const mobileNav  = document.getElementById('mobileMenu');
+
+      if (toggle && mobileNav) {
+        toggle.addEventListener('click', () => {
+          mobileNav.classList.toggle('show');
+        });
+      } else {
+        console.warn('No encontré #menuToggle o #mobileMenu en el DOM');
+      }
+    });
+  </script>
 
 
 </body>

@@ -1,122 +1,65 @@
-// adjustLayout.js
-
 function applyResponsiveAdjustments() {
-    const windowWidth = window.innerWidth;
+  const windowWidth = window.innerWidth;
 
-    const logo = document.getElementById('logoAnim');
-    const pinos = document.getElementById('pinos');
-    const cruz = document.getElementById('cruz');
-    const panteon = document.getElementById('panteon');
+  const logo = document.getElementById('logoAnim');
+  const pinos = document.getElementById('pinos');
+  const cruz = document.getElementById('cruz');
+  const panteon = document.getElementById('panteon');
+  const cielo = document.getElementById('cielo');
 
-    // Valores originales base
-    const originalPinosTop = '38.7%';
-    const originalCruzTop = '44%';
-    const originalLogoScale = '1';
-    const originalPanteonScale = '1.0';
-    const originalPanteonTop = 'auto';
+  // Valores por defecto (pantalla grande)
+  logo.style.transform = 'scale(1)';
+  logo.style.top = '26%';
+  pinos.style.top = '38.7%';
+  cruz.style.top = '44%';
+  panteon.style.transform = 'scale(1.0)';
+  panteon.style.top = 'auto';
+  cielo.style.width = '200%';
+  cielo.style.left = '40%';
+  cielo.style.top = '40%';
+  cielo.style.transform = 'scale(3)';
 
-    if (windowWidth < 320) {
-        // MUY PEQUEÑO (móviles muy chicos)
-        logo.style.transform = 'scale(1.3)';       // +30%
-        logo.style.top='38%';
-        pinos.style.top = '60%';                  // +21.3%
-        cruz.style.top = '65%';                   // +21%
-        panteon.style.transform = 'scale(1.6)';   // +60%
-        panteon.style.top = '57%';
-        cielo.style.transform = 'scale(4.0)';
-        cielo.style.left = '40%';
-        cielo.style.top = '60%';
-        
-    } else if (windowWidth < 432) {
-        // ~30%
-        logo.style.transform = 'scale(1.25)';     // +25%
-        logo.style.top = '26%';
-        pinos.style.top = '55%';                  // +16.3%
-        cruz.style.top = '60%';                   // +16%
-        panteon.style.transform = 'scale(2.0)';   // +50%
-        panteon.style.top = '48%';
-
-        
-    } else if (windowWidth < 576) {
-        // ~40%
-        logo.style.transform = 'scale(1.2)';      // +20%
-        logo.style.top = '60%';
-        pinos.style.top = '72%';                  // +11.3%
-        cruz.style.top = '74%';                   // +11%
-        panteon.style.transform = 'scale(1.4)';   // +40%
-        panteon.style.top = '38%';
-        
-        cielo.style.width = '200%';
-        cielo.style.left = '40%';
-        cielo.style.top = '70%';
-        cielo.style.transform = 'scale(3.2)';
-
-
-    } else if (windowWidth < 650) {
-        // intermedio entre 576 y 720 (~40%-45%)
-        logo.style.transform = 'scale(1.15)';    // +15%
-        logo.style.top = '41%';
-        pinos.style.top = '50%';
-        cruz.style.top = '58%';
-        panteon.style.transform = 'scale(1.35)';
-        panteon.style.top = '40%';
-
-        
-    } else if (windowWidth < 720) {
-        // ~50%
-        logo.style.transform = 'scale(1.1)';      // +10%
-        logo.style.top = '48%';
-        pinos.style.top = '45%';                  // +6.3%
-        cruz.style.top = '50%';                   // +6%
-        panteon.style.transform = 'scale(1.3)';   // +30%
-        panteon.style.top = '42%';
-    
-        cielo.style.width = '200%';
-        cielo.style.left = '40%';
-        cielo.style.top = '70%';
-        cielo.style.transform = 'scale(3.2)';
-    
-    } else {
-        // PANTALLA NORMAL O GRANDE → restaurar valores originales
-        logo.style.transform = `scale(${originalLogoScale})`;
-        pinos.style.top = originalPinosTop;
-        cruz.style.top = originalCruzTop;
-        panteon.style.transform = `scale(${originalPanteonScale})`;
-        panteon.style.top = originalPanteonTop;
-        cielo.style.width = '200%';
-        cielo.style.left = '40%';
-        cielo.style.top = '40%';
-        cielo.style.transform = 'scale(3)';  // 50% más grande
-
-    }
+  // Ajustes móviles progresivos de las animaciones en movil, posiciones
+  if (windowWidth < 576) {
+    logo.style.transform = 'scale(1.2)';
+    logo.style.top = '60%';
+    pinos.style.top = '72%';
+    cruz.style.top = '74%';
+    panteon.style.transform = 'scale(1.4)';
+    panteon.style.top = '61%';
+    cielo.style.top = '70%';
+    cielo.style.transform = 'scale(3.2)';
+  } else if (windowWidth < 720) {
+    logo.style.transform = 'scale(1.1)';
+    logo.style.top = '48%';
+    pinos.style.top = '45%';
+    cruz.style.top = '50%';
+    panteon.style.transform = 'scale(1.3)';
+    panteon.style.top = '42%';
+    cielo.style.top = '70%';
+    cielo.style.transform = 'scale(3.2)';
+  }
 }
 
-// Ejecutar al cargar y al redimensionar
-document.addEventListener('DOMContentLoaded', () => {
-    window.addEventListener('load', applyResponsiveAdjustments);
-    window.addEventListener('resize', applyResponsiveAdjustments);
+// Asegura que `.seccion-mariposa` esté bien posicionado respecto al `header`
+function ajustarMargenSeccionAnimada() {
+  const header = document.querySelector('header');
+  const seccion = document.querySelector('.seccion-mariposa');
+  if (header && seccion) {
+    const altoHeader = header.offsetHeight;
+    seccion.style.marginTop = `${altoHeader}px`;
+  }
+}
+
+window.addEventListener('load', () => {
+  applyResponsiveAdjustments();
+  ajustarMargenSeccionAnimada();
+  setTimeout(applyResponsiveAdjustments, 500);
 });
 
-
-function ejemplo() {
-    const header = document.querySelector('header');
-    const section = document.querySelector('.seccion-mariposa');  // <– asegúrate de tener esta línea
-
-    if (header && section) {
-        const headerHeight = header.offsetHeight;
-        section.style.marginTop = `${headerHeight}px`;
-    }
-}
-
-
-
-
-
-// Ejecuta de nuevo 500ms después de que todo cargue, para asegurar que todo está bien posicionado
-window.addEventListener('load', () => {
-    applyResponsiveAdjustments(); // Ejecutar la primera vez
-    setTimeout(applyResponsiveAdjustments, 500); // Ejecutar de nuevo después de 0.5 segundos
-    window.dispatchEvent(new Event('resize')); // Simular un resize por si acaso
+window.addEventListener('resize', () => {
+  applyResponsiveAdjustments();
+  ajustarMargenSeccionAnimada();
 });
 
 
