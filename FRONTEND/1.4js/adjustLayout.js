@@ -9,7 +9,7 @@ function applyResponsiveAdjustments() {
 
   // Valores por defecto (pantalla grande)
   logo.style.transform = 'scale(1)';
-  logo.style.top = '26%';
+  logo.style.top = '13%';
   pinos.style.top = '38.7%';
   cruz.style.top = '44%';
   panteon.style.transform = 'scale(1.0)';

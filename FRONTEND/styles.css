@@ -97,7 +97,7 @@ header {
   aspect-ratio: 1440 / 1035;
   position: relative;
   overflow: hidden;
-  background: #6716B;
+  background: #671B6B;
 }
 .capa {
   position: absolute;
@@ -109,7 +109,7 @@ header {
 #logoAnim{ width: 52%;  left: 26%;  top: 26%;  z-index: 2; }
 #pinos   { width: 90.7%;left: 4.4%; top: 38.7%;z-index: 3; }
 #cruz    { width: 48%;  left: -13%; top: 44%;  z-index: 4; }
-#panteon { width: 100%; left: 0;    bottom: 0; position: absolute; z-index: 5; }
+#panteon { width: 100%; left: 0;    bottom: 0; top: -20%; position: absolute; z-index: 5; }
 
 /* SECCIÓN “NOSOTROS” (texto bajo la animación) */
 .seccion-nosotros {
@@ -246,13 +246,13 @@ header {
    animation: whatsapp-bounce 0.5s ease;
 }
 
-
-/* Ocultar hamburguesa en desktop (≥769px) AQUI SE OCULTA EL LOGO DE RAYITAS DE MENÚ, PORQUE ES SOLO PARA MOVIL */
+/* Ocultar hamburguesa en desktop (≥769px) */
 @media (min-width: 769px) {
   header .menu-toggle {
     display: none !important;
   }
 }
+
 
 
 /* ===========================
@@ -290,15 +290,46 @@ header {
     gap: 2.3px; /*separacion entre el icono y la palabra iniciar sesion*/
   }
 
+}
 
 
+  /* ============================
+   SECCIÓN DE ANIMACIÓN – GENERAL
+   ============================ */
+.seccion-mariposa {
+  position: relative;
+  overflow: hidden;
+  background-color: #671B6B;
+  width: 100%;
+  height: 120vh; /* ALTURA CONTROLADA, AJUSTABLE */
+  margin-top: 20px; /* En escritorio, compensación para el header */
+}
 
-  /* SECCIÓN ANIMACIÓN */
+
+/* ———————————————
+   ESCRITORIO (≥ 769px)
+   ——————————————— */
+@media screen and (min-width: 769px) {
   .seccion-mariposa {
-    aspect-ratio: auto;
-    min-height: 70vh;
-    
+    margin-top: 160px; /* Se ajusta dinámicamente también por JS */
+    min-height: auto;
+    height: 115vh; /* ALTURA CONTROLADA, AJUSTABLE, del tamaño de la seccion 2 de animacion */
   }
+
+}
+
+/* ———————————————
+   MÓVIL (≤ 768px)
+   ——————————————— */
+@media screen and (max-width: 768px) {
+  .seccion-mariposa {
+    height: 105vh; /* Ajusta si quieres menos espacio en móvil */
+    margin-top: 0; /* Evita doble espacio si usas padding-top */
+    padding-top: 130px; /* Ajusta si header está fijo */
+  }
+}
+
+
 
   /* SECCIÓN “NOSOTROS” */
   .seccion-nosotros {
@@ -308,7 +339,7 @@ header {
     font-size: 10vw;
     line-height: 0.9;
     padding: 2vh 5vw;
-    margin-bottom: -3vh;/*espacio entre prever hoy.. y "en jardin de los pinos.."*/
+    margin-bottom: -2vh;/*espacio entre prever hoy.. y "en jardin de los pinos.."*/
   }
   .seccion-nosotros p {
     font-size: 3vw;
@@ -359,52 +390,67 @@ header {
     width: 7vw;
     height: 7vw;
   }
-/* ✅ REPOSICIÓN DE CAPAS PARA MÓVIL - Pegados al fondo de la animación */
-#cielo {
-  top: 50% !important;
-  transform: scale(3) !important;
-}
 
-#logoAnim {
-  top: 45% !important;     /* Lo empuja hacia la base */
-  transform: translateY(10%); /* Ajuste fino */
-}
 
-#pinos {
-  top: 55% !important;
-  transform: translateY(10%);
-}
 
-#cruz {
-  top: 59% !important;
-  transform: translateY(10%);
-}
-
-#panteon {
-  bottom: -20% !important;
-}
 
 @media screen and (max-width: 320px) {
 
 #cielo {
   top: 50% !important;
-  transform: scale(3) !important;
+  transform: scale(6) !important;
 }
 #logoAnim {
   top: 45% !important;     /* Lo empuja hacia la base */
-  transform: translateY(10%); /* Ajuste fino */
+  transform: translateY(30%); /* Ajuste fino */
 }
 
 #pinos {
-  top: 66% !important;
-  transform: translateY(10%);
+  top: 72% !important;
+  transform: translateY(5%);
 }
 
 #cruz {
-  top: 69% !important;
+  top: 75% !important;
   transform: translateY(10%);
 }
+
+#panteon {
+  transform: scale(3) !important;
 }
+
+}
+
+@media screen and (min-width: 321px) and (max-width: 540px) {
+
+  #cielo {
+    top: 50% !important;
+    transform: scale(5.1) !important; /* Menor que en 320px */
+    transform: translateY(20%);
+  }
+
+  #logoAnim {
+    top: 45% !important;
+    transform: translateY(20%);
+  }
+
+  #pinos {
+    top: 72% !important;
+    transform: translateY(5%);
+  }
+
+  #cruz {
+    top: 78% !important;
+    transform: translateY(5%);
+  }
+
+  #panteon {
+    transform: scale(2.5) !important;
+  }
+
+}
+
+
 
 /* Botón hamburguesa - solo visible en móviles */
 .menu-toggle {
@@ -448,7 +494,6 @@ header {
   /* y animas la opacidad o el transform si lo deseas */
 }
 
-
   .menu.show {
     left: 0;
   }
@@ -459,6 +504,17 @@ header {
     padding: 10px 0;
     border-bottom: 1px solid #fff3;
   }
+}
+
+
+/* HAMBURGUESA oculto en desktop */
+.menu-toggle { display: none; }
+
+/* Sólo en pantallas ≤ 768px */
+@media (max-width: 768px) {
+  .menu-desktop { display: none; }    /* quito el menú de escritorio */
+  .menu-mobile  { display: flex; }    /* muestro el deslizable */
+  .menu-toggle  { display: block; }   /* muestro el 🔲 hamburguesa */
 }
 
 /* ————————————————————————
@@ -488,7 +544,7 @@ header {
 
 .menu a.active,
 .menu a:hover {
-  color: #BBA0C9;
+  color: #671B6B;
 }
 .menu-mobile a:hover {
   opacity: 0.8;
@@ -510,7 +566,6 @@ header {
 }
 
 
-
 /* ===========================
    DISEÑO SECCIÓN SERVICIOS DEL LANDPAGE
    =========================== */
@@ -518,11 +573,14 @@ header {
 /* ———————————————
    SECCIÓN SERVICIOS (común)
    ——————————————— */
-#servicios-arealandpage { /*es el fondo de la seccion 3 de servicios, el color*/
-  background:#f5f5f5;
-  padding:80px 20px 100px;
-  text-align:center;
+#servicios-arealandpage {  /*color del fondo a partir de la seccion de servicios, fondito claro de pinos*/
+  background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
+  background-size: cover;
+  padding: 80px 20px 100px;
+  text-align: center;
 }
+
+
 
 .servicios-titulo{
   font-family:'Fleur De Leah',cursive;
@@ -550,7 +608,7 @@ header {
   color:#4a4a4a;
   box-shadow:0 8px 20px rgba(0,0,0,0.12);
   transition:transform .35s,box-shadow .35s;
-  flex:1 1 300px;     /* ancho mínimo 300 px, crece hasta llenar */
+  flex:1 1 300px;     /* ancho mínimo 300 px, crece hasta llenar */
   max-width:380px;
 }
 
@@ -564,7 +622,7 @@ header {
   width:72px; height:72px;
   margin:0 auto 24px;
   border-radius:50%;
-  background:#BBA0C9 url('ruta‑icono‑default.svg') center/40px 40px no-repeat;
+  background:#BBA0C9 url('ruta icono default.svg') center/40px 40px no-repeat;
 }
 
 /* iconos distintos de SERVICIOS LANDPAGE */
@@ -594,40 +652,99 @@ header {
 }
 
 /* ———————————————
-   DISEÑO DESKTOP (≥ 769 px)
+   DISEÑO DESKTOP (≥ 769 px)
    ——————————————— */
-/* ESTILOS PARA `.menu-mobile` EN ESCRITORIO (≥769px) */
-@media (min-width: 769px) {
-  .menu-mobile {
-    display: flex;
-    position: static !important;
-    left: auto !important;
-    height: auto;
-    background: transparent;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    gap: 20px;
-    z-index: 1;
+@media(min-width:769px){
+  .card-servicio{
+    display:flex;
+    align-items:center;
+    padding:28px 40px;
+    max-width:100%;          /* permite que crezca a lo ancho */
+  }
+  .servicio-icono{
+    flex:0 0 90px;
+    width:90px; height:90px;
+    margin:0 32px 0 0;       /* icono a la izquierda */
+  }
+  .servicio-nombre,
+  .servicio-desc{
+    text-align:left;         /* texto alineado a la izquierda */
   }
 
-  .menu-mobile a {
-    color: white;
-    font-size: clamp(13px, 1.5vw, 16px);
-    padding: 5px 10px;
-    border: none;
+  
+}
+
+/* AJUSTE DE BOTONES BURBUJA Y DE SECCION 2, PARA DESKTOP, TAMAÑOS*/
+@media screen and (min-width: 769px) {
+
+  /* BOTONES FLOTANTES – AJUSTES DESKTOP */
+  .boton-flotante {
+    font-size: 1.2rem;
+    padding: 6px 12px;
+    border-radius: 22px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   }
 
-  .menu-mobile a:hover {
-    color: #BBA0C9;
+  .boton-flotante img {
+    width: 27px;
+    height: 27px;
+    margin-right: 6px;
   }
+
+  /* Posición específica por botón */
+  .boton-emergencia {
+    top: 168px;
+    left: 20px;
+  }
+
+  .boton-carrito {
+    top: 168px;
+    right: 20px;
+  }
+
+  .boton-whatsapp {
+    bottom: 20px;
+    left: 45%;
+    transform: translateX(-50%);
+  }
+
+  .boton-sucursales {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .redes-sociales {
+    bottom: 20px;
+    left: 20px;
+    padding: 6px 10px;
+    gap: 10px;
+  }
+
+  .redes-sociales a img {
+    width: 25px;
+    height: 25px;
+  }
+
+  /* SECCIÓN NOSOTROS – AJUSTE DE FUENTE DESKTOP */
+  .seccion-nosotros h2 {
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .seccion-nosotros p {
+    font-size: clamp(1rem, 1.3vw, 1.15rem);
+    line-height: 1.6;
+    margin-bottom: 2vh;
+    padding: 0 40px;
+  }
+
 }
 
 
 
 /* ———————————————
-   DISEÑO MÓVIL (≤ 768 px)
+   DISEÑO MÓVIL (≤ 768 px)
    ——————————————— */
 @media(max-width:768px){
   .card-servicio{
@@ -638,4 +755,3 @@ header {
   }
 
 }
-
