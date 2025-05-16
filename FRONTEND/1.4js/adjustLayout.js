@@ -10,8 +10,8 @@ function applyResponsiveAdjustments() {
   // Valores por defecto (pantalla grande)
   logo.style.transform = 'scale(1)';
   logo.style.top = '13%';
-  pinos.style.top = '38.7%';
-  cruz.style.top = '44%';
+  pinos.style.top = '24%';
+  cruz.style.top = '29%';
   panteon.style.transform = 'scale(1.0)';
   panteon.style.top = 'auto';
   cielo.style.width = '200%';
@@ -61,5 +61,19 @@ window.addEventListener('resize', () => {
   applyResponsiveAdjustments();
   ajustarMargenSeccionAnimada();
 });
+
+gsap.to("#cielo", {
+  y: -913,
+  scrollTrigger: {
+    trigger: "#seccionAnimada",
+    start: "top top",     // inicia justo al comenzar scroll
+    end: "+=100vh",    // dura todo el scroll por la sección animada
+    scrub: true,
+    pin: true,
+    immediateRender: true
+  }
+});
+
+
 
 

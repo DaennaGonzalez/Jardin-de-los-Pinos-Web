@@ -2,6 +2,7 @@ html, body {
   height: auto;
   min-height: 100vh;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   overflow-y: auto;
 }
 
@@ -94,9 +95,10 @@ header {
 .seccion-mariposa {
   width: 100%;
   margin-top: var(--header-height);
-  aspect-ratio: 1440 / 1035;
   position: relative;
-  overflow: hidden;
+  top: 0;
+  left: 0;
+  aspect-ratio: 1440 / 1035;
   background: #671B6B;
 }
 .capa {
@@ -109,14 +111,15 @@ header {
 #logoAnim{ width: 52%;  left: 26%;  top: 26%;  z-index: 2; }
 #pinos   { width: 90.7%;left: 4.4%; top: 38.7%;z-index: 3; }
 #cruz    { width: 48%;  left: -13%; top: 44%;  z-index: 4; }
-#panteon { width: 100%; left: 0;    bottom: 0; top: -20%; position: absolute; z-index: 5; }
+#panteon { width: 100%; left: 0;    bottom: 0; top: auto; position: absolute; z-index: 5; }
 
 /* SECCIÓN “NOSOTROS” (texto bajo la animación) */
 .seccion-nosotros {
   background-color: #671B6B;
   color: white;
   text-align: center;
-  margin-top: -1px;
+   padding-top: 20px; /* Aquí ajustas la altura visible arriba del texto */
+  background-color: #671B6B; /* Este es tu color morado */
   padding: 20px 33px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -124,13 +127,13 @@ header {
   font-family: 'Fleur De Leah', cursive;
   font-size: clamp(2.2rem, 4vw, 2.5rem);
   margin-bottom: 0;
-  font-weight: 250;
+  font-weight: 240;
   letter-spacing: 1px;
 }
 .seccion-nosotros p {
   max-width: 1300px;
   margin: 0 auto;
-  font-size: clamp(0.4rem, 2.5vw, 1.1rem);
+  font-size: clamp(0.4rem, 2.4vw, 1.1rem);
   line-height: 1.4;
 }
 
@@ -544,11 +547,33 @@ header {
 
 .menu a.active,
 .menu a:hover {
-  color: #671B6B;
+  color: #671B6B; /*EN DESKTOP esto hace que se pongan moradas las letras al pasar la manita*/
 }
 .menu-mobile a:hover {
   opacity: 0.8;
 }
+
+/*hace QUE destaque  boton que esté en uso, donde nos encontremos, como INICIO, en el menu movil*/
+  @media (max-width: 768px) {
+  .menu-mobile a.active {
+    background-color: #ccacdc;
+    color: #671B6B !important;
+    padding: 8px 16px;
+    border-radius: 50px; /* lo hace redondito de orillas */
+    font-weight: bold;
+  }
+}
+
+.menu-mobile {
+  padding: 60px 20px 20px 20px; /* top, right, bottom, left */
+}
+
+
+ .menu-mobile a:hover {
+    color: #c89ddd !important; /* puedes ajustar el tono si deseas otro color al pasar el mouse */
+  }
+
+
 
 /* posición de las rayitas de menu en el movil */
 .menu-toggle {
@@ -576,7 +601,7 @@ header {
 #servicios-arealandpage {  /*color del fondo a partir de la seccion de servicios, fondito claro de pinos*/
   background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
   background-size: cover;
-  padding: 80px 20px 100px;
+  padding: 100px 20px 210px; /*ALTURA PARA QUE QUEPAN LAS IMAGENES DE SECCION3*/
   text-align: center;
 }
 
@@ -592,10 +617,10 @@ header {
 /* Contenedor flexible que variará con media query */
 .servicios-grid{
   display:flex;
-  gap:40px;
+  gap:85px;
   justify-content:center;
   flex-wrap:wrap;
-  max-width:1280px;
+  max-width:1400px;
   margin:0 auto;
 }
 
@@ -643,13 +668,54 @@ header {
   font-size:clamp(1.1rem,2.4vw,1.4rem);
   font-weight:700;
   color:#671B6B;
-  margin-bottom:12px;
+  margin-bottom:10px;
 }
 
 .servicio-desc{
   font-size:clamp(.9rem,2.1vw,1.05rem);
   line-height:1.5;
 }
+
+.servicios-landing {
+  position: relative; /* ¡clave para usar posición absoluta adentro! */
+}
+
+/*POSICION DE LA IMAGEN DE ATAUD SECCION 3, EN DESKTOP*/
+.img-sobre-botones { /*aqui ajustamos la posición del diseño de sec 3 landpage imagenes servicios*/
+  position: absolute;
+  top: 225px; /* ajústalo según cuánto baje sobre los botones */
+  left: 50%; 
+  overflow: hidden;
+  transform: translateX(-67%);
+  width: 1100px; /* tamaño de la figura */
+  opacity: 0.9; /* opcional */
+  z-index: 10; /* asegura que esté encima */
+  pointer-events: none; /* evita que bloquee clics en tarjetas */
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+  transition: transform 0.3s ease;
+}
+
+
+/*POSICION IMAGEN ATAUD SECCION 3, EN MOVIL*/
+@media (max-width: 768px) {
+  .img-sobre-botones {
+    position: absolute;
+    bottom: 0;             /* 👈 Esto la ancla al final del contenedor */
+    left: -20%;
+    width: 120vw;          /* proporcional, como acordamos */
+    transform: translateY(350%);
+    pointer-events: none;
+    z-index: 10;
+  }
+}
+
+#servicios-arealandpage {
+  position: relative; /* clave para que el "hijo" absoluto se posicione dentro */
+  overflow: hidden;   /* si quieres evitar que la imagen se salga */
+}
+
+
+
 
 /* ———————————————
    DISEÑO DESKTOP (≥ 769 px)
@@ -658,17 +724,20 @@ header {
   .card-servicio{
     display:flex;
     align-items:center;
-    padding:28px 40px;
+    padding:20px 30px;
     max-width:100%;          /* permite que crezca a lo ancho */
   }
   .servicio-icono{
     flex:0 0 90px;
     width:90px; height:90px;
     margin:0 32px 0 0;       /* icono a la izquierda */
+    margin-left: 10px;
   }
-  .servicio-nombre,
+  .servicio-nombre{text-align:center; }
   .servicio-desc{
-    text-align:left;         /* texto alineado a la izquierda */
+    text-align:center;         /* texto alineado a la izquierda */
+    font-size: 15px;
+    margin-left: -16px;
   }
 
   
@@ -727,9 +796,9 @@ header {
 
   /* SECCIÓN NOSOTROS – AJUSTE DE FUENTE DESKTOP */
   .seccion-nosotros h2 {
-    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
-    margin-bottom: 12px;
-    line-height: 1.5;
+    font-size: clamp(3rem, 3.0vw, 3rem);
+    margin-bottom: 0px;
+    line-height: 26px;
   }
 
   .seccion-nosotros p {
