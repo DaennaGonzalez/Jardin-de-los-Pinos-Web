@@ -26,6 +26,60 @@
   });
 </script>
 
+<!--SCRIPTS PARA EL MODAL X DE COTIZAR UN PLAN-->
+<script>
+  const abrirModal = document.getElementById('abrirModalCotiza');
+  const modal = document.getElementById('modalCotiza');
+  const cerrarModal = document.getElementById('cerrarModalCotiza');
+
+  abrirModal.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('activo');
+  });
+
+  cerrarModal.addEventListener('click', () => {
+    modal.classList.remove('activo');
+  });
+
+  // Cerrar al hacer clic fuera del contenido
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('activo');
+    }
+  });
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const abrirModal = document.getElementById('abrirModalCotiza');
+    const modal = document.getElementById('modalCotiza');
+    const cerrarModal = document.getElementById('cerrarModalCotiza');
+
+    if (abrirModal && modal && cerrarModal) {
+      abrirModal.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('activo');
+      });
+
+      cerrarModal.addEventListener('click', () => {
+        modal.classList.remove('activo');
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('activo');
+        }
+      });
+    } else {
+      console.warn("No se encontró el botón o el modal.");
+    }
+  });
+</script>
+<!--AQUI TERMINAN SCRIPTS PARA EL MODAL X DE COTIZAR UN PLAN-->
+
+
+
 
 
 <body>
@@ -176,9 +230,12 @@
     <img src="1.6imagenes/imagen-cotiza-tu-plan.png" alt="Cementerio Jardín de los Pinos">
   </div>
 
-  <div class="cotiza-boton">
-    <a href="#" class="btn-cotiza">Click aquí</a>
-  </div>
+ <div class="cotiza-boton">
+  <a href="#" id="abrirModalCotiza" class="btn-cotiza">
+    Quiero que me contacte un asesor especializado.
+  </a>
+</div>
+
 
  <img src="1.6imagenes/imagen-cotiza-tu-plan-asesor-con-camisa.png" 
      alt="Decoración asesor cotiza"
@@ -307,6 +364,45 @@
       }
     });
   </script>
+
+
+<!--ventana X en cotizar plan-->
+<div id="modalCotiza" class="modal-cotiza-overlay">
+  <div class="modal-cotiza-content">
+    <button class="cerrar-modal" id="cerrarModalCotiza">✕</button>
+    
+    <p class="modal-etiqueta">Quiero que me contacte un asesor.</p>
+    
+    <a href="https://api.whatsapp.com/send?phone=5218127323099&text=Me%20interesa%20un%20Plan%20de%20Previsi%C3%B3n%20Funerario" target="_blank" class="btn-whatsapp-modal">
+      Click aquí para contactárnos directo vía Whatsapp
+      <img src="1.7iconos/icono-whatsapp.png" alt="WhatsApp" class="icono-wsp">
+    </a>
+
+    <p class="modal-subtexto">
+      ...O proporciónanos aquí tus datos y te contactaremos<br>lo más pronto posible.
+    </p>
+
+
+    <form class="formulario-modal">
+      <label>Nombre:</label>
+      <input type="text" placeholder="Escribe tu nombre" required>
+      
+      <label>Correo electrónico:</label>
+      <input type="email" placeholder="correo@ejemplo.com" required>
+      
+      <label>Teléfono/celular:</label>
+      <input type="tel" placeholder="+52..." required>
+      
+      <button type="submit" class="btn-enviar-modal">Enviar mis datos</button>
+    </form>
+    
+  </div>
+</div>
+<!--FIN DE ventana X en cotizar plan-->
+
+
+
+
 
 </body>
 </html>

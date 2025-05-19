@@ -683,7 +683,7 @@ header {
 /*POSICION DE LA IMAGEN DE ATAUD SECCION 3, EN DESKTOP*/
 .img-sobre-botones {
   position: absolute;
-  bottom: -155px;                     /* 🔑 fija la imagen al fondo de la sección */
+  bottom: -155px;                     /*  fija la imagen al fondo de la sección */
   left: 50%;
   transform: translateX(-53%);
   width: 1110px;
@@ -928,7 +928,7 @@ header {
 }
 
 
-/*foto del asesor*/
+/*foto del asesor EN COTIZA TU PLAN*/
 .img-decorativa-cotiza {
   position: absolute;
   bottom: 0;
@@ -948,17 +948,149 @@ header {
     width: 100vw;
     max-width: none;
     height: auto;
-    transform: translateX(-57%);
+      position: absolute;
+  z-index: 100; /* debe ser mayor que el botón */
+    transform: translateX(-59%);
   }
 
   /* Botón debajo */
 .cotiza-boton {
    position: relative;  /* permite controlar el z-index */
   z-index: 5;           /* mayor que el de la imagen */
-  left: 90px;
-  margin-top: -30px;    /* lo subes sobre la imagen */
+  left: 70px;
+  margin-top: -50px;    /* lo subes sobre la imagen */
 }
+
+/*BOTON QUE SE LE DA CLICK PARA IR A MODAL X de cotiza tu plan*/
+.btn-cotiza {
+  font-size: clamp(0.8rem, 4vw, 1.2rem);
+}
+.cotiza-boton {
+  text-align: left;
+  padding-left: 20px; /* opcional para separar del borde */
+}
+
 
 }
 
+
+/* ————— MODAL X Cotiza ————— */
+.modal-cotiza-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* fondo oscuro translúcido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-cotiza-overlay.activo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-cotiza-content {
+  background: #671B6B;
+  padding: 30px 25px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  color: white;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-etiqueta {
+  background-color: #C89DDD;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.btn-whatsapp-modal {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  font-weight: bold;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.btn-whatsapp-modal .icono-wsp {
+  width: 24px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.modal-subtexto {
+  margin: 20px 0 10px;
+  font-weight: 500;
+}
+
+.formulario-modal label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 4px;
+}
+
+.formulario-modal input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #E5B5F3;
+  margin-bottom: 10px;
+  color: #333;
+  font-family: 'Montserrat', sans-serif; 
+  color: #555; 
+  font-size: 0.95rem;
+
+}
+
+.btn-enviar-modal {
+  background: #B56CF3;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+   font-family: 'Montserrat', sans-serif; 
+  color: white; 
+  font-size: 0.95rem;
+}
+/*rebotes en la ventana de MODAL X de cotizar tu plan*/
+.btn-whatsapp-modal:hover {
+  animation: whatsapp-bounce 0.5s ease;
+}
+.btn-enviar-modal:hover {
+  animation: whatsapp-bounce 0.5s ease;
+}
+
+
+/* ————— TERMINA MODAL X Cotiza ————— */
 
