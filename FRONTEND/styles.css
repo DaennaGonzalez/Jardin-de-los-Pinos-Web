@@ -111,7 +111,7 @@ header {
 #logoAnim{ width: 52%;  left: 26%;  top: 26%;  z-index: 2; }
 #pinos   { width: 90.7%;left: 4.4%; top: 38.7%;z-index: 3; }
 #cruz    { width: 48%;  left: -13%; top: 44%;  z-index: 4; }
-#panteon { width: 100%; left: 0;    bottom: 0; top: auto; position: absolute; z-index: 5; }
+#panteon { width: 100%; left: 0;    bottom: 0; top: auto; z-index: 5; }
 
 /* SECCIÓN “NOSOTROS” (texto bajo la animación) */
 .seccion-nosotros {
@@ -124,7 +124,7 @@ header {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .seccion-nosotros h2 {
-  font-family: 'Fleur De Leah', cursive;
+  font-family: 'Montserrat', cursive; /*aqui puede ir una cursiva*/
   font-size: clamp(2.2rem, 4vw, 2.5rem);
   margin-bottom: 0;
   font-weight: 240;
@@ -601,14 +601,14 @@ header {
 #servicios-arealandpage {  /*color del fondo a partir de la seccion de servicios, fondito claro de pinos*/
   background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
   background-size: cover;
-  padding: 100px 20px 210px; /*ALTURA PARA QUE QUEPAN LAS IMAGENES DE SECCION3*/
+  padding: 100px 20px 240px; /*ALTURA PARA QUE QUEPAN LAS IMAGENES DE SECCION3*/
   text-align: center;
 }
 
 
 
 .servicios-titulo{
-  font-family:'Fleur De Leah',cursive;
+  font-family:'Montserrat',cursive; /*aqui puede ir una cursiva*/
   color:#671B6B;
   font-size:clamp(2.2rem,5vw,3.5rem);
   margin-bottom:60px;
@@ -617,7 +617,7 @@ header {
 /* Contenedor flexible que variará con media query */
 .servicios-grid{
   display:flex;
-  gap:85px;
+  gap:90px;
   justify-content:center;
   flex-wrap:wrap;
   max-width:1400px;
@@ -681,33 +681,35 @@ header {
 }
 
 /*POSICION DE LA IMAGEN DE ATAUD SECCION 3, EN DESKTOP*/
-.img-sobre-botones { /*aqui ajustamos la posición del diseño de sec 3 landpage imagenes servicios*/
+.img-sobre-botones {
   position: absolute;
-  top: 225px; /* ajústalo según cuánto baje sobre los botones */
-  left: 50%; 
-  overflow: hidden;
-  transform: translateX(-67%);
-  width: 1100px; /* tamaño de la figura */
-  opacity: 0.9; /* opcional */
-  z-index: 10; /* asegura que esté encima */
-  pointer-events: none; /* evita que bloquee clics en tarjetas */
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+  bottom: -155px;                     /* 🔑 fija la imagen al fondo de la sección */
+  left: 50%;
+  transform: translateX(-53%);
+  width: 1110px;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 10;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
   transition: transform 0.3s ease;
+  object-fit: contain;
 }
+
 
 
 /*POSICION IMAGEN ATAUD SECCION 3, EN MOVIL*/
 @media (max-width: 768px) {
   .img-sobre-botones {
-    position: absolute;
-    bottom: 0;             /* 👈 Esto la ancla al final del contenedor */
-    left: -20%;
-    width: 120vw;          /* proporcional, como acordamos */
-    transform: translateY(350%);
-    pointer-events: none;
-    z-index: 10;
+    content: url('1.6imagenes/imagen-decoracionparamenuservicioslandpage-movil.png'); /* REEMPLAZA aquí con tu imagen para móvil */
+    width: 130vw;             /* que se extienda a lo ancho */
+    max-width: none;
+    height: auto;
+    bottom: 0;
+    left: 40%;
+    transform: translateX(-50%);
   }
 }
+
 
 #servicios-arealandpage {
   position: relative; /* clave para que el "hijo" absoluto se posicione dentro */
@@ -773,7 +775,7 @@ header {
 
   .boton-whatsapp {
     bottom: 20px;
-    left: 45%;
+    left: 50%;
     transform: translateX(-50%);
   }
 
@@ -824,3 +826,139 @@ header {
   }
 
 }
+
+/* ——————————————————————————
+   SECCIÓN CON FONDO MORADO Y LETRA BLANCA
+   —————————————————————————— */
+.seccion-morado-texto {
+  background-color: #671B6B; /* morado institucional */
+  padding: 60px 40px; /*espacio vertical y espacio horizontal que deja para que no abarque el texto*/
+  text-align: center;
+}
+
+.contenedor-texto-blanco p {
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #ffffff;
+  font-weight: 300;
+  line-height: 1.3; /*espacio entre las letras verticalmente*/
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .contenedor-texto-blanco p {
+    font-size: 3vw;
+    padding: 0 10px;
+  }
+}
+
+
+/* ——————————————————————————
+   SECCIÓN COTIZA TU PLAN 
+   —————————————————————————— */
+.seccion-cotiza-fondo {
+  background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
+  background-size: cover;
+  padding: 60px 20px 130px;
+  text-align: center;
+   position: relative;
+  overflow: hidden;
+}
+
+.cotiza-texto h2 {  /*tipo de letra del apartado de cotiza tu plan*/
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: #671B6B;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.cotiza-texto p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 500;
+  color: #671B6B;
+  margin-bottom: 40px;
+}
+
+/* Imagen decorativa estilo banda horizontal */
+.cotiza-imagen-banda {
+  width: 100vw;         /* asegura que ocupe todo el ancho del viewport */
+  overflow: hidden;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;   /* truco para romper el padding del contenedor */
+  margin-right: -50vw;
+}
+
+.cotiza-imagen-banda img {
+  width: 100%;
+  height: 33vh;         /* muestra solo el 33% vertical */
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+/* Botón debajo */
+.cotiza-boton {
+   position: relative;  /* permite controlar el z-index */
+  z-index: 5;           /* mayor que el de la imagen */
+  margin-top: -30px;    /* lo subes sobre la imagen */
+}
+
+.btn-cotiza {
+  display: inline-block;
+  background-color: #671B6B;
+  color: white;
+  padding: 14px 36px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: bold;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.btn-cotiza:hover {
+  background-color: #542356;
+  transform: scale(1.05);
+}
+
+
+/*foto del asesor*/
+.img-decorativa-cotiza {
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  transform: translateX(-50%);
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .img-decorativa-cotiza {
+    width: 100vw;
+    max-width: none;
+    height: auto;
+    transform: translateX(-57%);
+  }
+
+  /* Botón debajo */
+.cotiza-boton {
+   position: relative;  /* permite controlar el z-index */
+  z-index: 5;           /* mayor que el de la imagen */
+  left: 90px;
+  margin-top: -30px;    /* lo subes sobre la imagen */
+}
+
+}
+
+

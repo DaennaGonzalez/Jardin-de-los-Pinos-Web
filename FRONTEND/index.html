@@ -59,13 +59,6 @@
 
 
 <!-- Botones registro/inicio sesión (igual que antes) -->
-    <div class="acciones">
-      <a href="#">Registrarse</a>
-      <div class="inicio-sesion">
-        <img src="1.7iconos/icono-iniciosesion.png" alt="Icono sesión">
-        <a href="#">Iniciar sesión</a>
-      </div>
-    </div>
 
     
     <!-- BOTÓN HAMBURGUESA: sólo en móvil -->
@@ -74,24 +67,24 @@
 
     <nav class="menu menu-desktop">
   <a href="#" class="active">INICIO</a>
-  <a href="#">NOSOTROS</a>
+  <a href="1.0nosotros/nosotros.html">NOSOTROS</a>
   <a href="1.1servicios/servicios.html">SERVICIOS</a>
-  <a href="#">PROMOCIONES</a>
-  <a href="#">SUCURSALES</a>
-  <a href="#">OBITUARIOS</a>
-  <a href="#">BLOG</a>
+  <a href="1.11promociones/promociones.html">PROMOCIONES</a>
+  <a href="1.12sucursales/sucursales.html">SUCURSALES</a>
+  <a href="1.3obituarios/obituarios.html">OBITUARIOS</a>
+  <a href="1.2blog/blog.html">BLOG</a>
 </nav>
 
 
    <!-- NAV (escritorio + móvil) -->
 <nav id="mobileMenu" class="menu menu-mobile">
   <a href="#" class="active">INICIO</a>
-  <a href="#">NOSOTROS</a>
+  <a href="1.0nosotros/nosotros.html">NOSOTROS</a>
   <a href="1.1servicios/servicios.html">SERVICIOS</a>
-  <a href="#">PROMOCIONES</a>
-  <a href="#">SUCURSALES</a>
-  <a href="#">OBITUARIOS</a>
-  <a href="#">BLOG</a>
+  <a href="1.11promociones/promociones.html">PROMOCIONES</a>
+  <a href="1.12sucursales/sucursales.html">SUCURSALES</a>
+  <a href="1.3obituarios/obituarios.html">OBITUARIOS</a>
+  <a href="1.2blog/blog.html">BLOG</a>
 </nav>
 
 
@@ -131,7 +124,7 @@
 
   <div class="servicios-grid">
     <!-- Servicio 1 -->
-    <a href="1.1servicios/servicios.html#funerario" target="_blank" class="card-servicio">
+    <a href="1.1servicios/1.1.1propiedades-funerarias.html" class="card-servicio"> <!--sin el target="_blank" se recarga la pag ahi mismo no otra pestaña-->
       <span class="servicio-icono icono-funerario"></span>
       <div class="info-servicio">
         <h3 class="servicio-nombre">Propiedades funerarias</h3>
@@ -140,7 +133,7 @@
     </a>
 
     <!-- Servicio 2 -->
-    <a href="1.1servicios/servicios.html#prevision" target="_blank" class="card-servicio">
+    <a href="1.1servicios/1.1.2servicios-funerarios.html" target="_blank" class="card-servicio">
       <span class="servicio-icono icono-prevision"></span>
       <div class="info-servicio">
         <h3 class="servicio-nombre">Servicios funerarios y Capillas</h3>
@@ -151,7 +144,7 @@
     </a>
 
     <!-- Servicio 3 -->
-    <a href="1.1servicios/servicios.html#asesoria" target="_blank" class="card-servicio">
+    <a href="1.1servicios/1.1.3cremaciones.html" target="_blank" class="card-servicio">
       <span class="servicio-icono icono-asesoria"></span>
       <div class="info-servicio">
         <h3 class="servicio-nombre">Cremaciones y Urnas</h3>
@@ -161,6 +154,38 @@
   </div>
 </section>
 
+<!-- ———— SECCIÓN DE TEXTO CON FONDO MORADO ———— -->
+<section class="seccion-morado-texto">
+  <div class="contenedor-texto-blanco">
+    <p>
+      Contamos con una amplia variedad de servicios funerarios diseñados para adaptarse a tus necesidades y honrar la memoria de tus seres queridos. 
+      Ofrecemos terrenos, cremaciones, capillas de velación y planes de previsión con atención inmediata, siempre con calidez, profesionalismo y respeto.
+    </p>
+  </div>
+</section>
+
+
+<!-- ———— SECCIÓN: COTIZA TU PLAN CON FONDO CONTINUO ———— -->
+<section class="seccion-cotiza-fondo">
+  <div class="cotiza-texto">
+    <h2>Cotiza tu plan</h2>
+    <p>¿Quieres tomar hoy una decisión con amor y previsión?</p>
+  </div>
+
+  <div class="cotiza-imagen-banda">
+    <img src="1.6imagenes/imagen-cotiza-tu-plan.png" alt="Cementerio Jardín de los Pinos">
+  </div>
+
+  <div class="cotiza-boton">
+    <a href="#" class="btn-cotiza">Click aquí</a>
+  </div>
+
+ <img src="1.6imagenes/imagen-cotiza-tu-plan-asesor-con-camisa.png" 
+     alt="Decoración asesor cotiza"
+     class="img-decorativa-cotiza">
+
+
+</section>
 
 
 
@@ -169,9 +194,6 @@
 
 
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
   <script>
     gsap.registerPlugin(ScrollTrigger);
