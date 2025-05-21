@@ -10,74 +10,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <title>Jardín de los Pinos</title>
   
 
   
 </head>
-
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('show');
-  });
-</script>
-
-<!--SCRIPTS PARA EL MODAL X DE COTIZAR UN PLAN-->
-<script>
-  const abrirModal = document.getElementById('abrirModalCotiza');
-  const modal = document.getElementById('modalCotiza');
-  const cerrarModal = document.getElementById('cerrarModalCotiza');
-
-  abrirModal.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.classList.add('activo');
-  });
-
-  cerrarModal.addEventListener('click', () => {
-    modal.classList.remove('activo');
-  });
-
-  // Cerrar al hacer clic fuera del contenido
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('activo');
-    }
-  });
-</script>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const abrirModal = document.getElementById('abrirModalCotiza');
-    const modal = document.getElementById('modalCotiza');
-    const cerrarModal = document.getElementById('cerrarModalCotiza');
-
-    if (abrirModal && modal && cerrarModal) {
-      abrirModal.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.classList.add('activo');
-      });
-
-      cerrarModal.addEventListener('click', () => {
-        modal.classList.remove('activo');
-      });
-
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('activo');
-        }
-      });
-    } else {
-      console.warn("No se encontró el botón o el modal.");
-    }
-  });
-</script>
-<!--AQUI TERMINAN SCRIPTS PARA EL MODAL X DE COTIZAR UN PLAN-->
-
 
 
 
@@ -314,10 +254,12 @@
 
 <!-- BOTONES FLOTANTES -->
 <!-- Emergencias -->
-<a href="#" class="boton-flotante boton-emergencia">
+<!-- Emergencias -->
+<a href="#" id="abrirModalEmergencias" class="boton-flotante boton-emergencia">
   <img src="1.7iconos/icono-emergencias.png" alt="Emergencias">
   Emergencias
 </a>
+
 
 <!-- Carrito de Compras -->
 <a href="#" class="boton-flotante boton-carrito">
@@ -395,15 +337,271 @@
       
       <button type="submit" class="btn-enviar-modal">Enviar mis datos</button>
     </form>
-    
+
   </div>
 </div>
 <!--FIN DE ventana X en cotizar plan-->
 
 
 
+<!-- ———— SECCIÓN: RECORRIDO VIRTUAL ———— -->
+<section class="seccion-recorrido-virtual">
+  <h2>Recorrido virtual</h2>
+  <div class="capillas-grid">
 
+    <!-- Capilla Apodaca -->
+    <a href="#" class="capilla-card" data-link="https://my.matterport.com/show/?m=9C1WoAUowHi&brand=0">
+      <img src="1.6imagenes/recorrido-virtual-apodaca.jpg" alt="Capilla Apodaca">
+      <div class="capilla-nombre">Capilla Apodaca</div>
+    </a>
+
+    <!-- Capilla Cumbres -->
+    <a href="#" class="capilla-card" data-link="https://my.matterport.com/show/?m=rP1riwtLSkT&brand=0">
+      <img src="1.6imagenes/recorrido-virtual-cumbres.jpg" alt="Capilla Cumbres">
+      <div class="capilla-nombre">Capilla Cumbres</div>
+    </a>
+
+    <!-- Capilla Escobedo -->
+    <a href="#" class="capilla-card" data-link="https://my.matterport.com/show/?m=2rQM7XLDA9p&brand=0">
+      <img src="1.6imagenes/recorrido-virtual-escobedo.jpg" alt="Capilla Escobedo">
+      <div class="capilla-nombre">Capilla Escobedo</div>
+    </a>
+
+    <!-- Capilla Guadalupe -->
+    <a href="#" class="capilla-card" data-link="https://my.matterport.com/show/?m=TK44WG1S9bG&brand=0">
+      <img src="1.6imagenes/recorrido-virtual-guadalupe.jpg" alt="Capilla Guadalupe">
+      <div class="capilla-nombre">Capilla Guadalupe</div>
+    </a>
+
+    <!-- Capilla San Bernabé -->
+    <a href="#" class="capilla-card" data-link="https://my.matterport.com/show/?m=5pVbwXrsUHe&brand=0">
+      <img src="1.6imagenes/recorrido-virtual-sanbernabe.jpg" alt="Capilla San Bernabé">
+      <div class="capilla-nombre">Capilla San Bernabé</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- Modal Recorrido Virtual -->
+<div id="modalRecorrido" class="modal-recorrido-overlay">
+  <div class="modal-recorrido-content">
+    <button class="cerrar-modal" id="cerrarModalRecorrido">✕</button>
+    <iframe id="iframeRecorrido" src="" allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<!--SCRIPT DE MODAL PARA ABRIR VENTANITAS EN EL RECORRIDO VIRTUAL-->
+<script>
+  const recorridoLinks = document.querySelectorAll('.capilla-card');
+  const modalRecorrido = document.getElementById('modalRecorrido');
+  const iframeRecorrido = document.getElementById('iframeRecorrido');
+  const cerrarModalRecorrido = document.getElementById('cerrarModalRecorrido');
+
+  recorridoLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const url = link.getAttribute('data-link');
+      iframeRecorrido.src = url;
+      modalRecorrido.classList.add('activo');
+    });
+  });
+
+  cerrarModalRecorrido.addEventListener('click', () => {
+    modalRecorrido.classList.remove('activo');
+    iframeRecorrido.src = '';
+  });
+
+  modalRecorrido.addEventListener('click', (e) => {
+    if (e.target === modalRecorrido) {
+      modalRecorrido.classList.remove('activo');
+      iframeRecorrido.src = '';
+    }
+  });
+</script>
+
+
+
+<!-- ...otros scripts... -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const abrirEmergencias = document.getElementById('abrirModalEmergencias');
+    const modalEmergencias = document.getElementById('modalEmergencias');
+    const cerrarEmergencias = document.getElementById('cerrarModalEmergencias');
+
+    if (abrirEmergencias && modalEmergencias && cerrarEmergencias) {
+      abrirEmergencias.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalEmergencias.classList.add('activo');
+      });
+
+      cerrarEmergencias.addEventListener('click', () => {
+        modalEmergencias.classList.remove('activo');
+      });
+
+      modalEmergencias.addEventListener('click', (e) => {
+        if (e.target === modalEmergencias) {
+          modalEmergencias.classList.remove('activo');
+        }
+      });
+    } else {
+      console.warn('No se encontró el modal de emergencias o sus elementos.');
+    }
+  });
+</script>
 
 </body>
 </html>
 
+
+
+<!-- ———— SECCIÓN: OBITUARIOS ———— -->
+<section class="seccion-obituarios">
+  <div class="obituarios-texto">
+    <h2>Obituarios</h2>
+    <p>Escribe unas palabras que vivan para siempre en su memoria.<br>
+    Honremos juntos su vida con palabras que sanan y acompañan.</p>
+  </div>
+
+  <div class="obituarios-imagen">
+    <img src="1.6imagenes/imagen-obituarios.jpg" alt="Imagen Obituarios">
+  </div>
+
+  <div class="obituarios-boton">
+    <a href="1.3obituarios/obituarios.html" class="btn-obituarios">Escribir homenaje</a>
+  </div>
+</section>
+<!-- ———— FIN SECCIÓN: OBITUARIOS ———— -->
+
+
+<!-- ———— SECCIÓN: INFORMACIÓN FINAL ———— -->
+<section class="seccion-informativa-final">
+  <p>
+    Jardín de los Pinos es una empresa con más de 34 años de experiencia brindando servicios funerarios integrales en Monterrey, Saltillo y Torreón, acompañando a las familias en los momentos más difíciles con respeto, profesionalismo y calidez humana.
+  </p>
+  <p>
+    Nuestra misión es ofrecer soluciones dignas y humanas ante la pérdida de un ser querido, a través de planes de previsión accesibles, atención inmediata, y servicios que honran la memoria con amor y serenidad.
+  </p>
+</section>
+
+
+<!-- ———— PIE DE PÁGINA FINAL ———— -->
+<footer class="footer">
+  <div class="footer-info">
+    <p>Dirección: Av. San Francisco 120 Desp. 26, Col. Lomas de San Francisco, 64710 Monterrey, N.L.</p>
+    <p>Atención 24/7: (81) 8347 3412</p>
+    <p>Correo: <a href="mailto:info@jardindelospinos.com">info@jardindelospinos.com</a></p>
+  </div>
+
+  <div class="footer-copy">
+    <p>© 2025 Jardín de los Pinos. Todos los derechos reservados.</p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/jardindelospinosoficial/" target="_blank">
+        <img src="1.7iconos/logo-instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@jardindelospinosoficial?lang=es" target="_blank">
+        <img src="1.7iconos/icono-tiktok.png" alt="Tiktok">
+      </a>
+      <a href="https://www.facebook.com/jardindelospinosoficial/" target="_blank">
+        <img src="1.7iconos/logo-facebook.png" alt="Facebook">
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- MODAL EMERGENCIAS -->
+<div id="modalEmergencias" class="modal-emergencias-overlay">
+  <div class="modal-emergencias-content">
+    <button class="cerrar-modal" id="cerrarModalEmergencias">✕</button>
+    
+    <h2 class="modal-titulo">Emergencias</h2>
+    <p class="modal-texto-principal">
+      No se preocupe, nosotros nos encargamos de todo.<br><br>
+      Si ya cuenta con un contrato en Jardín de los Pinos, favor de comunicarse a los teléfonos:
+    </p>
+    <ul class="lista-telefonos">
+      <li><strong>Capilla Apodaca:</strong> (81) - 8212 - 9035</li>
+      <li><strong>Capilla Cumbres:</strong> (81) - 2002 - 9729</li>
+      <li><strong>Capilla Escobedo:</strong> (81) - 1495 - 7888</li>
+      <li><strong>Capilla Guadalupe:</strong> (81) - 8398 - 6598</li>
+      <li><strong>Capilla Saltillo:</strong> (844) - 410 - 1260</li>
+      <li><strong>Capilla San Bernabé:</strong> (81) - 1425 - 6829</li>
+      <li><strong>Parque Escobedo:</strong> (81) - 8347 - 3412</li>
+      <li><strong>Parque Funeral Torreón:</strong> (871) - 236 - 5528</li>
+      <li><strong>Parque Saltillo:</strong> (844) - 410 - 1260</li>
+      <li><strong>Parque San Jerónimo:</strong> (81) - 2002 - 9729</li>
+      <li><strong>Parque San Roque:</strong> (81) - 8347 - 3412</li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('show');
+  });
+</script>
+
+<!--SCRIPTS PARA EL MODAL X DE COTIZAR UN PLAN-->
+<script>
+  const abrirModal = document.getElementById('abrirModalCotiza');
+  const modal = document.getElementById('modalCotiza');
+  const cerrarModal = document.getElementById('cerrarModalCotiza');
+
+  abrirModal.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.add('activo');
+  });
+
+  cerrarModal.addEventListener('click', () => {
+    modal.classList.remove('activo');
+  });
+
+  // Cerrar al hacer clic fuera del contenido
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('activo');
+    }
+  });
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const abrirModal = document.getElementById('abrirModalCotiza');
+    const modal = document.getElementById('modalCotiza');
+    const cerrarModal = document.getElementById('cerrarModalCotiza');
+
+    if (abrirModal && modal && cerrarModal) {
+      abrirModal.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('activo');
+      });
+
+      cerrarModal.addEventListener('click', () => {
+        modal.classList.remove('activo');
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('activo');
+        }
+      });
+    } else {
+      console.warn("No se encontró el botón o el modal.");
+    }
+  });
+</script>
+<!--AQUI TERMINAN SCRIPTS PARA EL MODAL X DE COTIZAR UN PLAN-->
+
+
+
+</body>
+</html>

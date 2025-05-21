@@ -1,3 +1,6 @@
+// ============================
+// AJUSTES RESPONSIVOS
+// ============================
 function applyResponsiveAdjustments() {
   const windowWidth = window.innerWidth;
 
@@ -19,7 +22,7 @@ function applyResponsiveAdjustments() {
   cielo.style.top = '40%';
   cielo.style.transform = 'scale(3)';
 
-  // Ajustes móviles progresivos de las animaciones en movil, posiciones
+  // Ajustes móviles progresivos
   if (windowWidth < 576) {
     logo.style.transform = 'scale(1.2)';
     logo.style.top = '60%';
@@ -41,7 +44,9 @@ function applyResponsiveAdjustments() {
   }
 }
 
-// Asegura que `.seccion-mariposa` esté bien posicionado respecto al `header`
+// ============================
+// AJUSTAR MARGEN SECCIÓN ANIMADA
+// ============================
 function ajustarMargenSeccionAnimada() {
   const header = document.querySelector('header');
   const seccion = document.querySelector('.seccion-mariposa');
@@ -51,10 +56,13 @@ function ajustarMargenSeccionAnimada() {
   }
 }
 
+// ============================
+// EVENTOS
+// ============================
 window.addEventListener('load', () => {
   applyResponsiveAdjustments();
   ajustarMargenSeccionAnimada();
-  setTimeout(applyResponsiveAdjustments, 500);
+  setTimeout(applyResponsiveAdjustments, 500); // Para asegurar ajuste visual post-render
 });
 
 window.addEventListener('resize', () => {
@@ -62,18 +70,45 @@ window.addEventListener('resize', () => {
   ajustarMargenSeccionAnimada();
 });
 
+// ============================
+// ANIMACIÓN CON GSAP
+// ============================
 gsap.to("#cielo", {
   y: -913,
   scrollTrigger: {
     trigger: "#seccionAnimada",
-    start: "top top",     // inicia justo al comenzar scroll
-    end: "+=100vh",    // dura todo el scroll por la sección animada
+    start: "top top",
+    end: "+=100vh",
     scrub: true,
     pin: true,
     immediateRender: true
   }
 });
 
+// ============================
+// MODAL DE EMERGENCIAS
+// ============================
+document.addEventListener('DOMContentLoaded', function () {
+  const abrirEmergencias = document.getElementById('abrirModalEmergencias');
+  const modalEmergencias = document.getElementById('modalEmergencias');
+  const cerrarEmergencias = document.getElementById('cerrarModalEmergencias');
 
+  if (abrirEmergencias && modalEmergencias && cerrarEmergencias) {
+    abrirEmergencias.addEventListener('click', (e) => {
+      e.preventDefault();
+      modalEmergencias.classList.add('activo');
+    });
 
+    cerrarEmergencias.addEventListener('click', () => {
+      modalEmergencias.classList.remove('activo');
+    });
 
+    modalEmergencias.addEventListener('click', (e) => {
+      if (e.target === modalEmergencias) {
+        modalEmergencias.classList.remove('activo');
+      }
+    });
+  } else {
+    console.warn('No se encontró el modal de emergencias o sus elementos.');
+  }
+});

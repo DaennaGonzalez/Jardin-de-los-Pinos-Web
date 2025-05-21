@@ -125,10 +125,10 @@ header {
 }
 .seccion-nosotros h2 {
   font-family: 'Montserrat', cursive; /*aqui puede ir una cursiva*/
-  font-size: clamp(2.2rem, 4vw, 2.5rem);
+  font-size: clamp(2.2rem, 3vw, 2.1rem);
   margin-bottom: 0;
-  font-weight: 240;
-  letter-spacing: 1px;
+  font-weight: 400;
+  letter-spacing: -1px;
 }
 .seccion-nosotros p {
   max-width: 1300px;
@@ -601,6 +601,7 @@ header {
 #servicios-arealandpage {  /*color del fondo a partir de la seccion de servicios, fondito claro de pinos*/
   background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
   background-size: cover;
+  z-index: 0;
   padding: 100px 20px 240px; /*ALTURA PARA QUE QUEPAN LAS IMAGENES DE SECCION3*/
   text-align: center;
 }
@@ -907,6 +908,7 @@ header {
    position: relative;  /* permite controlar el z-index */
   z-index: 5;           /* mayor que el de la imagen */
   margin-top: -30px;    /* lo subes sobre la imagen */
+  left: 90px;
 }
 
 .btn-cotiza {
@@ -933,16 +935,17 @@ header {
   position: absolute;
   bottom: 0;
   left: 20%;
+  top: 26%;
   transform: translateX(-50%);
   width: 500px;
   max-width: 100%;
   height: auto;
   pointer-events: none;
-  z-index: 1;
+  z-index: 30;
   object-fit: contain;
-  opacity: 0.95;
+  opacity: 1;
 }
-
+/*en movil foto de asesor*/
 @media (max-width: 768px) {
   .img-decorativa-cotiza {
     width: 100vw;
@@ -951,7 +954,14 @@ header {
       position: absolute;
   z-index: 100; /* debe ser mayor que el botón */
     transform: translateX(-59%);
+  }}
+
+@media (max-width: 355px) {
+  .img-decorativa-cotiza {
+   left: 17%;
+   top: 30%;
   }
+/*en movil foto de asesor*/
 
   /* Botón debajo */
 .cotiza-boton {
@@ -1093,4 +1103,588 @@ header {
 
 
 /* ————— TERMINA MODAL X Cotiza ————— */
+
+/*LINEA FINAL DE COTIZA TU PLAN*/
+.seccion-cotiza-fondo::after {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 25px;         /* grosor grueso */
+  background-color: #671B6B;
+  margin: 260px 0 -70px -40px;  /* empuja hacia abajo, lo alinea a la izquierda */
+  border-radius: 4px;
+}
+@media (max-width: 768px) {
+  .seccion-cotiza-fondo::after {
+    margin: 110px 0 -70px -40px; /* antes era 260px, ahora 30px menos */
+  bottom: 0;     
+  }
+}
+
+
+/*LINEA FINAL DE COTIZA TU PLAN*/
+
+
+/* ---- RECORRIDO VIRTUAL SECCION ---*/
+.seccion-recorrido-virtual {
+  background: url('/FRONTEND/1.6imagenes/fondo-pagina.png') no-repeat center center fixed; /*el ultimo fixed hace que se pegue a la seccion anterior y se vea el fondo como continuacion*/
+  background-size: cover;
+  padding: 80px 20px;
+  text-align: center;
+}
+/*lineas moradas*/
+.seccion-recorrido-virtual::before {
+  content: "";
+  display: block;
+  width: 80%; /*posicion*/
+  height: 9px; /*grosor*/
+  background-color: #671B6B;
+  margin: -70px 0 70px 5px; /*  sube y alinea a la izquierda */
+  border-radius: 4px;
+}
+
+.seccion-recorrido-virtual::after {
+  content: "";
+  display: block;
+  width: 95%; /*posicion*/
+  height: 25px; /*grosor*/
+  background-color: #671B6B;
+  margin: 140px 0px -90px 360px; /*  baja y alinea a la derecha */
+  border-radius: 0px;
+}
+/*lineas moradas*/
+
+.seccion-recorrido-virtual h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: #671B6B;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.capillas-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px 100px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.capilla-card {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 170px;
+  transition: transform 0.3s ease;
+}
+
+.capilla-card:hover {
+  transform: scale(1.07);
+}
+
+.capilla-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.capilla-nombre {
+  background-color: #671B6B;
+  color: white;
+  padding: 10px 15px; /*espacio a la derecha o arriba abajo entre botones*/
+  border-radius: 19px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  font-size: 1.1rem;
+  margin-top: 6px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Responsivo recorrido virtual para móvil */
+@media (max-width: 768px) {
+  .capillas-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .capilla-card {
+    width: 200px;
+  }
+
+  .capilla-nombre {
+    font-size: 1rem;
+  }
+
+  
+.seccion-recorrido-virtual::before {
+  content: "";
+  display: block;
+  width: 90%; /*posicion*/
+  height: 9px; /*grosor*/
+  background-color: #671B6B;
+  margin: -80px 0 70px -40px; /*  sube y alinea a la izquierda */
+  border-radius: 4px;
+  z-index: 10;
+}
+/*linea gruesa debajo del mono*/
+.seccion-recorrido-virtual::after {
+content: "";
+  display: block;
+  width: 70%; /*posicion*/
+  height: 40px; /*grosor*/
+  background-color: #671B6B;
+  top: -100px;
+  margin: 260px 0 -120px 130px; /*  sube y alinea a la izquierda */
+  border-radius: 0px;
+  z-index: 10;
+}
+
+
+
+
+}
+
+
+
+
+/*imagen animada de recorrido virtual*/
+.seccion-recorrido-virtual {
+  position: relative;
+  padding: 100px 20px;
+  z-index: 1; /* importante para que ::before esté detrás */
+}
+
+.seccion-recorrido-virtual::before {
+  content: "";
+  position: absolute;
+   top: 100px;         /* mueve la imagen hacia arriba o abajo */
+  left: 0.5px;       /* mueve la imagen hacia la izquierda o derecha */
+  width: 100%;
+  height: 100%;
+  background: url('1.6imagenes/imagen-recorridovirtual-animada.png') no-repeat center top;
+  background-size: cover;
+  opacity: 1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Asegura que todo lo demás esté sobre la imagen */
+.seccion-recorrido-virtual h2,
+.capillas-grid,
+.capilla-card {
+  position: relative;
+  z-index: 2;
+}
+
+.seccion-recorrido-virtual h2 {
+  margin-top: -50px;
+}
+
+@media (max-width: 768px) {
+  .seccion-recorrido-virtual::before {
+  background-image: url('1.6imagenes/imagen-recorridovirtual-animada-movil.png');
+  
+    background-position: center 100px;   /* mueve la imagen hacia abajo */
+    background-size: 120%;              /* agranda un poco la imagen */
+    top: 1100px;                          /* ajusta verticalmente */  
+    left: 40px;                   /* Ajusta verticalmente */
+    height: 100%;      
+  }
+}
+
+@media (max-width: 355px) {
+  .seccion-recorrido-virtual::before {
+  background-image: url('1.6imagenes/imagen-recorridovirtual-animada-movil.png');
+  
+    background-position: center 100px;   /* mueve la imagen hacia abajo */
+    background-size: 120%;              /* agranda un poco la imagen */
+    top: 1150px;                          /* ajusta verticalmente */  
+    left: 40px;                   /* Ajusta verticalmente */
+    height: 100%;      
+  }
+}
+
+
+/* ---- TERMINA RECORRIDO VIRTUAL SECCION ---*/
+
+
+
+/* --DISEÑO DE MODAL DE RECORRIDO VIRTUAL VENTANITAS --*/
+.modal-recorrido-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.modal-recorrido-overlay.activo {
+  display: flex;
+}
+
+.modal-recorrido-content {
+  background: white;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 960px;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.modal-recorrido-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #white;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+/* --FIN DISEÑO DE MODAL DE RECORRIDO VIRTUAL VENTANITAS --*/
+
+
+/* ———————————————
+   SECCIÓN OBITUARIOS 
+   ——————————————— */
+.seccion-obituarios {
+  background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
+  background-size: cover;
+  padding: 60px 20px 130px;
+  text-align: center;
+  position: relative;
+  overflow: visible; /*es para que se vea encima de todo*/
+}
+
+.obituarios-texto h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: #671B6B;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.obituarios-texto p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 500;
+  color: #671B6B;
+  margin-bottom: 40px;
+}
+
+.obituarios-imagen {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.obituarios-imagen img {
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.obituarios-boton {
+  position: relative;
+  z-index: 5;
+  margin-top: -30px;
+}
+
+.btn-obituarios {
+  display: inline-block;
+  background-color: #671B6B;
+  color: white;
+  padding: 14px 36px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: bold;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.btn-obituarios:hover {
+  background-color: #542356;
+  transform: scale(1.05);
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+  .obituarios-boton {
+    margin-top: -30px;
+    text-align: center;
+    padding-left: 40px;
+  }
+
+  .btn-obituarios {
+    font-size: clamp(0.8rem, 4vw, 1.2rem);
+  }
+
+  .obituarios-imagen img {
+    width: 140%;
+  height: 50vh;
+  object-fit: cover;
+  object-position: center;
+  }
+}
+
+/*imagen de obituarios - niña*/
+.seccion-obituarios {
+  position: relative; /* importante para posicionar la imagen interna */
+  background: url('/FRONTEND/1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: 100px 20px 160px; /* deja espacio al final para la imagen */
+  text-align: center;
+}
+
+.seccion-obituarios::after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* se pega al final */
+  left: 15%;  /* centrada horizontalmente */
+  top: 22%;
+  transform: translateX(-50%);
+  width: 100%; /* tamaño base para desktop */
+  height: 65%;
+  background: url('1.6imagenes/imagen-homenaje.png') no-repeat center bottom;
+  background-size: contain;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .seccion-obituarios::after {
+    width: 100vw;
+    height: 140px;
+    background-position: center 20px;  /* ajusta verticalmente */
+    bottom: 10px;
+  }
+}
+
+
+/* ———————————————
+   FIN SECCIÓN OBITUARIOS 
+   ——————————————— */
+
+/* ———— SECCIÓN INFORMACIÓN FINAL ———— */
+.seccion-informativa-final {
+  background: url('1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
+  background-size: cover;
+  text-align: center;
+    padding-top: 28px; /* o incluso menos */
+  padding-bottom: 100px; /* mantienes el espacio inferior si quieres */
+  font-family: 'Bellefair', cursive;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  color: #4a004e;
+  line-height: 1.2;
+}
+
+.seccion-informativa-final p {
+  max-width: 1000px;
+  margin: 0 auto 25px;
+}
+
+
+
+/* ———— PIE DE PÁGINA ———— */
+.footer {
+  background-color: #b396c3; /* Color sólido igual que encabezado */
+  color: white;
+  text-align: center;
+  padding: 40px 20px 50px;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+
+}
+
+.footer-info p {
+  font-size: 0.95rem;
+  margin: 5px 0;
+}
+
+.footer-info a {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 20px;
+}
+
+.footer-copy p {
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer-social img {
+  width: 26px;
+  height: 26px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social img:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px;
+  }
+
+  .footer-info p,
+  .footer-copy p {
+    font-size: 0.8rem;
+  }
+
+  .footer-social {
+    gap: 20px;
+    padding: 10px 16px;
+  }
+
+  .footer-social img {
+    width: 24px;
+    height: 24px;
+  }
+  .seccion-informativa-final {
+    padding-left: 20px;  /*es para espacio de orilla entre texto final*/
+    padding-right: 20px;
+
+}
+
+/* Ajuste para móvil */
+@media (max-width: 768px) {
+  .seccion-obituarios::after {
+    width: 100vw;         /* casi todo el ancho de pantalla */
+    height: 310px;       /* menos alto en móvil si deseas */
+    left: 15%;           /* centrado */
+     top: 60%;
+    transform: translate(-50%, 10px); /* 10px hacia abajo desde el final */
+    background-position: center top;
+    background-size: contain;
+  }
+}
+
+
+.modal-emergencias-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10000;
+}
+
+.modal-emergencias-overlay.activo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-emergencias-content {
+  background: #671B6B;
+  color: white;
+  padding: 30px 25px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  position: relative;
+  text-align: left;
+}
+
+.modal-titulo {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.modal-texto-principal {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.lista-telefonos {
+  list-style: none;
+  padding-left: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.lista-telefonos li {
+  margin-bottom: 6px;
+}
+
+.modal-emergencias-content .cerrar-modal {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.seccion-texto {
+  background-color: #f3e8fb; /* un tono suave que combine */
+  color: #3d024d;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.contenido-texto {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.seccion-texto h2 {
+  font-family: 'Fleur De Leah', cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+  color: #671B6B;
+}
+
+.seccion-texto p {
+  font-size: clamp(1rem, 2.3vw, 1.2rem);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
 
