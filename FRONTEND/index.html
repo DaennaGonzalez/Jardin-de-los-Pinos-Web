@@ -71,7 +71,7 @@
 
 
    <!-- NAV (escritorio + móvil) -->
-<nav id="mobileMenu" class="menu menu-mobile">
+<nav id="mobileMenu" class="menu-mobile">
   <a href="#" class="active">INICIO</a>
   <a href="1.0nosotros/nosotros.html">NOSOTROS</a>
   <a href="1.1servicios/servicios.html">SERVICIOS</a>
@@ -172,7 +172,7 @@
 
  <div class="cotiza-boton">
   <a href="#" id="abrirModalCotiza" class="btn-cotiza">
-    Quiero que me contacte un asesor especializado.
+    Quiero que me contacte un asesor.
   </a>
 </div>
 
@@ -254,11 +254,12 @@
 
 <!-- BOTONES FLOTANTES -->
 <!-- Emergencias -->
-<!-- Emergencias -->
-<a href="#" id="abrirModalEmergencias" class="boton-flotante boton-emergencia">
+
+<button id="botonEmergencias" class="boton-flotante boton-emergencia boton-fijo-superior">
   <img src="1.7iconos/icono-emergencias.png" alt="Emergencias">
   Emergencias
-</a>
+</button>
+
 
 
 <!-- Carrito de Compras -->
@@ -391,69 +392,6 @@
 </div>
 
 
-<!--SCRIPT DE MODAL PARA ABRIR VENTANITAS EN EL RECORRIDO VIRTUAL-->
-<script>
-  const recorridoLinks = document.querySelectorAll('.capilla-card');
-  const modalRecorrido = document.getElementById('modalRecorrido');
-  const iframeRecorrido = document.getElementById('iframeRecorrido');
-  const cerrarModalRecorrido = document.getElementById('cerrarModalRecorrido');
-
-  recorridoLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const url = link.getAttribute('data-link');
-      iframeRecorrido.src = url;
-      modalRecorrido.classList.add('activo');
-    });
-  });
-
-  cerrarModalRecorrido.addEventListener('click', () => {
-    modalRecorrido.classList.remove('activo');
-    iframeRecorrido.src = '';
-  });
-
-  modalRecorrido.addEventListener('click', (e) => {
-    if (e.target === modalRecorrido) {
-      modalRecorrido.classList.remove('activo');
-      iframeRecorrido.src = '';
-    }
-  });
-</script>
-
-
-
-<!-- ...otros scripts... -->
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const abrirEmergencias = document.getElementById('abrirModalEmergencias');
-    const modalEmergencias = document.getElementById('modalEmergencias');
-    const cerrarEmergencias = document.getElementById('cerrarModalEmergencias');
-
-    if (abrirEmergencias && modalEmergencias && cerrarEmergencias) {
-      abrirEmergencias.addEventListener('click', (e) => {
-        e.preventDefault();
-        modalEmergencias.classList.add('activo');
-      });
-
-      cerrarEmergencias.addEventListener('click', () => {
-        modalEmergencias.classList.remove('activo');
-      });
-
-      modalEmergencias.addEventListener('click', (e) => {
-        if (e.target === modalEmergencias) {
-          modalEmergencias.classList.remove('activo');
-        }
-      });
-    } else {
-      console.warn('No se encontró el modal de emergencias o sus elementos.');
-    }
-  });
-</script>
-
-</body>
-</html>
-
 
 
 <!-- ———— SECCIÓN: OBITUARIOS ———— -->
@@ -511,16 +449,16 @@
 </footer>
 
 
-<!-- MODAL EMERGENCIAS -->
-<div id="modalEmergencias" class="modal-emergencias-overlay">
-  <div class="modal-emergencias-content">
+<!-- MODAL DE EMERGENCIAS -->
+<div id="modalEmergencias" class="modal-overlay">
+  <div class="modal-contenido">
+        <!-- Imagen decorativa arriba -->
+    <img src="1.6imagenes/imagen-emergencias-asesora.png" alt="Asesora Emergencias" class="img-emergencias-superior">
+
     <button class="cerrar-modal" id="cerrarModalEmergencias">✕</button>
-    
-    <h2 class="modal-titulo">Emergencias</h2>
-    <p class="modal-texto-principal">
-      No se preocupe, nosotros nos encargamos de todo.<br><br>
-      Si ya cuenta con un contrato en Jardín de los Pinos, favor de comunicarse a los teléfonos:
-    </p>
+    <h2>Emergencias</h2>
+    <p>No se preocupe, nosotros nos encargamos de todo.</p>
+    <p>Si ya cuenta con un contrato en Jardín de los Pinos favor de comunicarse a los teléfonos:</p>
     <ul class="lista-telefonos">
       <li><strong>Capilla Apodaca:</strong> (81) - 8212 - 9035</li>
       <li><strong>Capilla Cumbres:</strong> (81) - 2002 - 9729</li>
@@ -536,70 +474,6 @@
     </ul>
   </div>
 </div>
-
-
-
-
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('show');
-  });
-</script>
-
-<!--SCRIPTS PARA EL MODAL X DE COTIZAR UN PLAN-->
-<script>
-  const abrirModal = document.getElementById('abrirModalCotiza');
-  const modal = document.getElementById('modalCotiza');
-  const cerrarModal = document.getElementById('cerrarModalCotiza');
-
-  abrirModal.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.classList.add('activo');
-  });
-
-  cerrarModal.addEventListener('click', () => {
-    modal.classList.remove('activo');
-  });
-
-  // Cerrar al hacer clic fuera del contenido
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('activo');
-    }
-  });
-</script>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const abrirModal = document.getElementById('abrirModalCotiza');
-    const modal = document.getElementById('modalCotiza');
-    const cerrarModal = document.getElementById('cerrarModalCotiza');
-
-    if (abrirModal && modal && cerrarModal) {
-      abrirModal.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.classList.add('activo');
-      });
-
-      cerrarModal.addEventListener('click', () => {
-        modal.classList.remove('activo');
-      });
-
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('activo');
-        }
-      });
-    } else {
-      console.warn("No se encontró el botón o el modal.");
-    }
-  });
-</script>
-<!--AQUI TERMINAN SCRIPTS PARA EL MODAL X DE COTIZAR UN PLAN-->
 
 
 

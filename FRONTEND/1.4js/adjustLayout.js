@@ -81,21 +81,101 @@ gsap.to("#cielo", {
     end: "+=100vh",
     scrub: true,
     pin: true,
-    immediateRender: true
+    immediateRender: true,
   }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const recorridoLinks = document.querySelectorAll('.capilla-card');
+  const modalRecorrido = document.getElementById('modalRecorrido');
+  const iframeRecorrido = document.getElementById('iframeRecorrido');
+  const cerrarModalRecorrido = document.getElementById('cerrarModalRecorrido');
+
+  if (recorridoLinks.length && modalRecorrido && iframeRecorrido && cerrarModalRecorrido) {
+    recorridoLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = link.getAttribute('data-link');
+        iframeRecorrido.src = url;
+        modalRecorrido.classList.add('activo');
+      });
+    });
+
+    cerrarModalRecorrido.addEventListener('click', () => {
+      modalRecorrido.classList.remove('activo');
+      iframeRecorrido.src = '';
+    });
+
+    modalRecorrido.addEventListener('click', (e) => {
+      if (e.target === modalRecorrido) {
+        modalRecorrido.classList.remove('activo');
+        iframeRecorrido.src = '';
+      }
+    });
+  }
+});
+
+
+
+
 // ============================
-// MODAL DE EMERGENCIAS
+// FUNCIONAMIENTO DE ABRIR Y CERRAR MENÚ
 // ============================
 document.addEventListener('DOMContentLoaded', function () {
-  const abrirEmergencias = document.getElementById('abrirModalEmergencias');
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ===== MENÚ MÓVIL =====
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+  }
+
+  // ===== MODAL: COTIZA UN PLAN =====
+  const abrirModal = document.getElementById('abrirModalCotiza');
+  const modal = document.getElementById('modalCotiza');
+  const cerrarModal = document.getElementById('cerrarModalCotiza');
+
+  if (abrirModal && modal && cerrarModal) {
+    abrirModal.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('activo');
+    });
+
+    cerrarModal.addEventListener('click', () => {
+      modal.classList.remove('activo');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('activo');
+      }
+    });
+  } else {
+    console.warn("No se encontró el botón o el modal de Cotiza.");
+  }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const botonEmergencias = document.getElementById('botonEmergencias');
   const modalEmergencias = document.getElementById('modalEmergencias');
   const cerrarEmergencias = document.getElementById('cerrarModalEmergencias');
 
-  if (abrirEmergencias && modalEmergencias && cerrarEmergencias) {
-    abrirEmergencias.addEventListener('click', (e) => {
-      e.preventDefault();
+  if (botonEmergencias && modalEmergencias && cerrarEmergencias) {
+    botonEmergencias.addEventListener('click', () => {
       modalEmergencias.classList.add('activo');
     });
 
@@ -108,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function () {
         modalEmergencias.classList.remove('activo');
       }
     });
-  } else {
-    console.warn('No se encontró el modal de emergencias o sus elementos.');
   }
 });
+
