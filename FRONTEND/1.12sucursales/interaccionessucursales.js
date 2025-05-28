@@ -1,89 +1,4 @@
-// ============================
-// AJUSTES RESPONSIVOS
-// ============================
-function applyResponsiveAdjustments() {
-  const windowWidth = window.innerWidth;
-
-  const logo = document.getElementById('logoAnim');
-  const pinos = document.getElementById('pinos');
-  const cruz = document.getElementById('cruz');
-  const panteon = document.getElementById('panteon');
-  const cielo = document.getElementById('cielo');
-
-  // Valores por defecto (pantalla grande)
-  logo.style.transform = 'scale(1)';
-  logo.style.top = '13%';
-  pinos.style.top = '24%';
-  cruz.style.top = '29%';
-  panteon.style.transform = 'scale(1.0)';
-  panteon.style.top = 'auto';
-  cielo.style.width = '200%';
-  cielo.style.left = '40%';
-  cielo.style.top = '40%';
-  cielo.style.transform = 'scale(3)';
-
-  // Ajustes móviles progresivos
-  if (windowWidth < 576) {
-    logo.style.transform = 'scale(1.2)';
-    logo.style.top = '60%';
-    pinos.style.top = '72%';
-    cruz.style.top = '74%';
-    panteon.style.transform = 'scale(1.4)';
-    panteon.style.top = '61%';
-    cielo.style.top = '70%';
-    cielo.style.transform = 'scale(3.2)';
-  } else if (windowWidth < 720) {
-    logo.style.transform = 'scale(1.1)';
-    logo.style.top = '48%';
-    pinos.style.top = '45%';
-    cruz.style.top = '50%';
-    panteon.style.transform = 'scale(1.3)';
-    panteon.style.top = '42%';
-    cielo.style.top = '70%';
-    cielo.style.transform = 'scale(3.2)';
-  }
-}
-
-// ============================
-// AJUSTAR MARGEN SECCIÓN ANIMADA
-// ============================
-function ajustarMargenSeccionAnimada() {
-  const header = document.querySelector('header');
-  const seccion = document.querySelector('.seccion-mariposa');
-  if (header && seccion) {
-    const altoHeader = header.offsetHeight;
-    seccion.style.marginTop = `${altoHeader}px`;
-  }
-}
-
-// ============================
-// EVENTOS
-// ============================
-window.addEventListener('load', () => {
-  applyResponsiveAdjustments();
-  ajustarMargenSeccionAnimada();
-  setTimeout(applyResponsiveAdjustments, 500); // Para asegurar ajuste visual post-render
-});
-
-window.addEventListener('resize', () => {
-  applyResponsiveAdjustments();
-  ajustarMargenSeccionAnimada();
-});
-
-// ============================
-// ANIMACIÓN CON GSAP
-// ============================
-gsap.to("#cielo", {
-  y: -913,
-  scrollTrigger: {
-    trigger: "#seccionAnimada",
-    start: "top top",
-    end: "+=100vh",
-    scrub: true,
-    pin: true,
-    immediateRender: true,
-  }
-});
+//AQUI ESTA EL JAVASCRIPT BASE MAQUETA */
 
 document.addEventListener('DOMContentLoaded', () => {
   const recorridoLinks = document.querySelectorAll('.capilla-card');
@@ -115,6 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+document.getElementById('botonEmergencias').addEventListener('click', () => {
+  document.getElementById('modalEmergencias').classList.add('activo');
+});
+
+document.getElementById('cerrarModalEmergencias').addEventListener('click', () => {
+  document.getElementById('modalEmergencias').classList.remove('activo');
+});
 
 
 
@@ -219,10 +141,70 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnFolio = document.querySelector('.btn-folio');
   if (btnFolio) {
     btnFolio.addEventListener('click', () => {
-      window.location.href = "1.13compras/1.13.2pagoconfoliocontrato.html";
+      window.location.href = "../1.13compras/1.13.2pagoconfoliocontrato.html";
     });
   }
 });
 
 
 /*CAMBIOS RECIENTES CARRITO*/
+
+// Activar modal de emergencias
+document.getElementById('botonEmergencias').addEventListener('click', () => {
+  document.getElementById('modalEmergencias').classList.add('activo');
+});
+document.getElementById('cerrarModalEmergencias').addEventListener('click', () => {
+  document.getElementById('modalEmergencias').classList.remove('activo');
+});
+
+// Activar modal del carrito
+document.querySelector('.boton-carrito').addEventListener('click', (e) => {
+  e.preventDefault();
+  document.getElementById('modalCarrito').classList.add('activo');
+});
+document.getElementById('cerrarModalCarrito').addEventListener('click', () => {
+  document.getElementById('modalCarrito').classList.remove('activo');
+});
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggle     = document.getElementById('menuToggle');
+      const mobileNav  = document.getElementById('mobileMenu');
+
+      if (toggle && mobileNav) {
+        toggle.addEventListener('click', () => {
+          mobileNav.classList.toggle('show');
+        });
+      } else {
+        console.warn('No encontré #menuToggle o #mobileMenu en el DOM');
+      }
+    });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector("header");
+  const seccionesConEspacio = document.querySelectorAll(".con-espacio-encabezado");
+
+  function ajustarEspacioEncabezado() {
+    const alturaHeader = header.offsetHeight;
+    seccionesConEspacio.forEach(seccion => {
+      seccion.style.paddingTop = `${alturaHeader + 60}px`; // 60px extra para respiro, para que el inicio de la seccion empiece un poco más abajo del encabezado*/
+    });
+  }
+
+  ajustarEspacioEncabezado(); // Ejecutar al cargar
+
+  // Reajustar si la ventana cambia (modo responsivo)
+  window.addEventListener("resize", ajustarEspacioEncabezado);
+});
+
+//AQUI TERMINA EL JAVASCRIPT BASE MAQUETA */
+
+
+
+
+
+
+
+
+
+

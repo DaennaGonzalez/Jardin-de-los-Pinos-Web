@@ -1,33 +1,284 @@
+<!---------------------------------------->
+<!--AQUI empieza EL HTML BASE MAQUETADO -->
+<!---------------------------------------->
 <!DOCTYPE html>
 <html lang="es">
+  
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Propiedades funerarias – Jardín de los Pinos</title>
 
-  <!-- Puedes enlazar tu mismo CSS si quieres mantener la apariencia global -->
-  <link rel="stylesheet" href="../styles.css">
-  <style>
-    /* Estilo mínimo por si no traes el CSS global */
-    body{
-      font-family: "Montserrat", sans-serif;
-      display:flex;             /* centrar el texto en pantalla */
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      margin:0;
-      background:#f5f5f5;
-    }
-    h1{
-      color:#671B6B;
-      font-size:clamp(1.8rem,5vw,3rem);
-      text-align:center;
-    }
-  </style>
+  <meta charset="UTF-8">
+   <!-- ESTA LÍNEA ES CRUCIAL PARA MÓVIL -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles-1.1.1propiedades-funerarias.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>Jardín de los Pinos</title>
+  
+  
 </head>
+
+
+
+
 <body>
 
-  <h1>Estás en el apartado de PROPIEDADES FUNERARIAS</h1>
+<!-- GSAP SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+<!-- SCRIPT DE AJUSTE -->
+<script src="interacciones-1.1.1propiedades-funerarias.js"></script>
+
+
+  <!-- HEADER -->
+ <!-- HEADER -->
+<header>
+  <div class="header-container">
+    <!-- Logo -->
+    <img src="../1.6imagenes/logo-blanco.png" alt="Logo Jardín de los Pinos" class="logo">
+
+    <!-- Botones derecho -->
+    <div class="acciones">
+      <a href="#">Registrarse</a>
+      <div class="inicio-sesion">
+        <img src="../1.7iconos/icono-iniciosesion.png" alt="Icono sesión">
+        <a href="#">Iniciar sesión</a>
+      </div>
+    </div>
+
+    <!-- BOTÓN HAMBURGUESA: solo en móvil -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+    <!-- Menú escritorio -->
+    <nav class="menu menu-desktop">
+      <a href="../index.html">INICIO</a>
+      <a href="../1.0nosotros/nosotros.html">NOSOTROS</a>
+      <a href="servicios.html" class="active">SERVICIOS</a>
+      <a href="../1.11promociones/promociones.html">PROMOCIONES</a>
+      <a href="../1.12sucursales/sucursales.html">SUCURSALES</a>
+      <a href="../1.3obituarios/obituarios.html">OBITUARIOS</a>
+      <a href="../1.2blog/blog.html">BLOG</a>
+    </nav>
+
+    <!-- Menú móvil -->
+    <nav id="mobileMenu" class="menu-mobile">
+      <a href="../index.html">INICIO</a>
+      <a href="../1.0nosotros/nosotros.html">NOSOTROS</a>
+      <a href="servicios.html" class="active">SERVICIOS</a>
+      <a href="../1.11promociones/promociones.html">PROMOCIONES</a>
+      <a href="../1.12sucursales/sucursales.html">SUCURSALES</a>
+      <a href="../1.3obituarios/obituarios.html">OBITUARIOS</a>
+      <a href="../1.2blog/blog.html">BLOG</a>
+    </nav>
+  </div>
+</header>
+
+  
+<!--EMPIEZAN LAS SECCIONES-->
+
+<section class="contenedor-principal">
+  <div class="filtro-propiedades">
+    <h2 class="titulo-propiedades">Propiedades funerarias</h2>
+
+    <div class="filtros-select">
+      <!-- Filtro por Estado -->
+      <div class="grupo-select">
+        <label for="estado">Seleccionar estado:</label>
+        <select id="estado" class="select-custom">
+          <option value="">-- Selecciona un estado --</option>
+          <option value="Nuevo León">Nuevo León</option>
+          <option value="Coahuila">Coahuila</option>
+        </select>
+      </div>
+
+      <!-- Filtro por Sucursal -->
+      <div class="grupo-select">
+        <label for="ciudad">Seleccionar ciudad / sucursal:</label>
+        <select id="ciudad" class="select-custom">
+          <option value="">-- Selecciona una sucursal --</option>
+          <!-- Este select se llenará dinámicamente según el estado -->
+        </select>
+      </div>
+    </div>
+
+    <p class="subtitulo">¿Cuál buscabas adquirir?</p>
+  </div>
+
+  <div id="propiedades-container" class="grid-propiedades">
+    <!-- Aquí se insertan dinámicamente las propiedades -->
+  </div>
+
+
+  <!--FONDO DE SUCURSALES-->
+  <div class="imagen-fondo-final-decorativa">
+  <img src="../1.6imagenes/animacionprincipal-elemento1.png" alt="Decoración inferior">
+</div>
+
+
+
+</section>
+
+
+
+<!--FIN DE LAS SECCIONES-->
+
+<!-- BOTONES FLOTANTES -->
+<!-- Emergencias -->
+
+<button id="botonEmergencias" class="boton-flotante boton-emergencia boton-fijo-superior">
+  <img src="../1.7iconos/icono-emergencias.png" alt="Emergencias">
+  Emergencias
+</button>
+
+
+
+<!-- Carrito de Compras -->
+<a href="#" class="boton-flotante boton-carrito">
+  <img src="../1.7iconos/icono-carritocompras.png" alt="Carrito de Compras">
+  Carrito de compras
+</a>
+
+<!-- Redes Sociales (bloque con 3 íconos) -->
+<div class="boton-flotante redes-sociales">
+  <a href="https://www.instagram.com/jardindelospinosoficial/" target="_blank">
+      <img src="../1.7iconos/logo-instagram.png" alt="Instagram">
+  </a>
+  <a href="https://www.tiktok.com/@jardindelospinosoficial?lang=es" target="_blank">
+      <img src="../1.7iconos/icono-tiktok.png" alt="Tiktok">
+  </a>
+  <a href="https://www.facebook.com/jardindelospinosoficial/" target="_blank">
+      <img src="../1.7iconos/logo-facebook.png" alt="Facebook">
+  </a>
+</div>
+
+<!-- WhatsApp -->
+<a href="https://api.whatsapp.com/send?phone=5218127323099&text=Me%20interesa%20un%20Plan%20de%20Previsi%C3%B3n%20Funerario" class="boton-flotante boton-whatsapp" target="_blank">
+  <img src="../1.7iconos/icono-whatsapp.png" alt="WhatsApp">
+  Contáctanos
+</a>
+
+<!-- Sucursales -->
+<a href="https://maps.app.goo.gl/kcmPsBT43GTkooUw5" class="boton-flotante boton-sucursales">
+  <img src="../1.7iconos/icono-maps.png" alt="Sucursales">
+  Sucursales
+</a>
+
+
+
+
+
+
+<!-- ———— PIE DE PÁGINA FINAL ———— -->
+<footer class="footer">
+  <div class="footer-info">
+    <p>Dirección: Av. San Francisco 120 Desp. 26, Col. Lomas de San Francisco, 64710 Monterrey, N.L.</p>
+    <p>Atención 24/7: (81) 8347 3412</p>
+    <p>Correo: <a href="mailto:info@jardindelospinos.com">info@jardindelospinos.com</a></p>
+  </div>
+
+  <div class="footer-copy">
+    <p>© 2025 Jardín de los Pinos. Todos los derechos reservados.</p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/jardindelospinosoficial/" target="_blank">
+        <img src="../1.7iconos/logo-instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@jardindelospinosoficial?lang=es" target="_blank">
+        <img src="../1.7iconos/icono-tiktok.png" alt="Tiktok">
+      </a>
+      <a href="https://www.facebook.com/jardindelospinosoficial/" target="_blank">
+        <img src="../1.7iconos/logo-facebook.png" alt="Facebook">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL DE EMERGENCIAS -->
+<div id="modalEmergencias" class="modal-overlay">
+  <div class="modal-contenido">
+    <button class="cerrar-modal" id="cerrarModalEmergencias">✕</button>
+    
+    <h2 class="titulo-modal-emergencias">Emergencias</h2>
+    <p>No se preocupe, nosotros nos encargamos de todo.</p>
+    <p>Si ya cuenta con un contrato en Jardín de los Pinos favor de comunicarse a los teléfonos:</p>
+    
+    <ul class="lista-telefonos">
+      <li><strong>Capilla Apodaca:</strong> (81) - 8212 - 9035</li>
+      <li><strong>Capilla Cumbres:</strong> (81) - 2002 - 9729</li>
+      <li><strong>Capilla Escobedo:</strong> (81) - 1495 - 7888</li>
+      <li><strong>Capilla Guadalupe:</strong> (81) - 8398 - 6598</li>
+      <li><strong>Capilla Saltillo:</strong> (844) - 410 - 1260</li>
+      <li><strong>Capilla San Bernabé:</strong> (81) - 1425 - 6829</li>
+      <li><strong>Parque Escobedo:</strong> (81) - 8347 - 3412</li>
+      <li><strong>Parque Funeral Torreón:</strong> (871) - 236 - 5528</li>
+      <li><strong>Parque Saltillo:</strong> (844) - 410 - 1260</li>
+      <li><strong>Parque San Jerónimo:</strong> (81) - 2002 - 9729</li>
+      <li><strong>Parque San Roque:</strong> (81) - 8347 - 3412</li>
+    </ul>
+
+    <!-- Imagen decorativa -->
+    <img src="../1.6imagenes/imagen-emergencias-asesora.png" alt="Asesora Emergencias" class="img-emergencias-superior">
+  </div>
+</div>
+
+
+<!-- MODAL: CARRITO DE COMPRAS -->
+<div id="modalCarrito" class="modal-carrito-overlay">
+  <div class="modal-carrito-content">
+    <button class="cerrar-modal" id="cerrarModalCarrito">✕</button>
+
+    <!-- Imagen del carrito decorativo -->
+    <img src="../1.7iconos/icono-carrito3d.png" alt="Carrito" class="img-carrito-3d">
+
+    <h2 class="titulo-carrito">Mi carrito</h2>
+
+    <div class="item-carrito">
+  <span>Terreno americano</span>
+  <div class="cantidad-control">
+    <button class="btn-restar" data-id="terreno">−</button>
+    <span id="cantidad-terreno">0</span>
+    <button class="btn-sumar" data-id="terreno">+</button>
+  </div>
+</div>
+
+<div class="item-carrito">
+  <span>Capilla elevada</span>
+  <div class="cantidad-control">
+    <button class="btn-restar" data-id="capilla">−</button>
+    <span id="cantidad-capilla">0</span>
+    <button class="btn-sumar" data-id="capilla">+</button>
+  </div>
+</div>
+
+<div class="carrito-total">
+  <strong>Total</strong> <span id="total">$0.00</span>
+</div>
+
+
+   <div class="pago-carrito">
+  <img src="../1.7iconos/logo-openpay.png" alt="OpenPay" class="logo-openpay">
+  <a href="../1.13compras/1.13.1carritodecompras.html" class="btn-pagar">Ir a pagar</a>
+</div>
+
+<div class="folio-contrato">
+  <button class="btn-folio">Ya tengo folio de contrato</button>
+</div>
+
+<!--fin modal carrito compras-->
+
+
+<script src="interacciones-1.1.1propiedades-funerarias.js"></script>
+
 
 </body>
 </html>
+<!---------------------------------------->
+<!--AQUI TERMINA EL HTML BASE MAQUETADO -->
+<!---------------------------------------->
+
+

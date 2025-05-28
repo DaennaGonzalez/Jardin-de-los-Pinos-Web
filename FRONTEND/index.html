@@ -190,8 +190,6 @@
 
 
 
-
-
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
@@ -288,7 +286,7 @@
 </a>
 
 <!-- Sucursales -->
-<a href="https://maps.app.goo.gl/kcfovkzFGANUXQtRA" class="boton-flotante boton-sucursales">
+<a href="https://maps.app.goo.gl/kcmPsBT43GTkooUw5" class="boton-flotante boton-sucursales">
   <img src="1.7iconos/icono-maps.png" alt="Sucursales">
   Sucursales
 </a>
@@ -475,7 +473,49 @@
   </div>
 </div>
 
+<!-- MODAL: CARRITO DE COMPRAS -->
+<div id="modalCarrito" class="modal-carrito-overlay">
+  <div class="modal-carrito-content">
+    <button class="cerrar-modal" id="cerrarModalCarrito">✕</button>
 
+    <!-- Imagen del carrito decorativo -->
+    <img src="1.7iconos/icono-carrito3d.png" alt="Carrito" class="img-carrito-3d">
+
+    <h2 class="titulo-carrito">Mi carrito</h2>
+
+    <div class="item-carrito">
+  <span>Terreno americano</span>
+  <div class="cantidad-control">
+    <button class="btn-restar" data-id="terreno">−</button>
+    <span id="cantidad-terreno">0</span>
+    <button class="btn-sumar" data-id="terreno">+</button>
+  </div>
+</div>
+
+<div class="item-carrito">
+  <span>Capilla elevada</span>
+  <div class="cantidad-control">
+    <button class="btn-restar" data-id="capilla">−</button>
+    <span id="cantidad-capilla">0</span>
+    <button class="btn-sumar" data-id="capilla">+</button>
+  </div>
+</div>
+
+<div class="carrito-total">
+  <strong>Total</strong> <span id="total">$0.00</span>
+</div>
+
+
+   <div class="pago-carrito">
+  <img src="1.7iconos/logo-openpay.png" alt="OpenPay" class="logo-openpay">
+  <a href="1.13compras/1.13.1carritodecompras.html" class="btn-pagar">Ir a pagar</a>
+</div>
+
+<div class="folio-contrato">
+  <button class="btn-folio">Ya tengo folio de contrato</button>
+</div>
+
+<!--fin modal carrito compras-->
 
 </body>
 </html>

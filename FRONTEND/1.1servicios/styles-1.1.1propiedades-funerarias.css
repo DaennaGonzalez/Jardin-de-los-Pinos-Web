@@ -1,3 +1,8 @@
+/* ===========================
+   MENU BASE MAQUETADO . CSS
+   =========================== */
+
+   /* A PARTIR DE AQUI ES EL CSS BASE MAQUETA*/
 html, body {
   height: auto;
   min-height: 100vh;
@@ -31,6 +36,8 @@ header {
   left: 0;
   z-index: 1000;
 }
+
+
 .header-container {
   display: flex;
   flex-wrap: wrap;
@@ -91,94 +98,6 @@ header {
   gap: 15px;
 }
 
-/* SECCIÓN ANIMACIÓN */
-.seccion-mariposa {
-  width: 100%;
-  margin-top: var(--header-height);
-  position: relative;
-  top: 0;
-  left: 0;
-  aspect-ratio: 1440 / 1035;
-  background: #671B6B;
-}
-.capa {
-  position: absolute;
-  max-width: 100%;
-  height: auto;
-  will-change: transform;
-}
-#cielo   { width: 267%; left: -43%; top: -10%; z-index: 1; }
-#logoAnim{ width: 52%;  left: 26%;  top: 26%;  z-index: 2; }
-#pinos   { width: 90.7%;left: 4.4%; top: 38.7%;z-index: 3; }
-#cruz    { width: 48%;  left: -13%; top: 44%;  z-index: 4; }
-#panteon { width: 100%; left: 0;    bottom: 0; top: auto; z-index: 5; }
-
-/* SECCIÓN “NOSOTROS” (texto bajo la animación) */
-/* === SECCIÓN "NOSOTROS" - BLOQUE MORADO DE TEXTO BAJO LA ANIMACIÓN === */
-.seccion-nosotros {
-  background-color: #671B6B;
-  color: white;
-  padding: 30px 20px 40px;  /* ⬅️ Ajuste: menos arriba, más abajo */
-  text-align: center;
-  width: 100%;
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.contenido-nosotros {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-top: 10px;         /* ⬅️ Un pequeño empuje hacia abajo */
-}
-
-/* Título */
-.seccion-nosotros h2 {
-  font-family: 'Fleur de Leah', sans-serif;
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 200;
-  margin-bottom: 16px;       /* ⬅️ Espacio entre título y texto */
-  line-height: 1.2;
-}
-
-/* Texto */
-.seccion-nosotros p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 300;
-  max-width: 1000px;
-  margin: 0 auto 12px;
-  line-height: 1.2;
-}
-
-@media (max-width: 768px) {
-  .seccion-nosotros p {
-    font-size: clamp(0.85rem, 3vw, 1rem);  /* ⬅️ más pequeño en móvil */
-    line-height: 1.3;                      /* espacio vertical ajustado */
-    padding: 0 10px;                       /* margen lateral para respiro */
-  }
-.seccion-nosotros h2 {
-  line-height: 0.85;
-}
-  
-}
-
-
-
-
-/* MENU “bounce” effect */
-@keyframes bounce {
-  0%   { transform: scale(1); }
-  5%   { transform: scale(0.9); }
-  15%  { transform: scale(1.1); }
-  20%  { transform: scale(0.95); }
-  30%  { transform: scale(1); }
-  45%  { transform: scale(1.5); }
-  48%  { transform: scale(1.95); }
-}
-.menu a:active {
-  animation: bounce 0.5s ease;
-}
 
 /* BOTONES FLOTANTES (Desktop) */
 .boton-flotante {
@@ -200,6 +119,46 @@ header {
 }
 /* Emergencias */
 
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* ⬅️ EFECTO OSCURECER */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10000;
+}
+
+.modal-overlay.activo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-contenido {
+  background: #671B6B;
+  color: white;
+  padding: 30px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  z-index: 10001;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  text-align: left;
+}
+
+.img-emergencias-superior {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 120px;
+  height: auto;
+}
 
 
 /* Carrito */
@@ -322,42 +281,6 @@ header {
 }
 
 
-  /* ============================
-   SECCIÓN DE ANIMACIÓN – GENERAL
-   ============================ */
-.seccion-mariposa {
-  position: relative;
-  overflow: hidden;
-  background-color: #671B6B;
-  width: 100%;
-  height: 120vh; /* ALTURA CONTROLADA, AJUSTABLE */
-  margin-top: 20px; /* En escritorio, compensación para el header */
-}
-
-
-/* ———————————————
-   ESCRITORIO (≥ 769px)
-   ——————————————— */
-@media screen and (min-width: 769px) {
-  .seccion-mariposa {
-    margin-top: 160px; /* Se ajusta dinámicamente también por JS */
-    min-height: auto;
-    height: 115vh; /* ALTURA CONTROLADA, AJUSTABLE, del tamaño de la seccion 2 de animacion */
-  }
-
-}
-
-/* ———————————————
-   MÓVIL (≤ 768px)
-   ——————————————— */
-@media screen and (max-width: 768px) {
-  .seccion-mariposa {
-    height: 105vh; /* Ajusta si quieres menos espacio en móvil */
-    margin-top: 0; /* Evita doble espacio si usas padding-top */
-    padding-top: 130px; /* Ajusta si header está fijo */
-  }
-}
-
 
   /* BOTONES FLOTANTES */
   .boton-flotante {
@@ -405,63 +328,6 @@ header {
   }
 
 
-
-
-@media screen and (max-width: 320px) {
-
-#cielo {
-  top: 50% !important;
-  transform: scale(6) !important;
-}
-#logoAnim {
-  top: 45% !important;     /* Lo empuja hacia la base */
-  transform: translateY(30%); /* Ajuste fino */
-}
-
-#pinos {
-  top: 72% !important;
-  transform: translateY(5%);
-}
-
-#cruz {
-  top: 75% !important;
-  transform: translateY(10%);
-}
-
-#panteon {
-  transform: scale(3) !important;
-}
-
-}
-
-@media screen and (min-width: 321px) and (max-width: 540px) {
-
-  #cielo {
-    top: 50% !important;
-    transform: scale(5.1) !important; /* Menor que en 320px */
-    transform: translateY(20%);
-  }
-
-  #logoAnim {
-    top: 45% !important;
-    transform: translateY(20%);
-  }
-
-  #pinos {
-    top: 72% !important;
-    transform: translateY(5%);
-  }
-
-  #cruz {
-    top: 78% !important;
-    transform: translateY(5%);
-  }
-
-  #panteon {
-    transform: scale(2.5) !important;
-  }
-
-}
 
 
 
@@ -601,131 +467,6 @@ header {
 }
 
 
-/* ===========================
-   DISEÑO SECCIÓN SERVICIOS DEL LANDPAGE
-   =========================== */
-
-/* ———————————————
-   SECCIÓN SERVICIOS (común)
-   ——————————————— */
-#servicios-arealandpage {  /*color del fondo a partir de la seccion de servicios, fondito claro de pinos*/
-  background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
-  background-size: cover;
-  z-index: 0;
-  padding: 100px 20px 240px; /*ALTURA PARA QUE QUEPAN LAS IMAGENES DE SECCION3*/
-  text-align: center;
-}
-
-
-
-.servicios-titulo{
-  font-family:'Montserrat',cursive; /*aqui puede ir una cursiva*/
-  color:#671B6B;
-  font-size:clamp(2.2rem,5vw,3.5rem);
-  margin-bottom:60px;
-}
-
-/* Contenedor flexible que variará con media query */
-.servicios-grid{
-  display:flex;
-  gap:90px;
-  justify-content:center;
-  flex-wrap:wrap;
-  max-width:1400px;
-  margin:0 auto;
-}
-
-.card-servicio{
-  position:relative;
-  background:#fff;
-  border-radius:14px;
-  padding:40px 32px 36px;
-  text-decoration:none;
-  color:#4a4a4a;
-  box-shadow:0 8px 20px rgba(0,0,0,0.12);
-  transition:transform .35s,box-shadow .35s;
-  flex:1 1 300px;     /* ancho mínimo 300 px, crece hasta llenar */
-  max-width:380px;
-}
-
-.card-servicio:hover{
-  transform:translateY(-6px);
-  box-shadow:0 12px 24px rgba(0,0,0,0.18);
-}
-
-.servicio-icono{
-  display:block;
-  width:72px; height:72px;
-  margin:0 auto 24px;
-  border-radius:50%;
-  background:#BBA0C9 url('ruta icono default.svg') center/40px 40px no-repeat;
-}
-
-/* iconos distintos de SERVICIOS LANDPAGE */
-.icono-funerario {
-  background-image: url('1.6imagenes/propiedades-funerarias.png');
-  background-size: cover;
-}
-.icono-prevision {
-  background-image: url('1.6imagenes/servicios-funerarios-y-capillas.png');
-  background-size: cover;
-}
-.icono-asesoria {
-  background-image: url('1.6imagenes/cremaciones-y-urnas-conmemorativas.png');
-  background-size: cover;
-}
-
-.servicio-nombre{
-  font-size:clamp(1.1rem,2.4vw,1.4rem);
-  font-weight:700;
-  color:#671B6B;
-  margin-bottom:10px;
-}
-
-.servicio-desc{
-  font-size:clamp(.9rem,2.1vw,1.05rem);
-  line-height:1.5;
-}
-
-.servicios-landing {
-  position: relative; /* ¡clave para usar posición absoluta adentro! */
-}
-
-/*POSICION DE LA IMAGEN DE ATAUD SECCION 3, EN DESKTOP*/
-.img-sobre-botones {
-  position: absolute;
-  bottom: -155px;                     /*  fija la imagen al fondo de la sección */
-  left: 50%;
-  transform: translateX(-53%);
-  width: 1110px;
-  opacity: 1;
-  pointer-events: none;
-  z-index: 10;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-  transition: transform 0.3s ease;
-  object-fit: contain;
-}
-
-
-
-/*POSICION IMAGEN ATAUD SECCION 3, EN MOVIL*/
-@media (max-width: 768px) {
-  .img-sobre-botones {
-    content: url('1.6imagenes/imagen-decoracionparamenuservicioslandpage-movil.png'); /* REEMPLAZA aquí con tu imagen para móvil */
-    width: 130vw;             /* que se extienda a lo ancho */
-    max-width: none;
-    height: auto;
-    bottom: 0;
-    left: 40%;
-    transform: translateX(-50%);
-  }
-}
-
-
-#servicios-arealandpage {
-  position: relative; /* clave para que el "hijo" absoluto se posicione dentro */
-  overflow: hidden;   /* si quieres evitar que la imagen se salga */
-}
 
 
 
@@ -881,495 +622,6 @@ header {
   }
 }
 
-
-/* ——————————————————————————
-   SECCIÓN COTIZA TU PLAN 
-   —————————————————————————— */
-.seccion-cotiza-fondo {
-  background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
-  background-size: cover;
-  padding: 60px 20px 130px;
-  text-align: center;
-   position: relative;
-  overflow: hidden;
-}
-
-.cotiza-texto h2 {  /*tipo de letra del apartado de cotiza tu plan*/
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.8rem, 5vw, 2.8rem);
-  color: #671B6B;
-  font-weight: 720;
-  margin-bottom: 5px;
-}
-
-.cotiza-texto p {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  font-weight: 500;
-  color: #671B6B;
-  margin-bottom: 40px;
-}
-
-/* Imagen decorativa estilo banda horizontal */
-.cotiza-imagen-banda {
-  width: 100vw;         /* asegura que ocupe todo el ancho del viewport */
-  overflow: hidden;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;   /* truco para romper el padding del contenedor */
-  margin-right: -50vw;
-}
-
-.cotiza-imagen-banda img {
-  width: 100%;
-  height: 33vh;         /* muestra solo el 33% vertical */
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-
-/* Botón debajo */
-.cotiza-boton {
-   position: relative;  /* permite controlar el z-index */
-  z-index: 5;           /* mayor que el de la imagen */
-  margin-top: -30px;    /* lo subes sobre la imagen */
-  left: 90px;
-}
-
-.btn-cotiza {
-  display: inline-block;
-  background-color: #671B6B;
-  color: white;
-  padding: 14px 36px;
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  font-weight: bold;
-  border-radius: 40px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  text-decoration: none;
-  transition: transform 0.2s ease, background-color 0.3s;
-}
-
-.btn-cotiza:hover {
-  background-color: #542356;
-  transform: scale(1.05);
-}
-
-
-/*foto del asesor EN COTIZA TU PLAN*/
-.img-decorativa-cotiza {
-  position: absolute;
-  bottom: 0;
-  left: 20%;
-  top: 26%;
-  transform: translateX(-50%);
-  width: 500px;
-  max-width: 100%;
-  height: auto;
-  pointer-events: none;
-  z-index: 30;
-  object-fit: contain;
-  opacity: 1;
-}
-
-
-  /* Botón debajo */
-.cotiza-boton {
-   position: relative;  /* permite controlar el z-index */
-  z-index: 5;           /* mayor que el de la imagen */
-  left: 87px;
-  margin-top: -50px;    /* lo subes sobre la imagen ULTIMA MODIFICACION LUNES */
-}
-
-/*BOTON QUE SE LE DA CLICK PARA IR A MODAL X de cotiza tu plan*/
-.btn-cotiza {
-  font-size: clamp(0.8rem, 4vw, 1.2rem);
-}
-.cotiza-boton {
-  text-align: left;
-  padding-left: 20px; /* opcional para separar del borde */
-}
-
-@media screen and (min-width: 741px) {
-  .cotiza-boton {
-    left: 600px;
-    margin-top: -20px;
-  }
-}
-
-/*en movil foto de asesor*/
-@media (max-width: 768px) {
-  .img-decorativa-cotiza {
-    width: 100vw;
-    max-width: none;
-    height: auto;
-  }
-    .btn-cotiza {
-    width: 100%;
-    font-size: 4vw;
-    padding: 15px 80px;
-    border-radius: 40px;
-    top: 90px;
-  }
-  }
-
-@media (max-width: 327px) {
-  .img-decorativa-cotiza {
-   left: 17%;
-   top: 36%;
-  }
-  @media (max-width: 431px) {
-  .img-decorativa-cotiza {
-   left: 17%;
-   top: 46%;
-  }
-}
-}
-/*en movil foto de asesor*/
-
-
-@media (max-width: 370px) {
-  .img-decorativa-cotiza {
-   left: 17%;
-   top: 36%;
-  }
-}
-@media (max-width: 308px) {
-  .img-decorativa-cotiza {
-   left: 17%;
-   top: 38%;
-  }
-}
-
-/* ————— MODAL X Cotiza ————— */
-.modal-cotiza-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5); /* fondo oscuro translúcido */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.modal-cotiza-overlay.activo {
-  visibility: visible;
-  opacity: 1;
-}
-
-.modal-cotiza-content {
-  background: #671B6B;
-  padding: 30px 25px;
-  border-radius: 12px;
-  max-width: 500px;
-  width: 90%;
-  color: white;
-  position: relative;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-.cerrar-modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  color: white;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.modal-etiqueta {
-  background-color: #C89DDD;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 40px;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
-
-.btn-whatsapp-modal {
-  background: none;
-  border: 2px solid white;
-  color: white;
-  font-weight: bold;
-  padding: 12px 20px;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.btn-whatsapp-modal .icono-wsp {
-  width: 24px;
-  vertical-align: middle;
-  margin-left: 10px;
-}
-
-.modal-subtexto {
-  margin: 20px 0 10px;
-  font-weight: 500;
-}
-
-.formulario-modal label {
-  display: block;
-  text-align: left;
-  margin: 10px 0 4px;
-}
-
-.formulario-modal input {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  background: #E5B5F3;
-  margin-bottom: 10px;
-  color: #333;
-  font-family: 'Montserrat', sans-serif; 
-  color: #555; 
-  font-size: 0.95rem;
-
-}
-
-.btn-enviar-modal {
-  background: #B56CF3;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
-   font-family: 'Montserrat', sans-serif; 
-  color: white; 
-  font-size: 0.95rem;
-}
-/*rebotes en la ventana de MODAL X de cotizar tu plan*/
-.btn-whatsapp-modal:hover {
-  animation: whatsapp-bounce 0.5s ease;
-}
-.btn-enviar-modal:hover {
-  animation: whatsapp-bounce 0.5s ease;
-}
-
-
-/* ————— TERMINA MODAL X Cotiza ————— */
-
-/*LINEA FINAL DE COTIZA TU PLAN*/
-.seccion-cotiza-fondo::after {
-  content: "";
-  display: block;
-  width: 70%;
-  height: 25px;         /* grosor grueso */
-  background-color: #671B6B;
-  margin: 260px 0 -70px -40px;  /* empuja hacia abajo, lo alinea a la izquierda */
-  border-radius: 4px;
-}
-@media (max-width: 768px) {
-  .seccion-cotiza-fondo::after {
-    margin: 110px 0 -70px -40px; /* antes era 260px, ahora 30px menos */
-  bottom: 0;     
-  }
-}
-
-
-/*LINEA FINAL DE COTIZA TU PLAN*/
-
-
-/* ---- RECORRIDO VIRTUAL SECCION ---*/
-.seccion-recorrido-virtual {
-  background: url('/FRONTEND/1.6imagenes/fondo-pagina.png') no-repeat center center fixed; /*el ultimo fixed hace que se pegue a la seccion anterior y se vea el fondo como continuacion*/
-  background-size: cover;
-  padding: 80px 20px;
-  text-align: center;
-}
-/*lineas moradas*/
-.seccion-recorrido-virtual::before {
-  content: "";
-  display: block;
-  width: 80%; /*posicion*/
-  height: 9px; /*grosor*/
-  background-color: #671B6B;
-  margin: -70px 0 70px 5px; /*  sube y alinea a la izquierda */
-  border-radius: 4px;
-}
-
-.seccion-recorrido-virtual::after {
-  content: "";
-  display: block;
-  width: 95%; /*posicion*/
-  height: 25px; /*grosor*/
-  background-color: #671B6B;
-  margin: 140px 0px -90px 360px; /*  baja y alinea a la derecha */
-  border-radius: 0px;
-}
-/*lineas moradas*/
-
-.seccion-recorrido-virtual h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  color: #671B6B;
-  margin-bottom: 40px;
-  font-weight: bold;
-}
-
-.capillas-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px 100px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.capilla-card {
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 170px;
-  transition: transform 0.3s ease;
-}
-
-.capilla-card:hover {
-  transform: scale(1.07);
-}
-
-.capilla-card img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.capilla-nombre {
-  background-color: #671B6B;
-  color: white;
-  padding: 10px 15px; /*espacio a la derecha o arriba abajo entre botones*/
-  border-radius: 19px;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  font-size: 1.1rem;
-  margin-top: 6px;
-  width: 100%;
-  text-align: center;
-}
-
-/* Responsivo recorrido virtual para móvil */
-@media (max-width: 768px) {
-  .capillas-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .capilla-card {
-    width: 200px;
-  }
-
-  .capilla-nombre {
-    font-size: 1rem;
-  }
-
-  
-.seccion-recorrido-virtual::before {
-  content: "";
-  display: block;
-  width: 90%; /*posicion*/
-  height: 9px; /*grosor*/
-  background-color: #671B6B;
-  margin: -80px 0 70px -40px; /*  sube y alinea a la izquierda */
-  border-radius: 4px;
-  z-index: 10;
-}
-/*linea gruesa debajo del mono*/
-.seccion-recorrido-virtual::after {
-content: "";
-  display: block;
-  width: 70%; /*posicion*/
-  height: 40px; /*grosor*/
-  background-color: #671B6B;
-  top: -100px;
-  margin: 260px 0 -120px 130px; /*  sube y alinea a la izquierda */
-  border-radius: 0px;
-  z-index: 10;
-}
-
-
-
-
-}
-
-
-
-
-/*imagen animada de recorrido virtual*/
-.seccion-recorrido-virtual {
-  position: relative;
-  padding: 100px 20px;
-  z-index: 1; /* importante para que ::before esté detrás */
-}
-
-.seccion-recorrido-virtual::before {
-  content: "";
-  position: absolute;
-   top: 100px;         /* mueve la imagen hacia arriba o abajo */
-  left: 0.5px;       /* mueve la imagen hacia la izquierda o derecha */
-  width: 100%;
-  height: 100%;
-  background: url('1.6imagenes/imagen-recorridovirtual-animada.png') no-repeat center top;
-  background-size: cover;
-  opacity: 1;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Asegura que todo lo demás esté sobre la imagen */
-.seccion-recorrido-virtual h2,
-.capillas-grid,
-.capilla-card {
-  position: relative;
-  z-index: 2;
-}
-
-.seccion-recorrido-virtual h2 {
-  margin-top: -50px;
-}
-
-@media (max-width: 768px) {
-  .seccion-recorrido-virtual::before {
-  background-image: url('1.6imagenes/imagen-recorridovirtual-animada-movil.png');
-  
-    background-position: center 100px;   /* mueve la imagen hacia abajo */
-    background-size: 120%;              /* agranda un poco la imagen */
-    top: 1100px;                          /* ajusta verticalmente */  
-    left: 40px;                   /* Ajusta verticalmente */
-    height: 100%;      
-  }
-}
-
-@media (max-width: 355px) {
-  .seccion-recorrido-virtual::before {
-  background-image: url('1.6imagenes/imagen-recorridovirtual-animada-movil.png');
-  
-    background-position: center 100px;   /* mueve la imagen hacia abajo */
-    background-size: 120%;              /* agranda un poco la imagen */
-    top: 1150px;                          /* ajusta verticalmente */  
-    left: 40px;                   /* Ajusta verticalmente */
-    height: 100%;      
-  }
-}
-
-
-/* ---- TERMINA RECORRIDO VIRTUAL SECCION ---*/
 
 
 
@@ -1548,23 +800,66 @@ content: "";
    FIN SECCIÓN OBITUARIOS 
    ——————————————— */
 
-/* ———— SECCIÓN INFORMACIÓN FINAL ———— */
-.seccion-informativa-final {
-  background: url('1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
-  background-size: cover;
-  text-align: center;
-    padding-top: 28px; /* o incluso menos */
-  padding-bottom: 100px; /* mantienes el espacio inferior si quieres */
-  font-family: 'Bellefair', cursive;
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  color: #4a004e;
-  line-height: 1.2;
+
+
+
+   /* SECCIONES DE EJEMPLO A ELIMINAR */
+  /* SECCIONES DE EJEMPLO A ELIMINAR */
+    /* SECCIONES DE EJEMPLO A ELIMINAR */
+
+
+.seccion-morado-claro {
+  background-color: #D8B8E0;
+  color: #4A004E;
 }
 
-.seccion-informativa-final p {
-  max-width: 1000px;
-  margin: 0 auto 25px;
+.seccion-morado-medio {
+  background-color: #BBA0C9;
+  color: #3A003D;
 }
+
+.seccion-morado-oscuro {
+  background-color: #671B6B;
+  color: #FFFFFF;
+}
+
+.seccion-nosotros {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.seccion-nosotros h2 {
+  font-family: 'Fleur de Leah', cursive;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+.seccion-nosotros p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+.seccion-con-fondo {
+  background-image: url('../1.6imagenes/fondo-pagina.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+
+  /* FIN DE SECCIONES DE EJEMPLO A ELIMINAR */
+    /* SECCIONES DE EJEMPLO A ELIMINAR */
+      /* SECCIONES DE EJEMPLO A ELIMINAR */
+
 
 
 
@@ -1633,9 +928,7 @@ content: "";
     width: 24px;
     height: 24px;
   }
-  .seccion-informativa-final {
-    padding-left: 20px;  /*es para espacio de orilla entre texto final*/
-    padding-right: 20px;
+
 
 }
 
@@ -1653,7 +946,7 @@ content: "";
 }
 
 
-}
+
 
 
 
@@ -1731,8 +1024,9 @@ button.boton-flotante:hover {
 .modal-overlay {
   position: fixed;
   top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* ESTE ES EL EFECTO OSCURECIDO */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2087,9 +1381,223 @@ button.boton-flotante:hover {
   }
 }
 
-
-
 /*CARRITO*/
+   /* AQUI TERMINA EL CSS BASE MAQUETA*/
+
+
+/*--------------------------------------------------------------*/
+/*--------FIN DE DISEÑO BASE PARA MAQUETADO DE MENUS ---------------*/
+/*--------------------------------------------------------------*/
+
+
+/* ============================================
+   ESTILOS PARA SECCIÓN DE PROPIEDADES FUNERARIAS (ACTUALIZADO)
+   ============================================ */
+
+.contenedor-principal {
+  padding: 240px 20px 80px;
+  background: linear-gradient(to bottom, #dab9e1, #e7cfe7);
+  min-height: 100vh;
+}
+
+.titulo-propiedades {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: #671B6B;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.filtros-select {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px 40px;
+  margin-bottom: 25px;
+  padding: 10px 0;
+}
+
+.grupo-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grupo-select label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #4A004E;
+  margin-bottom: 5px;
+}
+
+.select-custom {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid #671B6B;
+  border-radius: 30px;
+  background-color: white;
+  color: #671B6B;
+  outline: none;
+  cursor: pointer;
+  min-width: 240px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-family: 'Montserrat', sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.select-custom:hover {
+  background-color: #f5e4fa;
+}
+
+.subtitulo {
+  text-align: center;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  color: #4A004E;
+  margin-top: 25px;
+  font-weight: 500;
+}
+
+/* GRID de Propiedades */
+.grid-propiedades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 30px 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tarjeta de propiedad funeraria */
+.propiedad-funeraria {
+  background-color: #caa5da;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.propiedad-funeraria:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.propiedad-funeraria img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.propiedad-funeraria h4 {
+  background-color: #9c69b5;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 15px 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ========================
+   RESPONSIVE PARA MÓVIL
+   ======================== */
+@media screen and (max-width: 768px) {
+  .contenedor-principal {
+    padding-top: 230px;
+    padding-bottom: 40px;
+  }
+
+  .filtros-select {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .grupo-select label {
+    font-size: 0.95rem;
+  }
+
+  .select-custom {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    min-width: 200px;
+  }
+
+  .grid-propiedades {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .propiedad-funeraria img {
+    height: 150px;
+  }
+
+  .propiedad-funeraria h4 {
+    font-size: 1rem;
+  }
+}
+
+/*EFECTO REBOTE*/
+
+@keyframes gelatina {
+  0%   { transform: scale(0.7); opacity: 0; }
+  50%  { transform: scale(1.25); opacity: 1; }
+  70%  { transform: scale(0.95); }
+  85%  { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.propiedad-funeraria.aparecer {
+  animation: gelatina 0.6s ease;
+}
+/*EFECTO REBOTE*/
+
+
+.contenedor-principal {
+  position: relative;
+  padding: 240px 20px 300px; /* agrega espacio inferior */
+  background-image: url('../1.6imagenes/fondo-pagina.png');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+    background-attachment: fixed; /* ← ESTO HACE QUE SE QUEDE QUIETO AL HACER SCROLL */
+  z-index: 1;
+  overflow: hidden;
+}
+
+
+.imagen-fondo-final-decorativa {
+  position: absolute;
+  bottom: -10vh; /* controla cuánto se empuja hacia abajo */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.imagen-fondo-final-decorativa img {
+  width: 100%;
+  max-width: 1600px;
+  opacity: 1;
+  object-fit: cover;
+  height: auto;
+  transform: translateY(20%); /*aqui se ajusta hacia abajo la imagen para que no tape las letras*/
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .imagen-fondo-final-decorativa img {
+    transform: translateY(10%);
+    max-width: 500%;  /*AQUI AJUSTAMOS EL TAMAÑO DE LA IMAGEN EN MÓVIL*/
+ width: 300%; /*AQUI ESTÁ EL AJUSTE QUE TIENE ACTUALMENTE EN DIMENSIONES*/
+}
+}
 
 
 
+.footer {
+  position: relative;
+  z-index: 2;
+}

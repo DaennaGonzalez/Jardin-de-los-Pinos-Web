@@ -1,0 +1,997 @@
+/* ===========================
+   MENU BASE MAQUETADO . CSS
+   =========================== */
+
+   /* A PARTIR DE AQUI ES EL CSS BASE MAQUETA*/
+html, body {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+}
+
+/* ===========================
+   1. BASE STYLES (DESKTOP)
+   =========================== */
+
+/* RESET Y FUENTES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  background-color: #BBA0C9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+.logo {
+  width: clamp(170px, 20vw, 250px); /*aqui se ajusta el tamaño del logo del encabezado*/
+  height: auto;
+  margin-top: 15px;
+}
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 15px;
+  justify-content: center;
+  width: 100%;
+  margin-top: 18px;
+}
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: clamp(13px, 1.5vw, 16px);
+  padding: 5px 10px;
+  transition: color 0.3s;
+}
+.menu a.active,
+.menu a:hover {
+  color: #671B6B;
+}
+.acciones {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+.acciones a {
+  text-decoration: none;
+  color: #671B6B;
+  font-weight: 700;
+  font-size: clamp(14px, 1.8vw, 16px);
+}
+.acciones a:hover {
+  color: white;
+}
+.acciones img {
+  width: clamp(20px, 2vw, 32px);
+  height: clamp(20px, 2vw, 32px);
+}
+.inicio-sesion {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* BOTONES FLOTANTES (Desktop) */
+.boton-flotante {
+  display: flex;
+  align-items: center;
+  background-color: #671B6B;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.3s, background-color 0.3s;
+}
+.boton-flotante img {
+  width: 25px;
+  height: 25px;
+  margin-right: 12px;
+}
+/* Emergencias */
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* ⬅️ EFECTO OSCURECER */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10000;
+}
+
+.modal-overlay.activo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-contenido {
+  background: #671B6B;
+  color: white;
+  padding: 30px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  z-index: 10001;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  text-align: left;
+}
+
+.img-emergencias-superior {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 120px;
+  height: auto;
+}
+
+
+/* Carrito */
+.boton-carrito {
+  position: fixed;
+  top: 167px;
+  right: 20px;
+  z-index: 900;
+}
+/* WhatsApp */
+.boton-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  left: 44%;
+  z-index: 999;
+}
+.boton-whatsapp img {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+.boton-whatsapp:hover img {
+  animation: whatsapp-bounce 0.5s ease; /*efecto de rebote en el icono de whatsapp*/
+}
+/* Sucursales */
+.boton-sucursales {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+.boton-sucursales img {
+  width: 24px;
+  aspect-ratio: 1/1;
+  margin-right: 8px;
+}
+/* Redes Sociales */
+.redes-sociales {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+  display: flex;
+  gap: 10px;
+  background-color: #671B6B;
+  padding: 8px 12px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+.redes-sociales a img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
+}
+.redes-sociales a:hover img {
+  transform: scale(1.3);
+}
+@keyframes whatsapp-bounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.3); }
+  50%  { transform: scale(0.95); }
+  70%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+/* Reutilizo la misma animación para el icono de sucursales */
+.boton-sucursales:hover img {
+  animation: whatsapp-bounce 0.5s ease;
+}
+.boton-carrito:hover img {
+ animation: whatsapp-bounce 0.5s ease;
+}
+.boton-emergencia:hover img{
+   animation: whatsapp-bounce 0.5s ease;
+}
+
+/* Ocultar hamburguesa en desktop (≥769px) */
+@media (min-width: 769px) {
+  header .menu-toggle {
+    display: none !important;
+  }
+}
+
+
+
+/* ===========================
+   2. MOBILE STYLES (≤ 768px)
+   =========================== */
+@media screen and (max-width: 768px) {
+
+  /* HEADER */
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .logo {
+    align-self: flex-start;
+    margin-top: 50px;
+    margin-left: 24%;
+    right: 0px;
+  }
+  .menu {
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 7px;
+  }
+  .menu a {
+    font-size: 4vw;
+    padding: 1vh 1.5vw;
+  }
+  .acciones {
+    width: 100%;
+    justify-content: flex-end;
+    top: 8px;
+    right: 5px;
+  }
+  .inicio-sesion {
+    gap: 2.3px; /*separacion entre el icono y la palabra iniciar sesion*/
+  }
+
+}
+
+
+
+  /* BOTONES FLOTANTES */
+  .boton-flotante {
+    font-size: 4vw;
+    padding: 3vh 5vw;
+    border-radius: 6vw;
+  }
+  .boton-flotante img {
+    width: 7vw;
+    height: 7vw;
+    margin-right: 2vw;
+  }
+  .boton-whatsapp {
+    bottom: -0vh;
+    left: 50%;
+    padding: 2vh 2vw;
+    transform: translateX(-50%);
+  }
+  .boton-emergencia {
+    top: 19vh;
+    left: -2vw;
+     padding: 2vh 3vw;
+  }
+  .boton-carrito {
+    top: 19vh;
+    right: 0vw;
+     padding: 2vh 2vw;
+  }
+
+  
+  .boton-sucursales {
+    bottom: 15vh;
+    right: -0vw;
+     padding: 2vh 2vw;
+  }
+  .redes-sociales {
+    bottom: 15vh;
+    left: 0vw;
+    padding: 2vh 2vw;
+    gap: 4vw;
+  }
+  .redes-sociales a img {
+    width: 7vw;
+    height: 7vw;
+  }
+
+
+
+
+
+/* Botón hamburguesa - solo visible en móviles */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 9000;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 50px;
+    background-color: #671B6B;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 20px;
+    gap: 20px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .menu-mobile {
+  position: fixed;
+  top: 0; left: 0;
+
+  z-index: 10000;
+  /* y animas la opacidad o el transform si lo deseas */
+}
+
+  .menu.show {
+    left: 0;
+  }
+
+  .menu a {
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #fff3;
+  }
+}
+
+
+/* HAMBURGUESA oculto en desktop */
+.menu-toggle { display: none; }
+
+/* Sólo en pantallas ≤ 768px */
+@media (max-width: 768px) {
+  .menu-desktop { display: none; }    /* quito el menú de escritorio */
+  .menu-mobile  { display: flex; }    /* muestro el deslizable */
+  .menu-toggle  { display: block; }   /* muestro el 🔲 hamburguesa */
+}
+
+/* ————————————————————————
+   Estilos del menú deslizable
+   ———————————————————————— */
+.menu-mobile {
+  position: fixed;
+  top: 0; left: -100%;
+  width: 210px; height: 88vh;
+  background: #671B6B;
+  flex-direction: column;
+  padding: 0px 20px;
+  gap: 4px;
+  transition: left 0.3s ease;
+  z-index: 1100;
+}
+.menu-mobile.show {
+  left: 0;
+}
+.menu-mobile a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.0rem;
+  padding: 10px 5px; /*espacio entre las lineas y el texto del menu desplegable*/
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+.menu a.active,
+.menu a:hover {
+  color: #671B6B; /*EN DESKTOP esto hace que se pongan moradas las letras al pasar la manita*/
+}
+.menu-mobile a:hover {
+  opacity: 0.8;
+}
+
+/*hace QUE destaque  boton que esté en uso, donde nos encontremos, como INICIO, en el menu movil*/
+  @media (max-width: 768px) {
+  .menu-mobile a.active {
+    background-color: #ccacdc;
+    color: #671B6B !important;
+    padding: 8px 16px;
+    border-radius: 50px; /* lo hace redondito de orillas */
+    font-weight: bold;
+  }
+}
+
+.menu-mobile {
+  padding: 60px 20px 20px 20px; /* top, right, bottom, left */
+}
+
+
+ .menu-mobile a:hover {
+    color: #c89ddd !important; /* puedes ajustar el tono si deseas otro color al pasar el mouse */
+  }
+
+
+
+/* posición de las rayitas de menu en el movil */
+.menu-toggle {
+  display: none;
+  top: 10px;
+  right: 500px;
+  /* resto de estilos */
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    /* aquí ajusta top/left para móvil si cambian */
+  }
+}
+
+
+
+
+
+
+/* ———————————————
+   DISEÑO DESKTOP (≥ 769 px)
+   ——————————————— */
+@media(min-width:769px){
+  .card-servicio{
+    display:flex;
+    align-items:center;
+    padding:20px 30px;
+    max-width:100%;          /* permite que crezca a lo ancho */
+  }
+  .servicio-icono{
+    flex:0 0 90px;
+    width:90px; height:90px;
+    margin:0 32px 0 0;       /* icono a la izquierda */
+    margin-left: 10px;
+  }
+  .servicio-nombre{text-align:center; }
+  .servicio-desc{
+    text-align:center;         /* texto alineado a la izquierda */
+    font-size: 15px;
+    margin-left: -16px;
+  }
+
+  
+}
+
+/* AJUSTE DE BOTONES BURBUJA Y DE SECCION 2, PARA DESKTOP, TAMAÑOS*/
+@media screen and (min-width: 769px) {
+
+  /* BOTONES FLOTANTES – AJUSTES DESKTOP */
+  .boton-flotante {
+    font-size: 1.2rem;
+    padding: 6px 12px;
+    border-radius: 22px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+
+  .boton-flotante img {
+    width: 27px;
+    height: 27px;
+    margin-right: 6px;
+  }
+
+  /* Posición específica por botón */
+  .boton-emergencia {
+    top: 168px;
+    left: 20px;
+  }
+
+  .boton-carrito {
+    top: 168px;
+    right: 20px;
+  }
+
+  .boton-whatsapp {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .boton-sucursales {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .redes-sociales {
+    bottom: 20px;
+    left: 20px;
+    padding: 6px 10px;
+    gap: 10px;
+  }
+
+  .redes-sociales a img {
+    width: 25px;
+    height: 25px;
+  }
+
+}
+
+
+
+/* ———————————————
+   DISEÑO MÓVIL (≤ 768 px)
+   ——————————————— */
+@media(max-width:768px){
+  .card-servicio{
+    max-width:500px;         /* que no se estire más de la pantalla */
+  }
+  .servicio-icono{
+    margin:0 auto 20px;      /* icono centrado arriba */
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .boton-emergencia
+  {
+    font-size: 17px !important;
+    top: 100px !important;         /* misma altura que el carrito */
+     top: 18vh !important;
+  left: 1vw !important;
+  }
+  .boton-carrito {
+    top: calc(100px + 20px); /* Ajuste dinámico: altura del header + margen */
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+  .boton-emergencia
+  {
+    font-size: 14px !important;
+        /* misma altura que el carrito */
+     top: 13vh !important;
+    
+  left: -4vw !important;
+  }
+  .boton-carrito {
+    top: calc(100px + 20px); /* Ajuste dinámico: altura del header + margen */
+  }
+
+}
+
+
+
+/* ——————————————————————————
+   SECCIÓN CON FONDO MORADO Y LETRA BLANCA
+   —————————————————————————— */
+.seccion-morado-texto {
+  background-color: #671B6B; /* morado institucional */
+  padding: 60px 40px; /*espacio vertical y espacio horizontal que deja para que no abarque el texto*/
+  text-align: center;
+}
+
+.contenedor-texto-blanco p {
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #ffffff;
+  font-weight: 300;
+  line-height: 1.3; /*espacio entre las letras verticalmente*/
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .contenedor-texto-blanco p {
+    font-size: 3vw;
+    padding: 0 10px;
+  }
+}
+
+
+
+
+/* --DISEÑO DE MODAL DE RECORRIDO VIRTUAL VENTANITAS --*/
+.modal-recorrido-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.modal-recorrido-overlay.activo {
+  display: flex;
+}
+
+.modal-recorrido-content {
+  background: white;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 960px;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.modal-recorrido-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+/* --FIN DISEÑO DE MODAL DE RECORRIDO VIRTUAL VENTANITAS --*/
+
+
+/* ———————————————
+   SECCIÓN OBITUARIOS 
+   ——————————————— */
+.seccion-obituarios {
+  background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
+  background-size: cover;
+  padding: 60px 20px 130px;
+  text-align: center;
+  position: relative;
+  overflow: visible; /*es para que se vea encima de todo*/
+}
+
+.obituarios-texto h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: #671B6B;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.obituarios-texto p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 500;
+  color: #671B6B;
+  margin-bottom: 40px;
+}
+
+.obituarios-imagen {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.obituarios-imagen img {
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.obituarios-boton {
+  position: relative;
+  z-index: 5;
+  margin-top: -30px;
+}
+
+.btn-obituarios {
+  display: inline-block;
+  background-color: #671B6B;
+  color: white;
+  padding: 14px 36px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: bold;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.btn-obituarios:hover {
+  background-color: #542356;
+  transform: scale(1.05);
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+  .obituarios-boton {
+    margin-top: -30px;
+    text-align: center;
+    padding-left: 40px;
+  }
+
+  .btn-obituarios {
+    font-size: clamp(0.8rem, 4vw, 1.2rem);
+  }
+
+  .obituarios-imagen img {
+    width: 140%;
+  height: 50vh;
+  object-fit: cover;
+  object-position: center;
+  }
+}
+
+/*imagen de obituarios - niña*/
+.seccion-obituarios {
+  position: relative; /* importante para posicionar la imagen interna */
+  background: url('/FRONTEND/1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: 100px 20px 160px; /* deja espacio al final para la imagen */
+  text-align: center;
+}
+
+.seccion-obituarios::after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* se pega al final */
+  left: 15%;  /* centrada horizontalmente */
+  top: 22%;
+  transform: translateX(-50%);
+  width: 100%; /* tamaño base para desktop */
+  height: 65%;
+  background: url('1.6imagenes/imagen-homenaje.png') no-repeat center bottom;
+  background-size: contain;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .seccion-obituarios::after {
+    width: 100vw;
+    height: 140px;
+    background-position: center 20px;  /* ajusta verticalmente */
+    bottom: 10px;
+  }
+}
+
+
+/* ———————————————
+   FIN SECCIÓN OBITUARIOS 
+   ——————————————— */
+
+
+
+
+   /* SECCIONES DE EJEMPLO A ELIMINAR */
+  /* SECCIONES DE EJEMPLO A ELIMINAR */
+    /* SECCIONES DE EJEMPLO A ELIMINAR */
+
+
+.seccion-morado-claro {
+  background-color: #D8B8E0;
+  color: #4A004E;
+}
+
+.seccion-morado-medio {
+  background-color: #BBA0C9;
+  color: #3A003D;
+}
+
+.seccion-morado-oscuro {
+  background-color: #671B6B;
+  color: #FFFFFF;
+}
+
+.seccion-nosotros {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.seccion-nosotros h2 {
+  font-family: 'Fleur de Leah', cursive;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+.seccion-nosotros p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+.seccion-con-fondo {
+  background-image: url('../1.6imagenes/fondo-pagina.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+
+  /* FIN DE SECCIONES DE EJEMPLO A ELIMINAR */
+    /* SECCIONES DE EJEMPLO A ELIMINAR */
+      /* SECCIONES DE EJEMPLO A ELIMINAR */
+
+
+
+
+/* ———— PIE DE PÁGINA ———— */
+.footer {
+  background-color: #b396c3; /* Color sólido igual que encabezado */
+  color: white;
+  text-align: center;
+  padding: 40px 20px 50px;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+
+}
+
+.footer-info p {
+  font-size: 0.95rem;
+  margin: 5px 0;
+}
+
+.footer-info a {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 20px;
+}
+
+.footer-copy p {
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer-social img {
+  width: 26px;
+  height: 26px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social img:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px;
+  }
+
+  .footer-info p,
+  .footer-copy p {
+    font-size: 0.8rem;
+  }
+
+  .footer-social {
+    gap: 20px;
+    padding: 10px 16px;
+  }
+
+  .footer-social img {
+    width: 24px;
+    height: 24px;
+  }
+
+
+}
+
+/* Ajuste para móvil */
+@media (max-width: 768px) {
+  .seccion-obituarios::after {
+    width: 100vw;         /* casi todo el ancho de pantalla */
+    height: 310px;       /* menos alto en móvil si deseas */
+    left: 15%;           /* centrado */
+     top: 60%;
+    transform: translate(-50%, 10px); /* 10px hacia abajo desde el final */
+    background-position: center top;
+    background-size: contain;
+  }
+}
+
+
+
+
+
+
+/* ———————————————
+   BOTON DE EMERGENCIAS CON MODAL
+   ——————————————— */
+
+button.boton-flotante {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  background-color: #671B6B;
+  color: white;
+  font-family: 'Montserrat', sans-serif; /* o la fuente que estés usando */
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  border: none;
+}
+
+button.boton-flotante:hover {
+  transform: scale(1.05);
+  background-color: #4d1251;
+}
+
+.boton-flotante img {
+  width: 24px;
+  height: 24px;
+}
+
+
+
+   /* AQUI TERMINA EL CSS BASE MAQUETA*/
+
+
+/*--------------------------------------------------------------*/
+/*--------FIN DE DISEÑO BASE PARA MAQUETADO DE MENUS ---------------*/
+/*--------------------------------------------------------------*/
+
+
+
+
+
