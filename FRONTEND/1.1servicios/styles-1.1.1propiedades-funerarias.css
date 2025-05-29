@@ -803,64 +803,6 @@ header {
 
 
 
-   /* SECCIONES DE EJEMPLO A ELIMINAR */
-  /* SECCIONES DE EJEMPLO A ELIMINAR */
-    /* SECCIONES DE EJEMPLO A ELIMINAR */
-
-
-.seccion-morado-claro {
-  background-color: #D8B8E0;
-  color: #4A004E;
-}
-
-.seccion-morado-medio {
-  background-color: #BBA0C9;
-  color: #3A003D;
-}
-
-.seccion-morado-oscuro {
-  background-color: #671B6B;
-  color: #FFFFFF;
-}
-
-.seccion-nosotros {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.seccion-nosotros h2 {
-  font-family: 'Fleur de Leah', cursive;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  margin-bottom: 20px;
-}
-
-.seccion-nosotros p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  max-width: 1000px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-
-.seccion-con-fondo {
-  background-image: url('../1.6imagenes/fondo-pagina.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-  color: white;
-  padding: 100px 20px;
-  text-align: center;
-}
-
-
-  /* FIN DE SECCIONES DE EJEMPLO A ELIMINAR */
-    /* SECCIONES DE EJEMPLO A ELIMINAR */
-      /* SECCIONES DE EJEMPLO A ELIMINAR */
-
-
 
 
 /* ———— PIE DE PÁGINA ———— */
@@ -1555,8 +1497,8 @@ button.boton-flotante:hover {
 
 .contenedor-principal {
   position: relative;
-  padding: 240px 20px 300px; /* agrega espacio inferior */
-  background-image: url('../1.6imagenes/fondo-pagina.png');
+  padding: 240px 20px 600px; /* agrega espacio inferior y superior para que se vea más el area de la ventana */
+  background-image: url('../1.6imagenes/fondo-pagina.png'); /*ES EL FONDO QUE SIEMPRE ESTÁ DE FONDO MORADITO*/
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -1583,17 +1525,22 @@ button.boton-flotante:hover {
   opacity: 1;
   object-fit: cover;
   height: auto;
-  transform: translateY(20%); /*aqui se ajusta hacia abajo la imagen para que no tape las letras*/
+  transform: translateY(2%); /*aqui se ajusta hacia abajo la imagen para que no tape las letras*/
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .imagen-fondo-final-decorativa img {
-    transform: translateY(10%);
-    max-width: 500%;  /*AQUI AJUSTAMOS EL TAMAÑO DE LA IMAGEN EN MÓVIL*/
- width: 300%; /*AQUI ESTÁ EL AJUSTE QUE TIENE ACTUALMENTE EN DIMENSIONES*/
+    transform: translateY(-28%);
+    max-width: 300%;  /*AQUI AJUSTAMOS EL TAMAÑO DE LA IMAGEN EN MÓVIL*/
+ width: 120%; /*AQUI ESTÁ EL AJUSTE QUE TIENE ACTUALMENTE EN DIMENSIONES*/
+}
+
+.contenedor-principal {
+  padding: 240px 20px 250px;
 }
 }
+
 
 
 

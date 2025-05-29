@@ -803,65 +803,6 @@ header {
 
 
 
-   /* SECCIONES DE EJEMPLO A ELIMINAR */
-  /* SECCIONES DE EJEMPLO A ELIMINAR */
-    /* SECCIONES DE EJEMPLO A ELIMINAR */
-
-
-.seccion-morado-claro {
-  background-color: #D8B8E0;
-  color: #4A004E;
-}
-
-.seccion-morado-medio {
-  background-color: #BBA0C9;
-  color: #3A003D;
-}
-
-.seccion-morado-oscuro {
-  background-color: #671B6B;
-  color: #FFFFFF;
-}
-
-.seccion-nosotros {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.seccion-nosotros h2 {
-  font-family: 'Fleur de Leah', cursive;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  margin-bottom: 20px;
-}
-
-.seccion-nosotros p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  max-width: 1000px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-
-.seccion-con-fondo {
-  background-image: url('../1.6imagenes/fondo-pagina.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-
-  color: white;
-  padding: 100px 20px;
-  text-align: center;
-}
-
-
-  /* FIN DE SECCIONES DE EJEMPLO A ELIMINAR */
-    /* SECCIONES DE EJEMPLO A ELIMINAR */
-      /* SECCIONES DE EJEMPLO A ELIMINAR */
-
-
-
 
 /* ———— PIE DE PÁGINA ———— */
 .footer {
@@ -1389,7 +1330,173 @@ button.boton-flotante:hover {
 /*--------FIN DE DISEÑO BASE PARA MAQUETADO DE MENUS ---------------*/
 /*--------------------------------------------------------------*/
 
+/* ============================
+   ESTILOS PARA SECCIÓN SERVICIOS
+   ============================ */
 
+.seccion-servicios-categorias {
+  padding: 240px 20px 160px;
+  background: linear-gradient(to bottom, #ecd6f4, #d6b4e4);
+  background-attachment: fixed;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
 
+.titulo-principal-servicios {
+  font-family: 'Fleur De Leah', cursive;
+  font-size: clamp(2.5rem, 6vw, 3.8rem);
+  color: #671B6B;
+  margin-bottom: 10px;
+}
+
+.subtitulo-servicios {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #4A004E;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.ofrecemos-titulo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: #4A004E;
+  margin-bottom: 50px;
+  font-weight: 600;
+}
+
+.contenedor-servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 40px;
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.bloque-servicio {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+   height: 50vh; /*altura del banner botones para que se vea más alto*/
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.bloque-servicio:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.bloque-texto {
+  background-color: #671B6B;
+  color: white;
+  padding: 30px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  text-align: center;
+}
+
+.bloque-texto h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.bloque-texto .icono-servicio {
+  width: 12vh;
+  height: auto;
+  opacity: 1;
+}
+
+.bloque-imagen {
+  flex: 1.3;
+  background-size: cover;
+  background-position: center;
+  min-height: 200px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .bloque-servicio {
+    flex-direction: column;
+  }
+
+  .bloque-imagen {
+    min-height: 220px;
+    width: 100%;
+  }
+
+  .bloque-texto {
+    padding: 25px 15px;
+  }
+
+  .bloque-texto h4 {
+    font-size: 1rem;
+  }
+
+  .bloque-texto .icono-servicio {
+    width: 34px;
+  }
+}
+
+/* Animación de entrada */
+.bloque-servicio {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.bloque-servicio.aparece-servicio {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+  .contenedor-servicios-grid {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+  }
+
+  .titulo-principal-servicios {
+   line-height: 1; /* ⬅️ Reduce el espacio vertical entre líneas */
+}
+
+  .bloque-servicio {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .bloque-imagen {
+    width: 100%;
+    height: 220px;
+    min-height: 220px;
+    flex: none !important; /* ← evita que flex colapse en column */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    order: 1;
+  }
+
+  .bloque-texto {
+    padding: 25px 20px;
+    order: 2;
+  }
+
+  .bloque-texto .icono-servicio {
+  width: 9vh;
+  }
+}
 
 

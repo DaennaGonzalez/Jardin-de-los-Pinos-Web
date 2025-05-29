@@ -201,4 +201,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// === ANIMACIÓN AL ENTRAR EN VISTA ===
+// Aplica animaciones a cada bloque de servicio cuando entra en pantalla
+document.addEventListener("DOMContentLoaded", () => {
+  const bloques = document.querySelectorAll(".bloque-servicio");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("aparece-servicio");
+        observer.unobserve(entry.target); // solo una vez
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  bloques.forEach(bloque => observer.observe(bloque));
+});
 

@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// COMIENZA JAVASCRIPT DE PROPIEDADES FUNERARIAS: SELECCIÓN DE SUCURSALES + REDIRECCIÓN
+// COMIENZA JAVASCRIPT DE PROPIEDADES FUNERARIAS: SELECCIÓN DE SUCURSALES + REDIRECCIÓN EN BASE A LOS PRODUCTOS DISPONIBLES
 
 document.addEventListener('DOMContentLoaded', () => {
   const estadoSelect = document.getElementById('estado');
@@ -226,10 +226,10 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const propiedadImagenes = {
-    "Terreno Americano": "../1.6imagenes/propiedad-terrenoamericano.jpg",
-    "Capilla Elevada": "../1.6imagenes/propiedad-capillaelevada.jpg",
-    "Nicho": "../1.6imagenes/propiedad-nicho.jpg",
-    "Terreno Estilo Tradicional": "../1.6imagenes/propiedad-terrenotradicional.jpg"
+    "Terreno Americano": "../1.6imagenes/terreno-americano2.jpg",
+    "Capilla Elevada": "../1.6imagenes/capilla-elevada2.jpg",
+    "Nicho": "../1.6imagenes/nicho2.jpg",
+    "Terreno Estilo Tradicional": "../1.6imagenes/terreno-estilo-tradicional2.jpg"
   };
 
   const rutasRedireccion = {
@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // EFECTO GELATINA EN APARICIÓN: (debes tener .aparecer en CSS con @keyframes)
-
+//efecto del rebote en los servicios//
 
 
 
