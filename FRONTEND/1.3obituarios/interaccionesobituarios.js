@@ -200,8 +200,95 @@ document.addEventListener("DOMContentLoaded", () => {
 //AQUI TERMINA EL JAVASCRIPT BASE MAQUETA */
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const contenedor = document.getElementById('contenedorObituarios');
+  const inputBuscar = document.getElementById('buscarNombre');
+  const selectMostrar = document.getElementById('cantidadMostrar');
 
+  let datosObituarios = [];
 
+  // Función para cargar el CSV
+  async function cargarCSV() {
+    const response = await fetch('../1.3obituarios/basededatos_obituarios.csv');
+    const texto = await response.text();
+    const lineas = texto.trim().split('\n');
+    const encabezados = lineas[0].split(',');
+
+    datosObituarios = lineas.slice(1).map(linea => {
+      const valores = linea.split(',');
+      const obj = {};
+      encabezados.forEach((key, i) => {
+        obj[key.trim()] = valores[i]?.trim();
+      });
+      return obj;
+    });
+
+    renderizarObituarios();
+  }
+
+  // Función para renderizar tarjetas
+  function renderizarObituarios() {
+    contenedor.innerHTML = ''; // Limpia antes de renderizar
+
+    const filtro = inputBuscar.value.toLowerCase();
+    const cantidad = selectMostrar.value;
+
+    const filtrados = datosObituarios.filter(d =>
+      `${d.nombre_fallecido} ${d.apellido_familia}`.toLowerCase().includes(filtro)
+    );
+
+    const aMostrar = cantidad === 'todos' ? filtrados : filtrados.slice(0, parseInt(cantidad));
+
+    aMostrar.forEach(dato => {
+      const tarjeta = document.createElement('div');
+      tarjeta.className = 'obituario';
+
+      // Imagen base combinada: cara1 + cara2
+      const canvas = document.createElement('canvas');
+      canvas.width = 1440;
+      canvas.height = 725;
+
+      const ctx = canvas.getContext('2d');
+      const img1 = new Image();
+      const img2 = new Image();
+
+      img1.src = '../1.6imagenes/plantilla-obituarios-cara1.jpg';
+      img2.src = '../1.6imagenes/plantilla-obituarios-cara2.jpg';
+
+      img2.onload = () => {
+        ctx.drawImage(img1, 0, 0, 720, 725); // Cara 1
+        ctx.drawImage(img2, 720, 0, 720, 725); // Cara 2
+
+        // Texto dinámico
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 32px Montserrat';
+        ctx.fillText(dato.nombre_fallecido, 80, 228);
+        ctx.font = 'bold 28px Montserrat';
+        ctx.fillText(dato.apellido_familia, 80, 330);
+
+        ctx.font = 'bold 22px Montserrat';
+        ctx.fillText(dato.num_sala, 918, 230);
+        ctx.fillText(dato.hr_ingr + ' hrs', 1209, 230);
+        ctx.fillText(dato.fecha_salida, 955, 340);
+        ctx.fillText(dato.hr_salida + ' hrs', 1225, 340);
+        ctx.font = 'bold 24px Montserrat';
+        ctx.fillText(dato.nom_parquefuneral, 941, 540);
+
+        const imgFinal = document.createElement('img');
+        imgFinal.src = canvas.toDataURL('image/png');
+        imgFinal.alt = `Obituario de ${dato.nombre_fallecido}`;
+        tarjeta.appendChild(imgFinal);
+      };
+
+      contenedor.appendChild(tarjeta);
+    });
+  }
+
+  inputBuscar.addEventListener('input', renderizarObituarios);
+  selectMostrar.addEventListener('change', renderizarObituarios);
+
+  cargarCSV();
+});
 
 
 

@@ -1389,7 +1389,128 @@ button.boton-flotante:hover {
 /*--------FIN DE DISEÑO BASE PARA MAQUETADO DE MENUS ---------------*/
 /*--------------------------------------------------------------*/
 
+/* ======================= SECCION OBITUARIOS ======================= */
+
+.obituarios-section {
+  background: url('../1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: 200px 40px 80px;
+  color: #4a004e;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.encabezado-obituarios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.titulo-obituarios {
+  font-family: 'Fleur De Leah', cursive;
+  font-size: 3.2rem;
+  margin-bottom: 6px;
+  color: #6d2393;
+}
+
+.subtitulo-obituarios {
+  font-size: 1rem;
+  max-width: 500px;
+}
+
+.buscador-obituarios {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.campo-busqueda,
+.campo-mostrar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  color: #4a004e;
+}
+
+.input-con-icono {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  padding: 4px 12px;
+}
+
+.input-con-icono input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.icono-buscar {
+  width: 20px;
+  margin-right: 8px;
+}
+
+select {
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* === COLLAGE DE OBITUARIOS === */
+.contenedor-obituarios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.obituario {
+  flex: 1 1 calc(50% - 40px); /* 2 columnas con espacio */
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+}
+
+.obituario img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
 
 
+.tarjeta-obituario {
+  text-align: center;
+  background: transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.tarjeta-obituario:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
 
+.tarjeta-obituario .etiqueta {
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #6d2393;
+}
+
+.tarjeta-obituario img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}

@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function ajustarEspacioEncabezado() {
     const alturaHeader = header.offsetHeight;
     seccionesConEspacio.forEach(seccion => {
-      seccion.style.paddingTop = `${alturaHeader + 60}px`;
+      seccion.style.paddingTop = `${alturaHeader + 90}px`;
     });
   }
   ajustarEspacioEncabezado();

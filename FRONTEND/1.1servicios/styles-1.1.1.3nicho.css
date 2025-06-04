@@ -1,0 +1,1995 @@
+/* ===========================
+   MENU BASE MAQUETADO . CSS
+   =========================== */
+
+   /* A PARTIR DE AQUI ES EL CSS BASE MAQUETA*/
+html, body {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+}
+
+/* ===========================
+   1. BASE STYLES (DESKTOP)
+   =========================== */
+
+/* RESET Y FUENTES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+/* HEADER */
+header {
+  width: 100%;
+  background-color: #BBA0C9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+.logo {
+  width: clamp(170px, 20vw, 250px); /*aqui se ajusta el tamaño del logo del encabezado*/
+  height: auto;
+  margin-top: 15px;
+}
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 15px;
+  justify-content: center;
+  width: 100%;
+  margin-top: 18px;
+}
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: clamp(13px, 1.5vw, 16px);
+  padding: 5px 10px;
+  transition: color 0.3s;
+}
+.menu a.active,
+.menu a:hover {
+  color: #671B6B;
+}
+.acciones {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+.acciones a {
+  text-decoration: none;
+  color: #671B6B;
+  font-weight: 700;
+  font-size: clamp(14px, 1.8vw, 16px);
+}
+.acciones a:hover {
+  color: white;
+}
+.acciones img {
+  width: clamp(20px, 2vw, 32px);
+  height: clamp(20px, 2vw, 32px);
+}
+.inicio-sesion {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+/* BOTONES FLOTANTES (Desktop) */
+.boton-flotante {
+  display: flex;
+  align-items: center;
+  background-color: #671B6B;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.3s, background-color 0.3s;
+}
+.boton-flotante img {
+  width: 25px;
+  height: 25px;
+  margin-right: 12px;
+}
+/* Emergencias */
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* ⬅️ EFECTO OSCURECER */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10000;
+}
+
+.modal-overlay.activo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-contenido {
+  background: #671B6B;
+  color: white;
+  padding: 30px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  z-index: 10001;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  text-align: left;
+}
+
+.img-emergencias-superior {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 120px;
+  height: auto;
+}
+
+
+/* Carrito */
+.boton-carrito {
+  position: fixed;
+  top: 167px;
+  right: 20px;
+  z-index: 900;
+}
+/* WhatsApp */
+.boton-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  left: 44%;
+  z-index: 999;
+}
+.boton-whatsapp img {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+.boton-whatsapp:hover img {
+  animation: whatsapp-bounce 0.5s ease; /*efecto de rebote en el icono de whatsapp*/
+}
+/* Sucursales */
+.boton-sucursales {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+.boton-sucursales img {
+  width: 24px;
+  aspect-ratio: 1/1;
+  margin-right: 8px;
+}
+/* Redes Sociales */
+.redes-sociales {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 999;
+  display: flex;
+  gap: 10px;
+  background-color: #671B6B;
+  padding: 8px 12px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+.redes-sociales a img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
+}
+.redes-sociales a:hover img {
+  transform: scale(1.3);
+}
+@keyframes whatsapp-bounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.3); }
+  50%  { transform: scale(0.95); }
+  70%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+/* Reutilizo la misma animación para el icono de sucursales */
+.boton-sucursales:hover img {
+  animation: whatsapp-bounce 0.5s ease;
+}
+.boton-carrito:hover img {
+ animation: whatsapp-bounce 0.5s ease;
+}
+.boton-emergencia:hover img{
+   animation: whatsapp-bounce 0.5s ease;
+}
+
+/* Ocultar hamburguesa en desktop (≥769px) */
+@media (min-width: 769px) {
+  header .menu-toggle {
+    display: none !important;
+  }
+}
+
+
+
+/* ===========================
+   2. MOBILE STYLES (≤ 768px)
+   =========================== */
+@media screen and (max-width: 768px) {
+
+  /* HEADER */
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .logo {
+    align-self: flex-start;
+    margin-top: 50px;
+    margin-left: 24%;
+    right: 0px;
+  }
+  .menu {
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 7px;
+  }
+  .menu a {
+    font-size: 4vw;
+    padding: 1vh 1.5vw;
+  }
+  .acciones {
+    width: 100%;
+    justify-content: flex-end;
+    top: 8px;
+    right: 5px;
+  }
+  .inicio-sesion {
+    gap: 2.3px; /*separacion entre el icono y la palabra iniciar sesion*/
+  }
+
+}
+
+
+
+  /* BOTONES FLOTANTES */
+  .boton-flotante {
+    font-size: 4vw;
+    padding: 3vh 5vw;
+    border-radius: 6vw;
+  }
+  .boton-flotante img {
+    width: 7vw;
+    height: 7vw;
+    margin-right: 2vw;
+  }
+  .boton-whatsapp {
+    bottom: -0vh;
+    left: 50%;
+    padding: 2vh 2vw;
+    transform: translateX(-50%);
+  }
+  .boton-emergencia {
+    top: 19vh;
+    left: -2vw;
+     padding: 2vh 3vw;
+  }
+  .boton-carrito {
+    top: 19vh;
+    right: 0vw;
+     padding: 2vh 2vw;
+  }
+
+  
+  .boton-sucursales {
+    bottom: 15vh;
+    right: -0vw;
+     padding: 2vh 2vw;
+  }
+  .redes-sociales {
+    bottom: 15vh;
+    left: 0vw;
+    padding: 2vh 2vw;
+    gap: 4vw;
+  }
+  .redes-sociales a img {
+    width: 7vw;
+    height: 7vw;
+  }
+
+
+
+
+
+/* Botón hamburguesa - solo visible en móviles */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 9000;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 50px;
+    background-color: #671B6B;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 20px;
+    gap: 20px;
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .menu-mobile {
+  position: fixed;
+  top: 0; left: 0;
+
+  z-index: 10000;
+  /* y animas la opacidad o el transform si lo deseas */
+}
+
+  .menu.show {
+    left: 0;
+  }
+
+  .menu a {
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #fff3;
+  }
+}
+
+
+/* HAMBURGUESA oculto en desktop */
+.menu-toggle { display: none; }
+
+/* Sólo en pantallas ≤ 768px */
+@media (max-width: 768px) {
+  .menu-desktop { display: none; }    /* quito el menú de escritorio */
+  .menu-mobile  { display: flex; }    /* muestro el deslizable */
+  .menu-toggle  { display: block; }   /* muestro el 🔲 hamburguesa */
+}
+
+/* ————————————————————————
+   Estilos del menú deslizable
+   ———————————————————————— */
+.menu-mobile {
+  position: fixed;
+  top: 0; left: -100%;
+  width: 210px; height: 88vh;
+  background: #671B6B;
+  flex-direction: column;
+  padding: 0px 20px;
+  gap: 4px;
+  transition: left 0.3s ease;
+  z-index: 1100;
+}
+.menu-mobile.show {
+  left: 0;
+}
+.menu-mobile a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.0rem;
+  padding: 10px 5px; /*espacio entre las lineas y el texto del menu desplegable*/
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+.menu a.active,
+.menu a:hover {
+  color: #671B6B; /*EN DESKTOP esto hace que se pongan moradas las letras al pasar la manita*/
+}
+.menu-mobile a:hover {
+  opacity: 0.8;
+}
+
+/*hace QUE destaque  boton que esté en uso, donde nos encontremos, como INICIO, en el menu movil*/
+  @media (max-width: 768px) {
+  .menu-mobile a.active {
+    background-color: #ccacdc;
+    color: #671B6B !important;
+    padding: 8px 16px;
+    border-radius: 50px; /* lo hace redondito de orillas */
+    font-weight: bold;
+  }
+}
+
+.menu-mobile {
+  padding: 60px 20px 20px 20px; /* top, right, bottom, left */
+}
+
+
+ .menu-mobile a:hover {
+    color: #c89ddd !important; /* puedes ajustar el tono si deseas otro color al pasar el mouse */
+  }
+
+
+
+/* posición de las rayitas de menu en el movil */
+.menu-toggle {
+  display: none;
+  top: 10px;
+  right: 500px;
+  /* resto de estilos */
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    /* aquí ajusta top/left para móvil si cambian */
+  }
+}
+
+
+
+
+
+
+/* ———————————————
+   DISEÑO DESKTOP (≥ 769 px)
+   ——————————————— */
+@media(min-width:769px){
+  .card-servicio{
+    display:flex;
+    align-items:center;
+    padding:20px 30px;
+    max-width:100%;          /* permite que crezca a lo ancho */
+  }
+  .servicio-icono{
+    flex:0 0 90px;
+    width:90px; height:90px;
+    margin:0 32px 0 0;       /* icono a la izquierda */
+    margin-left: 10px;
+  }
+  .servicio-nombre{text-align:center; }
+  .servicio-desc{
+    text-align:center;         /* texto alineado a la izquierda */
+    font-size: 15px;
+    margin-left: -16px;
+  }
+
+  
+}
+
+/* AJUSTE DE BOTONES BURBUJA Y DE SECCION 2, PARA DESKTOP, TAMAÑOS*/
+@media screen and (min-width: 769px) {
+
+  /* BOTONES FLOTANTES – AJUSTES DESKTOP */
+  .boton-flotante {
+    font-size: 1.2rem;
+    padding: 6px 12px;
+    border-radius: 22px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  }
+
+  .boton-flotante img {
+    width: 27px;
+    height: 27px;
+    margin-right: 6px;
+  }
+
+  /* Posición específica por botón */
+  .boton-emergencia {
+    top: 168px;
+    left: 20px;
+  }
+
+  .boton-carrito {
+    top: 168px;
+    right: 20px;
+  }
+
+  .boton-whatsapp {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .boton-sucursales {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .redes-sociales {
+    bottom: 20px;
+    left: 20px;
+    padding: 6px 10px;
+    gap: 10px;
+  }
+
+  .redes-sociales a img {
+    width: 25px;
+    height: 25px;
+  }
+
+}
+
+
+
+/* ———————————————
+   DISEÑO MÓVIL (≤ 768 px)
+   ——————————————— */
+@media(max-width:768px){
+  .card-servicio{
+    max-width:500px;         /* que no se estire más de la pantalla */
+  }
+  .servicio-icono{
+    margin:0 auto 20px;      /* icono centrado arriba */
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .boton-emergencia
+  {
+    font-size: 17px !important;
+    top: 100px !important;         /* misma altura que el carrito */
+     top: 18vh !important;
+  left: 1vw !important;
+  }
+  .boton-carrito {
+    top: calc(100px + 20px); /* Ajuste dinámico: altura del header + margen */
+  }
+
+}
+
+@media screen and (max-width: 320px) {
+  .boton-emergencia
+  {
+    font-size: 14px !important;
+        /* misma altura que el carrito */
+     top: 13vh !important;
+    
+  left: -4vw !important;
+  }
+  .boton-carrito {
+    top: calc(100px + 20px); /* Ajuste dinámico: altura del header + margen */
+  }
+
+}
+
+
+
+/* ——————————————————————————
+   SECCIÓN CON FONDO MORADO Y LETRA BLANCA
+   —————————————————————————— */
+.seccion-morado-texto {
+  background-color: #671B6B; /* morado institucional */
+  padding: 60px 40px; /*espacio vertical y espacio horizontal que deja para que no abarque el texto*/
+  text-align: center;
+}
+
+.contenedor-texto-blanco p {
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #ffffff;
+  font-weight: 300;
+  line-height: 1.3; /*espacio entre las letras verticalmente*/
+}
+
+/* Móvil */
+@media (max-width: 768px) {
+  .contenedor-texto-blanco p {
+    font-size: 3vw;
+    padding: 0 10px;
+  }
+}
+
+
+
+
+/* --DISEÑO DE MODAL DE RECORRIDO VIRTUAL VENTANITAS --*/
+.modal-recorrido-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.modal-recorrido-overlay.activo {
+  display: flex;
+}
+
+.modal-recorrido-content {
+  background: white;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 960px;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.modal-recorrido-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+/* --FIN DISEÑO DE MODAL DE RECORRIDO VIRTUAL VENTANITAS --*/
+
+
+/* ———————————————
+   SECCIÓN OBITUARIOS 
+   ——————————————— */
+.seccion-obituarios {
+  background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
+  background-size: cover;
+  padding: 60px 20px 130px;
+  text-align: center;
+  position: relative;
+  overflow: visible; /*es para que se vea encima de todo*/
+}
+
+.obituarios-texto h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: #671B6B;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.obituarios-texto p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 500;
+  color: #671B6B;
+  margin-bottom: 40px;
+}
+
+.obituarios-imagen {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.obituarios-imagen img {
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.obituarios-boton {
+  position: relative;
+  z-index: 5;
+  margin-top: -30px;
+}
+
+.btn-obituarios {
+  display: inline-block;
+  background-color: #671B6B;
+  color: white;
+  padding: 14px 36px;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: bold;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.btn-obituarios:hover {
+  background-color: #542356;
+  transform: scale(1.05);
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+  .obituarios-boton {
+    margin-top: -30px;
+    text-align: center;
+    padding-left: 40px;
+  }
+
+  .btn-obituarios {
+    font-size: clamp(0.8rem, 4vw, 1.2rem);
+  }
+
+  .obituarios-imagen img {
+    width: 140%;
+  height: 50vh;
+  object-fit: cover;
+  object-position: center;
+  }
+}
+
+/*imagen de obituarios - niña*/
+.seccion-obituarios {
+  position: relative; /* importante para posicionar la imagen interna */
+  background: url('/FRONTEND/1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: 100px 20px 160px; /* deja espacio al final para la imagen */
+  text-align: center;
+}
+
+.seccion-obituarios::after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* se pega al final */
+  left: 15%;  /* centrada horizontalmente */
+  top: 22%;
+  transform: translateX(-50%);
+  width: 100%; /* tamaño base para desktop */
+  height: 65%;
+  background: url('1.6imagenes/imagen-homenaje.png') no-repeat center bottom;
+  background-size: contain;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .seccion-obituarios::after {
+    width: 100vw;
+    height: 140px;
+    background-position: center 20px;  /* ajusta verticalmente */
+    bottom: 10px;
+  }
+}
+
+
+/* ———————————————
+   FIN SECCIÓN OBITUARIOS 
+   ——————————————— */
+
+
+
+
+   /* SECCIONES DE EJEMPLO A ELIMINAR */
+  /* SECCIONES DE EJEMPLO A ELIMINAR */
+
+
+.seccion-morado-claro {
+  background-color: #D8B8E0;
+  color: #4A004E;
+}
+
+.seccion-morado-medio {
+  background-color: #BBA0C9;
+  color: #3A003D;
+}
+
+.seccion-morado-oscuro {
+  background-color: #671B6B;
+  color: #FFFFFF;
+}
+
+.seccion-nosotros {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.seccion-nosotros h2 {
+  font-family: 'Fleur de Leah', cursive;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+.seccion-nosotros p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+.seccion-con-fondo {
+  background-image: url('../1.6imagenes/fondo-pagina.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.descripcion-detallada {
+  background-color: #E2BFF5;
+  padding: 50px 20px;
+  margin-top: 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Montserrat', sans-serif;
+  color: #4A004E;
+}
+
+.contenedor-descripcion {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.descripcion-detallada h3 {
+  font-size: 1.7rem;
+  color: #671B6B;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* descripcion de ultimo descripcion del producto*/
+.descripcion-detallada {
+  background-color: #f8e9f9;
+  padding: 40px 30px;
+  margin-top: 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(103, 27, 107, 0.08);
+  font-family: 'Montserrat', sans-serif;
+  color: #4A004E;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  background-color: #e4caee !important;
+}
+
+/* === Fondo general de la página === */
+body {
+  background-color: #e4caee !important;
+
+}
+
+
+/* === Sección descriptiva del producto === */
+
+.descripcion-extra {
+  background-color: #E4CAEE; /* tono morado pastel */
+  border-radius: 20px;
+  padding: 30px 30px;
+  max-width: 900px;
+  margin: 20px auto;
+  box-shadow: 0 8px 24px rgba(103, 27, 107, 0.15);
+  font-family: 'Montserrat', sans-serif;
+  color: #4A004E;
+  line-height: 1.7;
+}
+
+.descripcion-extra h3 {
+  font-size: 1.6rem;
+  color: #671B6B;
+  margin-bottom: 18px;
+}
+
+.descripcion-extra h4 {
+  font-size: 1.3rem;
+  color: #671B6B;
+  margin: 25px 0 10px;
+}
+
+.descripcion-extra p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.descripcion-extra ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.descripcion-extra ul ul {
+  list-style: circle;
+  margin-top: 6px;
+}
+
+
+@media (max-width: 767px) {
+  .descripcion-extra {
+    order: 3; /* asegura que vaya al final si está en flex container */
+  }
+
+  .contenedor-producto {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+  /* FIN DE SECCIONES DE EJEMPLO A ELIMINAR */
+    /* SECCIONES DE EJEMPLO A ELIMINAR */
+      /* SECCIONES DE EJEMPLO A ELIMINAR */
+
+
+
+
+/* ———— PIE DE PÁGINA ———— */
+.footer {
+  background-color: #b396c3; /* Color sólido igual que encabezado */
+  color: white;
+  text-align: center;
+  padding: 40px 20px 50px;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+
+}
+
+.footer-info p {
+  font-size: 0.95rem;
+  margin: 5px 0;
+}
+
+.footer-info a {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 20px;
+}
+
+.footer-copy p {
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.footer-social img {
+  width: 26px;
+  height: 26px;
+  transition: transform 0.3s ease;
+}
+
+.footer-social img:hover {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px;
+  }
+
+  .footer-info p,
+  .footer-copy p {
+    font-size: 0.8rem;
+  }
+
+  .footer-social {
+    gap: 20px;
+    padding: 10px 16px;
+  }
+
+  .footer-social img {
+    width: 24px;
+    height: 24px;
+  }
+
+
+}
+
+/* Ajuste para móvil */
+@media (max-width: 768px) {
+  .seccion-obituarios::after {
+    width: 100vw;         /* casi todo el ancho de pantalla */
+    height: 310px;       /* menos alto en móvil si deseas */
+    left: 15%;           /* centrado */
+     top: 60%;
+    transform: translate(-50%, 10px); /* 10px hacia abajo desde el final */
+    background-position: center top;
+    background-size: contain;
+  }
+}
+
+
+
+
+
+
+/* ———————————————
+   BOTON DE EMERGENCIAS CON MODAL
+   ——————————————— */
+
+button.boton-flotante {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  background-color: #671B6B;
+  color: white;
+  font-family: 'Montserrat', sans-serif; /* o la fuente que estés usando */
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  border: none;
+}
+
+button.boton-flotante:hover {
+  transform: scale(1.05);
+  background-color: #4d1251;
+}
+
+.boton-flotante img {
+  width: 24px;
+  height: 24px;
+}
+
+/*BOTON EMERGENCIAS EN DESKTOP*/
+#botonEmergencias {
+  position: fixed;
+  top: 26vh;
+  left: 2vw;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.8em 0.4em;
+  border-radius: 2em;
+  background-color: #671B6B;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  z-index: 999;
+  border: none;
+}
+#botonEmergencias img {
+  width: clamp(16px, 5vw, 24px);
+  height: clamp(16px, 5vw, 24px);
+}
+#botonEmergencias:hover {
+  transform: scale(1.05);
+  background-color: #4d1251;
+}
+/*BOTON EMERGENCIAS EN DESKTOP FIN*/
+
+
+
+/* ———————————————
+  FIN  BOTON DE EMERGENCIAS CON MODAL
+   ——————————————— */
+
+/* ———————————————
+   MODAL DEL BOTON DE EMERGENCIAS
+   ——————————————— */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6); /* ESTE ES EL EFECTO OSCURECIDO */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease;
+  z-index: 10000;
+}
+
+.modal-overlay.activo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-contenido {
+  background: #671B6B;
+  padding: 25px;
+  max-width: 600px;
+  width: 80%;
+  height: 80%;
+  border-radius: 12px;
+  position: relative;
+  color: white;
+    font-size: 0.9rem;  /* tamaño de letra en el modal de emergencias */
+  line-height: 1.7;
+
+}
+
+.img-emergencias-superior {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translateX(-50%);
+  width: 290px;
+  height: auto;
+  z-index: 5;
+  border-radius: 12px;
+ 
+}
+
+.titulo-modal-emergencias {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+.modal-contenido {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Móvil */
+/* 320px a 359px */
+@media screen and (min-width: 320px) and (max-width: 359px) {
+  .modal-contenido {
+    height: 85%;
+    width: 88%;
+    font-size: 0.68rem;
+    line-height: 1.3;
+  }
+  .img-emergencias-superior {
+    bottom: 0;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 68%;
+  }
+}
+
+/* 360px a 389px */
+@media screen and (min-width: 360px) and (max-width: 389px) {
+  .modal-contenido {
+    height: 87%;
+    width: 89%;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  .img-emergencias-superior {
+    bottom: 0;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 43%;
+  }
+}
+
+/* 390px a 411px */
+@media screen and (min-width: 390px) and (max-width: 411px) {
+  .modal-contenido {
+    height: 88%;
+    width: 90%;
+    font-size: 0.96rem;
+    line-height: 1.45;
+  }
+  .img-emergencias-superior {
+    bottom: 0;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 52%;
+  }
+}
+
+/* 412px a 429px */
+@media screen and (min-width: 412px) and (max-width: 429px) {
+  .modal-contenido {
+    height: 89%;
+    width: 91%;
+    font-size: 1.0rem;
+    line-height: 1.5;
+  }
+  .img-emergencias-superior {
+    bottom: 0;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+  }
+}
+
+/* 430px a 440px */
+@media screen and (min-width: 430px) and (max-width: 440px) {
+  .modal-contenido {
+    height: 90%;
+    width: 92%;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+  .img-emergencias-superior {
+    bottom: 0;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 58%;
+  }
+}
+
+
+
+.cerrar-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.lista-telefonos {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 15px;
+}
+
+.lista-telefonos li {
+  margin-bottom: 8px;
+}
+
+/* ———————————————
+   FIN MODAL DEL BOTON DE EMERG
+   ——————————————— */
+
+/* CARRITO*/
+.modal-carrito-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease;
+  z-index: 10000;
+}
+
+.modal-carrito-overlay.activo {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-carrito-content {
+  position: relative;
+  background: #E2BFF5;
+  border-radius: 16px;
+  padding: 60px;
+  position: relative;
+  top: -30px; /* súbelo más si quieres mayor efecto */
+  max-width: 600px;
+  width: 90%;
+  text-align: left;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.img-carrito-3d {
+  position: absolute;
+  left: -60px;
+  top: 70px;
+  width: 130px;
+}
+
+.titulo-carrito {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  margin-left: 80px;
+}
+
+.item-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #E2BFF5;
+  padding: 12px 20px;
+  margin: 10px 0;
+  font-weight: bold;
+  border-radius: 12px;
+  color: #671B6B;
+}
+
+.carrito-total {
+  background-color: #671B6B;
+  color: white;
+  font-weight: bold;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  display: flex;
+  text-align: right;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-radius: 6px;
+}
+
+.pago-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.logo-openpay {
+  width: 100px;
+}
+
+.btn-pagar {
+  background-color: #8867E8;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.3s ease;
+}
+
+.btn-pagar:hover {
+  background-color: #7152c5;
+  transform: scale(1.05);
+}
+
+.cantidad-control button {
+  background-color: white;
+  border: none;
+  font-size: 1.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #671B6B;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.cantidad-control {
+  margin-left: auto;         /* empuja hacia la derecha */
+  display: flex;
+  align-items: center;
+  gap: 9px;                  /* espacio entre − número + */
+}
+
+.folio-contrato {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-folio {
+  background-color: #ffffff;
+  color: #671B6B;
+  border: 2px solid #671B6B;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-folio:hover {
+  background-color: #f3e2fb;
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+  .modal-carrito-content {
+    padding: 19px;
+    top: -20px;
+  }
+
+  .titulo-carrito {
+    font-size: 1.3rem;
+    margin-left: 67px;
+  }
+
+  .item-carrito {
+    padding: 10px 34px;
+    font-size: 0.9rem;
+    margin: 8px 0;
+  }
+
+  .cantidad-control button {
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+  }
+
+
+
+  .carrito-total {
+    font-size: 1rem;
+    padding: 12px 16px;
+  }
+
+  .btn-pagar {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .logo-openpay {
+    width: 80px;
+  }
+
+  .img-carrito-3d {
+    width: 90px;
+    top: 50px;
+    left: -40px;
+  }
+}
+
+/*CARRITO*/
+   /* AQUI TERMINA EL CSS BASE MAQUETA*/
+
+
+/*--------------------------------------------------------------*/
+/*--------FIN DE DISEÑO BASE PARA MAQUETADO DE MENUS ---------------*/
+/*--------------------------------------------------------------*/
+
+/* === SECCIÓN PRODUCTO DETALLE === */
+.producto-detalle {
+  padding: 120px 20px 80px;
+  background: linear-gradient(to bottom, #ecd6f4, #d6b4e4);
+  background-attachment: fixed;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contenedor-producto {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.info-producto {
+  flex: 1 1 500px;
+}
+
+.titulo-producto {
+  font-family: 'Fleur De Leah', cursive;
+  font-size: clamp(2.5rem, 6vw, 3.6rem);
+  color: #671B6B;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.descripcion-producto {
+  font-size: 1.1rem;
+  color: #4A004E;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.precios-producto {
+  font-size: 1.05rem;
+  margin-bottom: 40px;
+}
+
+.precios-producto strong {
+  color: #4A004E;
+}
+
+.precio-publico {
+  text-decoration: line-through;
+  color: #888;
+  margin-left: 10px;
+}
+
+.precio-descuento {
+  color: #B80064;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.botones-accion {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-compra-online,
+.btn-compra-presencial {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-compra-online {
+  background-color: #671B6B;
+  color: white;
+}
+
+.btn-compra-online:hover {
+  background-color: #500e55;
+}
+
+.btn-compra-presencial {
+  background-color: #FFFFFF;
+  color: #671B6B;
+  border: 2px solid #671B6B;
+}
+
+.btn-compra-presencial:hover {
+  background-color: #f3e5f7;
+}
+
+.imagen-producto {
+  flex: 1 1 500px;
+  text-align: center;
+}
+
+.imagen-producto img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* === RESPONSIVE === */
+@media screen and (max-width: 900px) {
+  .contenedor-producto {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .botones-accion {
+    justify-content: center;
+  }
+
+  .info-producto {
+    order: 2;
+  }
+
+  .imagen-producto {
+    order: 1;
+  }
+}
+
+/* === MODAL “COTIZA TU PLAN” === */
+.modal-cotiza-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 10001; /* por encima del resto de modales */
+}
+
+.modal-cotiza-overlay.activo {
+  display: flex;
+}
+
+.modal-cotiza-contenido {
+  position: relative;
+  background: #fff;
+  padding: 2.5rem 2rem;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+/* Fuente Montserrat en todo el modal */
+.modal-cotiza-overlay,
+.modal-cotiza-contenido,
+.modal-cotiza-contenido * {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Botón cerrar (X) */
+.modal-cotiza-contenido .cerrar-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #671B6B;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* Texto principal */
+.modal-cotiza-contenido .modal-etiqueta {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #671B6B;
+  margin-bottom: 1rem;
+}
+
+/* Subtexto explicativo */
+.modal-cotiza-contenido .modal-subtexto {
+  font-size: 1rem;
+  color: #4A004E;
+  margin: 1rem 0 1.5rem;
+}
+
+/* Botón WhatsApp dentro del modal */
+.btn-whatsapp-modal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid #671B6B;
+  border-radius: 8px;
+  padding: 0.85rem 1.2rem;
+  color: #671B6B;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s;
+}
+
+.btn-whatsapp-modal:hover {
+  background-color: #f3e5f7;
+}
+
+.modal-cotiza-contenido .icono-wsp {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+/* Formulario */
+.formulario-modal {
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+/* Labels del formulario */
+.formulario-modal label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4A004E;
+}
+
+/* Inputs */
+.formulario-modal input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formulario-modal input:focus {
+  outline: none;
+  border-color: #671B6B;
+  box-shadow: 0 0 0 2px rgba(103,27,107,0.2);
+}
+
+/* Botón de enviar datos */
+.btn-enviar-modal {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #671B6B;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-enviar-modal:hover {
+  background-color: #500e55;
+}
+
+/* === BOTONES PRINCIPALES: ESTILO AVANZADO === */
+.btn-compra-online,
+.btn-compra-presencial {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  transition: 
+    background-color 0.3s ease, 
+    box-shadow 0.3s ease, 
+    transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Sombra sutil por defecto */
+.btn-compra-online {
+  background-color: #671B6B;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.btn-compra-presencial {
+  background-color: #ffffff;
+  color: #671B6B;
+  border: 2px solid #671B6B;
+  box-shadow: 0 4px 12px rgba(103, 27, 107, 0.15);
+}
+
+/* Hover: elevación y “flotado” */
+.btn-compra-online:hover {
+  background-color: #500e55;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+.btn-compra-presencial:hover {
+  background-color: #f3e5f7;
+  box-shadow: 0 8px 24px rgba(103, 27, 107, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Foco accesible */
+.btn-compra-online:focus,
+.btn-compra-presencial:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(103, 27, 107, 0.3);
+}
+
+/* === EVITAR QUE EL MXN SALTE DE LÍNEA === */
+.precio-publico,
+.precio-descuento {
+  white-space: nowrap;
+}
+
+
+/* === SLIDER COLLAGE AUTOMÁTICO === */
+.collage-slider {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.slider-contenedor {
+  display: flex;
+  width: 400%; /* 4 imágenes */
+  height: 100%;
+  animation: deslizar 16s infinite ease-in-out;
+}
+
+.slider-contenedor img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;         /* ← llena sin dejar espacios en blanco */
+  object-position: center;
+  flex: 0 0 100%;
+}
+
+
+/* Animación automática de izquierda a derecha */
+@keyframes deslizar {
+  0%   { transform: translateX(0%); }
+  20%  { transform: translateX(0%); }
+
+  25%  { transform: translateX(-100%); }
+  45%  { transform: translateX(-100%); }
+
+  50%  { transform: translateX(-200%); }
+  70%  { transform: translateX(-200%); }
+
+  75%  { transform: translateX(-300%); }
+  95%  { transform: translateX(-300%); }
+
+  100% { transform: translateX(0%); }
+}
+
+.fade-slider {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 8 / 9;  /*este es el tamaño del cuadro donde va la imagen*/
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+.fade-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.fade-slide {
+  object-fit: cover;
+}
+
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: background-color 0.3s;
+}
+
+.slider-btn img {
+  width: 100%;
+  height: auto;
+}
+
+.slider-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+
+/*ESTILOS DE TIPO DE COMPRA Y PLAZOS*/
+.formulario-compra {
+  margin-top: 2rem;
+  background-color: #f5e5f9;
+  padding: 1.5rem;
+  border-radius: 16px;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+.titulo-compra {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #671B6B;
+  margin-bottom: 1.5rem;
+}
+
+.campo-formulario {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.campo-formulario label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #4A004E;
+}
+
+.campo-formulario select {
+  padding: 0.6rem;
+  border: 2px solid #671B6B;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #4A004E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.total-contenedor {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.etiqueta-total {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #4A004E;
+}
+
+.total-precio {
+  background-color: #671B6B;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.btn-compra-online {
+  margin-top: 2rem; /* puedes ajustar: 1rem, 20px, etc. */
+}

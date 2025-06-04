@@ -805,7 +805,6 @@ header {
 
    /* SECCIONES DE EJEMPLO A ELIMINAR */
   /* SECCIONES DE EJEMPLO A ELIMINAR */
-    /* SECCIONES DE EJEMPLO A ELIMINAR */
 
 
 .seccion-morado-claro {
@@ -853,6 +852,108 @@ header {
   color: white;
   padding: 100px 20px;
   text-align: center;
+}
+
+.descripcion-detallada {
+  background-color: #E2BFF5;
+  padding: 50px 20px;
+  margin-top: 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Montserrat', sans-serif;
+  color: #4A004E;
+}
+
+.contenedor-descripcion {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.descripcion-detallada h3 {
+  font-size: 1.7rem;
+  color: #671B6B;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* descripcion de ultimo descripcion del producto*/
+.descripcion-detallada {
+  background-color: #f8e9f9;
+  padding: 40px 30px;
+  margin-top: 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(103, 27, 107, 0.08);
+  font-family: 'Montserrat', sans-serif;
+  color: #4A004E;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  background-color: #e4caee !important;
+}
+
+/* === Fondo general de la página === */
+body {
+  background-color: #e4caee !important;
+
+}
+
+
+/* === Sección descriptiva del producto === */
+
+.descripcion-extra {
+  background-color: #E4CAEE; /* tono morado pastel */
+  border-radius: 20px;
+  padding: 30px 30px;
+  max-width: 900px;
+  margin: 20px auto;
+  box-shadow: 0 8px 24px rgba(103, 27, 107, 0.15);
+  font-family: 'Montserrat', sans-serif;
+  color: #4A004E;
+  line-height: 1.7;
+}
+
+.descripcion-extra h3 {
+  font-size: 1.6rem;
+  color: #671B6B;
+  margin-bottom: 18px;
+}
+
+.descripcion-extra h4 {
+  font-size: 1.3rem;
+  color: #671B6B;
+  margin: 25px 0 10px;
+}
+
+.descripcion-extra p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.descripcion-extra ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.descripcion-extra ul ul {
+  list-style: circle;
+  margin-top: 6px;
+}
+
+
+@media (max-width: 767px) {
+  .descripcion-extra {
+    order: 3; /* asegura que vaya al final si está en flex container */
+  }
+
+  .contenedor-producto {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 
@@ -1389,15 +1490,726 @@ button.boton-flotante:hover {
 /*--------FIN DE DISEÑO BASE PARA MAQUETADO DE MENUS ---------------*/
 /*--------------------------------------------------------------*/
 
+/* === SECCIÓN PRODUCTO DETALLE === */
+.producto-detalle {
+  padding: 120px 20px 80px;
+  background: linear-gradient(to bottom, #ecd6f4, #d6b4e4);
+  background-attachment: fixed;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.contenedor-producto {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.info-producto {
+  flex: 1 1 500px;
+}
+
+.titulo-producto {
+  font-family: 'Fleur De Leah', cursive;
+  font-size: clamp(2.5rem, 6vw, 3.6rem);
+  color: #671B6B;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.descripcion-producto {
+  font-size: 1.1rem;
+  color: #4A004E;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.precios-producto {
+  font-size: 1.05rem;
+  margin-bottom: 40px;
+}
+
+.precios-producto strong {
+  color: #4A004E;
+}
+
+.precio-publico {
+  text-decoration: line-through;
+  color: #888;
+  margin-left: 10px;
+}
+
+.precio-descuento {
+  color: #B80064;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.botones-accion {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-compra-online,
+.btn-compra-presencial {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-compra-online {
+  background-color: #671B6B;
+  color: white;
+}
+
+.btn-compra-online:hover {
+  background-color: #500e55;
+}
+
+.btn-compra-presencial {
+  background-color: #FFFFFF;
+  color: #671B6B;
+  border: 2px solid #671B6B;
+}
+
+.btn-compra-presencial:hover {
+  background-color: #f3e5f7;
+}
+
+.imagen-producto {
+  flex: 1 1 500px;
+  text-align: center;
+}
+
+.imagen-producto img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* === RESPONSIVE === */
+@media screen and (max-width: 900px) {
+  .contenedor-producto {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .botones-accion {
+    justify-content: center;
+  }
+
+  .info-producto {
+    order: 2;
+  }
+
+  .imagen-producto {
+    order: 1;
+  }
+}
+
+/* === MODAL “COTIZA TU PLAN” === */
+.modal-cotiza-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 10001; /* por encima del resto de modales */
+}
+
+.modal-cotiza-overlay.activo {
+  display: flex;
+}
+
+.modal-cotiza-contenido {
+  position: relative;
+  background: #fff;
+  padding: 2.5rem 2rem;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+/* Fuente Montserrat en todo el modal */
+.modal-cotiza-overlay,
+.modal-cotiza-contenido,
+.modal-cotiza-contenido * {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Botón cerrar (X) */
+.modal-cotiza-contenido .cerrar-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #671B6B;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* Texto principal */
+.modal-cotiza-contenido .modal-etiqueta {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #671B6B;
+  margin-bottom: 1rem;
+}
+
+/* Subtexto explicativo */
+.modal-cotiza-contenido .modal-subtexto {
+  font-size: 1rem;
+  color: #4A004E;
+  margin: 1rem 0 1.5rem;
+}
+
+/* Botón WhatsApp dentro del modal */
+.btn-whatsapp-modal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid #671B6B;
+  border-radius: 8px;
+  padding: 0.85rem 1.2rem;
+  color: #671B6B;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s;
+}
+
+.btn-whatsapp-modal:hover {
+  background-color: #f3e5f7;
+}
+
+.modal-cotiza-contenido .icono-wsp {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+/* Formulario */
+.formulario-modal {
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+/* Labels del formulario */
+.formulario-modal label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4A004E;
+}
+
+/* Inputs */
+.formulario-modal input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formulario-modal input:focus {
+  outline: none;
+  border-color: #671B6B;
+  box-shadow: 0 0 0 2px rgba(103,27,107,0.2);
+}
+
+/* Botón de enviar datos */
+.btn-enviar-modal {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #671B6B;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-enviar-modal:hover {
+  background-color: #500e55;
+}
 
 
 
+/* === SLIDER COLLAGE AUTOMÁTICO === */
+
+/* === SLIDER COLLAGE AUTOMÁTICO === */
+.collage-slider {
+  width: 100%;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 0; /* Quita bordes si deseas que abarque completo */
+  box-shadow: none;
+}
+
+.fade-slider {
+  width: 100%;
+  height: 100vh;
+  max-width: none;
+  aspect-ratio: auto;
+  position: relative;
+}
+
+.slider-contenedor {
+  display: flex;
+  width: 400%; /* 4 imágenes */
+  height: 100%;
+  animation: deslizar 16s infinite ease-in-out;
+}
+
+.slider-contenedor img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Que llene visualmente */
+  object-position: center;
+  flex: 0 0 100%;
+}
+
+.fade-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Botones de navegación del slider */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: background-color 0.3s;
+}
+
+.slider-btn img {
+  width: 100%;
+  height: auto;
+}
+
+.slider-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.fade-slider {
+  position: relative;
+}
+
+
+/* Animación automática de izquierda a derecha */
+@keyframes deslizar {
+  0%   { transform: translateX(0%); }
+  20%  { transform: translateX(0%); }
+  25%  { transform: translateX(-100%); }
+  45%  { transform: translateX(-100%); }
+  50%  { transform: translateX(-200%); }
+  70%  { transform: translateX(-200%); }
+  75%  { transform: translateX(-300%); }
+  95%  { transform: translateX(-300%); }
+  100% { transform: translateX(0%); }
+}
+
+/* === SECCIÓN DE NOSOTROS DESPUÉS DEL COLLAGE === */
+.contenedor-nosotros {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 60px;
+  margin-top: 100vh; /* Empuja el contenido hacia abajo después del collage */
+}
+
+.info-nosotros {
+  flex: 1;
+  max-width: 40%;
+  padding-top: 40px; /* Separación adicional */
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .contenedor-nosotros {
+    flex-direction: column;
+    margin-top: 60vh; /* Menor espacio para móvil */
+    padding: 20px;
+  }
+
+  .info-nosotros {
+    max-width: 90%;
+    padding-top: 20px;
+  }
+
+  .fade-slider {
+    height: 60vh;
+  }
+}
 
 
 
+/*diseño para reseñas*/
+/* === SECCIÓN DE TESTIMONIOS === */
+/* === SECCIÓN DE TESTIMONIOS === */
+
+/* ════════════════════════════════════════════
+   SECCIÓN TESTIMONIOS – Jardín de los Pinos
+   Efecto carrusel 3-D centrado, clickeable, fluido.
+   ════════════════════════════════════════════ */
+
+/* ——— 1. CONTENEDOR GENERAL ——— */
+.testimonios-section {
+  background: linear-gradient(to bottom, #6d2393, #a067c3);
+  padding: 80px 0;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.titulo-testimonios {
+  font: 700 2.6rem/1 'Montserrat', sans-serif;
+  margin: 0 0 48px;
+  position: relative;
+}
+.titulo-testimonios::after {
+  content: "";
+  width: 140px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+}
+
+/* ——— 2. CARRUSEL ——— */
+.carrusel-testimonios {
+  position: relative;
+  max-width: 1400px;
+  padding-left:221vh;
+  margin: 0 auto;
+  height: 460px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+  overflow: hidden;
+}
 
 
 
+.contenedor-tarjetas {
+  display: flex;
+  align-items: center;
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+/* ——— 3. TARJETAS ——— */
+.tarjeta {
+  flex: 0 0 300px;
+  margin: 0 16px; /* ← asegura GAP de 32px entre tarjetas */
+  max-width: 90vw;
+  height: 380px;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  padding: 34px 28px;
+  box-sizing: border-box;
+  color: #4a004e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  transform-origin: center center;
+  transform: scale(0.78);
+  opacity: 0.35;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  cursor: pointer;
+}
+
+.tarjeta.activa {
+  transform: scale(1.15) translateZ(60px);
+  opacity: 1;
+  z-index: 5;
+}
+
+/* ——— Contenido interno ——— */
+.tarjeta h3 {
+  font: 700 1.3rem/1.2 'Montserrat', sans-serif;
+}
+.profesion {
+  font: 500 0.9rem/1.2 'Montserrat', sans-serif;
+  color: #826a9b;
+}
+.mensaje {
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.estrellas {
+  font-size: 1.25rem;
+  color: #ffc107;
+  letter-spacing: 2px;
+}
+.google-icon {
+  width: 34px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* ——— 4. NAVEGACIÓN ——— */
+.btn-carrusel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.7);
+  color: #6d2393;
+  cursor: pointer;
+  transition: background 0.25s;
+  z-index: 10;
+}
+.btn-carrusel:hover {
+  background: #fff;
+}
+#btn-prev {
+  left: 12px;
+}
+#btn-next {
+  right: 12px;
+}
 
 
+/*CONDICIONES AJUSTES PARA TAMAÑO DE MÓVIL PARA QUE CARRUSEL SE VEA AL CENTRO
 
+/* 📱 Móviles muy pequeños (iPhone SE, Galaxy J2) */
+@media (max-width: 320px) {
+  .carrusel-testimonios {
+    padding-left: 178vh;
+  }
+}
+
+/* 📱 Móviles pequeños (iPhone 5s, Galaxy A01) */
+@media (min-width: 321px) and (max-width: 359px) {
+  .carrusel-testimonios {
+    padding-left: 15px;
+  }
+}
+
+/* 📱 Móviles medianos (iPhone 12, Galaxy S10) */
+@media (min-width: 360px) and (max-width: 389px) {
+  .carrusel-testimonios {
+    padding-left: 184.5vh;
+  }
+}
+
+/* 📱 Móviles grandes (iPhone XR, Pixel 6) */
+@media (min-width: 390px) and (max-width: 400px) {
+  .carrusel-testimonios {
+    padding-left: 146.5vh;
+  }
+}
+@media (min-width: 401px) and (max-width: 411px) {
+  .carrusel-testimonios {
+    padding-left: 136vh;
+  }
+}
+@media (min-width: 412px) and (max-width: 419px) {
+  .carrusel-testimonios {
+    padding-left: 136vh;
+  }
+}
+/* 📱 Móviles extra grandes (Galaxy S21 Ultra, iPhone 14 Plus) */
+@media (min-width: 420px) and (max-width: 449px) {
+  .carrusel-testimonios {
+    padding-left: 134vh;
+  }
+}
+@media (min-width: 450px) and (max-width: 479px) {
+  .carrusel-testimonios {
+    padding-left: 80vh;
+  }
+}
+
+/* 💊 Tablets pequeñas (iPad Mini, Galaxy Tab A) */
+@media (min-width: 480px) and (max-width: 767px) {
+  .carrusel-testimonios {
+    padding-left: 130vh;
+  }
+}
+
+/* 💻 Tablets grandes y laptops pequeñas (iPad Air, Surface Go) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .carrusel-testimonios {
+    padding-left: 208vh;
+  }
+}
+
+/* 🖥️ Escritorio estándar (laptops normales de 13"-14") */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .carrusel-testimonios {
+    padding-left: 222vh;
+  }
+}
+
+/* 🖥️ Pantallas grandes (desktops y laptops de 15"-17") */
+@media (min-width: 1440px) {
+  .carrusel-testimonios {
+    padding-left: 220vh;
+  }
+}
+/*FIN CONDICIONES AJUSTES PARA TAMAÑO DE MÓVIL PARA QUE CARRUSEL SE VEA AL CENTRO
+
+/*DISEÑO PARA APARTADO DE VIDEOS EN NOSOTROS*/
+.videos-section {
+  background: #f8f4fc;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.titulo-videos {
+  font: 700 2.4rem 'Montserrat', sans-serif;
+  margin-bottom: 48px;
+  color: #4a004e;
+  position: relative;
+}
+.titulo-videos::after {
+  content: "";
+  width: 120px;
+  height: 3px;
+  background: #6d2393;
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.contenedor-videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.video-wrapper {
+  flex: 1 1 480px;
+  max-width: 600px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+
+.videos-section {
+  background: url('../1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: 80px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+/*fin seccion videos*/
+
+
+/*SECCION CALENDARIO*/
+.calendario-section {
+  background: url('../1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: 80px 20px 140px;  /*el ultimo numero de padding es para el espacio abajo del calendario entre final de seccion*/
+  text-align: center;
+  color: #fff;
+}
+
+.titulo-calendario {
+  font: 700 2.4rem 'Montserrat', sans-serif;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.titulo-calendario::after {
+  content: "";
+  width: 140px;
+  height: 4px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.contenedor-calendario {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}

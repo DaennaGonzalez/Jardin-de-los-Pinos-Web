@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function ajustarEspacioEncabezado() {
     const alturaHeader = header.offsetHeight;
     seccionesConEspacio.forEach(seccion => {
-      seccion.style.paddingTop = `${alturaHeader + 60}px`; // 60px extra para respiro, para que el inicio de la seccion empiece un poco más abajo del encabezado*/
+      seccion.style.paddingTop = `${alturaHeader + 100}px`; // 60px extra para respiro, para que el inicio de la seccion empiece un poco más abajo del encabezado*/
     });
   }
 
@@ -200,8 +200,74 @@ document.addEventListener("DOMContentLoaded", () => {
 //AQUI TERMINA EL JAVASCRIPT BASE MAQUETA */
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.promo-img-wrapper');
+  const prev = document.getElementById('promo-prev');
+  const next = document.getElementById('promo-next');
+  let current = 0;
+
+  function showSlide(index) {
+    slides[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  next.addEventListener('click', () => showSlide(current + 1));
+  prev.addEventListener('click', () => showSlide(current - 1));
+});
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const promoSlider = document.getElementById('promoSlider');
+  const promoImages = promoSlider.querySelectorAll('.promo-img-wrapper');
+  const prevBtn = document.getElementById('promo-prev');
+  const nextBtn = document.getElementById('promo-next');
+  let current = 0;
+  let autoplay;
+
+  function updateSlide(index) {
+    promoImages.forEach((img, i) => {
+      img.classList.remove('active');
+      img.style.transform = `translateX(${(i - index) * 100}%)`;
+    });
+    promoImages[index].classList.add('active');
+  }
+
+  function nextSlide() {
+    current = (current + 1) % promoImages.length;
+    updateSlide(current);
+  }
+
+  function prevSlide() {
+    current = (current - 1 + promoImages.length) % promoImages.length;
+    updateSlide(current);
+  }
+
+  // Event listeners
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetAutoplay();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetAutoplay();
+  });
+
+  // Autoplay
+  function startAutoplay() {
+    autoplay = setInterval(nextSlide, 2000); // cambia cada 5 segundos
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplay);
+    startAutoplay();
+  }
+
+  // Init
+  updateSlide(current);
+  startAutoplay();
+});
 
 
 

@@ -81,42 +81,52 @@
 
   
 <!--EMPIEZAN LAS SECCIONES DE PRUEBA-->
+<!-- ======================= SECCIÓN OBITUARIOS ======================= -->
+<section class="obituarios-section">
+  <div class="encabezado-obituarios">
+    <div class="texto-obituarios">
+      <h2 class="titulo-obituarios">Obituarios</h2>
+      <p class="subtitulo-obituarios">
+        Su memoria vivirá por siempre en nuestros corazones.
+      </p>
+    </div>
 
+    <div class="buscador-obituarios">
+      <div class="campo-busqueda">
+        <label for="buscarNombre">Buscar por nombre:</label>
+        <div class="input-con-icono">
+          <img src="../1.7iconos/icono-buscador.png" alt="Buscar" class="icono-buscar">
+          <input type="text" id="buscarNombre" placeholder="Ej. Juan Pérez">
+        </div>
+      </div>
 
+      <div class="campo-mostrar">
+        <label for="cantidadMostrar">Mostrar:</label>
+        <select id="cantidadMostrar">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="todos">Todos</option>
+        </select>
+      </div>
+    </div>
+  </div>
 
-<section class="seccion-nosotros seccion-morado-claro con-espacio-encabezado"> <!--"con-espacio-encabezado" es una clase que está en javascript, es la funcionalidad que da el espacio para que no se quede detrás el texto del encabezado-->
-  <div class="contenido-nosotros">
-    <h2>Apartado ejemplo de Obituarios</h2>
-    <p>Desde hace más de 40 años, Jardín de los Pinos ha sido un espacio de paz y dignidad para honrar a nuestros seres queridos. Nuestra misión es acompañarte con respeto y calidez en los momentos más delicados.</p>
+  <!-- Contenedor tipo collage de tarjetas obituario -->
+  <div class="contenedor-obituarios" id="contenedorObituarios">
+    <!-- Tarjetas dinámicas generadas vía JS -->
+    <!-- Ejemplo de estructura que se genera dinámicamente:
+    <div class="tarjeta-obituario">
+      <p class="etiqueta">Se despide a:</p>
+      <img src="../ruta-generada.jpg" alt="Obituario de Juan Pérez">
+    </div>
+    -->
   </div>
 </section>
 
-
-
-<section class="seccion-nosotros seccion-morado-medio">
-  <div class="contenido-nosotros">
-    <h2>Nuestros Valores</h2>
-    <p>Trabajamos con empatía, integridad y vocación de servicio. Cada familia es única, y nuestro compromiso es brindar un acompañamiento humano y profesional en todo momento.</p>
-  </div>
-</section>
-
-
-
-<section class="seccion-nosotros seccion-con-fondo">
-  <div class="contenido-nosotros">
-    <h2>Comprometidos Contigo</h2>
-    <p>Cada paso que damos es con el objetivo de brindar consuelo, confianza y respeto a las familias que depositan en nosotros su confianza.</p>
-  </div>
-</section>
-
-
-
-<section class="seccion-nosotros seccion-morado-oscuro">
-  <div class="contenido-nosotros">
-    <h2>Compromiso Social</h2>
-    <p>Participamos activamente en programas de apoyo comunitario, jornadas de salud emocional y eventos conmemorativos para fortalecer la red de apoyo de las familias mexicanas.</p>
-  </div>
-</section>
+<!-- =================== FIN SECCIÓN OBITUARIOS =================== -->
 
 
 <!--FIN DE LAS SECCIONES DE PRUEBA-->
@@ -266,6 +276,8 @@
 
 
 <script src="interaccionesobituarios.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="js/obituarios.js"></script>
 
 
 </body>

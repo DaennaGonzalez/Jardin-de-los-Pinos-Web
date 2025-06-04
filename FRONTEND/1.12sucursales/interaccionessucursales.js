@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function ajustarEspacioEncabezado() {
     const alturaHeader = header.offsetHeight;
     seccionesConEspacio.forEach(seccion => {
-      seccion.style.paddingTop = `${alturaHeader + 60}px`; // 60px extra para respiro, para que el inicio de la seccion empiece un poco más abajo del encabezado*/
+      seccion.style.paddingTop = `${alturaHeader + 100}px`; // 60px extra para respiro, para que el inicio de la seccion empiece un poco más abajo del encabezado*/
     });
   }
 
@@ -199,6 +199,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //AQUI TERMINA EL JAVASCRIPT BASE MAQUETA */
 
+document.addEventListener('DOMContentLoaded', () => {
+  const tarjetas = document.querySelectorAll('.tarjeta-sucursal');
+
+  tarjetas.forEach((tarjeta, i) => {
+    tarjeta.style.animationDelay = `${i * 0.15}s`; // efecto en cascada
+    tarjeta.classList.add('animar');
+  });
+});
 
 
 

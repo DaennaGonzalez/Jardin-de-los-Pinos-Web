@@ -32,9 +32,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 
-<!-- SCRIPT DE AJUSTE -->
-<script src="1.4js/adjustLayout.js"></script>
-
 
   <!-- HEADER -->
  <!-- HEADER -->
@@ -58,7 +55,7 @@
     <!-- Menú escritorio -->
     <nav class="menu menu-desktop">
       <a href="../index.html">INICIO</a>
-      <a href="nosotros.html" class="active">NOSOTROS</a>
+      <a href="../1.0nosotros/nosotros.html" class="active">NOSOTROS</a>
       <a href="../1.1servicios/servicios.html">SERVICIOS</a>
       <a href="../1.11promociones/promociones.html">PROMOCIONES</a>
       <a href="../1.12sucursales/sucursales.html">SUCURSALES</a>
@@ -69,7 +66,7 @@
     <!-- Menú móvil -->
     <nav id="mobileMenu" class="menu-mobile">
       <a href="../index.html">INICIO</a>
-      <a href="nosotros.html" class="active">NOSOTROS</a>
+       <a href="../1.0nosotros/nosotros.html" class="active">NOSOTROS</a>
       <a href="../1.1servicios/servicios.html">SERVICIOS</a>
       <a href="../1.11promociones/promociones.html">PROMOCIONES</a>
       <a href="../1.12sucursales/sucursales.html">SUCURSALES</a>
@@ -82,41 +79,205 @@
   
 <!--EMPIEZAN LAS SECCIONES DE PRUEBA-->
 
+<section class="producto-detalle seccion-morado-claro con-espacio-encabezado">
+  <div class="contenedor-producto">
 
+    <!-- Lado izquierdo: Información -->
+    <div class="info-producto">
+      <h2 class="titulo-producto">Nosotros</h2>
+      <p class="descripcion-producto">
+        Contamos con la experiencia que nos permite brindarle el mejor servicio en los momentos más difíciles ante la pérdida de un ser querido. Nuestra misión es proveer a nuestros clientes de un servicio profesional, cálido y humano que les facilite enfrentar dignamente la ausencia de sus seres queridos, brindando planes de previsión y dando respuesta inmediata a sus necesidades. Visítenos en cualquiera de nuestras oficinas para recibir más información de nuestros servicios.
+      </p>
+    </div>
 
-<section class="seccion-nosotros seccion-morado-claro con-espacio-encabezado"> <!--"con-espacio-encabezado" es una clase que está en javascript, es la funcionalidad que da el espacio para que no se quede detrás el texto del encabezado-->
-  <div class="contenido-nosotros">
-    <h2>Nuestra Historia</h2>
-    <p>Desde hace más de 40 años, Jardín de los Pinos ha sido un espacio de paz y dignidad para honrar a nuestros seres queridos. Nuestra misión es acompañarte con respeto y calidez en los momentos más delicados.</p>
+    <!-- Lado derecho: Imagen -->
+    <div class="imagen-producto fade-slider">
+      <!-- Imágenes -->
+      <img src="../1.6imagenes/collage-nosotros-1.jpg" class="fade-slide active" alt="Imagen 1">
+      <img src="../1.6imagenes/collage-nosotros-2.png" class="fade-slide" alt="Imagen 2">
+      <img src="../1.6imagenes/collage-nosotros-3.png" class="fade-slide" alt="Imagen 3">
+      <img src="../1.6imagenes/collage-nosotros-4.png" class="fade-slide" alt="Imagen 4">
+      <img src="../1.6imagenes/collage-nosotros-5.jpg" class="fade-slide" alt="Imagen 5">
+      <img src="../1.6imagenes/collage-nosotros-6.jpg" class="fade-slide" alt="Imagen 6">
+      <img src="../1.6imagenes/collage-nosotros-7.jpg" class="fade-slide" alt="Imagen 7">
+      <img src="../1.6imagenes/collage-nosotros-8.png" class="fade-slide" alt="Imagen 8">
+      <img src="../1.6imagenes/collage-nosotros-9.png" class="fade-slide" alt="Imagen 9">
+      <img src="../1.6imagenes/collage-nosotros-10.jpg" class="fade-slide" alt="Imagen 10">
+      <img src="../1.6imagenes/collage-nosotros-11.jpg" class="fade-slide" alt="Imagen 11">
+      <img src="../1.6imagenes/collage-nosotros-12.jpg" class="fade-slide" alt="Imagen 12">
+      <!-- Botones de flecha -->
+      <button class="slider-btn prev-btn">
+        <img src="../1.7iconos/icono-flechaizquierda.png" alt="Anterior">
+      </button>
+      <button class="slider-btn next-btn">
+        <img src="../1.7iconos/icono-flechaderecha.png" alt="Siguiente">
+      </button>
+    </div>
+
   </div>
 </section>
 
 
+<!-- =======================  SECCIÓN   TESTIMONIOS  ======================= -->
+<section class="testimonios-section">
 
-<section class="seccion-nosotros seccion-morado-medio">
-  <div class="contenido-nosotros">
-    <h2>Nuestros Valores</h2>
-    <p>Trabajamos con empatía, integridad y vocación de servicio. Cada familia es única, y nuestro compromiso es brindar un acompañamiento humano y profesional en todo momento.</p>
+  <h2 class="titulo-testimonios">Testimonios</h2>
+
+  <div class="carrusel-testimonios">
+    
+    <!-- Botón anterior -->
+    <button class="btn-carrusel" id="btn-prev" aria-label="Anterior">&#10094;</button>
+
+    <!-- Contenedor de tarjetas -->
+    <div class="contenedor-tarjetas" id="contenedorTarjetas">
+      
+      <!-- Tarjeta 1 -->
+      <article class="tarjeta">
+        <h3>Cesar De Lira</h3>
+        <p class="profesion">Empresario</p>
+        <p class="mensaje">“Buena Atención En La Capilla De Velacion Y Panteón. 100 % Recomendables.”</p>
+        <div class="estrellas">★★★★★</div>
+        <img src="../1.7iconos/icono-google.png" alt="Google" class="google-icon">
+      </article>
+
+      <!-- Tarjeta 2 -->
+      <article class="tarjeta">
+        <h3>Victor Gutiérrez</h3>
+        <p class="profesion">Ingeniero</p>
+        <p class="mensaje">“La mejor opción en ramo funerario.”</p>
+        <div class="estrellas">★★★★★</div>
+        <img src="../1.7iconos/icono-google.png" alt="Google" class="google-icon">
+      </article>
+
+      <!-- Tarjeta 3 -->
+      <article class="tarjeta">
+        <h3>Gilberto Suárez</h3>
+        <p class="profesion">Ingeniero</p>
+        <p class="mensaje">“Excelente atención, es muy recomendable para quienes requieren servicios funerarios para Jardín de los Pinos.”</p>
+        <div class="estrellas">★★★★★</div>
+        <img src="../1.7iconos/icono-google.png" alt="Google" class="google-icon">
+      </article>
+
+      <!-- Tarjeta 4 -->
+      <article class="tarjeta">
+        <h3>Norma Minerva</h3>
+        <p class="profesion">Docente Universitaria</p>
+        <p class="mensaje">“Excelente servicio y atención, en el momento del duelo y en los trámites posteriores.”</p>
+        <div class="estrellas">★★★★★</div>
+        <img src="../1.7iconos/icono-google.png" alt="Google" class="google-icon">
+      </article>
+
+      <!-- Tarjeta 5 -->
+      <article class="tarjeta">
+        <h3>Edmundo Tinajero</h3>
+        <p class="profesion">Abogado</p>
+        <p class="mensaje">“Áreas limpias y ordenadas. Buen lugar y ubicación para despedir a nuestro ser amado, pte. en García.”</p>
+        <div class="estrellas">★★★★☆</div>
+        <img src="../1.7iconos/icono-google.png" alt="Google" class="google-icon">
+      </article>
+
+      <!-- Tarjeta 6 -->
+      <article class="tarjeta">
+        <h3>Eduardo Soto</h3>
+        <p class="profesion">Veterinario</p>
+        <p class="mensaje">“Contratamos la cremación directa para mi padre. Todo fue respetuoso y con gran acompañamiento.”</p>
+        <div class="estrellas">★★★★★</div>
+        <img src="../1.7iconos/icono-google.png" alt="Google" class="google-icon">
+      </article>
+
+      <!-- Tarjeta 7 -->
+      <article class="tarjeta">
+        <h3>Alex López</h3>
+        <p class="profesion">Psicólogo</p>
+        <p class="mensaje">“Las capillas son muy amplias 100 % recomendables.”</p>
+        <div class="estrellas">★★★★★</div>
+        <img src="../1.7iconos/icono-google.png" alt="Google" class="google-icon">
+      </article>
+
+      <!-- Tarjeta 8 -->
+      <article class="tarjeta">
+        <h3>Braulio Ipiña</h3>
+        <p class="profesion">Contador</p>
+        <p class="mensaje">“Buen servicio bien explicado, resuelven todas las dudas con detalles.”</p>
+        <div class="estrellas">★★★★☆</div>
+        <img src="../1.7iconos/icono-google.png" alt="Google" class="google-icon">
+      </article>
+
+      <!-- Tarjeta 9 -->
+      <article class="tarjeta">
+        <h3>Sofía Rangel</h3>
+        <p class="profesion">Enfermera</p>
+        <p class="mensaje">“Recibimos un trato muy humano y profesional desde el primer contacto.”</p>
+        <div class="estrellas">★★★★★</div>
+        <img src="../1.7iconos/icono-google.png" alt="Google" class="google-icon">
+      </article>
+
+      <!-- Tarjeta 10 -->
+      <article class="tarjeta">
+        <h3>Luis Zamarripa</h3>
+        <p class="profesion">Arquitecto</p>
+        <p class="mensaje">“Muy amables en oficinas generales, gracias a ellos mi padre tuvo un funeral digno y muy confiables... ¡gracias a todo el equipo de Jardín de los Pinos!”</p>
+        <div class="estrellas">★★★★★</div>
+        <img src="../1.7iconos/icono-google.png" alt="Google" class="google-icon">
+      </article>
+
+    </div><!-- /.contenedor-tarjetas -->
+
+    <!-- Botón siguiente -->
+    <button class="btn-carrusel" id="btn-next" aria-label="Siguiente">&#10095;</button>
+
+  </div><!-- /.carrusel-testimonios -->
+</section>
+
+<!--FIN SECCION DE TESTIMONIOS-->
+
+<!-- =======================  SECCIÓN VIDEOS ======================= -->
+<section class="videos-section">
+  <h2 class="titulo-videos">Conoce más de nuestras instalaciones...</h2>
+  <div class="contenedor-videos">
+    <!-- Video 1 -->
+    <div class="video-wrapper">
+      <iframe 
+  src="https://www.youtube.com/embed/llH5FGM3jOc?autoplay=1&mute=1"
+  title="Video 1"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="video-wrapper">
+      <iframe 
+  src="https://www.youtube.com/embed/gj6mheyqZnY?autoplay=1&mute=1"
+  title="Video 2"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
+    </div>
   </div>
 </section>
 
+<!-- =======================  FIN SECCIÓN VIDEOS ======================= -->
 
 
-<section class="seccion-nosotros seccion-con-fondo">
-  <div class="contenido-nosotros">
-    <h2>Comprometidos Contigo</h2>
-    <p>Cada paso que damos es con el objetivo de brindar consuelo, confianza y respeto a las familias que depositan en nosotros su confianza.</p>
+<!-- =======================  SECCIÓN CALENDARIO ======================= -->
+<section class="calendario-section">
+  <h2 class="titulo-calendario">Calendario de eventos</h2>
+  <div class="contenedor-calendario">
+    <iframe 
+      src="https://calendar.google.com/calendar/embed?src=2af03c8e9e63f16248a39092adf7fc091242d3b72ba26bce610f32281b27594d@group.calendar.google.com&ctz=America%2FMonterrey"
+      style="border: 0"
+      width="100%"
+      height="600"
+      frameborder="0"
+      scrolling="no"
+      allowfullscreen>
+    </iframe>
   </div>
 </section>
-
-
-
-<section class="seccion-nosotros seccion-morado-oscuro">
-  <div class="contenido-nosotros">
-    <h2>Compromiso Social</h2>
-    <p>Participamos activamente en programas de apoyo comunitario, jornadas de salud emocional y eventos conmemorativos para fortalecer la red de apoyo de las familias mexicanas.</p>
-  </div>
-</section>
+<!-- =======================  FIN SECCIÓN CALENDARIO ======================= -->
 
 
 <!--FIN DE LAS SECCIONES DE PRUEBA-->
@@ -128,7 +289,6 @@
   <img src="../1.7iconos/icono-emergencias.png" alt="Emergencias">
   Emergencias
 </button>
-
 
 
 <!-- Carrito de Compras -->
@@ -253,7 +413,7 @@
 </div>
 
 
-   <div class="pago-carrito">
+<div class="pago-carrito">
   <img src="../1.7iconos/logo-openpay.png" alt="OpenPay" class="logo-openpay">
   <a href="../1.13compras/1.13.1carritodecompras.html" class="btn-pagar">Ir a pagar</a>
 </div>
@@ -262,14 +422,98 @@
   <button class="btn-folio">Ya tengo folio de contrato</button>
 </div>
 
+</div> <!-- cierra .modal-carrito-content -->
+</div>   <!-- cierra #modalCarrito -->
+
 <!--fin modal carrito compras-->
 
+ <!-- MODAL: COTIZA TU PLAN -->
+  <div id="modalCotiza" class="modal-cotiza-overlay">
+    <div class="modal-cotiza-contenido">
+      <button class="cerrar-modal" id="cerrarModalCotiza">✕</button>
+      <p class="modal-etiqueta">Quiero que me contacte un asesor. Compra presencial</p>
+      <a href="https://api.whatsapp.com/send?phone=5218127323099&text=Me%20interesa%20un%20Plan%20de%20Previsi%C3%B3n%20Funerario"
+         target="_blank"
+         class="btn-whatsapp-modal">
+        Click aquí para contactarnos vía WhatsApp
+        <img src="../1.7iconos/icono-whatsapp.png" alt="WhatsApp" class="icono-wsp">
+      </a>
+      <p class="modal-subtexto">…O proporciónanos aquí tus datos y te contactaremos lo más pronto posible.</p>
+      <form class="formulario-modal">
+        <label>Nombre:</label>
+        <input type="text" placeholder="Escribe tu nombre" required>
+        <label>Correo electrónico:</label>
+        <input type="email" placeholder="correo@ejemplo.com" required>
+        <label>Teléfono/celular:</label>
+        <input type="tel" placeholder="+52…" required>
+        <button type="submit" class="btn-enviar-modal">Enviar mis datos</button>
+      </form>
+    </div>
+  </div>
 
-<script src="interaccionesnosotros.js"></script>
+  <!-- SCRIPT FINAL CARRUSEL FUNCIONAL -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const contenedor = document.getElementById('contenedorTarjetas');
+  const tarjetas = Array.from(contenedor.children);
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const carrusel = document.querySelector('.carrusel-testimonios');
+
+  let indice = 0;
+  const GAP = 32;
+
+  function anchoTarjeta () {
+    const estilo = getComputedStyle(tarjetas[0]);
+    return tarjetas[0].offsetWidth +
+           parseInt(estilo.marginLeft) + parseInt(estilo.marginRight);
+  }
+
+  function dibujar () {
+    const w = anchoTarjeta();
+    const offsetCentro = (carrusel.offsetWidth / 2) - (w / 2) - indice * w;
+    contenedor.style.transform = `translateX(${offsetCentro}px)`;
+
+    tarjetas.forEach((card, i) => {
+      const activa = i === indice;
+      card.style.transform = `scale(${activa ? 1.15 : 0.78})`;
+      card.style.opacity   = activa ? '1' : '0.35';
+      card.style.zIndex    = activa ? '5' : '1';
+      card.classList.toggle('activa', activa);
+    });
+  }
+
+  btnNext.addEventListener('click', () => {
+    indice = (indice + 1) % tarjetas.length;
+    dibujar();
+  });
+
+  btnPrev.addEventListener('click', () => {
+    indice = (indice - 1 + tarjetas.length) % tarjetas.length;
+    dibujar();
+  });
+
+  tarjetas.forEach((card, i) =>
+    card.addEventListener('click', () => {
+      indice = i;
+      dibujar();
+    })
+  );
+
+  window.addEventListener('resize', dibujar);
+  dibujar();
+});
+</script>
+
+
+  
+  <!-- FINAL del BODY: carga el JS **solo una vez** -->
+  <script src="interaccionesnosotros.js"></script>
 
 
 </body>
 </html>
+
 <!---------------------------------------->
 <!--AQUI TERMINA EL HTML BASE MAQUETADO -->
 <!---------------------------------------->

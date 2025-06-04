@@ -1,200 +1,221 @@
-//AQUI ESTA EL JAVASCRIPT BASE MAQUETA */
+// interacciones-1.1.1.1terreno-americano.js
 
 document.addEventListener('DOMContentLoaded', () => {
-  const recorridoLinks = document.querySelectorAll('.capilla-card');
-  const modalRecorrido = document.getElementById('modalRecorrido');
-  const iframeRecorrido = document.getElementById('iframeRecorrido');
-  const cerrarModalRecorrido = document.getElementById('cerrarModalRecorrido');
 
-  if (recorridoLinks.length && modalRecorrido && iframeRecorrido && cerrarModalRecorrido) {
-    recorridoLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const url = link.getAttribute('data-link');
-        iframeRecorrido.src = url;
-        modalRecorrido.classList.add('activo');
-      });
-    });
-
-    cerrarModalRecorrido.addEventListener('click', () => {
-      modalRecorrido.classList.remove('activo');
-      iframeRecorrido.src = '';
-    });
-
-    modalRecorrido.addEventListener('click', (e) => {
-      if (e.target === modalRecorrido) {
-        modalRecorrido.classList.remove('activo');
-        iframeRecorrido.src = '';
-      }
-    });
-  }
-});
-
-document.getElementById('botonEmergencias').addEventListener('click', () => {
-  document.getElementById('modalEmergencias').classList.add('activo');
-});
-
-document.getElementById('cerrarModalEmergencias').addEventListener('click', () => {
-  document.getElementById('modalEmergencias').classList.remove('activo');
-});
-
-
-
-// ============================
-// FUNCIONAMIENTO DE ABRIR Y CERRAR MENÚ
-// ============================
-document.addEventListener('DOMContentLoaded', function () {
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('show');
-    });
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  // ===== MENÚ MÓVIL =====
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('show');
-    });
-  }
-
-  // ===== MODAL: COTIZA UN PLAN =====
-  const abrirModal = document.getElementById('abrirModalCotiza');
-  const modal = document.getElementById('modalCotiza');
-  const cerrarModal = document.getElementById('cerrarModalCotiza');
-
-  if (abrirModal && modal && cerrarModal) {
-    abrirModal.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.classList.add('activo');
-    });
-
-    cerrarModal.addEventListener('click', () => {
-      modal.classList.remove('activo');
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('activo');
-      }
-    });
-  } else {
-    console.warn("No se encontró el botón o el modal de Cotiza.");
-  }
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const botonEmergencias = document.getElementById('botonEmergencias');
-  const modalEmergencias = document.getElementById('modalEmergencias');
-  const cerrarEmergencias = document.getElementById('cerrarModalEmergencias');
-
-  if (botonEmergencias && modalEmergencias && cerrarEmergencias) {
-    botonEmergencias.addEventListener('click', () => {
-      modalEmergencias.classList.add('activo');
-    });
-
-    cerrarEmergencias.addEventListener('click', () => {
-      modalEmergencias.classList.remove('activo');
-    });
-
-    modalEmergencias.addEventListener('click', (e) => {
-      if (e.target === modalEmergencias) {
-        modalEmergencias.classList.remove('activo');
-      }
-    });
-  }
-});
-
-/*CAMBIOS RECIENTES CARRITO*/
-document.addEventListener('DOMContentLoaded', () => {
-  const abrirCarrito = document.querySelector('.boton-carrito');
-  const modalCarrito = document.getElementById('modalCarrito');
-  const cerrarCarrito = document.getElementById('cerrarModalCarrito');
-
-  if (abrirCarrito && modalCarrito && cerrarCarrito) {
-    abrirCarrito.addEventListener('click', (e) => {
-      e.preventDefault();
-      modalCarrito.classList.add('activo');
-    });
-
-    cerrarCarrito.addEventListener('click', () => {
-      modalCarrito.classList.remove('activo');
-    });
-
-    modalCarrito.addEventListener('click', (e) => {
-      if (e.target === modalCarrito) {
-        modalCarrito.classList.remove('activo');
-      }
-    });
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const btnFolio = document.querySelector('.btn-folio');
-  if (btnFolio) {
-    btnFolio.addEventListener('click', () => {
-      window.location.href = "../1.13compras/1.13.2pagoconfoliocontrato.html";
-    });
-  }
-});
-
-
-/*CAMBIOS RECIENTES CARRITO*/
-
-// Activar modal de emergencias
-document.getElementById('botonEmergencias').addEventListener('click', () => {
-  document.getElementById('modalEmergencias').classList.add('activo');
-});
-document.getElementById('cerrarModalEmergencias').addEventListener('click', () => {
-  document.getElementById('modalEmergencias').classList.remove('activo');
-});
-
-// Activar modal del carrito
-document.querySelector('.boton-carrito').addEventListener('click', (e) => {
-  e.preventDefault();
-  document.getElementById('modalCarrito').classList.add('activo');
-});
-document.getElementById('cerrarModalCarrito').addEventListener('click', () => {
-  document.getElementById('modalCarrito').classList.remove('activo');
-});
-
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle     = document.getElementById('menuToggle');
-      const mobileNav  = document.getElementById('mobileMenu');
-
-      if (toggle && mobileNav) {
-        toggle.addEventListener('click', () => {
-          mobileNav.classList.toggle('show');
-        });
-      } else {
-        console.warn('No encontré #menuToggle o #mobileMenu en el DOM');
-      }
-    });
-
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector("header");
-  const seccionesConEspacio = document.querySelectorAll(".con-espacio-encabezado");
+  // === AJUSTE DE HEADER ===
+  const header = document.querySelector('header');
+  const seccionesConEspacio = document.querySelectorAll('.con-espacio-encabezado');
 
   function ajustarEspacioEncabezado() {
     const alturaHeader = header.offsetHeight;
     seccionesConEspacio.forEach(seccion => {
-      seccion.style.paddingTop = `${alturaHeader + 60}px`; // 60px extra para respiro, para que el inicio de la seccion empiece un poco más abajo del encabezado*/
+      seccion.style.paddingTop = `${alturaHeader + 70}px`;
     });
   }
 
-  ajustarEspacioEncabezado(); // Ejecutar al cargar
+  ajustarEspacioEncabezado();
+  window.addEventListener('resize', ajustarEspacioEncabezado);
 
-  // Reajustar si la ventana cambia (modo responsivo)
-  window.addEventListener("resize", ajustarEspacioEncabezado);
+  // === MENÚ MÓVIL ===
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+  }
+
+  // === MODAL EMERGENCIAS ===
+  const btnEmergencias = document.getElementById('botonEmergencias');
+  const overlayEmergencias = document.getElementById('modalEmergencias');
+  const cerrarEmergencias = document.getElementById('cerrarModalEmergencias');
+
+  if (btnEmergencias && overlayEmergencias && cerrarEmergencias) {
+    btnEmergencias.addEventListener('click', () => {
+      overlayEmergencias.classList.add('activo');
+      document.body.style.overflow = 'hidden';
+    });
+
+    cerrarEmergencias.addEventListener('click', () => {
+      overlayEmergencias.classList.remove('activo');
+      document.body.style.overflow = '';
+    });
+
+    overlayEmergencias.addEventListener('click', e => {
+      if (e.target === overlayEmergencias) {
+        overlayEmergencias.classList.remove('activo');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
 });
 
-//AQUI TERMINA EL JAVASCRIPT BASE MAQUETA */
+
+  // === MODAL CARRITO ===
+  const btnCarrito = document.querySelector('.boton-carrito');
+  const overlayCarrito = document.getElementById('modalCarrito');
+  const cerrarCarrito = document.getElementById('cerrarModalCarrito');
+  if (btnCarrito && overlayCarrito && cerrarCarrito) {
+    btnCarrito.addEventListener('click', e => {
+      e.preventDefault();
+      overlayCarrito.classList.add('activo');
+      document.body.style.overflow = 'hidden';
+    });
+    cerrarCarrito.addEventListener('click', () => {
+      overlayCarrito.classList.remove('activo');
+      document.body.style.overflow = '';
+    });
+    overlayCarrito.addEventListener('click', e => {
+      if (e.target === overlayCarrito) {
+        overlayCarrito.classList.remove('activo');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // === REDIRECCIÓN COMPRA EN LÍNEA ===
+  const btnCompraOnline = document.querySelector('.btn-compra-online');
+  if (btnCompraOnline) {
+    btnCompraOnline.addEventListener('click', e => {
+      e.preventDefault();
+      window.location.href = "../1.13compras/1.13.1carritodecompras.html";
+    });
+  }
+
+  // === MODAL ASESOR ===
+  const btnAsesor = document.getElementById('abrirModalCotiza');
+  const overlayAsesor = document.getElementById('modalCotiza');
+  const cerrarAsesor = document.getElementById('cerrarModalCotiza');
+  if (btnAsesor && overlayAsesor && cerrarAsesor) {
+    btnAsesor.addEventListener('click', e => {
+      e.preventDefault();
+      if (overlayCarrito) overlayCarrito.classList.remove('activo');
+      overlayAsesor.classList.add('activo');
+      document.body.style.overflow = 'hidden';
+    });
+    cerrarAsesor.addEventListener('click', () => {
+      overlayAsesor.classList.remove('activo');
+      document.body.style.overflow = '';
+    });
+    overlayAsesor.addEventListener('click', e => {
+      if (e.target === overlayAsesor) {
+        overlayAsesor.classList.remove('activo');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+
+  /*collage nosotros*/
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.fade-slide');
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+
+  let current = 0;
+  let interval = setInterval(showNextSlide, 4000);
+
+  function showSlide(index) {
+    slides[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  function showNextSlide() {
+    showSlide(current + 1);
+  }
+
+  function showPrevSlide() {
+    showSlide(current - 1);
+  }
+
+  nextBtn.addEventListener('click', () => {
+    showNextSlide();
+    resetInterval();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    showPrevSlide();
+    resetInterval();
+  });
+
+  function resetInterval() {
+    clearInterval(interval);
+    interval = setInterval(showNextSlide, 4000);
+  }
+});
+
+
+ // === CARRUSEL DE TESTIMONIOS ===
+document.addEventListener('DOMContentLoaded', () => {
+  const contenedor = document.getElementById('contenedorTarjetas');
+  const tarjetas   = Array.from(contenedor.children);
+  const btnPrev    = document.getElementById('btn-prev');
+  const btnNext    = document.getElementById('btn-next');
+  const carrusel   = document.querySelector('.carrusel-testimonios');
+
+  let indice = Math.floor(tarjetas.length / 2);
+
+  const GAP = 35; // margen horizontal total entre tarjetas (16px a cada lado)
+
+  // Calcula el ancho completo de una tarjeta (incluyendo margen horizontal)
+  function anchoTarjeta() {
+    const estilo = getComputedStyle(tarjetas[0]);
+    return tarjetas[0].offsetWidth +
+           parseInt(estilo.marginLeft) + parseInt(estilo.marginRight);
+  }
+
+  // Posiciona las tarjetas y aplica estilos a la activa
+function dibujar() {
+  const w = anchoTarjeta();
+  const carruselRect = carrusel.getBoundingClientRect();
+  const contenedorRect = contenedor.getBoundingClientRect();
+
+  // Desplazamiento para centrar la tarjeta activa
+  const centroCarrusel = carrusel.offsetWidth / 2;
+  const desplazamiento = centroCarrusel - (w / 2) - (indice * w);
+
+  contenedor.style.transform = `translateX(${desplazamiento}px)`;
+
+  tarjetas.forEach((card, i) => {
+    const activa = i === indice;
+    card.style.transform = `scale(${activa ? 1.15 : 0.78})`;
+    card.style.opacity   = activa ? '1' : '0.35';
+    card.style.zIndex    = activa ? '5' : '1';
+    card.classList.toggle('activa', activa);
+  });
+}
+
+  // Botón siguiente
+  btnNext.addEventListener('click', () => {
+    indice = (indice + 1) % tarjetas.length;
+    dibujar();
+  });
+
+  // Botón anterior
+  btnPrev.addEventListener('click', () => {
+    indice = (indice - 1 + tarjetas.length) % tarjetas.length;
+    dibujar();
+  });
+
+  // Al hacer clic en cualquier tarjeta
+  tarjetas.forEach((card, i) => {
+    card.addEventListener('click', () => {
+      indice = i;
+      dibujar();
+    });
+  });
+
+  // Redibujar en cambio de tamaño de pantalla
+   window.addEventListener('resize', dibujar);
+  dibujar(); // primera vez que se dibuja
+
+  // AUTOPLAY cada 5 segundos
+  setInterval(() => {
+    indice = (indice + 1) % tarjetas.length;
+    dibujar();
+  }, 3500); /*3500 milisegundos o sea 3.5 seg*/
+});
+

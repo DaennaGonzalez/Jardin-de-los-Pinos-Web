@@ -55,8 +55,8 @@
     <!-- Menú escritorio -->
     <nav class="menu menu-desktop">
       <a href="../index.html">INICIO</a>
-      <a href="nosotros.html" class="active">NOSOTROS</a>
-      <a href="../1.1servicios/servicios.html">SERVICIOS</a>
+      <a href="../1.0nosotros/nosotros.html">NOSOTROS</a>
+      <a href="../1.1servicios/servicios.html"class="active">SERVICIOS</a>
       <a href="../1.11promociones/promociones.html">PROMOCIONES</a>
       <a href="../1.12sucursales/sucursales.html">SUCURSALES</a>
       <a href="../1.3obituarios/obituarios.html">OBITUARIOS</a>
@@ -66,8 +66,8 @@
     <!-- Menú móvil -->
     <nav id="mobileMenu" class="menu-mobile">
       <a href="../index.html">INICIO</a>
-      <a href="nosotros.html" class="active">NOSOTROS</a>
-      <a href="../1.1servicios/servicios.html">SERVICIOS</a>
+    <a href="../1.0nosotros/nosotros.html">NOSOTROS</a>
+      <a href="../1.1servicios/servicios.html"class="active">SERVICIOS</a>
       <a href="../1.11promociones/promociones.html">PROMOCIONES</a>
       <a href="../1.12sucursales/sucursales.html">SUCURSALES</a>
       <a href="../1.3obituarios/obituarios.html">OBITUARIOS</a>
@@ -89,11 +89,31 @@
         Nuestro terreno americano ofrece un espacio digno, rodeado de naturaleza y armonía para rendir homenaje eterno. Ideal para quienes buscan tranquilidad y permanencia.
       </p>
 
-      <!-- Precios con posibilidad de edición -->
-      <div class="precios-producto">
-        <p><strong>Precio público:</strong> <span class="precio-publico">$28,500.00 MXN</span></p>
-        <p><strong>Precio especial online:</strong> <span class="precio-descuento">$24,800.00 MXN</span></p>
-      </div>
+      <div class="formulario-compra">
+  <h2 class="titulo-compra">¡Adquiérelo ya!</h2>
+
+  <div class="campo-formulario">
+    <label for="tipoCompra">Tipo de compra</label>
+    <select id="tipoCompra">
+      <option value="" selected disabled>Selecciona una opción</option>
+      <option value="contado">Contado</option>
+      <option value="financiado">Financiado</option>
+      <option value="usoInmediato">Uso Inmediato</option>
+    </select>
+  </div>
+
+  <div class="campo-formulario">
+    <label for="plazosPago">Plazos de pago</label>
+    <select id="plazosPago" disabled>
+      <option value="">No aplicable</option>
+    </select>
+  </div>
+
+  <div class="total-contenedor">
+    <span class="etiqueta-total">Total</span>
+    <span class="total-precio" id="precioTotal">$ 0.00 MXN</span>
+  </div>
+</div>
 
       <!-- Botones de acción -->
       <div class="botones-accion">
@@ -120,9 +140,35 @@
 </div>
 
 
+<!-- Descripción detallada del producto -->
+<div class="descripcion-extra">
+  <h3>Terreno Funerario tipo Jardín Americano</h3>
+  <p>
+    Nuestro sector de estilo Jardín Americano ha sido diseñado con andadores ubicados al pie de cada propiedad, 
+    ofreciendo a usted y a su familia mayor comodidad y respeto durante las visitas a sus seres queridos.
+  </p>
+
+  <h4>Características generales:</h4>
+  <ul>
+    <li>Ubicación bajo césped natural</li>
+    <li>Capacidad para 6 inhumaciones:
+      <ul>
+        <li>3 gavetas (espacios para ataúdes)</li>
+        <li>3 osarios (espacios para restos en urnas)</li>
+      </ul>
+    </li>
+    <li>Construcción en concreto de alta calidad</li>
+    <li>Césped natural con sistema de riego automatizado</li>
+    <li>Andador de 0.90 m de ancho, que facilita el acceso</li>
+    <li>Mantenimiento permanente del área</li>
+  </ul>
+</div>
+
 
   </div>
 </section>
+
+
 
 
 <!--FIN DE LAS SECCIONES DE PRUEBA-->
@@ -134,7 +180,6 @@
   <img src="../1.7iconos/icono-emergencias.png" alt="Emergencias">
   Emergencias
 </button>
-
 
 
 <!-- Carrito de Compras -->
@@ -336,8 +381,48 @@
 </script>
 
 
+<script>
+  const tipoCompra = document.getElementById('tipoCompra');
+  const plazosPago = document.getElementById('plazosPago');
+  const precioTotal = document.getElementById('precioTotal');
+
+  const precios = {
+    contado: 95000,
+    usoInmediato: 107245,
+    financiado: {
+      '48': 115800
+    }
+  };
+
+  tipoCompra.addEventListener('change', () => {
+    const tipo = tipoCompra.value;
+
+    if (tipo === 'financiado') {
+      plazosPago.disabled = false;
+      plazosPago.innerHTML = `
+        <option value="" disabled selected>Selecciona plazo</option>
+        <option value="48">48 meses</option>
+      `;
+      precioTotal.textContent = "$ 0.00 MXN";
+    } else {
+      plazosPago.disabled = true;
+      plazosPago.innerHTML = `<option>No aplicable</option>`;
+      const precio = precios[tipo];
+      precioTotal.textContent = `$ ${precio.toLocaleString('es-MX')} MXN`;
+    }
+  });
+
+  plazosPago.addEventListener('change', () => {
+    const plazo = plazosPago.value;
+    const precio = precios.financiado[plazo];
+    if (precio) {
+      precioTotal.textContent = `$ ${precio.toLocaleString('es-MX')} MXN`;
+    }
+  });
+</script>
 
   
+
   
   <!-- FINAL del BODY: carga el JS **solo una vez** -->
   <script src="interacciones-1.1.1.1terreno-americano.js"></script>

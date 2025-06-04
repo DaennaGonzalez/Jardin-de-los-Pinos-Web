@@ -1389,7 +1389,103 @@ button.boton-flotante:hover {
 /*--------FIN DE DISEÑO BASE PARA MAQUETADO DE MENUS ---------------*/
 /*--------------------------------------------------------------*/
 
+.promociones-section {
+  background: url('../1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: 80px 90px;
+  text-align: center;
+  color: #4a004e;
+}
 
+.titulo-promociones {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
 
+.subtitulo-promociones {
+  font: 400 1rem 'Montserrat', sans-serif;
+  margin-bottom: 40px;
+}
 
+.carrusel-promociones {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+.promo-slider a {
+  display: block;
+  width: 100%;
+}
+
+.promo-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.promo-img {
+  min-width: 100%;
+  display: none;
+  object-fit: cover;
+}
+
+.promo-img.active {
+  display: block;
+}
+
+.promo-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #b878e2;
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 8px 16px;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+#promo-prev {
+  left: 10px;
+}
+#promo-next {
+  right: 10px;
+}
+
+.promociones-section {
+  background: url('../1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
+  background-size: cover;
+  padding: 220px 20px 80px; /* ← aquí se aumenta espacio arriba */
+  text-align: center;
+  color: #4a004e;
+}
+
+.titulo-promociones {
+  font-family: 'Fleur De Leah', cursive;
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+  color: #6d2393; /* o el morado que estés usando */
+}
+
+.promo-img-wrapper {
+  min-width: 100%;
+  display: none;
+}
+
+.promo-img-wrapper .promo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.promo-img-wrapper.active {
+  display: block;
+}
 

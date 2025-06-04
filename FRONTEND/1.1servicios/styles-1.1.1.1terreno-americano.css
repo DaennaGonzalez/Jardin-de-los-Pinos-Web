@@ -805,7 +805,6 @@ header {
 
    /* SECCIONES DE EJEMPLO A ELIMINAR */
   /* SECCIONES DE EJEMPLO A ELIMINAR */
-    /* SECCIONES DE EJEMPLO A ELIMINAR */
 
 
 .seccion-morado-claro {
@@ -853,6 +852,108 @@ header {
   color: white;
   padding: 100px 20px;
   text-align: center;
+}
+
+.descripcion-detallada {
+  background-color: #E2BFF5;
+  padding: 50px 20px;
+  margin-top: 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Montserrat', sans-serif;
+  color: #4A004E;
+}
+
+.contenedor-descripcion {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.descripcion-detallada h3 {
+  font-size: 1.7rem;
+  color: #671B6B;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* descripcion de ultimo descripcion del producto*/
+.descripcion-detallada {
+  background-color: #f8e9f9;
+  padding: 40px 30px;
+  margin-top: 60px;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(103, 27, 107, 0.08);
+  font-family: 'Montserrat', sans-serif;
+  color: #4A004E;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  background-color: #e4caee !important;
+}
+
+/* === Fondo general de la página === */
+body {
+  background-color: #e4caee !important;
+
+}
+
+
+/* === Sección descriptiva del producto === */
+
+.descripcion-extra {
+  background-color: #E4CAEE; /* tono morado pastel */
+  border-radius: 20px;
+  padding: 30px 30px;
+  max-width: 900px;
+  margin: 20px auto;
+  box-shadow: 0 8px 24px rgba(103, 27, 107, 0.15);
+  font-family: 'Montserrat', sans-serif;
+  color: #4A004E;
+  line-height: 1.7;
+}
+
+.descripcion-extra h3 {
+  font-size: 1.6rem;
+  color: #671B6B;
+  margin-bottom: 18px;
+}
+
+.descripcion-extra h4 {
+  font-size: 1.3rem;
+  color: #671B6B;
+  margin: 25px 0 10px;
+}
+
+.descripcion-extra p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.descripcion-extra ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.descripcion-extra ul ul {
+  list-style: circle;
+  margin-top: 6px;
+}
+
+
+@media (max-width: 767px) {
+  .descripcion-extra {
+    order: 3; /* asegura que vaya al final si está en flex container */
+  }
+
+  .contenedor-producto {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 
@@ -1823,4 +1924,72 @@ button.boton-flotante:hover {
 
 .next-btn {
   right: 10px;
+}
+
+
+/*ESTILOS DE TIPO DE COMPRA Y PLAZOS*/
+.formulario-compra {
+  margin-top: 2rem;
+  background-color: #f5e5f9;
+  padding: 1.5rem;
+  border-radius: 16px;
+  max-width: 500px;
+  margin-inline: auto;
+}
+
+.titulo-compra {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #671B6B;
+  margin-bottom: 1.5rem;
+}
+
+.campo-formulario {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.campo-formulario label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #4A004E;
+}
+
+.campo-formulario select {
+  padding: 0.6rem;
+  border: 2px solid #671B6B;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #4A004E;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.total-contenedor {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.etiqueta-total {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #4A004E;
+}
+
+.total-precio {
+  background-color: #671B6B;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.btn-compra-online {
+  margin-top: 2rem; /* puedes ajustar: 1rem, 20px, etc. */
 }
