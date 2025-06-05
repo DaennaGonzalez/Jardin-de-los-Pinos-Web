@@ -199,7 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //AQUI TERMINA EL JAVASCRIPT BASE MAQUETA */
 
-
 document.addEventListener('DOMContentLoaded', () => {
   const contenedor = document.getElementById('contenedorObituarios');
   const inputBuscar = document.getElementById('buscarNombre');
@@ -207,7 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let datosObituarios = [];
 
-  // Función para cargar el CSV
   async function cargarCSV() {
     const response = await fetch('../1.3obituarios/basededatos_obituarios.csv');
     const texto = await response.text();
@@ -226,9 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderizarObituarios();
   }
 
-  // Función para renderizar tarjetas
   function renderizarObituarios() {
-    contenedor.innerHTML = ''; // Limpia antes de renderizar
+    contenedor.innerHTML = '';
 
     const filtro = inputBuscar.value.toLowerCase();
     const cantidad = selectMostrar.value;
@@ -243,7 +240,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const tarjeta = document.createElement('div');
       tarjeta.className = 'obituario';
 
-      // Imagen base combinada: cara1 + cara2
       const canvas = document.createElement('canvas');
       canvas.width = 1440;
       canvas.height = 725;
@@ -256,33 +252,82 @@ document.addEventListener('DOMContentLoaded', () => {
       img2.src = '../1.6imagenes/plantilla-obituarios-cara2.jpg';
 
       img2.onload = () => {
-        ctx.drawImage(img1, 0, 0, 720, 725); // Cara 1
-        ctx.drawImage(img2, 720, 0, 720, 725); // Cara 2
+        ctx.drawImage(img1, 0, 0, 720, 725);
+        ctx.drawImage(img2, 720, 0, 720, 725);
 
-        // Texto dinámico
         ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 32px Montserrat';
-        ctx.fillText(dato.nombre_fallecido, 80, 228);
-        ctx.font = 'bold 28px Montserrat';
-        ctx.fillText(dato.apellido_familia, 80, 330);
+        ctx.font = 'bold 40px Montserrat';
+        ctx.fillText(dato.nombre_fallecido, 200, 275);
+        ctx.fillText(dato.apellido_familia, 200, 510);
 
-        ctx.font = 'bold 22px Montserrat';
-        ctx.fillText(dato.num_sala, 918, 230);
-        ctx.fillText(dato.hr_ingr + ' hrs', 1209, 230);
-        ctx.fillText(dato.fecha_salida, 955, 340);
-        ctx.fillText(dato.hr_salida + ' hrs', 1225, 340);
+        ctx.font = 'bold 19px Montserrat';
+        ctx.fillText(dato.num_sala, 925, 245);
+        ctx.fillText(dato.hr_ingr, 1209, 248);
+        ctx.fillText(dato.fecha_salida, 970, 360);
+        ctx.fillText(dato.hr_salida, 1220, 360);
+
         ctx.font = 'bold 24px Montserrat';
-        ctx.fillText(dato.nom_parquefuneral, 941, 540);
+        ctx.fillText(dato.nom_parquefuneral, 940, 520);
 
         const imgFinal = document.createElement('img');
         imgFinal.src = canvas.toDataURL('image/png');
         imgFinal.alt = `Obituario de ${dato.nombre_fallecido}`;
+        imgFinal.className = 'img-obituario';
+
+        // Click para ampliar
+        imgFinal.addEventListener('click', () => {
+          mostrarModal(imgFinal.src, `Obituario de ${dato.nombre_fallecido}`);
+        });
+
         tarjeta.appendChild(imgFinal);
       };
 
       contenedor.appendChild(tarjeta);
     });
   }
+
+// Mostrar modal con botón de descarga
+function mostrarModal(src, alt) {
+  const modal = document.createElement('div');
+  modal.className = 'modal-obituario';
+
+  // Crear contenido del modal
+  const modalContenido = document.createElement('div');
+  modalContenido.className = 'contenido-modal'; // ← CORREGIDO
+
+  // Botón cerrar
+  const cerrar = document.createElement('span');
+  cerrar.className = 'cerrar-modal';
+  cerrar.innerHTML = '&times;';
+  cerrar.addEventListener('click', () => modal.remove());
+
+  // Imagen
+  const imagen = document.createElement('img');
+  imagen.src = src;
+  imagen.alt = alt;
+
+  // Botón de descarga estilizado
+  const botonDescarga = document.createElement('a');
+  botonDescarga.href = src;
+  botonDescarga.download = `${alt}.png`;
+  botonDescarga.className = 'btn-descargar';
+  botonDescarga.textContent = 'Descargar';
+
+  // Agregar elementos al modal
+  modalContenido.appendChild(cerrar);
+  modalContenido.appendChild(imagen);
+  modalContenido.appendChild(botonDescarga);
+  modal.appendChild(modalContenido);
+  document.body.appendChild(modal);
+
+  // Cerrar modal al hacer clic fuera del contenido
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.remove();
+    }
+  });
+}
+
 
   inputBuscar.addEventListener('input', renderizarObituarios);
   selectMostrar.addEventListener('change', renderizarObituarios);

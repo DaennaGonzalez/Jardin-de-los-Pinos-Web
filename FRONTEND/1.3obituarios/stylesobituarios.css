@@ -1391,10 +1391,14 @@ button.boton-flotante:hover {
 
 /* ======================= SECCION OBITUARIOS ======================= */
 
+/* ======================= SECCION OBITUARIOS ======================= */
+
+/* ======================= SECCIÓN OBITUARIOS ======================= */
+
 .obituarios-section {
   background: url('../1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
   background-size: cover;
-  padding: 200px 40px 80px;
+  padding: 260px 40px 80px;
   color: #4a004e;
   font-family: 'Montserrat', sans-serif;
 }
@@ -1410,14 +1414,14 @@ button.boton-flotante:hover {
 
 .titulo-obituarios {
   font-family: 'Fleur De Leah', cursive;
-  font-size: 3.2rem;
+  font-size: 3.5rem;
   margin-bottom: 6px;
-  color: #6d2393;
+  color: #671B6B;
 }
 
 .subtitulo-obituarios {
   font-size: 1rem;
-  max-width: 500px;
+  max-width: 400px;
 }
 
 .buscador-obituarios {
@@ -1451,11 +1455,20 @@ button.boton-flotante:hover {
   font-size: 1rem;
   padding: 8px;
   border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .icono-buscar {
   width: 20px;
   margin-right: 8px;
+}
+
+select,
+input,
+option,
+button,
+textarea {
+  font-family: 'Montserrat', sans-serif;
 }
 
 select {
@@ -1464,6 +1477,12 @@ select {
   border-radius: 10px;
   border: none;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+input::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #6d2393;
 }
 
 /* === COLLAGE DE OBITUARIOS === */
@@ -1476,10 +1495,11 @@ select {
 }
 
 .obituario {
-  flex: 1 1 calc(50% - 40px); /* 2 columnas con espacio */
+  flex: 1 1 calc(50% - 40px);
   max-width: 700px;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .obituario img {
@@ -1489,16 +1509,16 @@ select {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
-
 .tarjeta-obituario {
   text-align: center;
   background: transparent;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+  will-change: transform;
 }
 
 .tarjeta-obituario:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(173, 34, 152, 0.3);
 }
 
 .tarjeta-obituario .etiqueta {
@@ -1513,4 +1533,111 @@ select {
   max-width: 100%;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* =================== MODAL OBITUARIO =================== */
+.modal-obituario {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal-obituario .contenido-modal {
+  background: #5c226d;
+  border-radius: 20px;
+  padding: 24px 24px 80px; /* espacio para el botón */
+  width: 95vw;
+  max-height: none; /* QUITA esta línea si está */
+  height: auto;
+  padding: 20px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.modal-obituario img {
+  max-width: 100%;
+  max-height: calc(100vh - 180px);
+  height: auto;
+  width: auto;
+  aspect-ratio: 1440 / 725;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  display: block;
+  object-fit: contain;
+}
+
+
+
+.btn-descargar {
+  position: absolute;
+  bottom: 24px;
+  background-color: #a72298;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 34px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn-descargar:hover {
+  background: linear-gradient(135deg, #8f4bbf, #54155b);
+  transform: translateX(-50%) scale(1.05);
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .modal-obituario .contenido-modal {
+    width: 95vw;
+    padding: 16px 16px 80px;
+  }
+
+  .btn-descargar {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .modal-obituario .contenido-modal {
+    width: 95vw;
+    padding: 16px 16px 72px;
+  }
+
+  .btn-descargar {
+    font-size: 0.9rem;
+    padding: 10px 24px;
+  }
+
+  .modal-obituario img {
+    transform: scale(1); /* Evitar que se corte en móviles */
+  }
 }
