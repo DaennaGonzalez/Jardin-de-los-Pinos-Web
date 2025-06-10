@@ -81,42 +81,415 @@
 
   
 <!--EMPIEZAN LAS SECCIONES DE PRUEBA-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Jardín de los Pinos</title>
 
+  <!-- Estilos -->
+  <link rel="stylesheet" href="stylesblog.css" />
 
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
 
-<section class="seccion-nosotros seccion-morado-claro con-espacio-encabezado"> <!--"con-espacio-encabezado" es una clase que está en javascript, es la funcionalidad que da el espacio para que no se quede detrás el texto del encabezado-->
-  <div class="contenido-nosotros">
-    <h2>Apartado ejemplo de Blog</h2>
-    <p>Desde hace más de 40 años, Jardín de los Pinos ha sido un espacio de paz y dignidad para honrar a nuestros seres queridos. Nuestra misión es acompañarte con respeto y calidez en los momentos más delicados.</p>
+<body>
+
+  <!-- SECCIÓN ENCABEZADO BLOG -->
+  <section class="seccion-blog-intro">
+    <h2>Blog</h2>
+    <p>Consejos, guía y reflexión para cada etapa del camino.</p>
+  </section>
+
+  <!-- BUSCADOR -->
+  <section class="buscador-articulos">
+    <div class="campo-busqueda-blog">
+      <img src="../1.7iconos/icono-buscador.png" alt="Buscar" class="icono-buscar-blog">
+      <input type="text" id="buscador" placeholder="Buscar un artículo por título...">
+    </div>
+  </section>
+
+  <!-- LISTA DE ARTÍCULOS -->
+  <main>
+    <section class="lista-articulos">
+      
+      <!-- Artículo 1 -->
+<a href="../1.2blog/1.2.1articulo-1.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-1.jpg" alt="Artículo 1">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Por qué prever un servicio funerario brinda paz a tu familia?</h3>
+    <p class="articulo-descripcion">Descubre cómo anticiparse al adiós puede aliviar el duelo, proteger la economía familiar y brindar tranquilidad a quienes más amas.</p>
   </div>
-</section>
+</a>
 
-
-
-<section class="seccion-nosotros seccion-morado-medio">
-  <div class="contenido-nosotros">
-    <h2>Nuestros Valores</h2>
-    <p>Trabajamos con empatía, integridad y vocación de servicio. Cada familia es única, y nuestro compromiso es brindar un acompañamiento humano y profesional en todo momento.</p>
+<!-- Artículo 2 -->
+<a href="../1.2blog/1.2.2articulo-2.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-2.jpg" alt="Artículo 2">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué es un homenaje póstumo y cómo hacerlo significativo?</h3>
+    <p class="articulo-descripcion">Ideas emotivas y consejos prácticos para crear un homenaje personalizado que honre la vida de quien parte con amor y autenticidad.</p>
   </div>
-</section>
+</a>
 
-
-
-<section class="seccion-nosotros seccion-con-fondo">
-  <div class="contenido-nosotros">
-    <h2>Comprometidos Contigo</h2>
-    <p>Cada paso que damos es con el objetivo de brindar consuelo, confianza y respeto a las familias que depositan en nosotros su confianza.</p>
+<!-- Artículo 3 -->
+<a href="../1.2blog/1.2.3articulo-3.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-3.jpg" alt="Artículo 3">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Guía rápida para acompañar a alguien en duelo</h3>
+    <p class="articulo-descripcion">Acompañar a quien sufre no requiere respuestas, sino presencia, empatía y respeto por sus tiempos y emociones.</p>
   </div>
-</section>
+</a>
 
-
-
-<section class="seccion-nosotros seccion-morado-oscuro">
-  <div class="contenido-nosotros">
-    <h2>Compromiso Social</h2>
-    <p>Participamos activamente en programas de apoyo comunitario, jornadas de salud emocional y eventos conmemorativos para fortalecer la red de apoyo de las familias mexicanas.</p>
+<!-- Artículo 4 -->
+<a href="../1.2blog/1.2.4articulo-4.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-4.jpg" alt="Artículo 4">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué opción elegir? Cremación o sepultura tradicional</h3>
+    <p class="articulo-descripcion">Explora las diferencias entre cremación e inhumación y elige con base en valores, deseos y tranquilidad para tu familia.</p>
   </div>
-</section>
+</a>
+
+<!-- Artículo 5 -->
+<a href="../1.2blog/1.2.5articulo-5.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-5.jpg" alt="Artículo 5">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Cómo hablar de la muerte con los niños</h3>
+    <p class="articulo-descripcion">Aprende a abordar la muerte con sensibilidad según la edad del niño, creando un espacio seguro para la expresión emocional.</p>
+  </div>
+</a>
+
+<!-- Artículo 6 -->
+<a href="../1.2blog/1.2.6articulo-6.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-6.jpg" alt="Artículo 6">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Ideas para mantener vivo el recuerdo de quienes amamos</h3>
+    <p class="articulo-descripcion">Descubre formas emotivas de honrar a tus seres queridos: rituales familiares, aniversarios y recuerdos compartidos que sanan.</p>
+  </div>
+</a>
+
+<!-- Artículo 7 -->
+<a href="../1.2blog/1.2.7articulo-7.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-7.jpg" alt="Artículo 7">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">5 decisiones difíciles que puedes evitar si planeas con tiempo</h3>
+    <p class="articulo-descripcion">Planificar con anticipación evita decisiones dolorosas bajo presión y deja un legado de amor y organización para tu familia.</p>
+  </div>
+</a>
+
+<!-- Artículo 8 -->
+<a href="../1.2blog/1.2.8articulo-8.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-8.jpg" alt="Artículo 8">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué hacer inmediatamente tras el fallecimiento de un familiar?</h3>
+    <p class="articulo-descripcion">Guía clara y práctica para actuar con serenidad: trámites, contactos clave y cómo recibir apoyo sin perder la calma.</p>
+  </div>
+</a>
+
+<!-- Artículo 9 -->
+<a href="../1.2blog/1.2.9articulo-9.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-9.jpg" alt="Artículo 9">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Importancia de los homenajes digitales en el duelo moderno</h3>
+    <p class="articulo-descripcion">El recuerdo también vive online. Explora cómo los homenajes digitales conectan a familias y mantienen viva la memoria.</p>
+  </div>
+</a>
+
+<!-- Artículo 10 -->
+<a href="../1.2blog/1.2.10articulo-10.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-10.jpg" alt="Artículo 10">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Beneficios emocionales de rendir homenaje a un ser querido</h3>
+    <p class="articulo-descripcion">Homenajear ayuda a sanar. Expresa tu amor con rituales que transforman el dolor en gratitud y conexión.</p>
+  </div>
+</a>
+
+<!-- Artículo 11 -->
+<a href="../1.2blog/1.2.11articulo-11.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-11.jpg" alt="Artículo 11">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Cómo elegir el lugar adecuado para despedir a un ser querido</h3>
+    <p class="articulo-descripcion">Conoce los factores clave para elegir un espacio de despedida que brinde paz y honre la memoria con dignidad.</p>
+  </div>
+</a>
+
+<!-- Artículo 12 -->
+<a href="../1.2blog/1.2.12articulo-12.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-12.jpg" alt="Artículo 12">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué es el duelo anticipado y cómo reconocerlo?</h3>
+    <p class="articulo-descripcion">Cuando la pérdida se intuye antes de que ocurra, el corazón comienza a doler. Aprende a identificar y acompañar este proceso.</p>
+  </div>
+</a>
+
+<!-- Artículo 13 -->
+<a href="../1.2blog/1.2.13articulo-13.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-13.jpg" alt="Artículo 13">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Cómo planificar una ceremonia de despedida personalizada</h3>
+    <p class="articulo-descripcion">Una despedida significativa honra la historia del ser querido. Música, símbolos y detalles que hablan desde el corazón.</p>
+  </div>
+</a>
+
+<!-- Artículo 14 -->
+<a href="../1.2blog/1.2.14articulo-14.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-14.jpg" alt="Artículo 14">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Cómo acompañar el duelo en adultos mayores</h3>
+    <p class="articulo-descripcion">El duelo en la vejez implica pérdidas acumuladas. Aprende a brindar apoyo compasivo y respetuoso en esta etapa.</p>
+  </div>
+</a>
+
+<!-- Artículo 15 -->
+<a href="../1.2blog/1.2.15articulo-15.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-15.jpg" alt="Artículo 15">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">10 frases de consuelo para acompañar a quien ha perdido a alguien</h3>
+    <p class="articulo-descripcion">Las palabras reconfortan cuando nacen del corazón. Inspírate con frases reales que abrazan el dolor con empatía.</p>
+  </div>
+</a>
+
+<!-- Artículo 16 -->
+<a href="../1.2blog/1.2.16articulo-16.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-16.jpg" alt="Artículo 16">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Cómo organizar un homenaje conmemorativo virtual</h3>
+    <p class="articulo-descripcion">Descubre cómo rendir homenaje desde la distancia con ceremonias digitales llenas de amor, recuerdos y unión familiar.</p>
+  </div>
+</a>
+
+<!-- Artículo 17 -->
+<a href="../1.2blog/1.2.17articulo-17.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-17.jpg" alt="Artículo 17">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué documentos necesito en caso de un fallecimiento?</h3>
+    <p class="articulo-descripcion">Prepárate con una lista esencial de trámites para enfrentar el fallecimiento con claridad y menos estrés emocional.</p>
+  </div>
+</a>
+
+<!-- Artículo 18 -->
+<a href="../1.2blog/1.2.18articulo-18.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-18.jpg" alt="Artículo 18">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Beneficios emocionales de escribir una carta de despedida</h3>
+    <p class="articulo-descripcion">Escribir lo que el alma calla es sanar. Descubre cómo una carta puede ayudarte a soltar, agradecer y cerrar con amor.</p>
+  </div>
+</a>
+
+<!-- Artículo 19 -->
+<a href="../1.2blog/1.2.19articulo-19.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-19.jpg" alt="Artículo 19">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué es el luto? Etapas naturales del proceso de duelo</h3>
+    <p class="articulo-descripcion">Conocer las etapas del duelo te ayuda a entender y respetar tu proceso de sanación interior. Cada paso cuenta.</p>
+  </div>
+</a>
+
+<!-- Artículo 20 -->
+<a href="../1.2blog/1.2.20articulo-20.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-20.jpg" alt="Artículo 20">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Consejos para cuidar tu salud mental durante un duelo</h3>
+    <p class="articulo-descripcion">El duelo también se vive en la mente. Cuida tu bienestar emocional con acciones sencillas, cercanas y compasivas.</p>
+  </div>
+</a>
+
+<!-- Artículo 21 -->
+<a href="../1.2blog/1.2.21articulo-21.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-21.jpg" alt="Artículo 21">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Cómo acompañar a un amigo que ha perdido a un ser querido?</h3>
+    <p class="articulo-descripcion">No necesitas decir mucho. Aprende cómo tu presencia y apoyo pueden ser el mayor consuelo en momentos de pérdida.</p>
+  </div>
+</a>
+
+<!-- Artículo 22 -->
+<a href="../1.2blog/1.2.22articulo-22.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-22.jpg" alt="Artículo 22">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué significa “celebración de vida” en lugar de un funeral tradicional?</h3>
+    <p class="articulo-descripcion">Explora esta nueva forma de decir adiós: alegre, significativa y centrada en la historia vivida de quien partió.</p>
+  </div>
+</a>
+
+<!-- Artículo 23 -->
+<a href="../1.2blog/1.2.23articulo-23.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-23.jpg" alt="Artículo 23">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Cómo afecta el duelo a la salud física?</h3>
+    <p class="articulo-descripcion">El duelo no solo se siente en el alma. Descubre cómo impacta el cuerpo y cómo cuidarte durante este proceso.</p>
+  </div>
+</a>
+
+<!-- Artículo 24 -->
+<a href="../1.2blog/1.2.24articulo-24.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-24.jpg" alt="Artículo 24">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué es la resiliencia y cómo ayuda en el duelo?</h3>
+    <p class="articulo-descripcion">La resiliencia te permite atravesar el dolor sin romperte. Aprende a cultivarla como fuerza sanadora en la pérdida.</p>
+  </div>
+</a>
+
+<!-- Artículo 25 -->
+<a href="../1.2blog/1.2.25articulo-25.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-25.jpg" alt="Artículo 25">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Por qué es importante ritualizar el adiós?</h3>
+    <p class="articulo-descripcion">Los rituales no son rutina, son puentes emocionales. Aprende cómo un acto simbólico puede dar sentido al adiós.</p>
+  </div>
+</a>
+
+<!-- Artículo 26 -->
+<a href="../1.2blog/1.2.26articulo-26.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-26.jpg" alt="Artículo 26">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Cómo acompañar a adolescentes en duelo</h3>
+    <p class="articulo-descripcion">El duelo en la adolescencia requiere escucha atenta y comprensión. Descubre cómo estar presente sin invadir su proceso.</p>
+  </div>
+</a>
+
+<!-- Artículo 27 -->
+<a href="../1.2blog/1.2.27articulo-27.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-27.jpg" alt="Artículo 27">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué hacer en aniversarios de fallecimiento?</h3>
+    <p class="articulo-descripcion">Las fechas significativas despiertan emociones. Aprende a transformarlas en momentos de homenaje y conexión.</p>
+  </div>
+</a>
+
+<!-- Artículo 28 -->
+<a href="../1.2blog/1.2.28articulo-28.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-28.jpg" alt="Artículo 28">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">7 formas de rendir homenaje a una vida bien vivida</h3>
+    <p class="articulo-descripcion">Cada vida deja huellas únicas. Explora ideas hermosas y personales para celebrar el legado de quien ha partido.</p>
+  </div>
+</a>
+
+<!-- Artículo 29 -->
+<a href="../1.2blog/1.2.29articulo-29.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-29.jpg" alt="Artículo 29">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Cómo escribir un obituario sencillo pero conmovedor</h3>
+    <p class="articulo-descripcion">Un obituario es más que datos: es una historia de vida. Aprende a redactarlo desde el amor y la verdad.</p>
+  </div>
+</a>
+
+<!-- Artículo 30 -->
+<a href="../1.2blog/1.2.30articulo-30.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-30.jpg" alt="Artículo 30">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué es un duelo no reconocido?</h3>
+    <p class="articulo-descripcion">Algunas pérdidas duelen en silencio. Descubre cómo validar el dolor por despedidas que el mundo no siempre entiende.</p>
+  </div>
+</a>
+
+<!-- Artículo 31 -->
+<a href="../1.2blog/1.2.31articulo-31.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-31.jpg" alt="Artículo 31">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Cómo enfrentar el primer cumpleaños tras la pérdida</h3>
+    <p class="articulo-descripcion">Las fechas especiales reviven emociones. Aprende cómo transformar un día doloroso en un acto de memoria amorosa.</p>
+  </div>
+</a>
+
+<!-- Artículo 32 -->
+<a href="../1.2blog/1.2.32articulo-32.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-32.jpg" alt="Artículo 32">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">5 errores comunes al acompañar a alguien en duelo</h3>
+    <p class="articulo-descripcion">Aunque con buena intención, algunas frases y actitudes pueden herir. Descubre qué evitar y cómo apoyar mejor.</p>
+  </div>
+</a>
+
+<!-- Artículo 33 -->
+<a href="../1.2blog/1.2.33articulo-33.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-33.jpg" alt="Artículo 33">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué hacer cuando el duelo se prolonga?</h3>
+    <p class="articulo-descripcion">El tiempo del corazón no siempre sigue calendarios. Aprende cuándo buscar apoyo y cómo validar un duelo prolongado.</p>
+  </div>
+</a>
+
+<!-- Artículo 34 -->
+<a href="../1.2blog/1.2.34articulo-34.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-34.jpg" alt="Artículo 34">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Cómo ayudar a los niños a crear un recuerdo positivo</h3>
+    <p class="articulo-descripcion">Los niños también necesitan despedirse. Descubre actividades amorosas para que recuerden desde la ternura y no el miedo.</p>
+  </div>
+</a>
+
+<!-- Artículo 35 -->
+<a href="../1.2blog/1.2.35articulo-35.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-35.jpg" alt="Artículo 35">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">La importancia de pedir ayuda emocional</h3>
+    <p class="articulo-descripcion">Aceptar que necesitamos apoyo es un acto de fortaleza. Conoce cuándo y dónde pedir ayuda en momentos de duelo.</p>
+  </div>
+</a>
+
+<!-- Artículo 36 -->
+<a href="../1.2blog/1.2.36articulo-36.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-36.jpg" alt="Artículo 36">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Qué es la muerte digna y por qué hablar de ello?</h3>
+    <p class="articulo-descripcion">Hablar de una muerte digna es hablar de respeto y amor hasta el final. Conoce tus derechos y la importancia de anticiparlo en familia.</p>
+  </div>
+</a>
+
+<!-- Artículo 37 -->
+<a href="../1.2blog/1.2.37articulo-37.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-37.jpg" alt="Artículo 37">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Cómo construir un altar o rincón de recuerdo en casa</h3>
+    <p class="articulo-descripcion">Un espacio íntimo con objetos, fotos y luz puede convertirse en un refugio emocional para honrar a quienes ya no están.</p>
+  </div>
+</a>
+
+<!-- Artículo 38 -->
+<a href="../1.2blog/1.2.38articulo-38.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-38.jpg" alt="Artículo 38">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">¿Cómo afecta la cultura en la forma de despedirnos?</h3>
+    <p class="articulo-descripcion">Cada cultura honra a sus muertos de forma única. Reflexiona sobre tradiciones que sanan desde la identidad y el respeto.</p>
+  </div>
+</a>
+
+<!-- Artículo 39 -->
+<a href="../1.2blog/1.2.39articulo-39.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-39.jpg" alt="Artículo 39">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">5 lecciones de vida que nos dejan quienes amamos</h3>
+    <p class="articulo-descripcion">A veces, las enseñanzas más valiosas llegan con la despedida. Descubre legados emocionales que perduran en el corazón.</p>
+  </div>
+</a>
+
+<!-- Artículo 40 -->
+<a href="../1.2blog/1.2.40articulo-40.html" class="articulo-preview">
+  <img src="../1.6imagenes/blog-articulo-40.jpg" alt="Artículo 40">
+  <div class="articulo-texto">
+    <h3 class="articulo-titulo">Cómo seguir adelante honrando el recuerdo</h3>
+    <p class="articulo-descripcion">Seguir adelante no significa olvidar. Aprende cómo integrar el recuerdo con amor en tu vida cotidiana.</p>
+  </div>
+</a>
+
+
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer-blog">
+    <p>© 2025 Jardín de los Pinos. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="js/interaccionesblog.js"></script>
+</body>
+</html>
+
 
 
 <!--FIN DE LAS SECCIONES DE PRUEBA-->

@@ -199,86 +199,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //AQUI TERMINA EL JAVASCRIPT BASE MAQUETA */
 
-
-// blog.js
 document.addEventListener('DOMContentLoaded', () => {
-  // Activación de animación en scroll
-  const cards = document.querySelectorAll('.articulo-preview');
+  const articulo = document.querySelector('.articulo-container');
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  cards.forEach(card => {
-    observer.observe(card);
-  });
-
-  // Guardar scroll actual (por si quieres volver luego)
-  const lista = document.querySelector('.lista-articulos');
-
-  if (lista) {
-    lista.addEventListener('click', (e) => {
-      if (e.target.closest('a')) {
-        localStorage.setItem('scrollBlog', window.scrollY);
-      }
-    });
-
-    const savedScroll = localStorage.getItem('scrollBlog');
-    if (savedScroll) {
-      window.scrollTo({ top: parseInt(savedScroll), behavior: 'smooth' });
-      localStorage.removeItem('scrollBlog');
-    }
+  // Aplica animación de entrada
+  if (articulo) {
+    articulo.style.opacity = '0';
+    articulo.style.transform = 'translateY(30px)';
+    
+    setTimeout(() => {
+      articulo.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      articulo.style.opacity = '1';
+      articulo.style.transform = 'translateY(0)';
+    }, 100);
   }
 });
 
 
-
-document.addEventListener("DOMContentLoaded", function () {
-  const buscador = document.getElementById("buscador");
-  const articulos = document.querySelectorAll(".articulo-preview");
-
-  // Mostrar animación al cargar
-  const mostrarArticulos = () => {
-    articulos.forEach((articulo, index) => {
-      setTimeout(() => {
-        articulo.classList.add("visible");
-      }, 100 * index); // efecto de cascada
-    });
-  };
-
-  // Filtro por título
-  buscador.addEventListener("input", function () {
-    const termino = buscador.value.toLowerCase();
-
-    articulos.forEach((articulo) => {
-      const titulo = articulo.querySelector(".articulo-titulo").textContent.toLowerCase();
-
-      if (titulo.includes(termino)) {
-        articulo.style.display = "flex";
-        setTimeout(() => {
-          articulo.classList.add("visible");
-        }, 100);
-      } else {
-        articulo.style.display = "none";
-        articulo.classList.remove("visible");
-      }
-    });
+// Fuerza todos los enlaces a abrirse en la misma ventana
+document.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href && !href.startsWith('http')) {
+      e.preventDefault();
+      window.location.href = href;
+    }
   });
-
-  mostrarArticulos();
 });
-
-
-
-
-
 
 
 

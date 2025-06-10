@@ -199,6 +199,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //AQUI TERMINA EL JAVASCRIPT BASE MAQUETA */
 
+
+//OBITUARIOS *//
+
 document.addEventListener('DOMContentLoaded', () => {
   const contenedor = document.getElementById('contenedorObituarios');
   const inputBuscar = document.getElementById('buscarNombre');
@@ -240,6 +243,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const tarjeta = document.createElement('div');
       tarjeta.className = 'obituario';
 
+      const tarjetaInterna = document.createElement('div');
+      tarjetaInterna.className = 'tarjeta-obituario';
+
       const canvas = document.createElement('canvas');
       canvas.width = 1440;
       canvas.height = 725;
@@ -274,60 +280,51 @@ document.addEventListener('DOMContentLoaded', () => {
         imgFinal.alt = `Obituario de ${dato.nombre_fallecido}`;
         imgFinal.className = 'img-obituario';
 
-        // Click para ampliar
         imgFinal.addEventListener('click', () => {
           mostrarModal(imgFinal.src, `Obituario de ${dato.nombre_fallecido}`);
         });
 
-        tarjeta.appendChild(imgFinal);
+        tarjetaInterna.appendChild(imgFinal);
+        tarjeta.appendChild(tarjetaInterna);
+        contenedor.appendChild(tarjeta);
       };
-
-      contenedor.appendChild(tarjeta);
     });
   }
 
-// Mostrar modal con botón de descarga
-function mostrarModal(src, alt) {
-  const modal = document.createElement('div');
-  modal.className = 'modal-obituario';
+  function mostrarModal(src, alt) {
+    const modal = document.createElement('div');
+    modal.className = 'modal-obituario';
 
-  // Crear contenido del modal
-  const modalContenido = document.createElement('div');
-  modalContenido.className = 'contenido-modal'; // ← CORREGIDO
+    const modalContenido = document.createElement('div');
+    modalContenido.className = 'contenido-modal';
 
-  // Botón cerrar
-  const cerrar = document.createElement('span');
-  cerrar.className = 'cerrar-modal';
-  cerrar.innerHTML = '&times;';
-  cerrar.addEventListener('click', () => modal.remove());
+    const cerrar = document.createElement('span');
+    cerrar.className = 'cerrar-modal';
+    cerrar.innerHTML = '&times;';
+    cerrar.addEventListener('click', () => modal.remove());
 
-  // Imagen
-  const imagen = document.createElement('img');
-  imagen.src = src;
-  imagen.alt = alt;
+    const imagen = document.createElement('img');
+    imagen.src = src;
+    imagen.alt = alt;
 
-  // Botón de descarga estilizado
-  const botonDescarga = document.createElement('a');
-  botonDescarga.href = src;
-  botonDescarga.download = `${alt}.png`;
-  botonDescarga.className = 'btn-descargar';
-  botonDescarga.textContent = 'Descargar';
+    const botonDescarga = document.createElement('a');
+    botonDescarga.href = src;
+    botonDescarga.download = `${alt}.png`;
+    botonDescarga.className = 'btn-descargar';
+    botonDescarga.textContent = 'Descargar';
 
-  // Agregar elementos al modal
-  modalContenido.appendChild(cerrar);
-  modalContenido.appendChild(imagen);
-  modalContenido.appendChild(botonDescarga);
-  modal.appendChild(modalContenido);
-  document.body.appendChild(modal);
+    modalContenido.appendChild(cerrar);
+    modalContenido.appendChild(imagen);
+    modalContenido.appendChild(botonDescarga);
+    modal.appendChild(modalContenido);
+    document.body.appendChild(modal);
 
-  // Cerrar modal al hacer clic fuera del contenido
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.remove();
-    }
-  });
-}
-
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.remove();
+      }
+    });
+  }
 
   inputBuscar.addEventListener('input', renderizarObituarios);
   selectMostrar.addEventListener('change', renderizarObituarios);
@@ -337,6 +334,111 @@ function mostrarModal(src, alt) {
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const contenedor = document.getElementById('contenedorHomenajes');
+  const inputBuscar = document.getElementById('buscarHomenaje');
+  const selectCantidad = document.getElementById('cantidadHomenajes');
+  const btnIzq = document.querySelector('.btn-carrusel.izq');
+  const btnDer = document.querySelector('.btn-carrusel.der');
 
+  let datosHomenajes = [];
 
+  async function cargarCSV() {
+    const response = await fetch('../1.3obituarios/basededatos_homenajes.csv');
+    const texto = await response.text();
+    const lineas = texto.trim().split('\n');
+    const encabezados = lineas[0].split(',');
+
+    datosHomenajes = lineas.slice(1).map(linea => {
+      const valores = linea.split(',');
+      const obj = {};
+      encabezados.forEach((key, i) => {
+        obj[key.trim()] = valores[i]?.trim();
+      });
+      return obj;
+    });
+
+    renderizarHomenajes();
+  }
+
+  function renderizarHomenajes() {
+    contenedor.innerHTML = '';
+
+    const filtro = inputBuscar.value.toLowerCase();
+    const cantidad = selectCantidad.value;
+
+    const filtrados = datosHomenajes.filter(d =>
+      d.frase_homenaje.toLowerCase().includes(filtro) ||
+      d.autor_homenaje.toLowerCase().includes(filtro) ||
+      d.aquiensedirige_homenaje.toLowerCase().includes(filtro)
+    );
+
+    const aMostrar = cantidad === 'todos' ? filtrados : filtrados.slice(0, parseInt(cantidad));
+
+    aMostrar.forEach(h => {
+      const tarjeta = document.createElement('div');
+      tarjeta.className = 'tarjeta-homenaje';
+      tarjeta.innerHTML = `“${h.frase_homenaje}”<br>
+        <span class="autor">— ${h.autor_homenaje || 'Anónimo'}, dedicado a ${h.aquiensedirige_homenaje}</span>`;
+      contenedor.appendChild(tarjeta);
+    });
+  }
+
+  // Eventos de filtrado y cantidad
+  inputBuscar.addEventListener('input', renderizarHomenajes);
+  selectCantidad.addEventListener('change', renderizarHomenajes);
+
+  // Modal de nuevo homenaje
+  const btnAbrir = document.getElementById('abrirModalHomenaje');
+  const modal = document.getElementById('modalHomenaje');
+  const btnCerrar = document.getElementById('cerrarModalHomenaje');
+  const btnEnviar = document.getElementById('btnEnviarHomenaje');
+  const inputTexto = document.getElementById('inputHomenaje');
+  const inputAutor = document.getElementById('inputAutor');
+  const inputDirigido = document.getElementById('inputDirigido');
+
+  btnAbrir.addEventListener('click', () => {
+    modal.classList.add('activo');
+    inputTexto.value = '';
+    inputAutor.value = '';
+    inputDirigido.value = '';
+  });
+
+  btnCerrar.addEventListener('click', () => modal.classList.remove('activo'));
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.remove('activo');
+  });
+
+  btnEnviar.addEventListener('click', () => {
+    const texto = inputTexto.value.trim();
+    const autor = inputAutor.value.trim() || 'Anónimo';
+    const dirigido = inputDirigido.value.trim() || 'Desconocido';
+
+    if (texto === '') {
+      alert('Por favor, escribe un homenaje.');
+      return;
+    }
+
+    const nuevo = {
+      frase_homenaje: texto,
+      autor_homenaje: autor,
+      aquiensedirige_homenaje: dirigido
+    };
+
+    datosHomenajes.unshift(nuevo);
+    renderizarHomenajes();
+    modal.classList.remove('activo');
+  });
+
+  // Botones carrusel (opcional scroll)
+  btnIzq.addEventListener('click', () => {
+    contenedor.scrollBy({ left: -300, behavior: 'smooth' });
+  });
+
+  btnDer.addEventListener('click', () => {
+    contenedor.scrollBy({ left: 300, behavior: 'smooth' });
+  });
+
+  cargarCSV();
+});
 

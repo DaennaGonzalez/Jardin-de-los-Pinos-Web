@@ -123,6 +123,59 @@
 
 
 
+<!-- ===================== SECCIÓN HOMENAJES ===================== -->
+<section class="seccion-homenajes">
+  <h2 class="titulo-homenajes">Homenajes</h2>
+  <p class="subtitulo-homenajes">Escribe unas líneas para honrar su vida, su historia, su huella.</p>
+
+  <!-- Buscador -->
+  <div class="buscador-homenajes">
+    <input type="text" id="buscarHomenaje" placeholder="Buscar homenaje por frase, autor o persona...">
+  </div>
+
+  <div class="mostrar-select">
+  <label for="cantidadHomenajes">Mostrar:</label>
+  <select id="cantidadHomenajes">
+    <option value="3" selected>3</option>
+    <option value="6">6</option>
+    <option value="9">9</option>
+    <option value="todos">Todos</option>
+  </select>
+</div>
+
+
+  <!-- Carrusel de homenajes -->
+  <div class="carrusel-homenajes">
+    <button class="btn-carrusel izq">‹</button>
+
+    <div class="contenedor-homenajes" id="contenedorHomenajes">
+      <!-- Tarjetas cargadas por JS -->
+    </div>
+
+    <button class="btn-carrusel der">›</button>
+  </div>
+
+  <!-- Botón para abrir el modal -->
+  <div class="boton-escribir">
+    <button id="abrirModalHomenaje" class="btn-escribir-homenaje">Escribir homenaje</button>
+  </div>
+</section>
+
+<!-- ===================== MODAL HOMENAJE ===================== -->
+<div id="modalHomenaje" class="modal-overlay">
+  <div class="modal-contenido-homenaje">
+    <button id="cerrarModalHomenaje" class="cerrar-modal">✕</button>
+    <h3>Escribir homenaje</h3>
+    <textarea id="inputHomenaje" placeholder="Escribe aquí tu mensaje..."></textarea>
+    <input type="text" id="inputAutor" placeholder="Nombre del autor (opcional)" />
+    <input type="text" id="inputDirigido" placeholder="¿A quién se dirige? (nombre del fallecido)" />
+    <button id="btnEnviarHomenaje" class="btn-enviar-homenaje">Enviar</button>
+  </div>
+</div>
+<!-- ===================== FIN HOMENAJES ===================== -->
+
+
+
 <!--FIN DE LAS SECCIONES DE PRUEBA-->
 
 <!-- BOTONES FLOTANTES -->
@@ -272,6 +325,9 @@
 <script src="interaccionesobituarios.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script src="js/obituarios.js"></script>
+
+
+
 
 
 </body>

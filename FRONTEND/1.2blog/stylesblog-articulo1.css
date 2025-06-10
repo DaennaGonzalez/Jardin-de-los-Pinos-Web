@@ -1388,522 +1388,114 @@ button.boton-flotante:hover {
 /*--------------------------------------------------------------*/
 /*--------FIN DE DISEÑO BASE PARA MAQUETADO DE MENUS ---------------*/
 /*--------------------------------------------------------------*/
-/* ======================= SECCIÓN OBITUARIOS ======================= */
-.obituarios-section {
-  background: url('../1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
+/* ===============================
+   CONFIGURACIÓN GLOBAL
+   =============================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #3d2b3d;
+  background-image: url('../1.6imagenes/fondo-pagina.png');
   background-size: cover;
-  padding: 260px 40px 80px;
-  color: #4a004e;
-  font-family: 'Montserrat', sans-serif;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-.encabezado-obituarios {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 60px;
-}
-
-.titulo-obituarios {
-  font-family: 'Fleur De Leah', cursive;
-  font-size: 3.5rem;
-  margin-bottom: 6px;
-  color: #671B6B;
-}
-
-.subtitulo-obituarios {
-  font-size: 1rem;
-  max-width: 400px;
-}
-
-.buscador-obituarios {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 16px;
-}
-
-.campo-busqueda,
-.campo-mostrar {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: 0.95rem;
-  color: #4a004e;
-}
-
-.input-con-icono {
-  display: flex;
-  align-items: center;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  padding: 4px 12px;
-}
-
-.input-con-icono input {
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  padding: 8px;
-  border-radius: 8px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.icono-buscar {
-  width: 20px;
-  margin-right: 8px;
-}
-
-select,
-input,
-option,
-button,
-textarea {
-  font-family: 'Montserrat', sans-serif;
-}
-
-select {
-  font-size: 1rem;
-  padding: 6px 12px;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-input::placeholder {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  color: #6d2393;
-}
-
-/* === COLLAGE DE OBITUARIOS === */
-.contenedor-obituarios {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  margin-top: 40px;
-}
-
-.obituario {
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.obituario img {
-  width: 100%;
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-  animation: none;
-  transition: transform 0.3s ease;
-}
-
-.obituario img:hover {
-  animation: bounce 0.5s ease;
-}
-
-.tarjeta-obituario {
-  text-align: center;
-  background: transparent;
-  transition: transform 0.25s ease, box-shadow 0.3s ease;
-  will-change: transform;
-}
-
-.tarjeta-obituario .etiqueta {
-  margin-bottom: 10px;
-  font-weight: 600;
-  color: #6d2393;
-}
-
-.tarjeta-obituario img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-}
-
-/* =================== MODAL OBITUARIO =================== */
-.modal-obituario {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.modal-obituario .contenido-modal {
-  background: #5c226d;
-  border-radius: 20px;
-  padding: 24px 24px 80px;
-  width: 95vw;
-  max-width: 1440px;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  position: relative;
-}
-
-.modal-obituario img {
-  max-width: 100%;
-  max-height: calc(100vh - 180px);
-  height: auto;
-  width: auto;
-  aspect-ratio: 1440 / 725;
+/* ===============================
+   CONTENEDOR PRINCIPAL DEL ARTÍCULO
+   =============================== */
+.articulo-container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 200px 40px 80px;
+  background-color: rgba(255, 255, 255, 0.94);
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-  display: block;
-  object-fit: contain;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-in-out;
 }
 
-/* BOTÓN DESCARGA */
-.btn-descargar {
-  position: absolute;
-  bottom: 24px;
-  background-color: #a72298;
-  color: #fff;
-  text-decoration: none;
-  padding: 14px 34px;
-  border-radius: 30px;
-  font-weight: 600;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease, transform 0.2s ease;
+/* ===============================
+   ENCABEZADO DEL ARTÍCULO
+   =============================== */
+.titulo-blog {
   text-align: center;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.btn-descargar:hover {
-  background: linear-gradient(135deg, #8f4bbf, #54155b);
-  transform: translateX(-50%) scale(1.05);
-}
-
-.cerrar-modal {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 24px;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* =================== RESPONSIVE =================== */
-@media screen and (max-width: 1024px) {
-  .contenedor-obituarios {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .modal-obituario .contenido-modal {
-    width: 95vw;
-    padding: 16px 16px 72px;
-  }
-
-  .btn-descargar {
-    font-size: 0.9rem;
-    padding: 10px 24px;
-  }
-
-  .modal-obituario img {
-    transform: scale(1);
-  }
-}
-
-/* =================== EFECTO REBOTE =================== */
-
-@keyframes bounce {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.07);
-  }
-}
-
-/* ===================== SECCIÓN HOMENAJES ===================== */
-.seccion-homenajes {
-  padding: 80px 30px;
-  background-color: #f0d5ee;
-  text-align: center;
-  position: relative;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.titulo-homenajes {
   font-family: 'Fleur De Leah', cursive;
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   color: #671B6B;
-  margin-bottom: 10px;
+  margin: 0;
 }
 
-.subtitulo-homenajes {
+.subtitulo-articulo {
+  text-align: center;
   font-size: 1rem;
-  color: #4A004E;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  color: #4a004e;
 }
 
-/* Buscador */
-.buscador-homenajes {
+/* ===============================
+   TÍTULO PRINCIPAL DEL ARTÍCULO
+   =============================== */
+.titulo-articulo {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  text-align: center;
+  background-color: #671B6B;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* ===============================
+   IMAGEN PRINCIPAL DEL ARTÍCULO
+   =============================== */
+.imagen-articulo {
+  text-align: center;
   margin-bottom: 30px;
 }
 
-.buscador-homenajes input {
-  padding: 10px 16px;
+.imagen-articulo img {
   width: 100%;
-  max-width: 500px;
-  font-size: 1rem;
-  border-radius: 25px;
-  border: 2px solid #671B6B;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Carrusel */
-.carrusel-homenajes {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: nowrap;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.contenedor-homenajes {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  gap: 30px;
-  padding: 20px 0;
-}
-
-/* Scroll personalizado para carrusel */
-.contenedor-homenajes::-webkit-scrollbar {
-  height: 10px; /* altura del scroll horizontal */
-}
-
-.contenedor-homenajes::-webkit-scrollbar-track {
-  background: transparent; /* fondo del track */
-}
-
-.contenedor-homenajes::-webkit-scrollbar-thumb {
-  background-color: #b177dd; /* tono morado principal */
-  border-radius: 20px;
-  border: 2px solid #f0d5ee; /* color de fondo de la sección */
-}
-
-.contenedor-homenajes::-webkit-scrollbar-thumb:hover {
-  background-color: #8d48be; /* tono morado oscuro al hacer hover */
-}
-
-
-.tarjeta-homenaje {
-  flex: 0 0 auto;
-  width: 100%;
-  max-width: 300px;
-}
-
-
-
-.tarjeta-homenaje {
-  background-color: #671B6B;
-  color: white;
-  padding: 24px 20px;
-  border-radius: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  font-size: 1rem;
-  line-height: 1.6;
-  transition: transform 0.3s;
-  display: block;
-}
-
-.tarjeta-homenaje:hover {
-  transform: scale(1.03);
-}
-
-.tarjeta-homenaje .autor {
-  display: block;
-  margin-top: 10px;
-  font-size: 0.95rem;
-  font-style: italic;
-  color: #d5b4e6;
-}
-
-/* Botón de carrusel */
-.btn-carrusel {
-  background: none;
-  border: none;
-  font-size: 2.5rem;
-  color: #671B6B;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  padding: 0 10px;
-  user-select: none;
-}
-
-.btn-carrusel:hover {
-  transform: scale(1.2);
-}
-
-/* Botón Escribir */
-.boton-escribir {
-  margin-top: 30px;
-}
-
-.btn-escribir-homenaje {
-  background-color: #b177dd;
-  color: white;
-  font-size: 1.1rem;
-  padding: 12px 32px;
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease;
-}
-
-.btn-escribir-homenaje:hover {
-  background-color: #8d48be;
-}
-
-/* ===================== MODAL HOMENAJE ===================== */
-.modal-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.6);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-}
-
-.modal-overlay.activo {
-  display: flex;
-}
-
-.modal-contenido-homenaje {
-  background: #fff;
-  width: 90%;
-  max-width: 600px;
-  padding: 40px 30px;
-  border-radius: 20px;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.modal-contenido-homenaje h3 {
-  font-size: 1.6rem;
-  margin-bottom: 20px;
-  color: #671B6B;
-}
-
-.modal-contenido-homenaje textarea {
-  width: 100%;
-  height: 120px;
-  resize: none;
-  padding: 12px;
-  font-size: 1rem;
-  border: 2px solid #ccc;
+  max-width: 100%;
+  height: auto;
   border-radius: 10px;
-  margin-bottom: 15px;
-  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.modal-contenido-homenaje input[type="text"] {
-  width: 100%;
-  padding: 10px;
+/* ===============================
+   CONTENIDO DEL ARTÍCULO
+   =============================== */
+.contenido-articulo {
   font-size: 1rem;
-  border: 2px solid #ccc;
-  border-radius: 10px;
+  line-height: 1.8;
+  color: #4a004e;
+}
+
+.contenido-articulo p {
   margin-bottom: 20px;
-  font-family: 'Montserrat', sans-serif;
 }
 
-.btn-enviar-homenaje {
-  background-color: #671B6B;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.contenido-articulo ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
 }
 
-.btn-enviar-homenaje:hover {
-  background-color: #4d1251;
+.contenido-articulo li {
+  margin-bottom: 10px;
 }
 
-.cerrar-modal {
-  position: absolute;
-  top: 14px;
-  right: 18px;
-  font-size: 1.4rem;
-  color: #333;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* ===================== RESPONSIVE AJUSTES ===================== */
-@media (max-width: 768px) {
-  .contenedor-homenajes {
-    grid-template-columns: 1fr;
+/* ===============================
+   ANIMACIONES
+   =============================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .contenedor-homenajes {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1025px) {
-  .contenedor-homenajes {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* ========== RESPONSIVE HOMENAJES ========== */
-@media (max-width: 768px) {
-  /* Oculta las flechas en móvil */
-  .btn-carrusel {
-    display: none;
-  }
-
-  /* Contenedor como columna en móvil */
-  .contenedor-homenajes {
-    flex-direction: column;
-    overflow-x: hidden;
-    padding: 10px 0;
-  }
-
-  /* Tarjetas en bloque ancho completo */
-  .tarjeta-homenaje {
-    width: 100%;
-    max-width: 95%;
-    margin: 0 auto;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

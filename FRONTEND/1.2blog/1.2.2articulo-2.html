@@ -1,33 +1,370 @@
+<!---------------------------------------->
+<!--AQUI empieza EL HTML BASE MAQUETADO -->
+<!---------------------------------------->
+<!DOCTYPE html>
+<html lang="es">
+  
+<head>
+
+  <meta charset="UTF-8">
+   <!-- ESTA LÍNEA ES CRUCIAL PARA MÓVIL -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesblog-articulo1.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <title>Jardín de los Pinos</title>
+  
+  
+</head>
+
+
+
+
+<body>
+
+<!-- GSAP SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
+<!-- SCRIPT DE AJUSTE -->
+<script src="interaccionesblog-articulo1.js"></script>
+
+
+  <!-- HEADER -->
+ <!-- HEADER -->
+<header>
+  <div class="header-container">
+    <!-- Logo -->
+    <img src="../1.6imagenes/logo-blanco.png" alt="Logo Jardín de los Pinos" class="logo">
+
+    <!-- Botones derecho -->
+    <div class="acciones">
+      <a href="#">Registrarse</a>
+      <div class="inicio-sesion">
+        <img src="../1.7iconos/icono-iniciosesion.png" alt="Icono sesión">
+        <a href="#">Iniciar sesión</a>
+      </div>
+    </div>
+
+    <!-- BOTÓN HAMBURGUESA: solo en móvil -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">☰</button>
+
+    <!-- Menú escritorio -->
+    <nav class="menu menu-desktop">
+      <a href="../index.html">INICIO</a>
+      <a href="../1.0nosotros/nosotros.html">NOSOTROS</a>
+      <a href="../1.1servicios/servicios.html">SERVICIOS</a>
+      <a href="../1.11promociones/promociones.html">PROMOCIONES</a>
+      <a href="../1.12sucursales/sucursales.html">SUCURSALES</a>
+      <a href="../1.3obituarios/obituarios.html">OBITUARIOS</a>
+      <a href="blog.html" class="active">BLOG</a>
+    </nav>
+
+    <!-- Menú móvil -->
+    <nav id="mobileMenu" class="menu-mobile">
+      <a href="../index.html">INICIO</a>
+      <a href="../1.0nosotros/nosotros.html">NOSOTROS</a>
+      <a href="../1.1servicios/servicios.html">SERVICIOS</a>
+      <a href="../1.11promociones/promociones.html">PROMOCIONES</a>
+      <a href="../1.12sucursales/sucursales.html">SUCURSALES</a>
+      <a href="../1.3obituarios/obituarios.html">OBITUARIOS</a>
+      <a href="blog.html" class="active">BLOG</a>
+    </nav>
+  </div>
+</header>
+<!--EMPIEZAN LAS SECCIONES DE PRUEBA-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BLOG 2</title> – Jardín de los Pinos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Por qué planear un servicio funerario con anticipación?</title>
 
-  <!-- Puedes enlazar tu mismo CSS si quieres mantener la apariencia global -->
-  <link rel="stylesheet" href="../styles.css">
-  <style>
-    /* Estilo mínimo por si no traes el CSS global */
-    body{
-      font-family: "Montserrat", sans-serif;
-      display:flex;             /* centrar el texto en pantalla */
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      margin:0;
-      background:#f5f5f5;
-    }
-    h1{
-      color:#671B6B;
-      font-size:clamp(1.8rem,5vw,3rem);
-      text-align:center;
-    }
-  </style>
+  <!-- Estilos -->
+  <link rel="stylesheet" href="stylesarticulo.css" />
+
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
 
-  <h1>Estás en el apartado de BLOG 2</h1>
+   <!--------------------------------------------------------- -->
+  <!--APARTADO EDITABLE PARA EL TEXTO QUE VENDRÍA EN EL ARTICULO -->
+    <!--------------------------------------------------------- -->
+<!-- CONTENEDOR PRINCIPAL -->
+<section class="articulo-container">
+  
+  <!-- ENCABEZADO -->
+  <div class="encabezado-articulo">
+    <h2 class="titulo-blog">Blog</h2>
+    <p class="subtitulo-articulo">Artículo 2.</p>
+  </div>
+
+  <!-- TÍTULO DEL ARTÍCULO -->
+  <h1 class="titulo-articulo">
+    ¿Qué es un homenaje póstumo y cómo hacerlo significativo?
+  </h1>
+
+  <!-- IMAGEN PRINCIPAL -->
+  <div class="imagen-articulo">
+    <img src="../1.6imagenes/blog-articulo-2.jpg" alt="Flores blancas sobre mármol con vela encendida">
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="contenido-articulo">
+
+    <p><strong>🕊️ Introducción: Homenajear desde el amor</strong><br>
+    Cuando una persona amada parte, lo único que permanece intacto es el recuerdo que dejó en quienes la conocieron. Los homenajes póstumos son formas de expresar amor, gratitud y respeto hacia su memoria. No se trata solo de ceremonias formales, sino de actos simbólicos que dan sentido a la pérdida y ayudan a sanar el corazón.
+    <br><br>
+    En Jardín de los Pinos, creemos que cada vida merece ser honrada de manera única y personal. Un homenaje bien pensado puede convertirse en un regalo eterno, tanto para quien se ha ido como para quienes permanecen.
+    </p>
+
+    <p><strong>🌟 ¿Qué es un homenaje póstumo?</strong><br>
+    Un homenaje póstumo es cualquier acto o ceremonia realizada después del fallecimiento de una persona, con el propósito de honrar su vida, recordar su legado y fortalecer el lazo emocional con quienes lo amaron. Puede adoptar múltiples formas, desde las tradicionales hasta las más simbólicas o personalizadas.
+    <br><br>
+    No existe una fórmula perfecta: lo importante es que represente a la persona y refleje lo que significó para su familia y comunidad.
+    </p>
+
+    <p><strong>💡 Ideas para realizar un homenaje póstumo significativo</strong></p>
+
+    <p><strong>1. Ceremonia conmemorativa</strong><br>
+    Ya sea religiosa o laica, una ceremonia de despedida brinda un espacio de recogimiento para familiares y amigos. Puede incluir:
+      <ul>
+        <li>Palabras de despedida</li>
+        <li>Música significativa</li>
+        <li>Lectura de poemas o cartas</li>
+        <li>Exposición de fotografías o videos</li>
+        <li>Ritos culturales o espirituales</li>
+      </ul>
+    </p>
+
+    <p><strong>2. Memorial digital</strong><br>
+    En la era digital, los recuerdos también pueden vivir en línea. Algunas ideas incluyen:
+      <ul>
+        <li>Crear un muro de condolencias virtual</li>
+        <li>Compartir un video homenaje con imágenes, música y mensajes</li>
+        <li>Publicar un álbum fotográfico digital accesible para toda la familia</li>
+        <li>Crear una cuenta conmemorativa en redes sociales</li>
+      </ul>
+    Esto permite que personas lejanas también puedan participar en el recuerdo.
+    </p>
+
+    <p><strong>3. Escribir una carta de despedida</strong><br>
+    Una carta permite expresar lo que no pudo decirse en vida. Puedes leerla durante la ceremonia, colocarla junto al ataúd o urna, o simplemente conservarla en un espacio especial.
+    </p>
+
+    <p><strong>4. Plantar un árbol o jardín conmemorativo</strong><br>
+    El crecimiento de un árbol simboliza vida, permanencia y legado. Puedes acompañarlo con una placa con el nombre del ser querido o una frase significativa. Es un hermoso acto colectivo para unir a la familia.
+    </p>
+
+    <p><strong>5. Crear una caja de recuerdos</strong><br>
+    Reúne fotografías, cartas, objetos importantes y aromas que representen a la persona. Esta caja puede abrirse en aniversarios o momentos importantes, como una forma de seguir conectados.
+    </p>
+
+    <p><strong>🛠️ Tips para personalizar el homenaje</strong></p>
+    <ul>
+      <li>Escucha a la familia: ¿Qué era importante para la persona? ¿Qué le gustaba?</li>
+      <li>Piensa en sus pasiones: ¿Le gustaba la música, el arte, la naturaleza?</li>
+      <li>Invita a participar: Los homenajes más memorables son aquellos donde varias personas comparten palabras, recuerdos o gestos simbólicos.</li>
+      <li>Crea momentos íntimos: Un minuto de silencio, una canción específica o una frase recurrente puede darle fuerza emocional al acto.</li>
+    </ul>
+
+    <p><strong>❤️ Homenajear es parte del proceso de sanación</strong><br>
+    Los homenajes ayudan a aceptar la pérdida, resignificar el dolor y transformar el duelo en amor duradero. No importa la magnitud del acto, sino su intención. A veces, un gesto simple como encender una vela o escribir un pensamiento puede tener un impacto profundo en quienes lo viven.
+    <br><br>
+    Recordar no es estancarse, es reconocer el valor de quien fue parte de nuestra vida y mantener su esencia presente en el corazón.
+    </p>
+
+    <p><strong>✨ Cierre: Un acto de amor que trasciende</strong><br>
+    Un homenaje póstumo no es un adiós final, sino un "gracias por todo lo vivido". Es una forma de decir: aquí estás, aquí sigues, en nuestras memorias, en nuestros gestos y en nuestro amor.
+    <br><br>
+    En Jardín de los Pinos, te acompañamos para que ese homenaje sea auténtico, humano y profundamente significativo.
+    </p>
+
+    <p><strong>📞 ¿Quieres ayuda para organizar un homenaje personalizado?</strong><br>
+    Nuestros asesores pueden ayudarte a diseñar una ceremonia que refleje verdaderamente la esencia de tu ser querido.
+      <ul>
+        <li>📍 Visítanos en tu sucursal más cercana en Monterrey, Saltillo o Torreón.</li>
+        <li>☎️ Teléfono directo: (81) 8398-6598</li>
+        <li>📩 Correo: info@jardindelospinos.com</li>
+      </ul>
+    Tu amor merece ser honrado con respeto, sensibilidad y calidez.
+    </p>
+
+  </div>
+</section>
+
+
+  
+   <!--------------------------------------------------------- -->
+  <!--APARTADO EDITABLE PARA EL TEXTO QUE VENDRÍA EN EL ARTICULO -->
+    <!--------------------------------------------------------- -->
+
+
 
 </body>
 </html>
+
+
+
+<!--FIN DE LAS SECCIONES DE PRUEBA-->
+
+<!-- BOTONES FLOTANTES -->
+<!-- Emergencias -->
+
+<button id="botonEmergencias" class="boton-flotante boton-emergencia boton-fijo-superior">
+  <img src="../1.7iconos/icono-emergencias.png" alt="Emergencias">
+  Emergencias
+</button>
+
+
+
+<!-- Carrito de Compras -->
+<a href="#" class="boton-flotante boton-carrito">
+  <img src="../1.7iconos/icono-carritocompras.png" alt="Carrito de Compras">
+  Carrito de compras
+</a>
+
+<!-- Redes Sociales (bloque con 3 íconos) -->
+<div class="boton-flotante redes-sociales">
+  <a href="https://www.instagram.com/jardindelospinosoficial/" target="_blank">
+      <img src="../1.7iconos/logo-instagram.png" alt="Instagram">
+  </a>
+  <a href="https://www.tiktok.com/@jardindelospinosoficial?lang=es" target="_blank">
+      <img src="../1.7iconos/icono-tiktok.png" alt="Tiktok">
+  </a>
+  <a href="https://www.facebook.com/jardindelospinosoficial/" target="_blank">
+      <img src="../1.7iconos/logo-facebook.png" alt="Facebook">
+  </a>
+</div>
+
+<!-- WhatsApp -->
+<a href="https://api.whatsapp.com/send?phone=5218127323099&text=Me%20interesa%20un%20Plan%20de%20Previsi%C3%B3n%20Funerario" class="boton-flotante boton-whatsapp" target="_blank">
+  <img src="../1.7iconos/icono-whatsapp.png" alt="WhatsApp">
+  Contáctanos
+</a>
+
+<!-- Sucursales -->
+<a href="https://maps.app.goo.gl/kcmPsBT43GTkooUw5" class="boton-flotante boton-sucursales">
+  <img src="../1.7iconos/icono-maps.png" alt="Sucursales">
+  Sucursales
+</a>
+
+
+
+
+
+
+<!-- ———— PIE DE PÁGINA FINAL ———— -->
+<footer class="footer">
+  <div class="footer-info">
+    <p>Dirección: Av. San Francisco 120 Desp. 27, Col. Lomas de San Francisco, 64710 Monterrey, N.L.</p>
+    <p>Atención 24/7: (81) 8398 6598</p>
+    <p>Correo: <a href="mailto:info@jardindelospinos.com">info@jardindelospinos.com</a></p>
+  </div>
+
+  <div class="footer-copy">
+    <p>© 2025 Jardín de los Pinos. Todos los derechos reservados.</p>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/jardindelospinosoficial/" target="_blank">
+        <img src="../1.7iconos/logo-instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@jardindelospinosoficial?lang=es" target="_blank">
+        <img src="../1.7iconos/icono-tiktok.png" alt="Tiktok">
+      </a>
+      <a href="https://www.facebook.com/jardindelospinosoficial/" target="_blank">
+        <img src="../1.7iconos/logo-facebook.png" alt="Facebook">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL DE EMERGENCIAS -->
+<div id="modalEmergencias" class="modal-overlay">
+  <div class="modal-contenido">
+    <button class="cerrar-modal" id="cerrarModalEmergencias">✕</button>
+    
+    <h2 class="titulo-modal-emergencias">Emergencias</h2>
+    <p>No se preocupe, nosotros nos encargamos de todo.</p>
+    <p>Si ya cuenta con un contrato en Jardín de los Pinos favor de comunicarse a los teléfonos:</p>
+    
+    <ul class="lista-telefonos">
+      <li><strong>Capilla Apodaca:</strong> (81) - 8212 - 9035</li>
+      <li><strong>Capilla Cumbres:</strong> (81) - 2002 - 9729</li>
+      <li><strong>Capilla Escobedo:</strong> (81) - 1495 - 7888</li>
+      <li><strong>Capilla Guadalupe:</strong> (81) - 8398 - 6598</li>
+      <li><strong>Capilla Saltillo:</strong> (844) - 410 - 1260</li>
+      <li><strong>Capilla San Bernabé:</strong> (81) - 1425 - 6829</li>
+      <li><strong>Parque Escobedo:</strong> (81) - 8347 - 3412</li>
+      <li><strong>Parque Funeral Torreón:</strong> (871) - 236 - 5528</li>
+      <li><strong>Parque Saltillo:</strong> (844) - 410 - 1260</li>
+      <li><strong>Parque San Jerónimo:</strong> (81) - 2002 - 9729</li>
+      <li><strong>Parque San Roque:</strong> (81) - 8347 - 3412</li>
+    </ul>
+
+    <!-- Imagen decorativa -->
+    <img src="../1.6imagenes/imagen-emergencias-asesora.png" alt="Asesora Emergencias" class="img-emergencias-superior">
+  </div>
+</div>
+
+
+<!-- MODAL: CARRITO DE COMPRAS -->
+<div id="modalCarrito" class="modal-carrito-overlay">
+  <div class="modal-carrito-content">
+    <button class="cerrar-modal" id="cerrarModalCarrito">✕</button>
+
+    <!-- Imagen del carrito decorativo -->
+    <img src="../1.7iconos/icono-carrito3d.png" alt="Carrito" class="img-carrito-3d">
+
+    <h2 class="titulo-carrito">Mi carrito</h2>
+
+    <div class="item-carrito">
+  <span>Terreno americano</span>
+  <div class="cantidad-control">
+    <button class="btn-restar" data-id="terreno">−</button>
+    <span id="cantidad-terreno">0</span>
+    <button class="btn-sumar" data-id="terreno">+</button>
+  </div>
+</div>
+
+<div class="item-carrito">
+  <span>Capilla elevada</span>
+  <div class="cantidad-control">
+    <button class="btn-restar" data-id="capilla">−</button>
+    <span id="cantidad-capilla">0</span>
+    <button class="btn-sumar" data-id="capilla">+</button>
+  </div>
+</div>
+
+<div class="carrito-total">
+  <strong>Total</strong> <span id="total">$0.00</span>
+</div>
+
+
+   <div class="pago-carrito">
+  <img src="../1.7iconos/logo-openpay.png" alt="OpenPay" class="logo-openpay">
+  <a href="../1.13compras/1.13.1carritodecompras.html" class="btn-pagar">Ir a pagar</a>
+</div>
+
+<div class="folio-contrato">
+  <button class="btn-folio">Ya tengo folio de contrato</button>
+</div>
+
+<!--fin modal carrito compras-->
+
+
+<script src="interaccionesblog-articulo1.js"></script>
+
+
+</body>
+</html>
+<!---------------------------------------->
+<!--AQUI TERMINA EL HTML BASE MAQUETADO -->
+<!---------------------------------------->
