@@ -219,3 +219,32 @@ function dibujar() {
   }, 3500); /*3500 milisegundos o sea 3.5 seg*/
 });
 
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Seleccionamos todos los eventos de la línea del tiempo
+  const eventos = document.querySelectorAll('.linea-tiempo .evento');
+
+  // Opciones del IntersectionObserver
+  const observerOptions = {
+    root: null,               // viewport
+    rootMargin: '0px 0px -20% 0px', // empiezo a disparar un poco antes de que salga de vista
+    threshold: 0.2            // 20% del elemento visible
+  };
+
+  // Callback que añade/quita la clase 'visible'
+  const observerCallback = (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  };
+
+  // Creamos el observer y observamos cada evento
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+  eventos.forEach(evt => observer.observe(evt));
+});

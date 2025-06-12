@@ -961,7 +961,7 @@ header {
   position: absolute;
   bottom: 0;
   left: 20%;
-  top: 26%;
+  top: 15%;
   transform: translateX(-50%);
   width: 500px;
   max-width: 100%;
@@ -999,47 +999,277 @@ header {
 
 /*en movil foto de asesor*/
 @media (max-width: 768px) {
+  /* Imagen del asesor */
   .img-decorativa-cotiza {
+    position: relative;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: none;
     width: 100vw;
     max-width: none;
     height: auto;
+    margin-top: 10px;
+    margin-bottom: -60px;  /* Superposición con la siguiente sección */
+    object-fit: contain;
+    z-index: 2;
+    opacity: 1;
   }
-    .btn-cotiza {
-    width: 100%;
+
+  /* Botón debajo de la imagen */
+  .cotiza-boton {
+    position: relative;
+    left: 0;
+    margin-top: -30px;  /* Subido para pegarlo más a la imagen */
+    margin-bottom: 0;
+    z-index: 5;
+    text-align: center;
+  }
+
+  .btn-cotiza {
+    width: 90%;
     font-size: 4vw;
-    padding: 15px 80px;
+    padding: 14px 40px;
     border-radius: 40px;
-    top: 90px;
-  }
   }
 
-@media (max-width: 327px) {
-  .img-decorativa-cotiza {
-   left: 17%;
-   top: 36%;
-  }
-  @media (max-width: 431px) {
-  .img-decorativa-cotiza {
-   left: 17%;
-   top: 46%;
+  /* Elimina espacio extra si la sección morado viene enseguida */
+  .seccion-morado-cobranza {
+    margin-top: -50px !important;
+    padding-top: 0 !important;
   }
 }
+@media (max-width: 768px) {
+  .seccion-morado-cobranza h2 {
+    display: block !important;       /* asegura visibilidad */
+    font-size: 1.8rem !important;    /* tamaño adecuado para mobile */
+    color: #ffffff !important;       /* texto blanco visible */
+    margin-bottom: 30px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+  }
 }
-/*en movil foto de asesor*/
 
 
-@media (max-width: 370px) {
-  .img-decorativa-cotiza {
-   left: 17%;
-   top: 36%;
+
+/* ——————————————————————————
+   SECCIÓN: SISTEMA DE COBRANZA
+   —————————————————————————— */
+.seccion-morado-cobranza {
+  background-color: #671B6B; /* Fondo morado institucional */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contenedor-cobranza {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.contenedor-cobranza h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.metodos-pago-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.metodo {
+  background-color: #ffffff;
+  color: #671B6B;
+  border-radius: 20px;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.metodo:hover {
+  transform: translateY(-5px);
+}
+
+.metodo img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.metodo p {
+  margin: 0;
+}
+
+.metodo.logos-tiendas {
+  background-color: transparent;
+  box-shadow: none;
+  width: auto;
+  padding: 0;
+}
+
+.metodo.logos-tiendas img {
+  width: 300px;
+  max-width: 90vw;
+  height: auto;
+  margin-top: 10px;
+}
+
+/* ——— RESPONSIVE ——— */
+@media (max-width: 768px) {
+  .contenedor-cobranza h2 {
+    font-size: 2rem;
+  }
+
+  .metodo {
+    width: 160px;
+    padding: 15px;
+    font-size: 0.95rem;
+  }
+
+  .metodo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .metodo.logos-tiendas img {
+    width: 250px;
   }
 }
-@media (max-width: 308px) {
-  .img-decorativa-cotiza {
-   left: 17%;
-   top: 38%;
+
+@media (max-width: 480px) {
+  .metodo {
+    width: 140px;
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+
+  .contenedor-cobranza h2 {
+    font-size: 1.7rem;
+  }
+
+  .metodo img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .metodo.logos-tiendas img {
+    width: 220px;
   }
 }
+@media (max-width: 768px) {
+  /* Asegura fondo completo en la sección morado */
+  .seccion-morado-cobranza {
+    background-color: #671B6B !important;
+    margin-top: -80px !important;
+    padding-top: 60px !important;
+    padding-bottom: 60px;
+    width: 100%;
+    z-index: 1;
+    position: relative;
+  }
+}
+  
+
+/* ——————————————————————————
+   SECCIÓN: PAYCASH
+   —————————————————————————— */
+.paycash-contenedor {
+  margin-top: 50px;
+  background-color: rgb(220, 190, 224);
+  border-radius: 20px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paycash-etiqueta span {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #671B6B; /* morado, NO blanco */
+}
+
+
+.paycash-etiqueta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.paycash-etiqueta img {
+  width: 40px;
+  height: auto;
+}
+
+.paycash-etiqueta span {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-weig
+}
+
+
+.paycash-logos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.paycash-logos-grid img {
+  height: 55px;            /* Tamaño uniforme */
+  width: auto;             /* Mantiene proporción original */
+  object-fit: contain;
+  transition: transform 0.2s ease;
+  max-width: 120px;        /* Límite máximo por logo */
+}
+
+.paycash-logos-grid img:hover {
+  transform: scale(2.2); /* Efecto ligero al pasar el cursor */
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .paycash-logos-grid img {
+    height: 40px;
+    max-width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .paycash-logos-grid {
+    gap: 16px;
+  }
+
+  .paycash-logos-grid img {
+    height: 35px;
+    max-width: 80px;
+  }
+}
+
+
+
+
 
 /* ————— MODAL X Cotiza ————— */
 .modal-cotiza-overlay {
@@ -1160,26 +1390,6 @@ header {
 
 
 /* ————— TERMINA MODAL X Cotiza ————— */
-
-/*LINEA FINAL DE COTIZA TU PLAN*/
-.seccion-cotiza-fondo::after {
-  content: "";
-  display: block;
-  width: 70%;
-  height: 25px;         /* grosor grueso */
-  background-color: #671B6B;
-  margin: 260px 0 -70px -40px;  /* empuja hacia abajo, lo alinea a la izquierda */
-  border-radius: 4px;
-}
-@media (max-width: 768px) {
-  .seccion-cotiza-fondo::after {
-    margin: 110px 0 -70px -40px; /* antes era 260px, ahora 30px menos */
-  bottom: 0;     
-  }
-}
-
-
-/*LINEA FINAL DE COTIZA TU PLAN*/
 
 
 /* ---- RECORRIDO VIRTUAL SECCION ---*/

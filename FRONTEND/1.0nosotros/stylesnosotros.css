@@ -803,44 +803,6 @@ header {
 
 
 
-   /* SECCIONES DE EJEMPLO A ELIMINAR */
-  /* SECCIONES DE EJEMPLO A ELIMINAR */
-
-
-.seccion-morado-claro {
-  background-color: #D8B8E0;
-  color: #4A004E;
-}
-
-.seccion-morado-medio {
-  background-color: #BBA0C9;
-  color: #3A003D;
-}
-
-.seccion-morado-oscuro {
-  background-color: #671B6B;
-  color: #FFFFFF;
-}
-
-.seccion-nosotros {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.seccion-nosotros h2 {
-  font-family: 'Fleur de Leah', cursive;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  margin-bottom: 20px;
-}
-
-.seccion-nosotros p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  max-width: 1000px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
 
 .seccion-con-fondo {
   background-image: url('../1.6imagenes/fondo-pagina.png');
@@ -854,15 +816,6 @@ header {
   text-align: center;
 }
 
-.descripcion-detallada {
-  background-color: #E2BFF5;
-  padding: 50px 20px;
-  margin-top: 60px;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  font-family: 'Montserrat', sans-serif;
-  color: #4A004E;
-}
 
 .contenedor-descripcion {
   max-width: 900px;
@@ -876,35 +829,21 @@ header {
   font-weight: 700;
 }
 
-/* descripcion de ultimo descripcion del producto*/
-.descripcion-detallada {
-  background-color: #f8e9f9;
-  padding: 40px 30px;
-  margin-top: 60px;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(103, 27, 107, 0.08);
-  font-family: 'Montserrat', sans-serif;
-  color: #4A004E;
-  max-width: 950px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
+
+/* Fondo general de la página: imagen fija */
 body {
-  background-color: #e4caee !important;
+  
+  background: url("../1.6imagenes/fondo-pagina.png") no-repeat center center fixed !important;
+  background-size: cover !important;
 }
 
-/* === Fondo general de la página === */
-body {
-  background-color: #e4caee !important;
-
-}
 
 
 /* === Sección descriptiva del producto === */
 
 .descripcion-extra {
-  background-color: #E4CAEE; /* tono morado pastel */
+  background-color: #dab8e7; /* tono morado pastel */
   border-radius: 20px;
   padding: 30px 30px;
   max-width: 900px;
@@ -2212,4 +2151,428 @@ button.boton-flotante:hover {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+
+/*DISEÑOS LINEA DEL TIEMPO*/
+/* ===================== LÍNEA DEL TIEMPO ===================== */
+.linea-tiempo {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding:40px 20px;
+  overflow: hidden;
+}
+
+/* TÍTULOS GENERALES */
+.linea-tiempo-titulo,
+.linea-tiempo-subtitulo {
+  text-align: center;
+  color: #4A004E;
+  font-family: 'Montserrat', sans-serif;
+}
+.linea-tiempo-titulo {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+.linea-tiempo-subtitulo {
+  font-size: 1.8rem;
+  margin: 60px 0 20px;
+}
+
+/* EVENTO (contenedor flex alternado) */
+.evento {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+   gap: 150px;           /* <--- aquí defines el espacio */
+  margin: 50px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Cuando entra en vista */
+.evento.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Alternar dirección */
+.evento-izq  { flex-direction: row; }
+.evento-der  { flex-direction: row-reverse; }
+
+/* CONTENIDO DE TEXTO */
+.evento .contenido {
+  width: 45%;
+  padding: 20px;
+  color: #4A004E;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+}
+.evento .contenido h3 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+.evento .contenido p {
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* ICONO */
+.evento .icono {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 16px;
+}
+
+/* ===================== LÍNEA DEL TIEMPO - CSS COMPLETO CORREGIDO ===================== */
+
+
+/* Títulos */
+.linea-tiempo-titulo,
+.linea-tiempo-subtitulo {
+  text-align: center;
+  color: #4A004E;
+  font-family: 'Montserrat', sans-serif;
+}
+.linea-tiempo-titulo {
+  font-size: 2.5rem;
+  margin-bottom: 20px;          /* reducido */
+}
+.linea-tiempo-subtitulo {
+  font-size: 1.8rem;
+  margin: 40px 0 10px;          /* reducido */
+}
+
+/* Línea central opcional */
+.linea-tiempo::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+    top: 80px;                /* <–– Ajusta este valor */
+  bottom: 0;
+  width: 4px;
+  background: #b177dd;
+  transform: translateX(-50%);
+}
+
+/* Evento (flex alternado) */
+.evento {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 0;               /* reducido */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Al entrar en vista */
+.evento.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Zig-zag */
+.evento-izq  { flex-direction: row; }
+.evento-der  { flex-direction: row-reverse; }
+
+/* Conexión de puntos en la línea */
+.evento-izq .contenido::before,
+.evento-der .contenido::before {
+  content: '';
+  position: absolute;
+  top: 10px;                    /* reducido */
+  width: 12px;                  /* reducido */
+  height: 12px;                 /* reducido */
+  background: #b177dd;
+  border-radius: 50%;
+}
+.evento-izq .contenido::before { right: -6px; }
+.evento-der .contenido::before { left: -6px;  }
+
+/* Contenido de texto */
+.evento .contenido {
+  position: relative;
+  width: 45%;
+  padding: 10px;                /* reducido */
+  color: #4A004E;
+  font-family: 'Montserrat', sans-serif;
+  white-space: pre-line;
+}
+.evento .contenido h3 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;           /* reducido */
+}
+.evento .contenido p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Imagen circular con icono superpuesto */
+.imagen-pino {
+  position: relative;
+  width: 55%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s ease;
+  margin-bottom: 0;
+}
+.evento.visible .imagen-pino {
+  transform: scale(1.02);
+}
+/* Icono dentro de la imagen */
+.imagen-pino .icono {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+}
+
+/* 1) Icono dentro de .contenido */
+.evento .contenido .icono {
+  width: 80px;   /* antes 40px */
+  height: 80px;  /* antes 40px */
+}
+
+/* PUNTO DE CONEXIÓN CENTRADO SOBRE LA LÍNEA */
+/* Asegúrate de que el contenedor de la sección esté posicionado */
+.linea-tiempo {
+  position: relative;
+}
+
+/* Cada evento ocupa el ancho completo para poder centrar el marcador */
+.evento {
+  position: relative;
+  width: 100%;
+}
+
+/* El “punto” ahora es un pseudo-elemento de .evento, no del texto */
+.evento::before {
+  content: "";
+  position: absolute;
+  left: 50%;                   /* 50% del ancho de la pantalla (o sección) */
+  transform: translateX(-50%); /* lo centra exactamente */
+  top: 20px;                   /* ajusta verticalmente sobre tu bloque */
+  width: 40px;
+  height: 40px;
+  background: #b177dd;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+
+
+
+/* Responsive - tablet y abajo */
+@media (max-width: 992px) {
+  .evento {
+    flex-direction: column !important;
+    text-align: center;
+    margin: 20px 0;             /* aún más reducido */
+  }
+  .evento .contenido,
+  .imagen-pino {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px;        /* reducido */
+  }
+  .linea-tiempo::before {
+    left: 20px;
+  }
+  .evento .contenido::before {
+    display: none;
+  }
+}
+
+/* Responsive - móvil */
+@media (max-width: 576px) {
+  .linea-tiempo {
+    padding: 20px 10px;         /* reducido */
+  }
+  .linea-tiempo-titulo {
+    font-size: 2rem;
+  }
+  .linea-tiempo-subtitulo {
+    font-size: 1.4rem;
+  }
+  .imagen-pino {
+    width: 90%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 15px;
+  }
+  .imagen-pino .icono {
+    width: 32px;
+    height: 32px;
+    top: 8%;
+  }
+}
+
+
+/* ================= ICONO SUPERPUESTO SOBRE LA IMAGEN ================= */
+/*  
+   Para que el icono quede encima de la imagen, mueve en tu HTML:
+     <img class="icono" src="...">  
+   dentro de cada <div class="imagen-pino">...</div>
+*/
+.imagen-pino .icono {
+  position: absolute;
+  top: 10%;                 /* Ajusta verticalmente */
+  left: 50%;                /* Centrado horizontal */
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  z-index: 2;               /* Por encima del fondo */
+}
+
+/* ======== AJUSTES RESPONSIVE ======== */
+@media (max-width: 992px) {
+  .imagen-pino {
+    width: 80%;             /* En tablet/móvil, ocupa más ancho */
+    margin: 0 auto;         /* Centrar */
+  }
+}
+
+@media (max-width: 576px) {
+  .imagen-pino {
+    width: 90%;
+  }
+  .imagen-pino .icono {
+    width: 32px;
+    height: 32px;
+    top: 8%;
+  }
+}
+
+/* Asegura que la línea central quede detrás */
+.linea-tiempo::before {
+  z-index: 0;
+}
+
+/* Marco oscuro y texto blanco para los títulos */
+.linea-tiempo-titulo,
+.linea-tiempo-subtitulo,
+.titulo-nosotros { /* si tu “¿Quiénes somos…” no tiene clase, asígnale esta */
+  display: inline-block;
+  position: relative;
+  background-color: #4A004E; /* morado oscuro */
+  color: #fff;
+  padding: 0.5em 1em;
+  border-radius: 35px;
+  z-index: 5;                /* encima de la línea */
+  margin-bottom: 0.5em;
+}
+
+/* Opcional: si quieres un pequeño sombreado */
+.linea-tiempo-titulo,
+.linea-tiempo-subtitulo,
+.titulo-nosotros {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+
+@media (max-width: 992px) {
+  /* Mueve la línea un poquito menos hacia la izquierda */
+  .linea-tiempo::before {
+    left: 12px;    /* antes 10px o 20px: prueba con 12px, 15px, lo que te guste */
+  }
+
+   /* Mueve el punto (pseudo-elemento) a la orilla izquierda,
+     de modo que sólo se vea la mitad */
+  .evento::before {
+    left: 0 !important;
+    transform: translateX(-50%) translateY(-50%) !important;
+  }
+
+  /* Empuja el texto un poco menos a la derecha */
+  .evento .contenido {
+    margin-left: 15px;   /* antes 20px o 30px: con 15px quedará más cerca */
+    margin-right: 8px;   /* opcional, para no pegarse al borde */
+  }
+}
+
+@media (max-width: 576px) {
+  .linea-tiempo::before {
+    left: 10px;    /* un poco menos que antes */
+  }
+
+  /* desplaza el marcador al borde izquierdo */
+  .evento::before {
+    left: 0 !important;
+    transform: translateX(-50%) translateY(-50%) !important;
+  }
+  .evento .contenido {
+    margin-left: 12px;   /* reduce también aquí */
+    margin-right: 6px;
+  }
+}
+/* =====================================
+   1) FONDO FIJO EN TODA LA PÁGINA
+   ===================================== */
+html {
+  background: url("../1.6imagenes/fondo-pagina.png") no-repeat center center fixed !important;
+  background-size: cover !important;
+}
+body {
+  background: transparent !important;
+}
+
+/* =====================================
+   2) CENTRAR EL PUNTO EN LA LÍNEA (DESKTOP)
+   ===================================== */
+.evento {
+  position: relative;  /* necesario para el ::before */
+}
+.evento::before {
+  content: "";
+  position: absolute;
+  left: 50%;                        /* centro exacto */
+  top: 50%;                         /* ajústalo si quieres más arriba/abajo */
+  transform: translate(-50%, -50%);
+  width: 40px;                      /* tamaño del punto */
+  height: 40px;
+  background: #b177dd;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* =====================================
+   3) SEPARAR TEXTO / CÍRCULO (DESKTOP)
+   ===================================== */
+.evento {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5%;                         /* separa texto e imagen en desktop */
+}
+
+/* =====================================
+   4) MOVIL: PUNTO CORTADO POR LA IZQUIERDA
+   ===================================== */
+@media (max-width: 768px) {
+  /* Oculta flechas, apila columnas, etc. ya lo tenías */
+  .evento::before {
+    left: 0 !important;            /* orilla izquierda */
+    transform: translateX(-50%) translateY(-50%) !important;
+    /* opcional: reduce el tamaño */
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Dale un respiro al texto para que no pegue la línea */
+  
+
+  /* Baja un poco la línea general si está muy elevada */
+  .linea-tiempo::before {
+    top: 60px;                     /* antes quizá era 0 */
+  }
 }
