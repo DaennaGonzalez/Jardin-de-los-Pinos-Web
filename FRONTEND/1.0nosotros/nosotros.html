@@ -546,32 +546,42 @@
   </div>
 </footer>
 
+
 <!-- MODAL DE EMERGENCIAS -->
 <div id="modalEmergencias" class="modal-overlay">
   <div class="modal-contenido">
-    <button class="cerrar-modal" id="cerrarModalEmergencias">✕</button>
-    
-    <h2 class="titulo-modal-emergencias">Emergencias</h2>
-    <p>No se preocupe, nosotros nos encargamos de todo.</p>
-    <p>Si ya cuenta con un contrato en Jardín de los Pinos favor de comunicarse a los teléfonos:</p>
-    
-    <ul class="lista-telefonos">
-      <li><strong>Capilla Apodaca:</strong> (81) - 8212 - 9035</li>
-      <li><strong>Capilla Cumbres:</strong> (81) - 2002 - 9729</li>
-      <li><strong>Capilla Escobedo:</strong> (81) - 1495 - 7888</li>
-      <li><strong>Capilla Guadalupe:</strong> (81) - 8398 - 6598</li>
-      <li><strong>Capilla Saltillo:</strong> (844) - 410 - 1260</li>
-      <li><strong>Capilla San Bernabé:</strong> (81) - 1425 - 6829</li>
-      <li><strong>Parque Escobedo:</strong> (81) - 8347 - 3412</li>
-      <li><strong>Parque Funeral Torreón:</strong> (871) - 236 - 5528</li>
-      <li><strong>Parque Saltillo:</strong> (844) - 410 - 1260</li>
-      <li><strong>Parque San Jerónimo:</strong> (81) - 2002 - 9729</li>
-      <li><strong>Parque San Roque:</strong> (81) - 8347 - 3412</li>
-    </ul>
+  <!-- Imagen decorativa -->
+  <img src="../1.6imagenes/imagen-emergencias-asesora.png" alt="Asesora Emergencias" class="img-emergencias-superior">
 
-    <!-- Imagen decorativa -->
-    <img src="../1.6imagenes/imagen-emergencias-asesora.png" alt="Asesora Emergencias" class="img-emergencias-superior">
-  </div>
+  <button class="cerrar-modal" id="cerrarModalEmergencias">✕</button>
+
+  <h2 class="titulo-modal-emergencias">Emergencias</h2>
+
+  <p class="emergencias-label">Número de emergencias:</p>
+  <p class="numero-principal">81 8398 6598</p>
+  <p class="disponibilidad">Atención 24 horas</p>
+
+  <!-- Botón para mostrar los demás teléfonos -->
+  <button id="btnToggleTelefonos" class="btn-toggle-lista">
+    Teléfonos de Capillas y Parques
+  </button>
+
+  <!-- Lista desplegable oculta -->
+  <ul class="lista-telefonos" id="listaTelefonos">
+    <li><strong>Capilla Apodaca:</strong> (81) - 8212 - 9035</li>
+    <li><strong>Capilla Cumbres:</strong> (81) - 2002 - 9729</li>
+    <li><strong>Capilla Escobedo:</strong> (81) - 1495 - 7888</li>
+    <li><strong>Capilla Guadalupe:</strong> (81) - 8398 - 6598</li>
+    <li><strong>Capilla Saltillo:</strong> (844) - 410 - 1260</li>
+    <li><strong>Capilla San Bernabé:</strong> (81) - 1425 - 6829</li>
+    <li><strong>Parque Escobedo:</strong> (81) - 8347 - 3412</li>
+    <li><strong>Parque Funeral Torreón:</strong> (871) - 236 - 5528</li>
+    <li><strong>Parque Saltillo:</strong> (844) - 410 - 1260</li>
+    <li><strong>Parque San Jerónimo:</strong> (81) - 2002 - 9729</li>
+    <li><strong>Parque San Roque:</strong> (81) - 8347 - 3412</li>
+  </ul>
+</div>
+
 </div>
 
 
@@ -621,6 +631,8 @@
 </div>   <!-- cierra #modalCarrito -->
 
 <!--fin modal carrito compras-->
+
+
 
  <!-- MODAL: COTIZA TU PLAN -->
   <div id="modalCotiza" class="modal-cotiza-overlay">
@@ -704,6 +716,17 @@ document.addEventListener('DOMContentLoaded', () => {
   
   <!-- FINAL del BODY: carga el JS **solo una vez** -->
   <script src="interaccionesnosotros.js"></script>
+
+  <!--MODAL EMERGENCIAS AJUSTADO-->
+
+<script>
+  document.getElementById('btnToggleTelefonos').addEventListener('click', function () {
+    const lista = document.getElementById('listaTelefonos');
+    lista.style.display = (lista.style.display === 'block') ? 'none' : 'block';
+  });
+</script>
+
+<!--MODAL EMERGENCIAS AJUSTADO-->
 
 
 </body>
