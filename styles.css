@@ -609,7 +609,7 @@ header {
    SECCIÓN SERVICIOS (común)
    ——————————————— */
 #servicios-arealandpage {  /*color del fondo a partir de la seccion de servicios, fondito claro de pinos*/
-  background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
+  background: url("1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
   background-size: cover;
   z-index: 0;
   padding: 100px 20px 240px; /*ALTURA PARA QUE QUEPAN LAS IMAGENES DE SECCION3*/
@@ -886,7 +886,7 @@ header {
    SECCIÓN COTIZA TU PLAN 
    —————————————————————————— */
 .seccion-cotiza-fondo {
-  background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
+  background: url("1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
   background-size: cover;
   padding: 60px 20px 130px;
   text-align: center;
@@ -1394,7 +1394,7 @@ header {
 
 /* ---- RECORRIDO VIRTUAL SECCION ---*/
 .seccion-recorrido-virtual {
-  background: url('/FRONTEND/1.6imagenes/fondo-pagina.png') no-repeat center center fixed; /*el ultimo fixed hace que se pegue a la seccion anterior y se vea el fondo como continuacion*/
+  background: url('1.6imagenes/fondo-pagina.png') no-repeat center center fixed; /*el ultimo fixed hace que se pegue a la seccion anterior y se vea el fondo como continuacion*/
   background-size: cover;
   padding: 80px 20px;
   text-align: center;
@@ -1635,7 +1635,7 @@ content: "";
    SECCIÓN OBITUARIOS 
    ——————————————— */
 .seccion-obituarios {
-  background: url("/FRONTEND/1.6imagenes/fondo-pagina.png") no-repeat center center fixed;
+  background: url('1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
   background-size: cover;
   padding: 60px 20px 130px;
   text-align: center;
@@ -1723,7 +1723,7 @@ content: "";
 /*imagen de obituarios - niña*/
 .seccion-obituarios {
   position: relative; /* importante para posicionar la imagen interna */
-  background: url('/FRONTEND/1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
+  background: url('1.6imagenes/fondo-pagina.png') no-repeat center center fixed;
   background-size: cover;
   padding: 100px 20px 160px; /* deja espacio al final para la imagen */
   text-align: center;
