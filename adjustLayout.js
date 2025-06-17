@@ -119,27 +119,40 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   const form = document.getElementById('formCotiza');
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+const mensaje = document.getElementById('mensajeCotiza');
+const spinner = document.getElementById('spinnerCotiza');
 
-      const nombre = document.getElementById('nombreCotiza').value.trim();
-      const correo = document.getElementById('correoCotiza').value.trim();
-      const telefono = document.getElementById('telefonoCotiza').value.trim();
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-      const { data, error } = await supabase
-        .from('tabla_cotizaplan')
-        .insert([{ nombre, correo_electronico: correo, telefono_celular: telefono }]);
+    const nombre = document.getElementById('nombreCotiza').value.trim();
+    const correo = document.getElementById('correoCotiza').value.trim();
+    const telefono = document.getElementById('telefonoCotiza').value.trim();
 
-      if (error) {
-        console.error("Error al insertar:", error.message);
-        alert("❌ Error al guardar. Intenta más tarde.");
-      } else {
-        alert("✅ ¡Gracias! Un asesor te contactará.");
-        form.reset();
-      }
-    });
-  }
+    // Mostrar spinner, ocultar mensaje
+    spinner.classList.remove('oculto');
+    mensaje.classList.add('oculto');
+
+    const { data, error } = await supabase
+      .from('tabla_cotizaplan')
+      .insert([{ nombre, correo_electronico: correo, telefono_celular: telefono }]);
+
+    spinner.classList.add('oculto');
+
+    if (error) {
+      mensaje.textContent = "❌ Error al guardar. Intenta más tarde.";
+      mensaje.className = "mensaje-estado error";
+    } else {
+      mensaje.textContent = "✅ ¡Gracias! Un asesor te contactará.";
+      mensaje.className = "mensaje-estado exito";
+      form.reset();
+    }
+
+    mensaje.classList.remove('oculto');
+  });
+}
+
 
   // MODAL DE EMERGENCIAS
   const botonEmergencias = document.getElementById('botonEmergencias');

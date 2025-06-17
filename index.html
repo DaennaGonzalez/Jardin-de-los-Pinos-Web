@@ -197,7 +197,7 @@
       ...O proporciónanos aquí tus datos y te contactaremos<br>lo más pronto posible.
     </p>
 
-   <form class="formulario-modal" id="formCotiza">
+ <form class="formulario-modal" id="formCotiza">
   <label>Nombre:</label>
   <input type="text" id="nombreCotiza" placeholder="Escribe tu nombre" required>
   
@@ -208,7 +208,14 @@
   <input type="tel" id="telefonoCotiza" placeholder="+52..." required>
   
   <button type="submit" class="btn-enviar-modal">Enviar mis datos</button>
+
+  <!-- Spinner oculto -->
+  <div id="spinnerCotiza" class="spinner oculto"></div>
+
+  <!-- Mensaje de estado -->
+  <div id="mensajeCotiza" class="mensaje-estado oculto"></div>
 </form>
+
 
   </div>
 </div>
