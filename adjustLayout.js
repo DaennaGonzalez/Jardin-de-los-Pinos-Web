@@ -168,6 +168,44 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// 1. Conectar a Supabase
+const supabase = supabase.createClient(
+  'https://uqgioswtmkjdjuadoncn.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ2lvc3d0bWtqZGp1YWRvbmNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwOTYzMTcsImV4cCI6MjA2NTY3MjMxN30.vCLNRGVseLkR1RclsFanDUWYJXkib_X9Xx4kMNSBudM'
+);
+
+// 2. Capturar envío del formulario en el modal
+const formCotiza = document.querySelector('.formulario-modal');
+
+if (formCotiza) {
+  formCotiza.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const nombre = document.querySelector('input[placeholder="Escribe tu nombre"]').value;
+    const correo = document.querySelector('input[placeholder="correo@ejemplo.com"]').value;
+    const telefono = document.querySelector('input[placeholder="+52..."]').value;
+
+    const { data, error } = await supabase
+      .from('tabla_cotizaplan')
+      .insert([
+        {
+          nombre: nombre,
+          correo_electronico: correo,
+          telefono_celular: telefono
+        }
+      ]);
+
+    if (error) {
+      console.error("❌ Error al guardar en Supabase:", error.message);
+      alert("Ocurrió un error al enviar tus datos. Intenta más tarde.");
+    } else {
+      alert("✅ ¡Gracias! Te contactaremos pronto.");
+      formCotiza.reset();
+      document.getElementById('modalCotiza')?.classList.remove('activo');
+    }
+  });
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const botonEmergencias = document.getElementById('botonEmergencias');
