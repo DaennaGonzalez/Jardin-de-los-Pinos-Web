@@ -10,6 +10,8 @@ function applyResponsiveAdjustments() {
   const panteon = document.getElementById('panteon');
   const cielo = document.getElementById('cielo');
 
+  if (!logo || !pinos || !cruz || !panteon || !cielo) return;
+
   // Valores por defecto (pantalla grande)
   logo.style.transform = 'scale(1)';
   logo.style.top = '13%';
@@ -57,12 +59,39 @@ function ajustarMargenSeccionAnimada() {
 }
 
 // ============================
-// EVENTOS
+// EVENTOS AL CARGAR Y REDIMENSIONAR
 // ============================
 window.addEventListener('load', () => {
   applyResponsiveAdjustments();
   ajustarMargenSeccionAnimada();
-  setTimeout(applyResponsiveAdjustments, 500); // Para asegurar ajuste visual post-render
+  setTimeout(applyResponsiveAdjustments, 500); // Ajuste visual post-render
+
+  // ============================
+  // ANIMACIÓN CON GSAP
+  // ============================
+  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    const cielo = document.getElementById('cielo');
+    const seccionAnimada = document.getElementById('seccionAnimada');
+
+    if (cielo && seccionAnimada) {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.to("#cielo", {
+        y: -913,
+        scrollTrigger: {
+          trigger: "#seccionAnimada",
+          start: "top top",
+          end: "+=100vh",
+          scrub: true,
+          pin: true,
+          immediateRender: true,
+        }
+      });
+    } else {
+      console.warn("⚠️ No se encontró #cielo o #seccionAnimada para la animación.");
+    }
+  } else {
+    console.error("❌ GSAP o ScrollTrigger no están disponibles.");
+  }
 });
 
 window.addEventListener('resize', () => {
@@ -70,70 +99,10 @@ window.addEventListener('resize', () => {
   ajustarMargenSeccionAnimada();
 });
 
-// ============================
-// ANIMACIÓN CON GSAP
-// ============================
-gsap.to("#cielo", {
-  y: -913,
-  scrollTrigger: {
-    trigger: "#seccionAnimada",
-    start: "top top",
-    end: "+=100vh",
-    scrub: true,
-    pin: true,
-    immediateRender: true,
-  }
-});
+
 
 document.addEventListener('DOMContentLoaded', () => {
-  const recorridoLinks = document.querySelectorAll('.capilla-card');
-  const modalRecorrido = document.getElementById('modalRecorrido');
-  const iframeRecorrido = document.getElementById('iframeRecorrido');
-  const cerrarModalRecorrido = document.getElementById('cerrarModalRecorrido');
-
-  if (recorridoLinks.length && modalRecorrido && iframeRecorrido && cerrarModalRecorrido) {
-    recorridoLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const url = link.getAttribute('data-link');
-        iframeRecorrido.src = url;
-        modalRecorrido.classList.add('activo');
-      });
-    });
-
-    cerrarModalRecorrido.addEventListener('click', () => {
-      modalRecorrido.classList.remove('activo');
-      iframeRecorrido.src = '';
-    });
-
-    modalRecorrido.addEventListener('click', (e) => {
-      if (e.target === modalRecorrido) {
-        modalRecorrido.classList.remove('activo');
-        iframeRecorrido.src = '';
-      }
-    });
-  }
-});
-
-
-
-
-// ============================
-// FUNCIONAMIENTO DE ABRIR Y CERRAR MENÚ
-// ============================
-document.addEventListener('DOMContentLoaded', function () {
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('show');
-    });
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  // ===== MENÚ MÓVIL =====
+  // MENÚ MÓVIL
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
 
@@ -143,71 +112,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ===== MODAL: COTIZA UN PLAN =====
-  const abrirModal = document.getElementById('abrirModalCotiza');
-  const modal = document.getElementById('modalCotiza');
-  const cerrarModal = document.getElementById('cerrarModalCotiza');
+  // SUPABASE
+  const supabase = window.supabase.createClient(
+    'https://uqgioswtmkjdjuadoncn.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ2lvc3d0bWtqZGp1YWRvbmNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwOTYzMTcsImV4cCI6MjA2NTY3MjMxN30.vCLNRGVseLkR1RclsFanDUWYJXkib_X9Xx4kMNSBudM'
+  );
 
-  if (abrirModal && modal && cerrarModal) {
-    abrirModal.addEventListener('click', (e) => {
+  const form = document.getElementById('formCotiza');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      modal.classList.add('activo');
-    });
 
-    cerrarModal.addEventListener('click', () => {
-      modal.classList.remove('activo');
-    });
+      const nombre = document.getElementById('nombreCotiza').value.trim();
+      const correo = document.getElementById('correoCotiza').value.trim();
+      const telefono = document.getElementById('telefonoCotiza').value.trim();
 
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('activo');
+      const { data, error } = await supabase
+        .from('tabla_cotizaplan')
+        .insert([{ nombre, correo_electronico: correo, telefono_celular: telefono }]);
+
+      if (error) {
+        console.error("Error al insertar:", error.message);
+        alert("❌ Error al guardar. Intenta más tarde.");
+      } else {
+        alert("✅ ¡Gracias! Un asesor te contactará.");
+        form.reset();
       }
     });
-  } else {
-    console.warn("No se encontró el botón o el modal de Cotiza.");
   }
-});
 
-// 1. Conectar a Supabase
-const supabase = supabase.createClient(
-  'https://uqgioswtmkjdjuadoncn.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ2lvc3d0bWtqZGp1YWRvbmNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwOTYzMTcsImV4cCI6MjA2NTY3MjMxN30.vCLNRGVseLkR1RclsFanDUWYJXkib_X9Xx4kMNSBudM'
-);
-
-// 2. Capturar envío del formulario en el modal
-const formCotiza = document.querySelector('.formulario-modal');
-
-if (formCotiza) {
-  formCotiza.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const nombre = document.querySelector('input[placeholder="Escribe tu nombre"]').value;
-    const correo = document.querySelector('input[placeholder="correo@ejemplo.com"]').value;
-    const telefono = document.querySelector('input[placeholder="+52..."]').value;
-
-    const { data, error } = await supabase
-      .from('tabla_cotizaplan')
-      .insert([
-        {
-          nombre: nombre,
-          correo_electronico: correo,
-          telefono_celular: telefono
-        }
-      ]);
-
-    if (error) {
-      console.error("❌ Error al guardar en Supabase:", error.message);
-      alert("Ocurrió un error al enviar tus datos. Intenta más tarde.");
-    } else {
-      alert("✅ ¡Gracias! Te contactaremos pronto.");
-      formCotiza.reset();
-      document.getElementById('modalCotiza')?.classList.remove('activo');
-    }
-  });
-}
-
-
-document.addEventListener('DOMContentLoaded', () => {
+  // MODAL DE EMERGENCIAS
   const botonEmergencias = document.getElementById('botonEmergencias');
   const modalEmergencias = document.getElementById('modalEmergencias');
   const cerrarEmergencias = document.getElementById('cerrarModalEmergencias');
@@ -228,39 +162,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-/*CAMBIOS RECIENTES CARRITO*/
-document.addEventListener('DOMContentLoaded', () => {
-  const abrirCarrito = document.querySelector('.boton-carrito');
-  const modalCarrito = document.getElementById('modalCarrito');
-  const cerrarCarrito = document.getElementById('cerrarModalCarrito');
-
-  if (abrirCarrito && modalCarrito && cerrarCarrito) {
-    abrirCarrito.addEventListener('click', (e) => {
-      e.preventDefault();
-      modalCarrito.classList.add('activo');
-    });
-
-    cerrarCarrito.addEventListener('click', () => {
-      modalCarrito.classList.remove('activo');
-    });
-
-    modalCarrito.addEventListener('click', (e) => {
-      if (e.target === modalCarrito) {
-        modalCarrito.classList.remove('activo');
-      }
-    });
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const btnFolio = document.querySelector('.btn-folio');
-  if (btnFolio) {
-    btnFolio.addEventListener('click', () => {
-      window.location.href = "1.13compras/1.13.2pagoconfoliocontrato.html";
-    });
-  }
-});
-
-
-/*CAMBIOS RECIENTES CARRITO*/

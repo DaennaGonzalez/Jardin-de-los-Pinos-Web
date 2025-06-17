@@ -158,7 +158,6 @@
   </div>
 </section>
 
-
 <!-- ———— SECCIÓN: COTIZA TU PLAN CON FONDO CONTINUO ———— -->
 <section class="seccion-cotiza-fondo">
   <div class="cotiza-texto">
@@ -170,19 +169,49 @@
     <img src="1.6imagenes/imagen-cotiza-tu-plan.png" alt="Cementerio Jardín de los Pinos">
   </div>
 
- <div class="cotiza-boton">
-  <a href="#" id="abrirModalCotiza" class="btn-cotiza">
-    Quiero que me contacte un asesor.
-  </a>
-</div>
+  <div class="cotiza-boton">
+    <a href="#" id="abrirModalCotiza" class="btn-cotiza">
+      Quiero que me contacte un asesor.
+    </a>
+  </div>
 
-
- <img src="1.6imagenes/imagen-cotiza-tu-plan-asesor-con-camisa.png" 
-     alt="Decoración asesor cotiza"
-     class="img-decorativa-cotiza">
-
-
+  <img src="1.6imagenes/imagen-cotiza-tu-plan-asesor-con-camisa.png" 
+       alt="Decoración asesor cotiza"
+       class="img-decorativa-cotiza">
 </section>
+
+<!-- ———— MODAL: FORMULARIO DE COTIZACIÓN ———— -->
+<div id="modalCotiza" class="modal-cotiza-overlay">
+  <div class="modal-cotiza-content">
+    <button class="cerrar-modal" id="cerrarModalCotiza">✕</button>
+
+    <p class="modal-etiqueta">Quiero que me contacte un asesor.</p>
+
+    <a href="https://api.whatsapp.com/send?phone=5218127323099&text=Me%20interesa%20un%20Plan%20de%20Previsi%C3%B3n%20Funerario" 
+       target="_blank" class="btn-whatsapp-modal">
+      Click aquí para contactárnos directo vía Whatsapp
+      <img src="1.7iconos/icono-whatsapp.png" alt="WhatsApp" class="icono-wsp">
+    </a>
+
+    <p class="modal-subtexto">
+      ...O proporciónanos aquí tus datos y te contactaremos<br>lo más pronto posible.
+    </p>
+
+   <form class="formulario-modal" id="formCotiza">
+  <label>Nombre:</label>
+  <input type="text" id="nombreCotiza" placeholder="Escribe tu nombre" required>
+  
+  <label>Correo electrónico:</label>
+  <input type="email" id="correoCotiza" placeholder="correo@ejemplo.com" required>
+  
+  <label>Teléfono/celular:</label>
+  <input type="tel" id="telefonoCotiza" placeholder="+52..." required>
+  
+  <button type="submit" class="btn-enviar-modal">Enviar mis datos</button>
+</form>
+
+  </div>
+</div>
 
 
 
@@ -594,6 +623,7 @@
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="adjustLayout.js"></script>
 
 
 <!--MODAL EMERGENCIAS AJUSTADO-->
