@@ -110,15 +110,21 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('show');
     });
-  }
 
-  // SUPABASE
-  const supabase = window.supabase.createClient(
-    'https://uqgioswtmkjdjuadoncn.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ2lvc3d0bWtqZGp1YWRvbmNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwOTYzMTcsImV4cCI6MjA2NTY3MjMxN30.vCLNRGVseLkR1RclsFanDUWYJXkib_X9Xx4kMNSBudM'
-  );
 
-  const form = document.getElementById('formCotiza');
+    
+  }// Verifica que la librería ya esté cargada
+if (!window.supabase) {
+  console.error("❌ Supabase no está definido. Asegúrate de cargar el script de supabase-js antes que este.");
+}
+
+// Inicializar cliente Supabase
+const supabase = window.supabase.createClient(
+  'https://uqgioswtmkjdjuadoncn.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ2lvc3d0bWtqZGp1YWRvbmNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwOTYzMTcsImV4cCI6MjA2NTY3MjMxN30.vCLNRGVseLkR1RclsFanDUWYJXkib_X9Xx4kMNSBudM'
+);
+
+const form = document.getElementById('formCotiza');
 const mensaje = document.getElementById('mensajeCotiza');
 const spinner = document.getElementById('spinnerCotiza');
 
@@ -134,25 +140,37 @@ if (form) {
     spinner.classList.remove('oculto');
     mensaje.classList.add('oculto');
 
-    const { data, error } = await supabase
-      .from('tabla_cotizaplan')
-      .insert([{ nombre, correo_electronico: correo, telefono_celular: telefono }]);
+    try {
+      const { data, error } = await supabase
+        .from('tabla_cotizaplan')
+        .insert([{ 
+          nombre: nombre, 
+          correo_electronico: correo, 
+          telefono_celular: telefono 
+        }]);
 
-    spinner.classList.add('oculto');
+      spinner.classList.add('oculto');
 
-    if (error) {
-      mensaje.textContent = "❌ Error al guardar. Intenta más tarde.";
+      if (error) {
+        console.error("❌ Error al insertar en Supabase:", error);
+        mensaje.textContent = "❌ Error al guardar. Intenta más tarde.";
+        mensaje.className = "mensaje-estado error";
+      } else {
+        console.log("✅ Datos enviados:", data);
+        mensaje.textContent = "✅ ¡Gracias! Un asesor te contactará.";
+        mensaje.className = "mensaje-estado exito";
+        form.reset();
+      }
+    } catch (err) {
+      spinner.classList.add('oculto');
+      console.error("❌ Error inesperado:", err);
+      mensaje.textContent = "❌ Error inesperado. Intenta más tarde.";
       mensaje.className = "mensaje-estado error";
-    } else {
-      mensaje.textContent = "✅ ¡Gracias! Un asesor te contactará.";
-      mensaje.className = "mensaje-estado exito";
-      form.reset();
     }
 
     mensaje.classList.remove('oculto');
   });
 }
-
 
 
   // MODAL DE EMERGENCIAS
