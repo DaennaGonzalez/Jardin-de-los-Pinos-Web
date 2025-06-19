@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Prueba Supabase</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <h2>Prueba de conexión con Supabase</h2>
+  <button onclick="enviar()">Enviar datos de prueba</button>
+
+  <script>
+    const supabase = supabase.createClient(
+      'https://uqgioswtmkjdjuadoncn.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ2lvc3d0bWtqZGp1YWRvbmNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwOTYzMTcsImV4cCI6MjA2NTY3MjMxN30.vCLNRGVseLkR1RclsFanDUWYJXkib_X9Xx4kMNSBudM'
+    );
+
+    async function enviar() {
+      const { data, error } = await supabase
+        .from('tabla_cotizaplan')
+        .insert([{ 
+          nombre: 'Test desde GitHub Pages',
+          correo_electronico: 'github@test.com',
+          telefono_celular: '0000000000'
+        }]);
+
+      if (error) {
+        console.error("❌ ERROR:", error);
+        alert("Error: " + error.message);
+      } else {
+        console.log("✅ ÉXITO:", data);
+        alert("Datos enviados correctamente.");
+      }
+    }
+  </script>
+</body>
+</html>
