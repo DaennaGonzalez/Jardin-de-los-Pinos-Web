@@ -200,4 +200,39 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/*CAMBIOS RECIENTES CARRITO*/
+// ============================
+// INICIALIZAR SUPABASE
+// ============================
+const supabase = window.supabase.createClient(
+  'https://uqgioswtmkjdjuadoncn.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ2lvc3d0bWtqZGp1YWRvbmNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwOTYzMTcsImV4cCI6MjA2NTY3MjMxN30.vCLNRGVseLkR1RclsFanDUWYJXkib_X9Xx4kMNSBudM'
+);
+
+// ============================
+// ENVÍO FORMULARIO COTIZA UN PLAN
+// ============================
+document.addEventListener('DOMContentLoaded', () => {
+  const formCotiza = document.getElementById('formCotiza');
+
+  if (formCotiza) {
+    formCotiza.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombreCotiza').value;
+      const correo = document.getElementById('correoCotiza').value;
+      const celular = document.getElementById('celularCotiza').value;
+
+      const { data, error } = await supabase
+        .from('tabla_cotizaplan')
+        .insert([{ nombre, correo, celular }]);
+
+      if (error) {
+        console.error("❌ Error al guardar datos:", error);
+        alert("Hubo un problema al guardar los datos. Intenta nuevamente.");
+      } else {
+        alert("✅ ¡Gracias! Tus datos se guardaron correctamente.");
+        formCotiza.reset();
+      }
+    });
+  }
+});

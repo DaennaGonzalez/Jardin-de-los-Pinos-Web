@@ -173,6 +173,32 @@ if (form) {
 }
 
 
+  // ===== MODAL: COTIZA UN PLAN =====
+  const abrirModal = document.getElementById('abrirModalCotiza');
+  const modal = document.getElementById('modalCotiza');
+  const cerrarModal = document.getElementById('cerrarModalCotiza');
+
+  if (abrirModal && modal && cerrarModal) {
+    abrirModal.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.classList.add('activo');
+    });
+
+    cerrarModal.addEventListener('click', () => {
+      modal.classList.remove('activo');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('activo');
+      }
+    });
+  } else {
+    console.warn("No se encontró el botón o el modal de Cotiza.");
+  }
+});
+
+
 // ============================
 // FUNCIONAMIENTO DE ABRIR Y CERRAR MENÚ
 // ============================
