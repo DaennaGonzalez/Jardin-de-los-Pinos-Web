@@ -70,21 +70,6 @@ window.addEventListener('resize', () => {
   ajustarMargenSeccionAnimada();
 });
 
-// ============================
-// ANIMACIÓN CON GSAP
-// ============================
-gsap.to("#cielo", {
-  y: -913,
-  scrollTrigger: {
-    trigger: "#seccionAnimada",
-    start: "top top",
-    end: "+=100vh",
-    scrub: true,
-    pin: true,
-    immediateRender: true,
-  }
-});
-
 document.addEventListener('DOMContentLoaded', () => {
   const recorridoLinks = document.querySelectorAll('.capilla-card');
   const modalRecorrido = document.getElementById('modalRecorrido');
@@ -118,19 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// ============================
-// FUNCIONAMIENTO DE ABRIR Y CERRAR MENÚ
-// ============================
-document.addEventListener('DOMContentLoaded', function () {
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
 
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('show');
-    });
-  }
-});
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
   // ===== MENÚ MÓVIL =====

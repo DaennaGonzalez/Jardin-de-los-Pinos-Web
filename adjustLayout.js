@@ -173,6 +173,20 @@ if (form) {
 }
 
 
+// ============================
+// FUNCIONAMIENTO DE ABRIR Y CERRAR MENÚ
+// ============================
+document.addEventListener('DOMContentLoaded', function () {
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('show');
+    });
+  }
+});
+
   // MODAL DE EMERGENCIAS
   const botonEmergencias = document.getElementById('botonEmergencias');
   const modalEmergencias = document.getElementById('modalEmergencias');
