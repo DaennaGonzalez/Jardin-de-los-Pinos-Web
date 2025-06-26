@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================
 // INICIALIZAR SUPABASE
 // ============================
-const supabase = window.supabase.createClient(
+var supabase2 = window.supabase.createClient(
   'https://uqgioswtmkjdjuadoncn.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVxZ2lvc3d0bWtqZGp1YWRvbmNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTAwOTYzMTcsImV4cCI6MjA2NTY3MjMxN30.vCLNRGVseLkR1RclsFanDUWYJXkib_X9Xx4kMNSBudM'
 );
@@ -219,12 +219,12 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
 
       const nombre = document.getElementById('nombreCotiza').value;
-      const correo = document.getElementById('correoCotiza').value;
-      const celular = document.getElementById('celularCotiza').value;
+      const correo_electronico = document.getElementById('correoCotiza').value;
+      const telefono_celular = document.getElementById('telefonoCotiza').value;
 
-      const { data, error } = await supabase
+      const { data, error } = await supabase2
         .from('tabla_cotizaplan')
-        .insert([{ nombre, correo, celular }]);
+        .insert([{ nombre, correo_electronico, telefono_celular }]);
 
       if (error) {
         console.error("❌ Error al guardar datos:", error);
