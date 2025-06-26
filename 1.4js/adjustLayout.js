@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (formCotiza) {
     formCotiza.addEventListener('submit', async (e) => {
       e.preventDefault();
-
+      alert('carpeta')
       const nombre = document.getElementById('nombreCotiza').value;
       const correo_electronico = document.getElementById('correoCotiza').value;
       const telefono_celular = document.getElementById('telefonoCotiza').value;

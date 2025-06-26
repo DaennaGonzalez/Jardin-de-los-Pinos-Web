@@ -131,7 +131,7 @@ const spinner = document.getElementById('spinnerCotiza');
 if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-
+    alert('entra')
     const nombre = document.getElementById('nombreCotiza').value.trim();
     const correo = document.getElementById('correoCotiza').value.trim();
     const telefono = document.getElementById('telefonoCotiza').value.trim();
