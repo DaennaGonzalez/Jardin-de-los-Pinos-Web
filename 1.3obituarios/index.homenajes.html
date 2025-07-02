@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Homenajes</title>
+  <link rel="stylesheet" href="styles.homenajes.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===================== SECCIÓN HOMENAJES ===================== -->
+  <section class="seccion-homenajes">
+    <h2 class="titulo-homenajes">Homenajes</h2>
+    <p class="subtitulo-homenajes">Escribe unas líneas para honrar su vida, su historia, su huella.</p>
+
+    <!-- Buscador -->
+    <div class="buscador-homenajes">
+      <input type="text" id="buscarHomenaje" placeholder="Buscar homenaje por frase, autor o persona...">
+    </div>
+
+    <!-- Mostrar select -->
+    <div class="mostrar-select">
+      <label for="cantidadHomenajes">Mostrar:</label>
+      <select id="cantidadHomenajes">
+        <option value="3" selected>3</option>
+        <option value="6">6</option>
+        <option value="9">9</option>
+        <option value="todos">Todos</option>
+      </select>
+    </div>
+
+    <!-- Carrusel de homenajes -->
+    <div class="carrusel-homenajes">
+      <button class="btn-carrusel izq">‹</button>
+
+      <div class="contenedor-homenajes" id="contenedorHomenajes">
+        <!-- Tarjetas cargadas por JS -->
+      </div>
+
+      <button class="btn-carrusel der">›</button>
+    </div>
+
+    <!-- Botón para abrir el modal -->
+    <div class="boton-escribir">
+      <button id="abrirModalHomenaje" class="btn-escribir-homenaje">Escribe un homenaje</button>
+    </div>
+  </section>
+
+  <!-- ===================== MODAL HOMENAJE ===================== -->
+  <div id="modalHomenaje" class="modal-overlay">
+    <div class="modal-contenido-homenaje">
+      <button id="cerrarModalHomenaje" class="cerrar-modal">&times;</button>
+      <h3>Escribe un homenaje</h3>
+      <textarea id="inputHomenaje" placeholder="Escribe aquí tu mensaje..."></textarea>
+      <input type="text" id="inputAutor" placeholder="Tu nombre (opcional)" />
+      <input type="text" id="inputDirigido" placeholder="¿A quién se dirige?" />
+      <button id="btnEnviarHomenaje" class="btn-enviar-homenaje">Enviar</button>
+    </div>
+  </div>
+  <!-- ===================== FIN HOMENAJES ===================== -->
+
+  <!-- Enlace al JS -->
+  <script type="module" src="script.homenajes.js"></script>
+ 
+ 
+<script>
+  function enviarAlturaIframe() {
+    const altura = document.documentElement.scrollHeight;
+    window.parent.postMessage({ type: "setIframeHeight", height: altura }, "*");
+  }
+
+  // Enviar altura cuando carga
+  window.addEventListener("load", enviarAlturaIframe);
+
+  // Enviar altura cuando cambian los homenajes (por ejemplo al filtrar, escribir, etc.)
+  const observer = new MutationObserver(enviarAlturaIframe);
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>
+
+
+</body>
+</html>

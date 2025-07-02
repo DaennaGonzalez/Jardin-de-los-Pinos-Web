@@ -29,11 +29,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-
 <!-- SCRIPT DE AJUSTE -->
- 
-<script src="./1.4js/adjustLayout.js"></script>
-
 
   <!-- HEADER -->
   <header>
@@ -354,12 +350,6 @@
 
 
 
-<!-- Carrito de Compras -->
-<a href="#" class="boton-flotante boton-carrito">
-  <img src="./1.7iconos/icono-carritocompras.png" alt="Carrito de Compras">
-  Carrito de compras
-</a>
-
 <!-- Redes Sociales (bloque con 3 íconos) -->
 <div class="boton-flotante redes-sociales">
   <a href="https://www.instagram.com/jardindelospinosoficial/" target="_blank">
@@ -385,20 +375,6 @@
   Sucursales
 </a>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggle     = document.getElementById('menuToggle');
-      const mobileNav  = document.getElementById('mobileMenu');
-
-      if (toggle && mobileNav) {
-        toggle.addEventListener('click', () => {
-          mobileNav.classList.toggle('show');
-        });
-      } else {
-        console.warn('No encontré #menuToggle o #mobileMenu en el DOM');
-      }
-    });
-  </script>
 
 
 
@@ -588,6 +564,29 @@
 <!--fin modal carrito compras-->
 
 
+<script>
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+    const isScrollingDown = currentScrollY > lastScrollY;
+
+    const botones = document.querySelectorAll(".boton-flotante");
+
+    if (isScrollingDown && currentScrollY > 300) {
+      // Ocultar al hacer scroll hacia abajo y ya bajó lo suficiente
+      botones.forEach(btn => btn.classList.add("ocultar-boton"));
+    } else if (!isScrollingDown && currentScrollY < 200) {
+      // Mostrar nuevamente al subir hacia la parte superior
+      botones.forEach(btn => btn.classList.remove("ocultar-boton"));
+    }
+
+    lastScrollY = currentScrollY;
+  });
+</script>
+
+
+
 <!--MODAL EMERGENCIAS AJUSTADO-->
 
 <script>
@@ -597,7 +596,7 @@
   });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
 
 <!-- <script src="adjustLayout.js"></script> -->
 
@@ -606,9 +605,6 @@
  
 <script src="./1.4js/adjustLayout.js"></script>
 
-
-
-<!--MODAL EMERGENCIAS AJUSTADO-->
 
 
 </body>

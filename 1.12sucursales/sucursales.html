@@ -232,7 +232,7 @@
       <p>📍 Emilio Castelar #1152, Zona Centro. Saltillo, Coah.<br>📞 844-410-1260</p>
     </div>
     <div class="tarjeta-sucursal">
-      <a href="https://maps.google.com/?q=División+del+Norte+470+Torreón" target="_blank">
+      <a href="https://maps.app.goo.gl/czGj5v4beVuGJr1f6" target="_blank">
         <img src="../1.6imagenes/oficina-torreon.jpg" alt="Oficinas Torreón">
       </a>
       <h4>Oficinas Torreón</h4>
@@ -260,6 +260,7 @@
   Carrito de compras
 </a>
 
+
 <!-- Redes Sociales (bloque con 3 íconos) -->
 <div class="boton-flotante redes-sociales">
   <a href="https://www.instagram.com/jardindelospinosoficial/" target="_blank">
@@ -272,6 +273,8 @@
       <img src="../1.7iconos/logo-facebook.png" alt="Facebook">
   </a>
 </div>
+
+
 
 <!-- WhatsApp -->
 <a href="https://api.whatsapp.com/send?phone=5218127323099&text=Me%20interesa%20un%20Plan%20de%20Previsi%C3%B3n%20Funerario" class="boton-flotante boton-whatsapp" target="_blank">
@@ -405,6 +408,28 @@
     lista.style.display = (lista.style.display === 'block') ? 'none' : 'block';
   });
 </script>
+
+<script>
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+    const isScrollingDown = currentScrollY > lastScrollY;
+
+    const botones = document.querySelectorAll(".boton-flotante");
+
+    if (isScrollingDown && currentScrollY > 300) {
+      // Ocultar al hacer scroll hacia abajo y ya bajó lo suficiente
+      botones.forEach(btn => btn.classList.add("ocultar-boton"));
+    } else if (!isScrollingDown && currentScrollY < 200) {
+      // Mostrar nuevamente al subir hacia la parte superior
+      botones.forEach(btn => btn.classList.remove("ocultar-boton"));
+    }
+
+    lastScrollY = currentScrollY;
+  });
+</script>
+
 
 <!--MODAL EMERGENCIAS AJUSTADO-->
 

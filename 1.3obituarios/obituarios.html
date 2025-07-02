@@ -32,10 +32,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 
-<!-- SCRIPT DE AJUSTE -->
-<script src="interaccionesobituarios.js"></script>
-
-
   <!-- HEADER -->
  <!-- HEADER -->
 <header>
@@ -119,61 +115,14 @@
     <!-- Aquí irán las tarjetas de obituarios generadas por JS -->
   </div>
 </section>
+
+
 <!-- =================== FIN SECCIÓN OBITUARIOS =================== -->
 
-
-
-<!-- ===================== SECCIÓN HOMENAJES ===================== -->
+<!-- ===================== SECCIÓN HOMENAJES COMO IFRAME ===================== -->
 <section class="seccion-homenajes">
-  <h2 class="titulo-homenajes">Homenajes</h2>
-  <p class="subtitulo-homenajes">Escribe unas líneas para honrar su vida, su historia, su huella.</p>
-
-  <!-- Buscador -->
-  <div class="buscador-homenajes">
-    <input type="text" id="buscarHomenaje" placeholder="Buscar homenaje por frase, autor o persona...">
-  </div>
-
-  <div class="mostrar-select">
-  <label for="cantidadHomenajes">Mostrar:</label>
-  <select id="cantidadHomenajes">
-    <option value="3" selected>3</option>
-    <option value="6">6</option>
-    <option value="9">9</option>
-    <option value="todos">Todos</option>
-  </select>
-</div>
-
-
-  <!-- Carrusel de homenajes -->
-  <div class="carrusel-homenajes">
-    <button class="btn-carrusel izq">‹</button>
-
-    <div class="contenedor-homenajes" id="contenedorHomenajes">
-      <!-- Tarjetas cargadas por JS -->
-    </div>
-
-    <button class="btn-carrusel der">›</button>
-  </div>
-
-  <!-- Botón para abrir el modal -->
-  <div class="boton-escribir">
-    <button id="abrirModalHomenaje" class="btn-escribir-homenaje">Escribir homenaje</button>
-  </div>
+  <iframe src="index.homenajes.html" width="100%" height="900" style="border:none; overflow:auto;"></iframe>
 </section>
-
-<!-- ===================== MODAL HOMENAJE ===================== -->
-<div id="modalHomenaje" class="modal-overlay">
-  <div class="modal-contenido-homenaje">
-    <button id="cerrarModalHomenaje" class="cerrar-modal">✕</button>
-    <h3>Escribir homenaje</h3>
-    <textarea id="inputHomenaje" placeholder="Escribe aquí tu mensaje..."></textarea>
-    <input type="text" id="inputAutor" placeholder="Nombre del autor (opcional)" />
-    <input type="text" id="inputDirigido" placeholder="¿A quién se dirige? (nombre del fallecido)" />
-    <button id="btnEnviarHomenaje" class="btn-enviar-homenaje">Enviar</button>
-  </div>
-</div>
-<!-- ===================== FIN HOMENAJES ===================== -->
-
 
 
 <!--FIN DE LAS SECCIONES DE PRUEBA-->
@@ -340,14 +289,47 @@
   });
 </script>
 
+<script>
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+    const isScrollingDown = currentScrollY > lastScrollY;
+
+    const botones = document.querySelectorAll(".boton-flotante");
+
+    if (isScrollingDown && currentScrollY > 300) {
+      // Ocultar al hacer scroll hacia abajo y ya bajó lo suficiente
+      botones.forEach(btn => btn.classList.add("ocultar-boton"));
+    } else if (!isScrollingDown && currentScrollY < 200) {
+      // Mostrar nuevamente al subir hacia la parte superior
+      botones.forEach(btn => btn.classList.remove("ocultar-boton"));
+    }
+
+    lastScrollY = currentScrollY;
+  });
+</script>
+
+
 <!--MODAL EMERGENCIAS AJUSTADO-->
 
 
 <script src="interaccionesobituarios.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <script src="js/obituarios.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 
+<script>
+  window.addEventListener("message", function(event) {
+    if (event.data && event.data.type === "setIframeHeight") {
+      const iframe = document.querySelector("iframe");
+      if (iframe) {
+        iframe.style.height = event.data.height + "px";
+      }
+    }
+  });
+</script>
 
 
 

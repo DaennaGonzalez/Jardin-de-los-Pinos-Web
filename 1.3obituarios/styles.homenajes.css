@@ -1,0 +1,363 @@
+/* ===================== SECCIÓN HOMENAJES ===================== */
+.seccion-homenajes {
+  padding: 80px 30px;
+  background-color: #f0d5ee;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.titulo-homenajes {
+  font-family: 'Fleur De Leah', cursive;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: #671B6B;
+  margin-top: 100px;  /* <- Aquí agregas el espacio superior arriba de HOMENAJE */
+  margin-bottom: 10px;
+}
+
+.subtitulo-homenajes {
+  font-size: 1rem;
+  color: #4A004E;
+  margin-bottom: 40px;
+}
+
+
+/* Buscador y Selector */
+.buscador-homenajes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.buscador-homenajes input,
+.buscador-homenajes select {
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 25px;
+  border: 2px solid #671B6B;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Carrusel */
+.carrusel-homenajes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contenedor-homenajes {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.contenedor-homenajes::-webkit-scrollbar {
+  height: 10px;
+}
+.contenedor-homenajes::-webkit-scrollbar-track {
+  background: transparent;
+}
+.contenedor-homenajes::-webkit-scrollbar-thumb {
+  background-color: #b177dd;
+  border-radius: 20px;
+  border: 2px solid #f0d5ee;
+}
+.contenedor-homenajes::-webkit-scrollbar-thumb:hover {
+  background-color: #8d48be;
+}
+
+.tarjeta-homenaje {
+  flex: 0 0 auto;
+  max-width: 300px;
+  background-color: #671B6B;
+  color: white;
+  padding: 24px 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: transform 0.3s;
+  display: block;
+}
+
+.tarjeta-homenaje:hover {
+  transform: scale(1.03);
+}
+
+.tarjeta-homenaje .autor {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #d5b4e6;
+}
+
+/* Botones de carrusel */
+.btn-carrusel {
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  color: #671B6B;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  padding: 0 10px;
+  user-select: none;
+}
+
+.btn-carrusel:hover {
+  transform: scale(1.2);
+}
+
+/* Botón Escribir */
+.boton-escribir {
+  margin-top: 30px;
+}
+
+.btn-escribir-homenaje {
+  background-color: #b177dd;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px 32px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.btn-escribir-homenaje:hover {
+  background-color: #8d48be;
+}
+
+/* ===================== MODAL ===================== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+   background: rgba(103, 27, 107, 0.25);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal-overlay.activo {
+  display: flex;
+}
+
+.modal-contenido-homenaje {
+  background: #fff;
+  width: 90%;
+  max-width: 600px;
+  padding: 40px 30px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.modal-contenido-homenaje h3 {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  color: #671B6B;
+}
+
+.modal-contenido-homenaje textarea,
+.modal-contenido-homenaje input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-enviar-homenaje {
+  background-color: #671B6B;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-enviar-homenaje:hover {
+  background-color: #4d1251;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 1.4rem;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* LIMITAR EL ANCHO DEL CONTENIDO DENTRO DEL IFRAME */
+.seccion-homenajes {
+  padding: 10px 10px 10px 10px; /* top, right, bottom, left */
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f0d5ee;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+@media (max-width: 768px) {
+  .carrusel-homenajes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contenedor-homenajes {
+    flex-direction: column;
+    overflow-x: visible;
+    overflow-y: visible;
+    gap: 20px;
+  }
+
+  .tarjeta-homenaje {
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .btn-carrusel {
+    display: none; /* Oculta flechas en móvil */
+  }
+}
+
+.modal-contenido-homenaje {
+  background: #f7e4f5; /* tono rosa muy claro para integrarse al fondo */
+}
+
+.modal-contenido-homenaje textarea,
+.modal-contenido-homenaje input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #f7e4f5;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;  /* 👈 Agrega esta línea */
+}
+
+
+@media (max-width: 600px) {
+  .modal-contenido-homenaje {
+    width: 100%;
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0 15px; /* Margen interno a los lados */
+    box-sizing: border-box;
+  }
+
+  .seccion-homenajes {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Input de búsqueda */
+.buscador-homenajes input {
+  font-family: 'Montserrat', sans-serif;
+  border: 2px solid #671B6B;
+  border-radius: 25px;
+  padding: 12px 18px;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: #4A004E;
+  transition: border-color 0.3s ease;
+}
+
+.buscador-homenajes input:focus {
+  border-color: #8d48be;
+  outline: none;
+}
+
+/* Selector “Mostrar” */
+.mostrar-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: #4A004E;
+  margin-bottom: 50px;
+}
+
+.mostrar-select label {
+  font-weight: 600;
+}
+
+.mostrar-select select {
+  font-family: 'Montserrat', sans-serif;
+  padding: 8px 14px;
+  font-size: 1rem;
+  border: 2px solid #671B6B;
+  border-radius: 20px;
+  background-color: #fff;
+  color: #4A004E;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.mostrar-select select:focus {
+  border-color: #8d48be;
+  outline: none;
+}
+
+/* Botón “Escribe un homenaje” */
+.btn-escribir-homenaje {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #b177dd;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px 32px;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.btn-escribir-homenaje:hover {
+  background-color: #8d48be;
+}
+
+
+@media (max-width: 768px) {
+  .btn-homenaje {
+    margin-bottom: 60px;
+  }
+}

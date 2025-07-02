@@ -2128,3 +2128,16 @@ button.boton-flotante:hover {
 .btn-compra-online {
   margin-top: 2rem; /* puedes ajustar: 1rem, 20px, etc. */
 }
+
+
+
+/* Animación para ocultar los botones */
+.boton-flotante {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.ocultar-boton {
+  opacity: 0;
+  transform: translateY(80px); /* Puedes usar translateX si prefieres lateral */
+  pointer-events: none;
+}

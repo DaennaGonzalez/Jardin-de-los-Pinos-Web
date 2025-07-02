@@ -74,6 +74,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  /*seccion para que se oculten los botones al dar scroll*/
+window.addEventListener("scroll", () => {
+  const y = window.scrollY;
+
+  if (y < 100) {
+    document.querySelectorAll(".boton-flotante").forEach(btn => {
+      btn.classList.remove("ocultar-boton");
+    });
+    hasHidden = false;
+    scrollCount = 0;
+  }
+});
+
+
   //
   // 5) Redirección "Compra en línea"
   //

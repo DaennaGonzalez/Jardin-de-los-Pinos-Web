@@ -199,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-
 // ============================
 // INICIALIZAR SUPABASE
 // ============================
@@ -213,25 +212,40 @@ var supabase2 = window.supabase.createClient(
 // ============================
 document.addEventListener('DOMContentLoaded', () => {
   const formCotiza = document.getElementById('formCotiza');
+  const mensaje = document.getElementById('mensajeCotiza'); // Contenedor del mensaje
 
-  if (formCotiza) {
+  if (formCotiza && mensaje) {
     formCotiza.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const nombre = document.getElementById('nombreCotiza').value;
-      const correo_electronico = document.getElementById('correoCotiza').value;
-      const telefono_celular = document.getElementById('telefonoCotiza').value;
+
+      const nombre = document.getElementById('nombreCotiza').value.trim();
+      const correo_electronico = document.getElementById('correoCotiza').value.trim();
+      const telefono_celular = document.getElementById('telefonoCotiza').value.trim();
+
+      // Resetear mensaje
+      mensaje.textContent = '';
+      mensaje.className = 'mensaje-estado'; // Elimina clases anteriores
 
       const { data, error } = await supabase2
         .from('tabla_cotizaplan')
         .insert([{ nombre, correo_electronico, telefono_celular }]);
 
       if (error) {
-        console.error("❌ Error al guardar datos:", error);
-        alert("Hubo un problema al guardar los datos. Intenta nuevamente.");
+        mensaje.textContent = '❌ Hubo un problema al guardar los datos. Intenta nuevamente.';
+        mensaje.classList.add('error', 'mostrado');
       } else {
-        alert("✅ ¡Gracias! Tus datos se guardaron correctamente.");
+        mensaje.textContent = '✅ ¡Gracias! Tus datos se guardaron correctamente. Un asesor se pondrá en contacto contigo.';
+        mensaje.classList.add('exito', 'mostrado');
         formCotiza.reset();
       }
+
+      // Mostrar y ocultar después de 6 segundos
+      mensaje.classList.remove('oculto');
+      setTimeout(() => {
+        mensaje.classList.add('oculto');
+        mensaje.classList.remove('mostrado');
+      }, 6000);
     });
   }
 });
+

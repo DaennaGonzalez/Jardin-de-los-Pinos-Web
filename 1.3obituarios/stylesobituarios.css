@@ -2042,3 +2042,12 @@ input::placeholder {
     margin: 0 auto;
   }
 }
+
+
+
+.seccion-homenajes {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}

@@ -1559,7 +1559,7 @@ content: "";
   background-image: url('1.6imagenes/imagen-recorridovirtual-animada-movil.png');
   
     background-position: center 100px;   /* mueve la imagen hacia abajo */
-    background-size: 120%;              /* agranda un poco la imagen */
+    background-size: 100%;              /* agranda un poco la imagen */
     top: 1100px;                          /* ajusta verticalmente */  
     left: 40px;                   /* Ajusta verticalmente */
     height: 100%;      
@@ -1701,11 +1701,12 @@ content: "";
 }
 
 /* Versión móvil */
+/* Versión móvil */
 @media (max-width: 768px) {
   .obituarios-boton {
     margin-top: -30px;
     text-align: center;
-    padding-left: 40px;
+    padding-left: 100px; /* Aumenta este valor según necesidad */
   }
 
   .btn-obituarios {
@@ -2479,3 +2480,46 @@ button.boton-flotante:hover {
   color: #721c24;
 }
 
+
+/* Animación para ocultar los botones */
+.boton-flotante {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.ocultar-boton {
+  opacity: 0;
+  transform: translateY(80px); /* Puedes usar translateX si prefieres lateral */
+  pointer-events: none;
+}
+
+
+.mensaje-estado {
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.mensaje-estado.exito {
+  background-color: #e6f9ee;
+  color: #176b41;
+  border: 1px solid #b9eacc;
+}
+
+.mensaje-estado.error {
+  background-color: #fdecea;
+  color: #9b1c1c;
+  border: 1px solid #f5c2c0;
+}
+
+.mensaje-estado.mostrado {
+  display: block;
+}
+
+.oculto {
+  display: none;
+}

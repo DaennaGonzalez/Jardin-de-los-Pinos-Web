@@ -1634,3 +1634,15 @@ button.boton-flotante:hover {
 .propiedad-funeraria.aparecer {
   animation: gelatina 0.6s ease;
 }
+
+
+/* Animación para ocultar los botones */
+.boton-flotante {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.ocultar-boton {
+  opacity: 0;
+  transform: translateY(80px); /* Puedes usar translateX si prefieres lateral */
+  pointer-events: none;
+}

@@ -287,6 +287,28 @@
   });
 </script>
 
+<script>
+  let lastScrollY = window.scrollY;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+    const isScrollingDown = currentScrollY > lastScrollY;
+
+    const botones = document.querySelectorAll(".boton-flotante");
+
+    if (isScrollingDown && currentScrollY > 300) {
+      // Ocultar al hacer scroll hacia abajo y ya bajó lo suficiente
+      botones.forEach(btn => btn.classList.add("ocultar-boton"));
+    } else if (!isScrollingDown && currentScrollY < 200) {
+      // Mostrar nuevamente al subir hacia la parte superior
+      botones.forEach(btn => btn.classList.remove("ocultar-boton"));
+    }
+
+    lastScrollY = currentScrollY;
+  });
+</script>
+
+
 <!--MODAL EMERGENCIAS AJUSTADO-->
 
 
